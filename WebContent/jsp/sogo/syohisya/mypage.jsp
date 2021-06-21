@@ -18,6 +18,6 @@
 <p>
 <a href="mypPageServlet?no=2">購入履歴</a>
 </p>
-</p>
+</div>
 </body>
 </html>
