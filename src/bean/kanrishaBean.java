@@ -2,29 +2,37 @@ package bean;
 
 public class kanrishaBean {
 
-	private String k_id;
-	private String k_name;
-	private String k_pass;
+	private String kid;
+	private String kname;
+	private String postId;
+	private String kpass;
 
 	public String getId() {
-		return k_id;
+		return kid;
 	}
-	public void setId(String k_id) {
-		this.k_id = k_id;
+	public void setId(String kid) {
+		this.kid = kid;
 	}
 
 	public String getName() {
-		return k_name;
+		return kname;
 	}
-	public void setName(String k_name) {
-		this.k_name = k_name;
+	public void setName(String kname) {
+		this.kname = kname;
+	}
+
+	public String getPostId() {
+		return postId;
+	}
+	public void setPostId(String postId) {
+		this.postId = postId;
 	}
 
 	public String getPass() {
-		return k_pass;
+		return kpass;
 	}
-	public void setPass(String k_pass) {
-		this.k_pass = k_pass;
+	public void setPass(String kpass) {
+		this.kpass = kpass;
 	}
 
 }
