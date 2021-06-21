@@ -12,14 +12,14 @@
 <h1>社員ID管理</h1>
 <br>
 <br>
-<a href="/group2work/jsp/idStaffMod.jsp" >社員ID登録</a>
+<a href="" >社員ID登録</a>
 <br>
 <br>
-<a href="/group2work/kanrishaIchiranServlet" >社員ID変更・削除</a>
+<a href="" >社員ID変更・削除</a>
 <br>
 <br>
 
-<input type="button" name="back" value="戻る" onclick="location.href=''/group2work/jsp/idStaffMenu.jsp">
+<input type="button" name="back" value="戻る" onclick="location.href=''">
 </div>
 
 </body>
