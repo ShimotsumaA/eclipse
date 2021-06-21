@@ -10,7 +10,7 @@
 <body>
 <div style= "text-align:center">
 <h1>商品一覧</h1><br>
-<table border="1">
+<table border="1" align="center">
 <tr>
 <td> </td><td>商品ID</td><td>商品名</td><td>販売価格</td><td>カテゴリ</td><td>生地ID</td>
 </tr>
@@ -27,8 +27,13 @@
 <td><input type="radio" name="商品" value="D"></td><td>0000000004</td><td>商品C</td><td>400</td><td>    </td><td>    </td>
 </tr>
 </table><br><br>
+
+<!- form shohinKanriMod?no=2 ->
 <input type="submit" value="変更">
+
+<!- form shohinKanriKakunin ->
 <input type="submit" value="削除">
+
 <input type="button" value="戻る" onClick="history.go(-1)">
 </body>
 </html>
