@@ -10,7 +10,8 @@
 <div style="text-align:center">
 <h1>商品管理メニュー</h1><br>
 <a href="">商品登録</a><br><br>
-<a href="">商品変更・削除</a><br><br>
+<a href="">商品変更・削除</a><br><br><br><br>
+
 <input type="button" value="戻る" onClick="history.go(-1)">
 
 </body>
