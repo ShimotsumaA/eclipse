@@ -9,15 +9,17 @@
 <body>
 
 <div style="text-align:center">
-<font size="4">ログイン</font>
+<h1>ログイン</h1>
 <br>
 <br>
+
 <select name="zokusei" >
 <option value="kyaku">お客様</option>
 <option value="kanrisya">管理者</option>
 </select>
 <br>
 <br>
+
 <table  align="center">
 	<tr>
 		<td align="right">ID：</td>
@@ -30,6 +32,7 @@
 </table>
 <br>
 <br>
+
 <input type="submit" name="submit" value="ログイン">
 <br>
 <br>
