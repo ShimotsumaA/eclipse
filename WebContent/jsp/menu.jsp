@@ -14,7 +14,7 @@
 <a href="">在庫管理</a><br>
 <a href="">商品受注ステータス</a><br><br><br>
 
-<input type="submit" value="ログアウトしトップページに戻る">
+<input type="submit"  value="ログアウトしトップページに戻る">
 </div>
 </div>
 </body>
