@@ -86,5 +86,9 @@
 	</tr>
 </table>
 
+
+	<div style="text-align: center;">
+	<input type="button" value="戻る" onclick="location.href='shopping.jsp">
+	</div>
 </body>
 </html>
