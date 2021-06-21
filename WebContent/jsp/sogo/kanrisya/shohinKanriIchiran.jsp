@@ -28,10 +28,10 @@
 </tr>
 </table><br><br>
 
-<!- form shohinKanriMod?no=2 ->
+<!-- form shohinKanriMod?no=2 -->
 <input type="submit" value="変更">
 
-<!- form shohinKanriKakunin ->
+<!-- form shohinKanriKakunin -->
 <input type="submit" value="削除">
 
 <input type="button" value="戻る" onClick="history.go(-1)">
