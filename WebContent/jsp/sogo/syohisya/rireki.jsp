@@ -10,7 +10,7 @@
 <div align="center">
 	<h2>購入履歴</h2>
 </div>
-
+<!-- 仮で画面の配置だけ作ってます -->
 日付
 
 <div style="text-align:center;">
