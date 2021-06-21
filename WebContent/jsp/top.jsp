@@ -9,7 +9,7 @@
 <body>
 
 <div style="text-align:center">
-<font size="5">Niishida Printing</font>
+<font size="6">Niishida Printing</font>
 	<br>
 	<br>
 	<a href="" >会社概要</a>
