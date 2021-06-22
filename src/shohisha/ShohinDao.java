@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import bean.shohinBean;
+import bean.ShohinBean;
 import sogo.DBAccess;
 
 public class ShohinDao extends DBAccess {
 
 	//商品テーブル全件検索
-	public ArrayList<shohinBean> selectAll(){
-		ArrayList<shohinBean>list=new ArrayList<shohinBean>();
+	public ArrayList<ShohinBean> selectAll(){
+		ArrayList<ShohinBean>list=new ArrayList<ShohinBean>();
 
 		String sql="SELECT * FROM shohin";
 
@@ -23,7 +23,7 @@ public class ShohinDao extends DBAccess {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				shohinBean bean = new shohinBean();
+				ShohinBean bean = new ShohinBean();
 
 				bean.setShohinId(rs.getString("shohinId"));
 				bean.setShohinName(rs.getString("shohinName"));
@@ -41,11 +41,10 @@ public class ShohinDao extends DBAccess {
 		return list;
 	}
 
-
 	//商品IDをもとに商品テーブルを検索
-	public ArrayList<shohinBean> joken(String shohinId) {
-		shohinBean bean =new shohinBean();
-		ArrayList<shohinBean>list=new ArrayList<shohinBean>();
+	public ArrayList<ShohinBean> joken(String shohinId) {
+		ShohinBean bean =new ShohinBean();
+		ArrayList<ShohinBean>list=new ArrayList<ShohinBean>();
 
 		String sql="SELECT shohinId, shohinName, kijiId, categoryId,value FROM shohin where shohinId=?";
 
