@@ -97,11 +97,7 @@ public class ShohinDao extends DBAccess {
 				ps.setInt(5,zaiko);
 				ps.setString(6, categoryId);
 
-
-
 				rs=ps.executeUpdate();
-
-
 
 	    	}catch(Exception e) {
 	    		e.printStackTrace();
