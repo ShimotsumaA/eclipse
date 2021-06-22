@@ -19,7 +19,7 @@ public class OrderBean implements Serializable{
 	public String getDate() {
 		return date;
 	}
-	public void setData(String date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getSId() {
