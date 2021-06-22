@@ -2,23 +2,23 @@ package bean;
 
 public class KanrishaBean {
 
-	private String kid;
-	private String kname;
+	private String kId;
+	private String kName;
 	private String postId;
-	private String kpass;
+	private String kPass;
 
 	public String getId() {
-		return kid;
+		return kId;
 	}
-	public void setId(String kid) {
-		this.kid = kid;
+	public void setId(String kId) {
+		this.kId = kId;
 	}
 
 	public String getName() {
-		return kname;
+		return kName;
 	}
-	public void setName(String kname) {
-		this.kname = kname;
+	public void setName(String kName) {
+		this.kName = kName;
 	}
 
 	public String getPostId() {
@@ -29,10 +29,11 @@ public class KanrishaBean {
 	}
 
 	public String getPass() {
-		return kpass;
+		return kPass;
 	}
-	public void setPass(String kpass) {
-		this.kpass = kpass;
+	public void setPass(String kPass) {
+		this.kPass = kPass;
 	}
 
 }
+

@@ -54,7 +54,7 @@ public class ShohishaDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps=getConnection().prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, sId);
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
@@ -127,14 +127,14 @@ public class ShohishaDao extends DBAccess {
 					connect();
 					PreparedStatement ps=getConnection().prepareStatement(sql);
 
-					ps.setString(1, sId);
-					ps.setString(2, sName);
-					ps.setString(3, dateBirth);
-					ps.setString(4, postCode);
-					ps.setString(5,adress);
-					ps.setString(6,tel);
-					ps.setString(7,mailAdress);
-					ps.setString(8,sPass);
+					ps.setString(1, sName);
+					ps.setString(2, dateBirth);
+					ps.setString(3, postCode);
+					ps.setString(4, adress);
+					ps.setString(5,tel);
+					ps.setString(6,mailAdress);
+					ps.setString(7,sPass);
+					ps.setString(8,sId);
 
 					rs=ps.executeUpdate();
 

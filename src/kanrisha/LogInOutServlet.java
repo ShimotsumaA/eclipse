@@ -21,8 +21,9 @@ public class LogInOutServlet extends HttpServlet {
 				request.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html;charset=UTF-8");
 
+
 		//管理者総合メニューへ遷移する
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/menu.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisya/menu.jsp");
 		dispatcher.forward(request, response);
 	}
 

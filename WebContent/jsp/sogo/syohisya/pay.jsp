@@ -7,22 +7,43 @@
 <title>お支払方法選択</title>
 </head>
 <body>
-	<h1 class="midasi">お支払方法を選択</h1>
-	<table>
-		<tr>
-			<td>お支払方法</td>
-		</tr>
 
-		<tr>
-			<td><input type="radio" id="hurikomi"></td>
-			<td>銀行振込</td>
-		</tr>
-		
-		<tr>
-			<td><input type="radio" id="credit_card"></td>
-			<td>クレジットカード決済</td>
-		</tr>
-	</table>
+	<div class="wrapper">
+		<div class="">
+		</div>
 
+	<form method="post">
+
+		<div class="">
+			<h1 class="midasi">お支払方法を選択</h1>
+			<table>
+			<tr>
+				<td>お支払方法</td>
+			</tr>
+
+			<tr>
+				<td><input type="radio" id="siharai" value="hurikomi"></td>
+				<td>銀行振込</td>
+			</tr>
+
+			<tr>
+				<td><input type="radio" id="siharai" value="credit_card"></td>
+				<td>クレジットカード決済</td>
+			</tr>
+
+			<tr>
+				<td><input type="radio" id="siharai" value="daibiki"></td>
+				<td>代金引換　<br><p>*代引き手数料がかかります</p></td>
+			</table>
+		</div>
+
+		<div class="">
+			<button type="submit" name="submit" value="zokko" formaction="">続行</button>
+			<button type="button" name="submit" value="return" >戻る</button>
+		</div>
+
+	</form>
+
+	</div>
 </body>
 </html>
