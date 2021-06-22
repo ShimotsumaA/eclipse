@@ -12,7 +12,7 @@
 <h1>管理社情報登録</h1>
 <br>
 
-<form action="" method="post">
+<form action="/group2work/kanrishaToroku" method="post">
 <table  align="center">
 	<tr>
 		<td align="right">ID：</td>

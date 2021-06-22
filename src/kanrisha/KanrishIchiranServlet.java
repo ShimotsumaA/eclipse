@@ -34,7 +34,7 @@ public class KanrishIchiranServlet extends HttpServlet {
 		session.setAttribute("list", list);
 
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work//shainIchiran.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/shainIchiran.jsp");
 		dispatcher.forward(request, response);
 	}
 
