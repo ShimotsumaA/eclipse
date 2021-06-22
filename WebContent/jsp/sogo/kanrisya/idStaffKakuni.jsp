@@ -16,6 +16,7 @@
 <br>
 <br>
 
+<form action="" method="post"></form>
 <table  align="center">
 	<tr>
 		<td align="right">ID：</td>
