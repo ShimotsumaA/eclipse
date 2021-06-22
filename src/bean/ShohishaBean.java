@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class shohishaBean implements Serializable {
+public class ShohishaBean implements Serializable {
 
 	private String sId;
 	private String sName;
@@ -13,7 +13,7 @@ public class shohishaBean implements Serializable {
 	private String mailAdress;
 	private String sPass;
 
-	shohishaBean(){
+	ShohishaBean(){
 	}
 
 	public void setId(String sId) {
