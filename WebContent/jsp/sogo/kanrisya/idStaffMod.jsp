@@ -12,7 +12,7 @@
 <h1>管理社情報登録</h1>
 <br>
 
-<form action="" method="post">
+<form action="/group2work/kanrishaToroku" method="post">
 <table  align="center">
 	<tr>
 		<td align="right">ID：</td>
@@ -54,7 +54,7 @@
 <br>
 
 <input type="submit" name="submit" value="確認">
-<input type="button" name="back" value="戻る" onclick="location.href=''">
+<input type="button" name="back" value="戻る" onclick="location.href='idStaffMenu.jsp'">
 </form>
 
 </div>
