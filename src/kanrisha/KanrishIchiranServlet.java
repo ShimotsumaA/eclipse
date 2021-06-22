@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.kanrishaBean;
+import bean.KanrishaBean;
 
 @WebServlet("/kanrishaIchiranServlet")
 
-public class KanrishaIchiranServlet extends HttpServlet {
+public class KanrishIchiranServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -26,8 +26,8 @@ public class KanrishaIchiranServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
-		kanrishaIdDao dao = new kanrishaIdDao();
-		ArrayList<kanrishaBean> list = dao.selectAll();
+		KanrishaIdDao dao = new KanrishaIdDao();
+		ArrayList<KanrishaBean> list = dao.selectAll();
 
 		//セッション領域にlistを預ける
 		HttpSession session = request.getSession(true);
