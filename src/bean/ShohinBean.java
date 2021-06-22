@@ -8,6 +8,7 @@ public class ShohinBean implements Serializable {
 	private String kijiId;
 	private String categoryId;
 	private java.math.BigDecimal value;
+	private int zaiko;
 
 	public void setShohinId(String shohinId) {
 		this.shohinId=shohinId;
@@ -39,5 +40,11 @@ public class ShohinBean implements Serializable {
 	public java.math.BigDecimal getValue(){
 		return this.value;
 	}
-}
 
+	public void setZaiko(int zaiko) {
+		this.zaiko=zaiko;
+	}
+	public int getZaiko(){
+		return this.zaiko;
+	}
+}

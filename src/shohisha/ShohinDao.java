@@ -25,11 +25,14 @@ public class ShohinDao extends DBAccess {
 			while(rs.next()) {
 				ShohinBean bean = new ShohinBean();
 
-				bean.setShohinId(rs.getString("shohinId"));
-				bean.setShohinName(rs.getString("shohinName"));
-				bean.setKijiId(rs.getString("kijiId"));
-				bean.setCategoryId(rs.getString("categoryId"));
+				bean.setShohinId(rs.getString("shohin_id"));
+				bean.setShohinName(rs.getString("shohin_name"));
+				bean.setKijiId(rs.getString("kiji_id"));
 				bean.setValue(rs.getBigDecimal("value"));
+				bean.setZaiko(rs.getInt("zaiko"));
+				bean.setCategoryId(rs.getString("category_id"));
+
+
 				list.add(bean);
 			}
 		}catch(SQLException e) {
@@ -46,7 +49,7 @@ public class ShohinDao extends DBAccess {
 		ShohinBean bean =new ShohinBean();
 		ArrayList<ShohinBean>list=new ArrayList<ShohinBean>();
 
-		String sql="SELECT shohinId, shohinName, kijiId, categoryId,value FROM shohin where shohinId=?";
+		String sql="SELECT shohin_d, shohin_name, kiji_id,value,zaiko,category_id, FROM shohin where shohinId=?";
 
 		try {
 			connect();
@@ -55,12 +58,13 @@ public class ShohinDao extends DBAccess {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				bean.setShohinId(rs.getString("shohinId"));
-				bean.setShohinName(rs.getString("shohinName"));
-				bean.setKijiId(rs.getString("kijiId"));
-				bean.setCategoryId(rs.getString("categoryId"));
+				bean.setShohinId(rs.getString("shohin_id"));
+				bean.setShohinName(rs.getString("shohin_name"));
+				bean.setKijiId(rs.getString("kiji_id"));
 				bean.setValue(rs.getBigDecimal("value"));
-				list.add(bean);
+				bean.setZaiko(rs.getInt("zaiko"));
+				bean.setCategoryId(rs.getString("category_id"));
+
 			}
 
 
@@ -75,10 +79,10 @@ public class ShohinDao extends DBAccess {
 
 
 	//新規登録メソッド
-		public int insert(String shohinId,String shohinName, String kijiId, String categoryId,BigDecimal value){
+		public int insert(String shohinId,String shohinName, String kijiId, BigDecimal value,int zaiko, String categoryId){
 
-			String sql = "INSERT into shohisha(shohinId,shohinName,kijiId,categoryId,value)"
-					+ "values(?,?,?,?,?)";
+			String sql = "INSERT into shohisha(shohin_id,shohin_name,kiji_id, value, zaiko,category_id)"
+					+ "values(?,?,?,?,?,?)";
 
 			int rs=0;
 
@@ -89,8 +93,10 @@ public class ShohinDao extends DBAccess {
 				ps.setString(1, shohinId);
 				ps.setString(2, shohinName);
 				ps.setString(3, kijiId);
-				ps.setString(4, categoryId);
-				ps.setBigDecimal(5,value);
+				ps.setBigDecimal(4,value);
+				ps.setInt(5,zaiko);
+				ps.setString(6, categoryId);
+
 
 
 				rs=ps.executeUpdate();
@@ -106,10 +112,10 @@ public class ShohinDao extends DBAccess {
 			return rs;
 		}
 
-	//商品IDをもとに情報更新メソッド
-		public int update(String shohinId,String shohinName, String kijiId, String categoryId,BigDecimal value) {
+	//商品IDをもとにテーブル情報更新メソッド
+		public int update(String shohinId,String shohinName, String kijiId, BigDecimal value,int zaiko, String categoryId) {
 
-				String sql = "UPDATE shohin SET shohinName=?, kijiId=?,categoryId=?,value=? where shohinId=?";
+				String sql = "UPDATE shohin SET shohin_name=?, kiji_id=?,value=?, zaiko=?,category_id=? where shohin_id=?";
 
 				int rs=0;
 
@@ -119,8 +125,9 @@ public class ShohinDao extends DBAccess {
 
 					ps.setString(1, shohinName);
 					ps.setString(2, kijiId);
-					ps.setString(3, categoryId);
-					ps.setBigDecimal(4, value);
+					ps.setBigDecimal(3, value);
+					ps.setInt(3, zaiko);
+					ps.setString(4, categoryId);
 					ps.setString(5,shohinId);
 
 
@@ -140,7 +147,7 @@ public class ShohinDao extends DBAccess {
 	//削除メソッド
 		public int delete(String shohinId) {
 
-			String sql="DELETE FROM shohin where shohinId=?";
+			String sql="DELETE FROM shohin where shohin_id=?";
 			int rs=0;
 
 			try {
@@ -158,5 +165,17 @@ public class ShohinDao extends DBAccess {
 	    		disconnect();
 	    	}
 			return rs;
+		}
+
+	//zaikoUpdate
+		public int zaikoUpdate(String shohinId,int nyuko) {
+
+		}
+	//nyukoUpdate
+		public int nyukoUpdate(String shohinId,int zaiko) {
+		}
+	//zaikoInsert
+		public int zaikoInsert(String shohinId,int nyuko) {
+		}
 		}
 }
