@@ -13,6 +13,7 @@
 <br>
 <br>
 
+<form action="/group2work/LogInOutServlet" method="post">
 <select name="zokusei" >
 <option value="kyaku">お客様</option>
 <option value="kanrisya">管理者</option>
@@ -34,13 +35,13 @@
 <br>
 
 <input type="submit" name="submit" value="ログイン">
-<br>
-<br>
+</form>
+<br><br>
+
 <a href="" >パスワードを忘れた方はこちら</a>
-<br>
-<br>
-<br>
-<a href="" >TOPへ</a>
+<br><br><br>
+
+<a href="group2/work/WebContent/jsp/sogo/top.jsp" >TOPへ</a>
 </div>
 
 </body>
