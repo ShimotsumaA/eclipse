@@ -8,12 +8,12 @@ public class OrderBean implements Serializable{
 	private String date;
 	private String sId;
 	private int statusId;
-	private String odetailId;
+	private String oDetailId;
 
 	public String getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(String date) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 	public String getDate() {
@@ -31,7 +31,17 @@ public class OrderBean implements Serializable{
 	public int getStatusId() {
 		return statusId;
 	}
-	public void setSatusId(int statsuId) {
+
+	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
+
+	public String getODetailId() {
+		return oDetailId;
+	}
+	public void setODetailId(String oDetailId) {
+		this.oDetailId = oDetailId;
+	}
+
+
 }

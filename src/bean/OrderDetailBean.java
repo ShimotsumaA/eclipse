@@ -1,6 +1,6 @@
 package bean;
 import java.io.Serializable;
-public class OrderDetailBean {
+public class OrderDetailBean implements Serializable {
 
 
 
