@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class kijiBean implements Serializable{
+public class KijiBean implements Serializable{
 
 	private String kijiId;
 	private String kijiName;

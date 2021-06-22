@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class userRegisterControlServlet
+ * Servlet implementation class myPageServlet
  */
-@WebServlet("/userRegisterControlServlet")
-public class userRegisterControlServlet extends HttpServlet {
+@WebServlet("/myPageServlet")
+public class MyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userRegisterControlServlet() {
+    public MyPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +40,6 @@ public class userRegisterControlServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 	}
-
 
 
 }

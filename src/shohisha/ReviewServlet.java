@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class cartHyoujiServlet
+ * Servlet implementation class reviewServlet
  */
-@WebServlet("/cartHyoujiServlet")
-public class cartHyoujiServlet extends HttpServlet {
+@WebServlet("/reviewServlet")
+public class ReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public cartHyoujiServlet() {
+    public ReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,6 +40,7 @@ public class cartHyoujiServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 	}
+
 
 
 }

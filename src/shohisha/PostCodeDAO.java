@@ -1,5 +1,7 @@
 package shohisha;
 
-public class PostCodeDAO {
+import sogo.DBAccess;
+
+public class PostCodeDAO extends DBAccess{
 
 }

@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class reviewServlet
+ * Servlet implementation class userRegisterControlServlet
  */
-@WebServlet("/reviewServlet")
-public class reviewServlet extends HttpServlet {
+@WebServlet("/userRegisterControlServlet")
+public class UserRegisterControlServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public reviewServlet() {
+    public UserRegisterControlServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
