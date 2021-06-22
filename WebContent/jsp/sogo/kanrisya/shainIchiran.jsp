@@ -13,7 +13,7 @@
 <br>
 <br>
 
-<form action="/group2work/kanrishaTorokuServlet" method="post">
+<form action="/kanrishaTorokuServlet" method="post">
 <table  align="center" border="1">
 	<tr>
 		<td></td>
@@ -32,7 +32,7 @@
 <br>
 <input type="submit" name="submit" value="変更">
 <input type="submit" name="submit" value="削除">
-<input type="button" name="back" value="戻る" onclick="location.href='idStaffMenu.jsp'">
+<input type="button" name="back" value="戻る" onclick="location.href='/group2work//jsp/sogo/kanrisya/idStaffMenu.jsp'">
 </form>
 </div>
 
