@@ -15,7 +15,7 @@
 <a href="" >会社概要</a>
 <br>
 <br>
-<a href="" >ログイン</a>
+<a href="login.jsp" >ログイン</a>
 <br>
 <br>
 <a href="" >オンラインショップ</a>
