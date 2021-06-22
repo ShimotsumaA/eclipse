@@ -41,10 +41,10 @@
 
     <!-- 注文ボタン -->
     <form action="" method="post">
-    <button type="button" name="submit" value="tyumonhakotira">ご注文はこちら</button>
+    <button type="submit" name="submit" value="tyumonhakotira">ご注文はこちら</button>
     </form>
 
-    <div class="footer">Three</div>
+    <div class="footer"></div>
 </div>
 
 </body>
