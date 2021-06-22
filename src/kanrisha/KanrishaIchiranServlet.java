@@ -15,7 +15,7 @@ import bean.kanrishaBean;
 
 @WebServlet("/kanrishaIchiranServlet")
 
-public class kanrishaIchiranServlet extends HttpServlet {
+public class KanrishaIchiranServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -26,7 +26,7 @@ public class kanrishaIchiranServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		//インスタンス化し、すべての社員情報をリストに入れる
-		kanrishaIdDao dao = new kanrishaIdDao();
+		KanrishaIdDao dao = new KanrishaIdDao();
 		ArrayList<kanrishaBean> list = dao.selectAll();
 
 		//セッション領域を作成し、listを預ける

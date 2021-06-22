@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import bean.kanrishaBean;
 import sogo.DBAccess;
 
-public class kanrishaIdDao extends DBAccess{
+public class KanrishaIdDao extends DBAccess{
 
 	//すべての社員情報を得る
 	public ArrayList<kanrishaBean> selectAll(){
