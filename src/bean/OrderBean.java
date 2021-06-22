@@ -2,7 +2,7 @@ package bean;
 
 import java.io.Serializable;
 
-public class Orderbean implements Serializable{
+public class OrderBean implements Serializable{
 
 	private String orderId;
 	private String date;
