@@ -24,14 +24,14 @@ public class ShohishaDao extends DBAccess {
 			while(rs.next()) {
 				ShohishaBean bean = new ShohishaBean();
 
-				bean.setId(rs.getString("sId"));
-				bean.setName(rs.getString("sName"));
-				bean.setBirth(rs.getString("dateBirth"));
-				bean.setPost(rs.getString("postCode"));
+				bean.setId(rs.getString("s_id"));
+				bean.setName(rs.getString("s_name"));
+				bean.setBirth(rs.getString("date_birth"));
+				bean.setPost(rs.getString("postcode"));
 				bean.setAdress(rs.getString("adress"));
 				bean.setTel(rs.getString("tel"));
-				bean.setMail(rs.getString("mailAdress"));
-				bean.setPass(rs.getString("sPass"));
+				bean.setMail(rs.getString("mailadress"));
+				bean.setPass(rs.getString("s_pass"));
 				list.add(bean);
 			}
 		}catch(SQLException e) {
@@ -49,7 +49,7 @@ public class ShohishaDao extends DBAccess {
 		ShohishaBean bean =new ShohishaBean();
 		ArrayList<ShohishaBean>list=new ArrayList<ShohishaBean>();
 
-		String sql="SELECT sId, sName, dateBirth, postCode, adress, tel, mailAdress, sPass FROM shohin where sId=?";
+		String sql="SELECT s_id, s_name, date_birth, postcode, adress, tel, mailadress, s_pass FROM shohisha where s_id=?";
 
 		try {
 			connect();
@@ -58,14 +58,14 @@ public class ShohishaDao extends DBAccess {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				bean.setId(rs.getString("sId"));
-				bean.setName(rs.getString("sName"));
-				bean.setBirth(rs.getString("dateBirth"));
-				bean.setPost(rs.getString("postCode"));
+				bean.setId(rs.getString("s_id"));
+				bean.setName(rs.getString("s_name"));
+				bean.setBirth(rs.getString("date_birth"));
+				bean.setPost(rs.getString("postcode"));
 				bean.setAdress(rs.getString("adress"));
 				bean.setTel(rs.getString("tel"));
-				bean.setMail(rs.getString("mailAdress"));
-				bean.setPass(rs.getString("sPass"));
+				bean.setMail(rs.getString("mailadress"));
+				bean.setPass(rs.getString("s_pass"));
 				list.add(bean);
 			}
 
@@ -83,7 +83,7 @@ public class ShohishaDao extends DBAccess {
 		public int insert(String sId, String sName, String dateBirth, String postCode, String adress,
 				String tel, String mailAdress, String sPass) {
 
-			String sql = "INSERT into shohisha(sId, sName, dateBirth, postCode, adress, tel, mailAdress, sPass)"
+			String sql = "INSERT into shohisha(s_id, s_name, date_birth, postcode, adress, tel, mailadress, s_pass)"
 					+ "values(?,?,?,?,?,?,?,?)";
 
 			int rs=0;
@@ -118,8 +118,8 @@ public class ShohishaDao extends DBAccess {
 		public int update(String sId, String sName, String dateBirth, String postCode, String adress,
 					String tel, String mailAdress, String sPass) {
 
-				String sql = "UPDATE shohisha SET sName=?, dateBirth=?,postCode=?,adress=?,tel=?"
-						+ "mailAdress=?,sPass=? where sId=?";
+				String sql = "UPDATE shohisha SET s_name=?, date_birth=?,postcode=?,adress=?,tel=?"
+						+ "mailadress=?,s_pass=? where s_id=?";
 
 				int rs=0;
 
@@ -152,7 +152,7 @@ public class ShohishaDao extends DBAccess {
 	//削除メソッド
 		public int delete(String sId) {
 
-			String sql="DELETE FROM shohisha where sId=?";
+			String sql="DELETE FROM shohisha where s_id=?";
 			int rs=0;
 
 			try {
