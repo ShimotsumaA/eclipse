@@ -39,6 +39,37 @@ public class MyPageServlet extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+
+		String no=null;
+		String forward=null;
+
+		if(request.getParameter("no")!=null){
+			no=request.getParameter("no");
+		}
+		if(request.getAttribute("no")!=null){
+			no=(String)request.getAttribute("no");
+		}
+
+    //myPage.jspでユーザ情報確認(リンク)が押された際の処理
+        if(no.equals("1")){
+        	ShohishaDao dao = new ShohishaDao();
+			request.setAttribute("list",dao.selectAll());
+			//userKakunin.jspの画面を決める値をセット
+			request.setAttribute("no","3");
+			//forward先を指定
+			forward="/jsp/shohisha/userKakunin.jsp";
+		}
+
+     //myPage.jspで購入履歴確認(リンク)が押された際の処理
+        if(no.equals("")){
+        	ShohishaDao dao = new ShohishaDao();
+			request.setAttribute("list",dao.selectAll());
+			//userKakunin.jspの画面を決める値をセット
+			//request.setAttribute("no","3");
+			//forward先を指定
+			forward="/jsp/shohisha/rireki.jsp";
+		}
+
 	}
 
 

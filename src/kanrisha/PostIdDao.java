@@ -27,7 +27,7 @@ public class PostIdDao extends DBAccess{
 				while (rs.next()) {
 					KanrishaBean bean = new KanrishaBean();
 					bean.setPostId(rs.getString("postId"));
-					bean.setPostName(rs.getString("PostName"));
+					bean.setPostName(rs.getString("postName"));
 					list.add(bean);
 				}
 
