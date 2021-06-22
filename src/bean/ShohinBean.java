@@ -1,6 +1,8 @@
 package bean;
 
-public class ShohinBean {
+import java.io.Serializable;
+
+public class ShohinBean implements Serializable {
 	private String shohinId;
 	private String shohinName;
 	private String kijiId;
