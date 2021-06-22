@@ -8,7 +8,7 @@
 </head>
 <body>
 <div style=text-align:center>
-	<h1>在庫管理</h1><br><br>
+	<h1>在庫管理</h1>
 	商品ID：request.getParameter<br>
 	商品名：パラメータ取得<br>
 	在庫数：パラメータ取得<br><br>
@@ -21,9 +21,11 @@
 	<input type="submit" value="確認">
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div><br><br>
+
 <!-- クエリ文字列 -->
+
 <div style=text-align:center>
-	<h1>在庫管理</h1><br><br>
+	<h1>在庫管理</h1>
 	商品ID：request.getParameter<br>
 	商品名：パラメータ取得<br>
 	在庫数：パラメータ取得<br><br>
