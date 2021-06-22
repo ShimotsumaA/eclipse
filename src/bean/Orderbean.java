@@ -31,7 +31,7 @@ public class Orderbean implements Serializable{
 	public int getStatusId() {
 		return statusId;
 	}
-	public void setstatusId(int statsuId) {
+	public void setSatusId(int statsuId) {
 		this.statusId = statusId;
 	}
 }
