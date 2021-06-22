@@ -54,7 +54,7 @@
 <br>
 
 <input type="submit" name="submit" value="確認">
-<input type="button" name="back" value="戻る" onclick="location.href=''">
+<input type="button" name="back" value="戻る" onclick="location.href='idStaffMenu.jsp'">
 </form>
 
 </div>
