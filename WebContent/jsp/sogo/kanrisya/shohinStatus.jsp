@@ -13,10 +13,10 @@
 <form action="" method="post">
 <table border="1" align="center">
 	<tr>
-		<th>注文番号</th><th>日付</th><th>顧客ID</th><th>住所</th><th>電話番号</th><th>内訳</th><th>受注ステータス</th>
+		<th></th><th>注文番号</th><th>日付</th><th>顧客ID</th><th>住所</th><th>電話番号</th><th>内訳</th><th>受注ステータス</th>
 	</tr>
 	<tr>
-		<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		<td><input type="radio" name="radio" value=""></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 </table>
 <br>
