@@ -6,6 +6,7 @@ public class KanrishaBean {
 	private String kName;
 	private String postId;
 	private String kPass;
+	private String postName;
 
 	public String getId() {
 		return kId;
@@ -33,6 +34,13 @@ public class KanrishaBean {
 	}
 	public void setPass(String kPass) {
 		this.kPass = kPass;
+	}
+
+	public String getPostName() {
+		return postName;
+	}
+	public void setPostName(String postName) {
+		this.postName = postName;
 	}
 
 }
