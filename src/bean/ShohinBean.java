@@ -1,6 +1,6 @@
 package bean;
 
-public class shohinBean {
+public class ShohinBean {
 	private String shohinId;
 	private String shohinName;
 	private String kijiId;
@@ -13,25 +13,25 @@ public class shohinBean {
 	public String getShohinId() {
 		return this.shohinId;
 	}
-	public void setShohinName() {
+	public void setShohinName(String shohinName) {
 		this.shohinName=shohinName;
 	}
 	public String getShohinName() {
 		return this.shohinName;
 	}
-	public void setKijiId() {
+	public void setKijiId(String kijiId) {
 		this.kijiId=kijiId;
 	}
 	public String getKijiId() {
 		return this.kijiId;
 	}
-	public void setCategoryId() {
+	public void setCategoryId(String categoryId) {
 		this.categoryId=categoryId;
 	}
 	public String getCategoryId() {
 		return this.categoryId;
 	}
-	public void setValue() {
+	public void setValue(java.math.BigDecimal value) {
 		this.value=value;
 	}
 	public java.math.BigDecimal getValue(){
