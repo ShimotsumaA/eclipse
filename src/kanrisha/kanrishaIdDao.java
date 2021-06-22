@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import bean.kanrishaBean;
+import sogo.DBAccess;
 
 public class kanrishaIdDao extends DBAccess{
 
