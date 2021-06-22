@@ -1,6 +1,6 @@
 package bean;
 
-public class kanrishaBean {
+public class KanrishaBean {
 
 	private String kid;
 	private String kname;
