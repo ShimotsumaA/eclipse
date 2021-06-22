@@ -26,12 +26,12 @@ public class ShohishaDao extends DBAccess {
 
 				bean.setId(rs.getString("sId"));
 				bean.setName(rs.getString("sName"));
-				bean.setDateBirth(rs.getString("dateBirth"));
-				bean.setPostCode(rs.getString("postCode"));
+				bean.setBirth(rs.getString("dateBirth"));
+				bean.setPost(rs.getString("postCode"));
 				bean.setAdress(rs.getString("adress"));
 				bean.setTel(rs.getString("tel"));
-				bean.setMailAdress(rs.getString("mailAdress"));
-				bean.setSPass(rs.getString("sPass"));
+				bean.setMail(rs.getString("mailAdress"));
+				bean.setPass(rs.getString("sPass"));
 				list.add(bean);
 			}
 		}catch(SQLException e) {
@@ -60,12 +60,12 @@ public class ShohishaDao extends DBAccess {
 			while(rs.next()) {
 				bean.setId(rs.getString("sId"));
 				bean.setName(rs.getString("sName"));
-				bean.setDateBirth(rs.getString("dateBirth"));
-				bean.setPostCode(rs.getString("postCode"));
+				bean.setBirth(rs.getString("dateBirth"));
+				bean.setPost(rs.getString("postCode"));
 				bean.setAdress(rs.getString("adress"));
 				bean.setTel(rs.getString("tel"));
-				bean.setMailAdress(rs.getString("mailAdress"));
-				bean.setSPass(rs.getString("sPass"));
+				bean.setMail(rs.getString("mailAdress"));
+				bean.setPass(rs.getString("sPass"));
 				list.add(bean);
 			}
 
