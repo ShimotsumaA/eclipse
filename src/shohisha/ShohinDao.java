@@ -166,4 +166,16 @@ public class ShohinDao extends DBAccess {
 	    	}
 			return rs;
 		}
+
+	//zaikoUpdate
+		public int zaikoUpdate(String shohinId,int nyuko) {
+
+		}
+	//nyukoUpdate
+		public int nyukoUpdate(String shohinId,int zaiko) {
+		}
+	//zaikoInsert
+		public int zaikoInsert(String shohinId,int nyuko) {
+		}
+		}
 }
