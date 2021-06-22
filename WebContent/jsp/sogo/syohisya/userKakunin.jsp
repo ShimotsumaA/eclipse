@@ -15,7 +15,9 @@
  %>
  <!-- 登録情報の変更 -->
  <% if (no.equals("1")){%>
-	<%ArrayList<shohishaBean> list =(ArrayList<shohishaBean>)session.getAttribute("list"); %>
+	<%
+	ArrayList<ShohishaBean> list =(ArrayList<ShohishaBean>)session.getAttribute("list");
+	%>
 	<div text align="right">
 	<a href="myPage.jsp">マイページ</a>
 	<a href="top.jsp">トップページ</a>
@@ -35,15 +37,15 @@
 				<td>パスワード</td>
 			<tr>
 				<tr align="center">
-					<td><%=list.get(i).getSName() %></td>
-					<td><%=list.get(i).getDateBirth() %></td>
-					<td><%=list.get(i).getPostCode() %></td>
-					<td><%=list.get(i).getAdress() %></td>
-					<td><%=list.get(i).getTel() %></td>
-					<td><%=list.get(i).getPostCode() %></td>
-					<td><%=list.get(i).getMailAdress() %></td>
-					<td><%=list.get(i).getSId() %></td>
-					<td><%=list.get(i).getSPass() %></td>
+					<td><%=list.get(i).getSName()%></td>
+					<td><%=list.get(i).getDateBirth()%></td>
+					<td><%=list.get(i).getPostCode()%></td>
+					<td><%=list.get(i).getAdress()%></td>
+					<td><%=list.get(i).getTel()%></td>
+					<td><%=list.get(i).getPostCode()%></td>
+					<td><%=list.get(i).getMailAdress()%></td>
+					<td><%=list.get(i).getSId()%></td>
+					<td><%=list.get(i).getSPass()%></td>
 				</tr>
 		</table>
 
@@ -51,11 +53,17 @@
 		<input type="button" name="back" value="戻る" onclick="user.jsp">
 
 	</div>
-<% } %>
+<%
+}
+%>
 
  <!-- 登録情報の確認 -->
-<% if (no.equals("2")){%>
-	<%ArrayList<shohishaBean> list =(ArrayList<shohishaBean>)session.getAttribute("list"); %>
+<%
+if (no.equals("2")){
+%>
+	<%
+	ArrayList<ShohishaBean> list =(ArrayList<ShohishaBean>)session.getAttribute("list");
+	%>
 	<div text align="right">
 	<a href="myPage.jsp">マイページ</a>
 	<a href="top.jsp">トップページ</a>

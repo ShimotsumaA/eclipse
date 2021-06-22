@@ -5,14 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import bean.shohishaBean;
+import bean.ShohishaBean;
 import sogo.DBAccess;
 
 public class ShohishaDao extends DBAccess {
 
 	//消費者テーブル全件検索
-	public ArrayList<shohishaBean> selectAll(){
-		ArrayList<shohishaBean>list=new ArrayList<shohishaBean>();
+	public ArrayList<ShohishaBean> selectAll(){
+		ArrayList<ShohishaBean>list=new ArrayList<ShohishaBean>();
 
 		String sql="SELECT * FROM shohisha";
 
@@ -22,7 +22,7 @@ public class ShohishaDao extends DBAccess {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				shohishaBean bean = new shohishaBean();
+				ShohishaBean bean = new ShohishaBean();
 
 				bean.setId(rs.getString("sId"));
 				bean.setName(rs.getString("sName"));
@@ -45,9 +45,9 @@ public class ShohishaDao extends DBAccess {
 
 
 	//IDをもとに消費者テーブルを検索
-	public ArrayList<shohishaBean> joken(String sId) {
-		shohishaBean bean =new shohishaBean();
-		ArrayList<shohishaBean>list=new ArrayList<shohishaBean>();
+	public ArrayList<ShohishaBean> joken(String sId) {
+		ShohishaBean bean =new ShohishaBean();
+		ArrayList<ShohishaBean>list=new ArrayList<ShohishaBean>();
 
 		String sql="SELECT sId, sName, dateBirth, postCode, adress, tel, mailAdress, sPass FROM shohin where sId=?";
 
