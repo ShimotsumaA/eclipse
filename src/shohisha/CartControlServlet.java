@@ -125,14 +125,17 @@ public class CartControlServlet extends HttpServlet {
 					cart.put(shohinId, kazu);
 				} else {
 					cart.put(shohinId, kazuKonyu);
-				}
+
+				}session.setAttribute("cart", cart);
 				// カート情報がない時
 			} else {
 
 				Map<String, Integer> cart = new HashMap<>();
 
 				cart.put(shohinId, kazuKonyu);
+				session.setAttribute("cart", cart);
 			}
+
 
 		}
 
