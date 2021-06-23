@@ -4,9 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import sogo.DBAccess;
-import bean.CategoryBean;
+
 import bean.OrderBean;
+import sogo.DBAccess;
 
 public class OrderDao extends DBAccess {
 
@@ -220,7 +220,7 @@ public class OrderDao extends DBAccess {
 	}
 
 
-	public int update(String orderId,int StatusId){
+	public int update(String orderId,int statusId){
 
 		int count=0;
 
@@ -231,7 +231,7 @@ public class OrderDao extends DBAccess {
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(2, orderId);
-			ps.setInt(1, StatusId);
+			ps.setInt(1, statusId);
 
 
 			count =ps.executeUpdate();
