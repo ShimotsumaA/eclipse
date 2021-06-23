@@ -43,7 +43,7 @@ public class OrderDetailDAO extends DBAccess{
 		ArrayList<OrderDetailBean> list = new ArrayList<>();
 
 		// jouken method
-		String sql = "SELECT*FROM  TYUMON_ID where O_DETAIL_ID=?";
+		String sql = "SELECT*FROM  TYUMON_DETAIL where O_DETAIL_ID=?";
 
 		try {
 			connect();
@@ -56,7 +56,7 @@ public class OrderDetailDAO extends DBAccess{
 				bean.setODetailId(rs.getString("ORDER_ID"));
 				bean.setShohinId(rs.getString("SHOHIN_ID"));
 				bean.setKazuKonyu(rs.getInt("KAZU_KONYU"));
-	
+
 				list.add(bean);
 			}
 		} catch (SQLException e) {
@@ -71,7 +71,7 @@ public class OrderDetailDAO extends DBAccess{
 
 	public int delete(String oDetailId) {
 		//delete method
-		String sql = "delete from tyumon where O_DETAIL_ID=?";
+		String sql = "delete from tyumon_detail where O_DETAIL_ID=?";
 
 		int kensu=0;
 
@@ -93,7 +93,7 @@ public class OrderDetailDAO extends DBAccess{
 
 	public int insert(String oDetailId,String shohinId,int kazuKonyu) {
 
-		String sql = "insert tyumon into values(?,?,?)";
+		String sql = "insert tyumon_detail into values(?,?,?)";
 
 		//
 		int kensu = 0;
@@ -123,14 +123,15 @@ public class OrderDetailDAO extends DBAccess{
 
 		int count=0;
 
-		String sql = "update tyumon set STATUS_ID=? where ORDER_ID=?";
+		String sql = "update tyumon_detail set KAZU_KONYU=? where O_DETAIL_ID=? AND SHOHIN_ID=?";
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(2, orderId);
-			ps.setInt(1, StatusId);
+			ps.setString(2, oDetailId);
+			ps.setInt(1, kazuKonyu);
+			ps.setString(3, shohinId);
+
 
 
 			count =ps.executeUpdate();
