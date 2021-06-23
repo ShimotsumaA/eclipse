@@ -1,14 +1,14 @@
 package shohisha;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> stash
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +21,8 @@ import javax.websocket.Session;
 
 import bean.OrderDetailBean;
 import bean.ShohishaBean;
+import shohisha.OrderDao;
+import shohisha.OrderDetailDAO;
 
 /**
  * Servlet implementation class CartControlServlet
@@ -58,29 +60,22 @@ public class CartControlServlet extends HttpServlet {
 		// 譁�蟄励さ繝ｼ繝峨�ｮ險ｭ螳�
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-<<<<<<< HEAD
-		
-		
+
+
 		//ログイン情報を持ったユーザーの商品購入
-=======
 
 		// 商品ページからカートに追加
 
 		// ログイン情報を持ったユーザーの商品購入
->>>>>>> stash
+
 		HttpSession session = request.getSession(true);
-<<<<<<< HEAD
-		//ログイン情報の取得
-		if(session.getAttribute("login")!=null) {
-			//loginからユーザーIDを取得
-			ArrayList<ShohishaBean> list=new ArrayList<>();
-			list=(ArrayList<ShohishaBean>) session.getAttribute("login");
-			list.get
-=======
+
+
 		OrderDao dao = new OrderDao();
 		String shohinId = request.getParameter("shohin_id");
 		int kazuKonyu = Integer.parseInt(request.getParameter("kazu_konyu"));
 		// ログイン情報の取得
+
 		if (session.getAttribute("login") != null) {
 			// loginからユーザーIDを取得
 			ArrayList<ShohishaBean> list1 = new ArrayList<>();
@@ -138,12 +133,9 @@ public class CartControlServlet extends HttpServlet {
 
 				cart.put(shohinId, kazuKonyu);
 			}
->>>>>>> stash
+
 		}
-<<<<<<< HEAD
-		
-		
-=======
+
 
 		session.setAttribute("shohin_id", shohinId);
 		session.setAttribute("AddedToCart", true);
@@ -151,7 +143,6 @@ public class CartControlServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 
->>>>>>> stash
 	}
 
 }

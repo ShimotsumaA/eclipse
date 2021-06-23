@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bean.OrderBean;
+import bean.ShohishaBean;
 import sogo.DBAccess;
 
 public class OrderDao extends DBAccess {
@@ -137,7 +138,7 @@ public class OrderDao extends DBAccess {
 		return list;
 	}
 
-	public ArrayList<OrderBean> jokenStatus(String statusId) {
+	public ArrayList<OrderBean> jokenStatus(int statusId) {
 		ArrayList<OrderBean> list = new ArrayList<>();
 
 		// joukenStatus method
@@ -146,7 +147,7 @@ public class OrderDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, statusId);
+			ps.setInt(1, statusId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -245,6 +246,43 @@ public class OrderDao extends DBAccess {
 
 
 	}
+
+	public ArrayList<OrderBean> jokenSIdStatus(String sId, int statusId) {
+		// TODO 自動生成されたメソッド・スタブ
+		ArrayList<OrderBean> list = new ArrayList<>();
+
+		// joukenStatus method
+		String sql = "SELECT*FROM  TYUMON where STATUS_ID=? AND S_ID=?";
+
+		try {
+			connect();
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setInt(1, statusId);
+			ps.setString(2, sId);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				OrderBean bean = new OrderBean();
+
+				bean.setOrderId(rs.getString("ORDER_ID"));
+				bean.setDate(rs.getString("DATE"));
+				bean.setSId(rs.getString("S_ID"));
+				bean.setStatusId(rs.getInt("STATUS_ID"));
+				bean.setODetailId(rs.getString("O_DETAIL_ID"));
+
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+
+
+
 
 
 

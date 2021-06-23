@@ -156,12 +156,14 @@ public class OrderDetailDAO extends DBAccess{
 		int count=0;
 
 		String sql = "update tyumon_detail set KAZU_KONYU=? where O_DETAIL_ID=? AND SHOHIN_ID=?";
+		int kazu=joukenShohin(oDetailId,shohinId).get(0).getKazuKonyu()+kazuKonyu;
+
 
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(2, oDetailId);
-			ps.setInt(1, kazuKonyu);
+			ps.setInt(1, kazu);
 			ps.setString(3, shohinId);
 
 
