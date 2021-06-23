@@ -9,13 +9,13 @@ import bean.ShohinBean;
 import sogo.DBAccess;
 
 public class ShohinDao extends DBAccess {
-	//一覧表示のメソッド
+	//荳�隕ｧ陦ｨ遉ｺ縺ｮ繝｡繧ｽ繝�繝�
 	public ArrayList<ShohinBean> selectAll(){
 		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
 		String sql="select*from shohin";
 		try {
 				connect();
-				//ステートメントの作成
+				//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 				PreparedStatement ps =getConnection().prepareStatement(sql);
 				ResultSet rs=ps.executeQuery();
 
@@ -37,14 +37,14 @@ public class ShohinDao extends DBAccess {
 		return list;
 
 	}
-	//抽出メソッド
+	//謚ｽ蜃ｺ繝｡繧ｽ繝�繝�
 	public ArrayList<ShohinBean> joken(String shohinId) {
 			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
 		    String sql="select*from shohin where shohinId=?";
 
 		    try {
 		    	connect();
-		    	//ステートメントの作成
+		    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 		    	PreparedStatement ps=getConnection().prepareStatement(sql);
 		    	ps.setString(1, shohinId);
 
@@ -66,7 +66,7 @@ public class ShohinDao extends DBAccess {
 			}
 			return list;
 		    }
-	//登録メソッド
+	//逋ｻ骭ｲ繝｡繧ｽ繝�繝�
 	public int insert(String shohinId,String shohinName,String kijiId,
 				String categoryId,java.math.BigDecimal value) {
 
@@ -76,7 +76,7 @@ public class ShohinDao extends DBAccess {
 	String sql="insert into shohin(shohinId, shohinName ,kijiId, categoryId, value) values(?,?,?,?,?)";
 	try {
 		connect();
-		// ステートメントの作成
+		// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 		PreparedStatement ps = getConnection().prepareStatement(sql);
 		ps.setString(1, shohinId);
 		ps.setString(2, shohinName);
@@ -94,7 +94,7 @@ public class ShohinDao extends DBAccess {
 
 	}
 
-	//商品削除メソッド
+	//蝠�蜩∝炎髯､繝｡繧ｽ繝�繝�
 	public  int delete(String shohinId) {
 
 		int count=0;
@@ -103,7 +103,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// ステートメントの作成
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohinId);
 
@@ -127,7 +127,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// ステートメントの作成
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohinId);
 			ps.setString(2, shohinName);
@@ -149,7 +149,7 @@ public class ShohinDao extends DBAccess {
 	}
 
 
-	//在庫を変更するメソッド
+	//蝨ｨ蠎ｫ繧貞､画峩縺吶ｋ繝｡繧ｽ繝�繝�
 	public int zaikoUpdate(String shohinId ,int zaiko) {
 
 		int count=0;
@@ -158,7 +158,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// ステートメントの作成
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohinId);
 			ps.setInt(2, zaiko);
@@ -175,7 +175,7 @@ public class ShohinDao extends DBAccess {
 	}
 
 
-	//テーブルに値を追加するメソッド
+	//繝�繝ｼ繝悶Ν縺ｫ蛟､繧定ｿｽ蜉�縺吶ｋ繝｡繧ｽ繝�繝�
 	public  int zaikoInsert(String shohinId ,int nyuko) {
 
 		int count=0;
@@ -184,7 +184,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// ステートメントの作成
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohinId);
 			ps.setInt(2,nyuko );
@@ -199,5 +199,9 @@ public class ShohinDao extends DBAccess {
 		return count;
 
 
+	}
+
+	//nyukoUpdate
+	public int nyukoUpdate(String shohinId,int zaiko) {
 	}
 }
