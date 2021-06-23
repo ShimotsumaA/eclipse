@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<form action="shohinKanriMod.jsp?no=2" method="post">
 <div style= "text-align:center">
 <h1>商品一覧</h1><br>
 <table border="1" align="center">
@@ -30,10 +31,12 @@
 
 <!-- form shohinKanriMod?no=2 -->
 <input type="submit" value="変更">
+</form>
 
 <!-- form shohinKanriKakunin -->
-<input type="submit" value="削除">
-
+<form action="shohinKanriKakunin.jsp" method="post">
+<input type="submit" name="submit" value="削除">
+</form>
 <input type="button" value="戻る" onClick="history.go(-1)">
 </body>
 </html>

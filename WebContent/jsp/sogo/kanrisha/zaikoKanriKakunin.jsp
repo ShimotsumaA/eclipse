@@ -17,5 +17,6 @@
 	変更後在庫数：<font color="red">パラメータ</font><br>
 	<input type="submit" value="確定">
 	<input type="button" value="戻る" onClick="history.go(-1)">
+</div>
 </body>
 </html>
