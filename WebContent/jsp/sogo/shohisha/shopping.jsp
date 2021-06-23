@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="bean.CategoryBean" %>
+<%@ page import="bean.ShohinBean" %>
+<%@ page import="bean.KijiBean" %>
+<%@ page import="java.util.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +30,7 @@
     <tr>
     <td><a href="">総合メニューへ</a></td>
 	</tr>
+
     <!-- 検索ボックス -->
 	<tr>
 	<td>
@@ -39,8 +45,11 @@
     <td>
     	<p>カテゴリ</p>
     	<form action="" method="post" name="">
+
+    	<% ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
+    	for(int i=1;i<=list.size();i++){%>
     	<input type="hidden" value="<!-- index_number -->">
-    	<a href="">カテゴリ名</a>
+    	<a href=""><%=list.get(i-1).getCategoryName() %></a>
     	</form>
     </td>
     </tr>

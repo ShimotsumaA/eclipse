@@ -1,6 +1,11 @@
 eclipse.preferences.version=1
 encoding//WebContent/jsp/sogo/shohisha/shopping.jsp=UTF-8
 encoding//src/kanrisha/ShohinDao.java=UTF-8
+encoding//src/kanrisha/ShohinIchiranServlet.java=UTF-8
+encoding//src/kanrisha/ShohinKanriServlet.java=UTF-8
+encoding//src/kanrisha/ZaikoKanriServlet.java=UTF-8
 encoding//src/shohisha/CartControlServlet.java=UTF-8
+encoding//src/shohisha/ECHyoujiServlet.java=UTF-8
 encoding//src/shohisha/OrderDao.java=UTF-8
 encoding//src/shohisha/OrderDetailDAO.java=UTF-8
+encoding/<project>=UTF-8

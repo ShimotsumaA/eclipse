@@ -55,6 +55,7 @@
    	 			<option value="<%=i%>"><%=i%></option>
    	 			<%} %>
    	 		</select>
+   	 		<input type="hidden" name="shohin_id" value="<%= shohinId %>">
    	 		<button type="submit" name="submit" value="add_to_cart">カートへ追加</button>
    	 	</form>
    	 	</td>
