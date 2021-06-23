@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div text align="right">
-		<a href="top.jsp">トップページ</a>
+		<a href="/group2work/jsp/sogo/top.jsp">トップページ</a>
 	</div>
 
 	<div align ="center">
