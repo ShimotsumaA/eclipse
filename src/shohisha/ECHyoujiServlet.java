@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kanrisha.ShohinDao;
+
 /**
  * Servlet implementation class ECHyoujiServlet
  */
@@ -39,6 +41,23 @@ public class ECHyoujiServlet extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+
+		String forward=null;
+
+		KijiDao dao = new KijiDao();
+		request.setAttribute("list",dao.selectAll());
+		//forward先を指定
+		forward="/shohisha/shopping.jsp";
+
+		ShohinDao dao2 = new ShohinDao();
+		request.setAttribute("list",dao2.selectAll());
+		//forward先を指定
+		forward="/shohisha/shopping.jsp";
+
+		CategoryDao dao3 = new CategoryDao();
+		request.setAttribute("list",dao3.selectAll());
+		//forward先を指定
+		forward="/shohisha/shopping.jsp";
 	}
 
 

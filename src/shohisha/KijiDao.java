@@ -26,8 +26,8 @@ public class KijiDao extends DBAccess{
 
 				while (rs.next()) {
 					KijiBean bean = new KijiBean();
-					bean.setKijiId(rs.getString("kijiId"));
-					bean.setKijiName(rs.getString("KijiName"));
+					bean.setKijiId(rs.getString("kiji_id"));
+					bean.setKijiName(rs.getString("kiji_name"));
 					list.add(bean);
 				}
 

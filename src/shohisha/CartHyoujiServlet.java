@@ -39,6 +39,12 @@ public class CartHyoujiServlet extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+
+
+		 //buy.jspからご注文はこちらボタンが押された際の処理
+  			if(request.getParameter("submit").equals("jyusyo")){
+
+  			}
 	}
 
 
