@@ -15,6 +15,7 @@
  %>
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
+ 	<div style="text-align:center">
 	<h1>ユーザ登録フォーム</h1>
 	<br><br>
 
@@ -72,22 +73,24 @@
 			・アルファベットと数字を必ず組み合わせてください。<br><br>
 		<table  align="center">
 			<tr>
+				<td align="right">パスワード再度入力：</td>
 				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
 			</tr>
 		</table><br>
 			・確認のためにもう一度ご入力ください。<br><br>
-		<table>
+		<table  align="center">
 		<tr>
-			<td align="right">パスワード再度入力：</td>
 			<td><input type ="submit" name="submit" value="登録"></td>
 		</tr>
 		</table>
 	</form>
+	</div>
 <% } %>
 
  <!-- ユーザ登録情報変更フォーム -->
  <% if (no.equals("2")){%>
- <h1>ユーザ登録情報変更フォーム</h1>
+ 	<div style="text-align:center">
+ 	<h1>ユーザ登録情報変更フォーム</h1>
 	<br><br>
 
 	<form action="" method="post">
@@ -144,17 +147,18 @@
 			・アルファベットと数字を必ず組み合わせてください。<br><br>
 		<table  align="center">
 			<tr>
+				<td align="right">パスワード再度入力：</td>
 				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
 			</tr>
 		</table><br>
 			・確認のためにもう一度ご入力ください。<br><br>
-		<table>
+		<table  align="center">
 		<tr>
-			<td align="right">パスワード：</td>
 			<td><input type ="submit" name="submit" value="変更"></td>
 		</tr>
 		</table>
 	</form>
+	</div>
 <% } %>
 
 </body>
