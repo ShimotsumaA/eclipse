@@ -2,6 +2,7 @@ package shohisha;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,22 +43,28 @@ public class ECHyoujiServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
-		String forward=null;
 
 		KijiDao dao = new KijiDao();
 		request.setAttribute("list",dao.selectAll());
 		//forward先を指定
-		forward="/shohisha/shopping.jsp";
+		RequestDispatcher dispatcher=
+				request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+		dispatcher.forward(request, response);
+
 
 		ShohinDao dao2 = new ShohinDao();
 		request.setAttribute("list",dao2.selectAll());
 		//forward先を指定
-		forward="/shohisha/shopping.jsp";
+		RequestDispatcher dispatcher=
+				request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+		dispatcher.forward(request, response);
 
 		CategoryDao dao3 = new CategoryDao();
 		request.setAttribute("list",dao3.selectAll());
 		//forward先を指定
-		forward="/shohisha/shopping.jsp";
+		RequestDispatcher dispatcher=
+				request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+		dispatcher.forward(request, response);
 	}
 
 
