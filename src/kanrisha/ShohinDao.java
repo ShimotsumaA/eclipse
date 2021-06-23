@@ -202,6 +202,29 @@ public class ShohinDao extends DBAccess {
 	}
 
 	//nyukoUpdate
-	public int nyukoUpdate(String shohinId,int zaiko) {
+	public int nyukoUpdate(String shohinId,int nyuko) {
+		int count=0;
+
+		int zaiko=joken(shohinId).get(0).getZaiko()+nyuko;
+
+
+
+		String sql = "update shohin set zaiko=? where shohinId=?";
+
+		try {
+			connect();
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, shohinId);
+			ps.setInt(2, zaiko);
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return count;
 	}
 }
