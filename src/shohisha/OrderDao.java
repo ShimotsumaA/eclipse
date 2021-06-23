@@ -41,15 +41,16 @@ public class OrderDao extends DBAccess {
 		return list;
 	}
 
-	public ArrayList<OrderBean> jouken(String orderId) {
+	public ArrayList<OrderBean> joken(String orderId) {
 		ArrayList<OrderBean> list = new ArrayList<>();
 
-		// jouken method
+		// joken method
 		String sql = "SELECT*FROM  TYUMON where ORDER_ID=?";
 
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, orderId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -81,6 +82,7 @@ public class OrderDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, date);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -112,6 +114,7 @@ public class OrderDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, sId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -134,7 +137,7 @@ public class OrderDao extends DBAccess {
 		return list;
 	}
 
-	public ArrayList<OrderBean> jokenStatus(String orderId) {
+	public ArrayList<OrderBean> jokenStatus(String statusId) {
 		ArrayList<OrderBean> list = new ArrayList<>();
 
 		// joukenStatus method
@@ -143,6 +146,7 @@ public class OrderDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, statusId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -174,7 +178,6 @@ public class OrderDao extends DBAccess {
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-
 			ps.setString(1, orderId);
 
 			kensu = ps.executeUpdate();

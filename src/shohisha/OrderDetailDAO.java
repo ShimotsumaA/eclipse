@@ -48,6 +48,38 @@ public class OrderDetailDAO extends DBAccess{
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, oDetailId);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				OrderDetailBean bean = new OrderDetailBean();
+
+				bean.setODetailId(rs.getString("ORDER_ID"));
+				bean.setShohinId(rs.getString("SHOHIN_ID"));
+				bean.setKazuKonyu(rs.getInt("KAZU_KONYU"));
+
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+
+	public ArrayList<OrderDetailBean> joukenShohin(String oDetailId,String shohinId) {
+		ArrayList<OrderDetailBean> list = new ArrayList<>();
+
+		// jouken method
+		String sql = "SELECT*FROM  TYUMON_DETAIL where O_DETAIL_ID=? AND SHOHIN_ID";
+
+		try {
+			connect();
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, oDetailId);
+			ps.setString(1, shohinId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
