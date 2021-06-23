@@ -78,7 +78,8 @@
 			・確認のためにもう一度ご入力ください。<br><br>
 		<table>
 		<tr>
-			<td><input type ="submit" name="submit" value="確認"></td>
+			<td align="right">パスワード再度入力：</td>
+			<td><input type ="submit" name="submit" value="登録"></td>
 		</tr>
 		</table>
 	</form>
@@ -149,6 +150,7 @@
 			・確認のためにもう一度ご入力ください。<br><br>
 		<table>
 		<tr>
+			<td align="right">パスワード：</td>
 			<td><input type ="submit" name="submit" value="変更"></td>
 		</tr>
 		</table>
