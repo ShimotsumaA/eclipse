@@ -1,6 +1,7 @@
 package shohisha;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
-
+import bean.ShohishaBean;
 /**
  * Servlet implementation class CartControlServlet
  */
@@ -49,8 +50,9 @@ public class CartControlServlet extends HttpServlet {
 		//ログイン情報の取得
 		if(session.getAttribute("login")!=null) {
 			//loginからユーザーIDを取得
-			
-			
+			ArrayList<ShohishaBean> list=new ArrayList<>();
+			list=(ArrayList<ShohishaBean>) session.getAttribute("login");
+			list.get
 		}
 		
 		

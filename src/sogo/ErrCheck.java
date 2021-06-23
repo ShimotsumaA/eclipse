@@ -10,7 +10,7 @@ public class ErrCheck {
 
 	// DAOに関するエラーチェック
 
-	// 消費者エラーチェック
+	// 消費者IDエラーチェック
 	public boolean existSId(String sId) {
 		ShohishaDao dao = new ShohishaDao();
 
@@ -22,17 +22,6 @@ public class ErrCheck {
 
 	}
 
-	// 商品IDエラーチェック
-	public boolean existShihinId(String shohinId) {
-		ShohinDao dao = new ShohinDao();
-
-		if (dao.joken(shohinId).size() != 0) {
-			return true; // IDが存在するときtrueを返す
-		} else {
-			return false;
-		}
-
-	}
 
 	// 注文IDエラーチェック
 	public boolean existOrderId(String orderId) {
