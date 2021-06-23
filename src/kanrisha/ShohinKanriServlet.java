@@ -35,6 +35,8 @@ public class ShohinKanriServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+
 		String forward=null;
 		//商品だおから変更メソッド
 
@@ -91,4 +93,7 @@ public class ShohinKanriServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(forward);
 		rd.forward(request, response);
 	}
+
+
+
 }

@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<form action="shohinKanriMod.jsp?no=2" method="post">
+<form action="/group2work/ShohinKanriServlet" method="post">
 <div style= "text-align:center">
 <h1>商品一覧</h1><br>
 <table border="1" align="center">
