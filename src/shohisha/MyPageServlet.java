@@ -55,13 +55,13 @@ public class MyPageServlet extends HttpServlet {
         	ShohishaDao dao = new ShohishaDao();
 			request.setAttribute("list",dao.selectAll());
 			//userKakunin.jspの画面を決める値をセット
-			request.setAttribute("no","3");
+			request.setAttribute("no","1");
 			//forward先を指定
 			forward="/jsp/shohisha/userKakunin";
 		}
 
      //myPage.jspで購入履歴確認(リンク)が押された際の処理
-        if(no.equals("")){
+        if(no.equals("2")){
         	OrderDao dao = new OrderDao();
 			request.setAttribute("list",dao.selectAll());;
 			//forward先を指定
