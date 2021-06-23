@@ -116,4 +116,6 @@ public class ErrCheck {
 		}
 
 	}
+
+	//•ÏX‚µ‚Ü‚µ‚½
 }
