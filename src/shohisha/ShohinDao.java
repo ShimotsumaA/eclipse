@@ -163,14 +163,68 @@ public class ShohinDao extends DBAccess {
 			return rs;
 		}
 
-	//zaikoUpdate
+	//zaikoUpdate(shohinIdをもとに入庫数を更新)
 		public int zaikoUpdate(String shohinId,int nyuko) {
+			String sql ="UPDATE shohin SET nyuko=? WHERE shohin_id=?";
+			int rs=0;
+
+			try {
+				connect();
+				PreparedStatement ps=getConnection().prepareStatement(sql);
+
+				ps.setString(1, shohinId);
+
+				rs=ps.executeUpdate();
+
+			}catch(Exception e) {
+	    		e.printStackTrace();
+
+	    	}finally {
+	    		disconnect();
+	    	}
+			return rs;
 		}
-	//nyukoUpdate
+	//nyukoUpdate(shohinIdをもとに在庫数を更新)
 		public int nyukoUpdate(String shohinId,int zaiko) {
+			String sql ="UPDATE shohin SET zaiko=? WHERE shohin_id=?";
+			int rs=0;
+
+			try {
+				connect();
+				PreparedStatement ps=getConnection().prepareStatement(sql);
+
+				ps.setString(1, shohinId);
+
+				rs=ps.executeUpdate();
+
+			}catch(Exception e) {
+	    		e.printStackTrace();
+
+	    	}finally {
+	    		disconnect();
+	    	}
+			return rs;
 		}
-	//zaikoInsert
+	//zaikoInsert(shohinIdをもとに入庫数を新規登録)
 		public int zaikoInsert(String shohinId,int nyuko) {
+			String sql ="INSERT INTO shohin SET (shohin_id,nyuko)VALUES(?,?)";
+			int rs=0;
+
+			try {
+				connect();
+				PreparedStatement ps=getConnection().prepareStatement(sql);
+
+				ps.setString(1, shohinId);
+
+				rs=ps.executeUpdate();
+
+			}catch(Exception e) {
+	    		e.printStackTrace();
+
+	    	}finally {
+	    		disconnect();
+	    	}
+			return rs;
 
 		}
 }
