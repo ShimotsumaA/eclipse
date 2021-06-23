@@ -12,8 +12,6 @@
 <font size="6">Niishida Printing</font>
 <br>
 <br>
-<a href="" >会社概要</a>
-<br>
 <br>
 <a href="login.jsp" >ログイン</a>
 <br>
