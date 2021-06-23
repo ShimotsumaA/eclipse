@@ -7,17 +7,17 @@
 <title>マイページ</title>
 </head>
 <body>
-<div text align="right">
-<a href="top.jsp">トップページ</a></div>
+	<div text align="right">
+		<a href="top.jsp">トップページ</a>
+	</div>
 
-<div align ="center">
-<h1>マイページ</h1>
-<p>
-<a href="mypPageServlet?no=1">ユーザ情報確認</a>
-</p>
-<p>
-<a href="mypPageServlet?no=2">購入履歴</a>
-</p>
-</div>
+	<div align ="center">
+		<p>マイページ</p>
+
+		<a href="/group2work/MyPageServlet?no=1">ユーザ情報確認</a><br><br>
+		<a href="/group2work/MyPageServlet?no=2">購入履歴</a><br>
+	</div>
+
+
 </body>
 </html>

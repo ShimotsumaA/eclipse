@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class myPageServlet
  */
-@WebServlet("/myPageServlet")
+@WebServlet("/MyPageServlet")
 public class MyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +28,7 @@ public class MyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request,response);
 	}
 
 	/**
@@ -57,17 +57,15 @@ public class MyPageServlet extends HttpServlet {
 			//userKakunin.jspの画面を決める値をセット
 			request.setAttribute("no","3");
 			//forward先を指定
-			forward="/jsp/shohisha/userKakunin.jsp";
+			forward="/jsp/shohisha/userKakunin";
 		}
 
      //myPage.jspで購入履歴確認(リンク)が押された際の処理
         if(no.equals("")){
-        	ShohishaDao dao = new ShohishaDao();
-			request.setAttribute("list",dao.selectAll());
-			//userKakunin.jspの画面を決める値をセット
-			//request.setAttribute("no","3");
+        	OrderDao dao = new OrderDao();
+			request.setAttribute("list",dao.selectAll());;
 			//forward先を指定
-			forward="/jsp/shohisha/rireki.jsp";
+			forward="/jsp/shohisha/rireki";
 		}
 
 	}
