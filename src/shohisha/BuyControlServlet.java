@@ -96,7 +96,8 @@ import sogo.ErrCheck;
 					session.setAttribute("o_detail_id", list.get(0).getODetailId());
 
 					//注文ステータス変更メソッドを呼び出し
-					int kensu=dao.update(String orderId, int statusId);
+
+					session.setAttribute("status_id",dao.update(orderId,statusId));
 
 					//orderCollect.jspに遷移
 					forward="jsp/orderCollect.jsp";
