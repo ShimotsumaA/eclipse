@@ -25,7 +25,7 @@ public class OrderDao extends DBAccess {
 				OrderBean bean = new OrderBean();
 
 				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setData(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				bean.setSId(rs.getString("S_ID"));
 				bean.setStatusId(rs.getInt("STATUS_ID"));
 				bean.setODetailId(rs.getString("O_DETAIL_ID"));
@@ -56,7 +56,7 @@ public class OrderDao extends DBAccess {
 				OrderBean bean = new OrderBean();
 
 				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setData(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				bean.setSId(rs.getString("S_ID"));
 				bean.setStatusId(rs.getInt("STATUS_ID"));
 				bean.setODetailId(rs.getString("O_DETAIL_ID"));
@@ -87,7 +87,7 @@ public class OrderDao extends DBAccess {
 				OrderBean bean = new OrderBean();
 
 				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setData(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				bean.setSId(rs.getString("S_ID"));
 				bean.setStatusId(rs.getInt("STATUS_ID"));
 				bean.setODetailId(rs.getString("O_DETAIL_ID"));
@@ -118,7 +118,7 @@ public class OrderDao extends DBAccess {
 				OrderBean bean = new OrderBean();
 
 				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setData(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				bean.setSId(rs.getString("S_ID"));
 				bean.setStatusId(rs.getInt("STATUS_ID"));
 				bean.setODetailId(rs.getString("O_DETAIL_ID"));
@@ -149,7 +149,7 @@ public class OrderDao extends DBAccess {
 				OrderBean bean = new OrderBean();
 
 				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setData(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				bean.setSId(rs.getString("S_ID"));
 				bean.setStatusId(rs.getInt("STATUS_ID"));
 				bean.setODetailId(rs.getString("O_DETAIL_ID"));
@@ -187,24 +187,25 @@ public class OrderDao extends DBAccess {
 		return kensu;
 	}
 
-	public int insert(String kId, String kName, String postId, String kPass) {
+	public int insert(String orderId,String date,String sId,int statusId,String oDetailID) {
 
-		String sql = "insert into STAFF values(?,?,?,?)";
+		String sql = "insert tyumon into values(?,?,?,?,?)";
 
-		//邂｡逅�閠�諠�蝣ｱ繧定ｿｽ蜉�縺励◆莉ｶ謨ｰ
+		//
 		int kensu = 0;
 
 		try {
 			connect();
-			//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医ｒ菴懈�舌☆繧�
+			//
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 
-				ps.setString(1, kId);
-				ps.setString(2, kName);
-				ps.setString(3, postId);
-				ps.setString(4, kPass);
+				ps.setString(1,orderId);
+				ps.setString(2, date);
+				ps.setString(3, sId);
+				ps.setInt(4, statusId);
+				ps.setString(5, oDetailID);
 
-				//SQL繧堤匱陦後＠縲∽ｻｶ謨ｰ縺ｫ莉｣蜈･縺吶ｋ
+				//
 				kensu = ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -216,6 +217,31 @@ public class OrderDao extends DBAccess {
 	}
 
 
+	public int update(String orderId,int StatusId){
+
+		int count=0;
+
+		String sql = "update tyumon set STATUS_ID=? where ORDER_ID=?";
+
+		try {
+			connect();
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(2, orderId);
+			ps.setInt(1, StatusId);
+
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return count;
+
+
+	}
 
 
 
