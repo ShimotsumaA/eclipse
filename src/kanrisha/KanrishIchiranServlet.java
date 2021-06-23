@@ -25,12 +25,14 @@ public class KanrishIchiranServlet extends HttpServlet {
 		//KanrishaIdDao dao = new KanrishaIdDao();
 		//ArrayList<KanrishaBean> list = dao.selectAll();
 
-
+		//セッション領域に預ける
 		//HttpSession session = request.getSession(true);
 		//session.setAttribute("list", list);
 
+		String submit = "変更削除";
+		request.setAttribute("submit", submit);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisya/shainIchiran.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp");
 		dispatcher.forward(request, response);
 	}
 
