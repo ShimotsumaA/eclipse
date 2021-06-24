@@ -3,6 +3,7 @@ package shohisha;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,13 +58,14 @@ import sogo.ErrCheck;
 					session.setAttribute("adress", list.get(0).getAdress());
 
 					//area.jspに遷移
-					forward="/jsp/area.jsp";
+					RequestDispatcher rd=request.getRequestDispatcher("/jsp/area.jsp");
+					rd.forward(request, response);
 
 			//ログインしていない状態でbuy.jspで住所入力ボタンが押されたら
 					//login.jspに遷移
 				}else {
-
-					forward="/jsp/login.jsp";
+					RequestDispatcher rd=request.getRequestDispatcher("/jsp/login.jsp");
+					rd.forward(request, response);
 				}
 
 			//pay.jspで続行ボタンが押されたら
@@ -114,7 +116,8 @@ import sogo.ErrCheck;
 					}
 
 					//orderKakunin.jspに遷移
-						forward="jsp/orderKakunin.jsp";
+					RequestDispatcher rd=request.getRequestDispatcher("/jsp/orderKakunin.jsp");
+					rd.forward(request, response);
 				}
 
 			//orderKakunin.jspで確認ボタンが押されたら
@@ -131,10 +134,11 @@ import sogo.ErrCheck;
 					session.setAttribute("status_id",dao.update(orderId,statusId));
 
 					//orderCollect.jspに遷移
-					forward="jsp/orderCollect.jsp";
+					RequestDispatcher rd=request.getRequestDispatcher("/jsp/orderCollect.jsp");
+					rd.forward(request, response);
 				}
 
-		}
+			 }
 		}
 
 

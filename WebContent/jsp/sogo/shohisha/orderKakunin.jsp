@@ -27,7 +27,7 @@
 	String shohinName="";
 	for(int i=1;i<=listODetail.size();i++){
 		shohinId=listODetail.get(i-1).getShohinId();
-		
+
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list1=new ArrayList<>();
 		list1=dao.joken(shohinId);
@@ -38,7 +38,8 @@
 
 	<%} %>
 
-	<imput type="button" name="submit" value="chumon" formmethod="post" formaction="/orderCollect.jsp">
+	<button type="submit" name="submit" value="chumon" formaction="/orderCollect.jsp">確定</button>
+	<button type="button" name="submit" value="return">戻る</button>
 </form>
 
 </div>
