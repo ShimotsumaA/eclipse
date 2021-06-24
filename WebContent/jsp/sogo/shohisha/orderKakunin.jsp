@@ -48,9 +48,9 @@
 </div>
 
 <div style="text-align:center;">
-	商品合計：<%=session.getAttribute("") %>円<br>
-	送料：<%=session.getAttribute(name) %><br>
-	合計：<%=商品合計＋送料 %><br>
+	商品合計：<%=for (%>円<br>
+	送料：<%--送料の取得--%><br>
+	合計：<%--商品合計＋送料 --%><br>
 
 </div>
 
