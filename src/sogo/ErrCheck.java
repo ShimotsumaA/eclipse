@@ -8,14 +8,14 @@ import shohisha.ShohishaDao;
 
 public class ErrCheck {
 
-	// DAO‚ÉŠÖ‚·‚éƒGƒ‰[ƒ`ƒFƒbƒN
+	// DAO
 
-	// Á”ïŽÒIDƒGƒ‰[ƒ`ƒFƒbƒN
+	// æ¶ˆè²»è€…IDãŒå­˜åœ¨ã™ã‚‹ã‹ã€‚
 	public boolean existSId(String sId) {
 		ShohishaDao dao = new ShohishaDao();
 
 		if (dao.joken(sId).size() != 0) {
-			return true; // ID‚ª‘¶Ý‚·‚é‚Æ‚«true‚ð•Ô‚·
+			return true; // IDãŒå­˜åœ¨ã™ã‚‹ã€‚
 		} else {
 			return false;
 		}
@@ -23,56 +23,56 @@ public class ErrCheck {
 	}
 
 
-	// ’•¶IDƒGƒ‰[ƒ`ƒFƒbƒN
+	// æ³¨æ–‡ç•ªå·ãŒå­˜åœ¨ã™ã‚‹ã‹ã€‚
 	public boolean existOrderId(String orderId) {
 		OrderDao dao = new OrderDao();
 
 		if (dao.joken(orderId).size() != 0) {
-			return true; // ID‚ª‘¶Ý‚·‚é‚Æ‚«true‚ð•Ô‚·
+			return true; // æ³¨æ–‡ç•ªå·ãŒå­˜åœ¨ã™ã‚‹ã€‚
 		} else {
 			return false;
 		}
 
 	}
 
-	// ’•¶Ú×IDƒGƒ‰[ƒ`ƒFƒbƒN
+	//æ³¨æ–‡è©³ç´°ç•ªå·ãŒå­˜åœ¨ã™ã‚‹ã‹ã€‚
 	public boolean existODetailShohinId(String oDetail, String shohinId) {
 		OrderDetailDAO dao = new OrderDetailDAO();
 
 		if (dao.joukenShohin(oDetail, shohinId).size() != 0) {
-			return true; // ID‚ª‘¶Ý‚·‚é‚Æ‚«true‚ð•Ô‚·
+			return true; //æ³¨æ–‡è©³ç´°ç•ªå·ãŒå­˜åœ¨ã™ã‚‹ã€‚
 		} else {
 			return false;
 		}
 
 	}
 
-	// ŠÇ—ŽÒIDƒGƒ‰[ƒ`ƒFƒbƒN
+	//ç®¡ç†è€…IDãŒå­˜åœ¨ã™ã‚‹ã‹ã€‚
 	public boolean existkId(String kId) {
 		KanrishaIdDao dao = new KanrishaIdDao();
 
 		if (dao.jouken(kId).size() != 0) {
-			return true; // ID‚ª‘¶Ý‚·‚é‚Æ‚«true‚ð•Ô‚·
+			return true; // ç®¡ç†è€…IDãŒå­˜åœ¨ã™ã‚‹ã€‚
 		} else {
 			return false;
 		}
 
 	}
 
-	// ¤•iIDƒGƒ‰[ƒ`ƒFƒbƒN
+	//å•†å“IDãŒå­˜åœ¨ã™ã‚‹ã‹ã€‚
 
 	public boolean existShohinId(String shohinId) {
 		ShohinDao dao = new ShohinDao();
 
 		if (dao.joken(shohinId).size() != 0) {
-			return true; // ID‚ª‘¶Ý‚·‚é‚Æ‚«true‚ð•Ô‚·
+			return true; // IDãŒå­˜åœ¨ã™ã‚‹ã€‚
 		} else {
 			return false;
 		}
 
 	}
 
-	// “ü—Í—“‚ÌƒGƒ‰[ƒ`ƒFƒbƒN(ID’·‚³E”¼Šp‘SŠpƒ`ƒFƒbƒN)
+	//ç®¡ç†è€…IDã€æ¶ˆè²»è€…IDãŒè‹±æ•°å­—ã‹ã¤10æ–‡å­—ä»¥å†…ã§ã‚ã‚‹ã‹ã€‚
 	public boolean checkId(String id) {
 		if (id.matches("^[A-Za-z0-9]+$")) {
 			if ((id.length() > 0) && (id.length() <= 10)) {
@@ -87,16 +87,16 @@ public class ErrCheck {
 		}
 	}
 
-	//ƒpƒXƒ[ƒh“ü—Íƒ`ƒFƒbƒN
+	//ç®¡ç†è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€æ¶ˆè²»è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒãƒ«ãƒ¼ãƒ«ã«æ²¿ã£ã¦ã„ã‚‹ã‹ã€‚
 	public boolean checkPass(String kPass1) {
 
-		// 4•¶ŽšˆÈã15•¶ŽšˆÈ“à‚©
+		//4æ–‡å­—ä»¥ä¸Š15æ–‡å­—ä»¥å†…ã‹ã€‚
 		if ((kPass1.length() >= 4) && (kPass1.length() <= 15)) {
-			// ”¼Šp‚©‚Ç‚¤‚©
+			//è‹±æ•°å­—ã ã‘ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹ã‹ã€‚
 			if (kPass1.matches("^[A-Za-z0-9]+$")) {
-				// ”Žš‚Æ‰pŒê‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©
+				//è‹±æ•°å­—ã©ã¡ã‚‰ã‚‚ä½¿ç”¨ã—ã¦ã„ã‚‹ã‹ã€‚
 				if (kPass1.matches("/[0-9]/") && kPass1.matches("/[A-Za-z]")) {
-					return true;
+					return true; //ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒãƒ«ãƒ¼ãƒ«ã«å¾“ã£ã¦ã„ã‚‹ã€‚
 				}else {
 					return false;
 				}
@@ -107,7 +107,9 @@ public class ErrCheck {
 			return false;
 		}
 	}
-	//ƒpƒXƒ[ƒhˆê’vƒ`ƒFƒbƒN
+
+
+	//ï¼’å›žå…¥åŠ›ã—ãŸãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã™ã‚‹ã‹ã€‚
 	public boolean checkPassMaches(String kPass1,String kPass2) {
 		if(kPass1.equals(kPass2)){
 			return true;
@@ -117,5 +119,4 @@ public class ErrCheck {
 
 	}
 
-	//•ÏX‚µ‚Ü‚µ‚½
 }
