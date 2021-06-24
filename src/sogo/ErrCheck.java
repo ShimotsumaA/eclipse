@@ -60,11 +60,24 @@ public class ErrCheck {
 
 	}
 
+
+
 	//管理者IDが存在するか。
 	public boolean existkId(String kId) {
 		KanrishaIdDao dao = new KanrishaIdDao();
 
 		if (dao.jouken(kId).size() != 0) {
+			return true; // 管理者IDが存在する。
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean passCollect(String kId,String kPass) {
+		KanrishaIdDao dao = new KanrishaIdDao();
+
+		if (dao.passCollect(kId,kPass).size() != 0) {
 			return true; // 管理者IDが存在する。
 		} else {
 			return false;

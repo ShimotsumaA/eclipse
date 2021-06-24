@@ -83,6 +83,44 @@ public class KanrishaIdDao extends DBAccess{
 
 	}
 
+	public ArrayList<KanrishaBean> passCollect(String kId,String kPass){
+
+		ArrayList<KanrishaBean> list = new ArrayList<KanrishaBean>();
+
+		String sql = "select K_NAME, POST_ID, K_PASS  from STAFF where K_ID = ? AND K_PASS";
+
+		try {
+			connect();
+			//ステートメントを作成する
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, kId);
+			ps.setString(2, kPass);
+
+			//SQLを発行する
+		 	ResultSet rs = ps.executeQuery();
+
+		 	//ResultSetからbeanにユーザ情報を設定する
+		 	while(rs.next()){
+		 		KanrishaBean bean = new KanrishaBean();
+
+		 		bean.setId(kId);
+		 		bean.setName(rs.getString("kName"));
+		 		bean.setPostId(rs.getString("postId"));
+		 		bean.setPass(rs.getString("kPass"));
+
+		 		list.add(bean);
+		 	}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+
+		return list;
+
+	}
+
 
 	//新しい管理者情報を登録する
 	public int insert(String kId, String kName, String postId, String kPass) {

@@ -45,6 +45,7 @@
 	価格：<%=list1.get(0).getValue() %><br>
 	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
 
+
 	<%} %>
     <table>
     <tr>
