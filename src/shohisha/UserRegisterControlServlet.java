@@ -58,18 +58,28 @@ public class UserRegisterControlServlet extends HttpServlet {
     			errmsg2= err.exitId(request.getParameter("id"));
 
     			if(errmsg==null && errmsg2==null){
-    				session.setAttribute("id", request.getParameter("id"));
-    				session.setAttribute("name", request.getParameter("name"));
-    				session.setAttribute("kakaku", request.getParameter("kakaku"));
-    				forward="/web/kakunin.jsp";
+    				session.setAttribute("sId", request.getParameter("sId"));
+    				session.setAttribute("sName", request.getParameter("sName"));
+    				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
+    				session.setAttribute("postCode", request.getParameter("postCode"));
+    				session.setAttribute("adress", request.getParameter("adress"));
+    				session.setAttribute("tel", request.getParameter("tel"));
+    				session.setAttribute("mailAdress", request.getParameter("mailAdress"));
+    				session.setAttribute("sPass", request.getParameter("sPass"));
+    				forward="/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2";
     			}else{
-    				session.setAttribute("id", request.getParameter("id"));
-    				session.setAttribute("name", request.getParameter("name"));
-    				session.setAttribute("kakaku", request.getParameter("kakaku"));
+    				session.setAttribute("sId", request.getParameter("sId"));
+    				session.setAttribute("sName", request.getParameter("sName"));
+    				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
+    				session.setAttribute("postCode", request.getParameter("postCode"));
+    				session.setAttribute("adress", request.getParameter("adress"));
+    				session.setAttribute("tel", request.getParameter("tel"));
+    				session.setAttribute("mailAdress", request.getParameter("mailAdress"));
+    				session.setAttribute("sPass", request.getParameter("sPass"));
     				//入力画面に戻した際の画面表示の設定
     				request.setAttribute("errmsg", errmsg);
-    				request.setAttribute("errmsg2", errmsg2);*/
-    				forward="/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2";
+    				request.setAttribute("errmsg2", errmsg2);
+    				forward="/group2work/jsp/sogo/shohisha/user.jsp?no=1";*/
     			}
 
 
