@@ -8,8 +8,8 @@
 </head>
 <%String no=request.getParameter("no") ;%>
 <body>
-<form action="ShohinKanriServlet" method="post">
 <%if(no.equals("1")) {%>
+<form action="/group2work/ShohinKanriServlet" method="post">
 <div style=text-align:center>
 <h1>商品登録</h1><br>
 <label for="name">商品名：</label>

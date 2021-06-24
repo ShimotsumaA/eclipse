@@ -11,6 +11,9 @@
 
 <div style= "text-align:center">
 <h1>商品一覧</h1><br>
+
+
+
 <table border="1" align="center">
 <tr>
 <td> </td><td>商品ID</td><td>商品名</td><td>販売価格</td><td>カテゴリ</td><td>生地ID</td>
@@ -34,7 +37,7 @@
 </form>
 
 <!-- form shohinKanriKakunin -->
-<form action="shohinKanriKakunin.jsp" method="post">
+<form action="shohinKanriKakunin.jsp" >
 <input type="submit" name="submit" value="削除">
 </form>
 <input type="button" value="戻る" onClick="history.go(-1)">

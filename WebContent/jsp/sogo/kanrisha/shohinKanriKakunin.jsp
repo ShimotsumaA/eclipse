@@ -16,7 +16,9 @@
 	商品ID:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
-	<input type="submit" value="登録" >
+<form action="/group2work/ShohinKanriServlet" method="post">
+	<input type="submit" name="submit" value="登録確定" >
+</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>
@@ -29,7 +31,9 @@
 	商品ID:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
-	<input type="submit" name="submit" value="変更">
+<form action="/group2work/ShohinKanriServlet" method="post">
+	<input type="submit" name="submit" value="変更確定">
+</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>
@@ -42,7 +46,9 @@
 	商品ID:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
-	<input type="submit" value="削除">
+<form action="/group2work/ShohinKanriServlet" method="post">
+	<input type="submit" name="submit" value="削除確定">
+</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>
