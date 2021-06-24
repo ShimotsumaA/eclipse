@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
-				<td><input type="text" name="tel" size="40" maxlength="10"></td>
+				<td><input type="text" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
 		</table><br>
@@ -130,7 +130,7 @@
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
-				<td><input type="text" name="tel" size="40" maxlength="10"></td>
+				<td><input type="text" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
 		</table><br>
