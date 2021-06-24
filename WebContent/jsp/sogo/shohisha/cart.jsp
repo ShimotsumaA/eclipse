@@ -1,3 +1,8 @@
+<%@page import="kanrisha.ShohinDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.OrderDetailBean" %>
+<%@page import="bean.ShohinBean" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +28,24 @@
 
     <div class="contents">
     <p id="midasi"> カート一覧</p>
+
+    <%if((Boolean)request.getAttribute("cartflag")&&) {%>
+    <%
+	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
+	String shohinId="";
+	String shohinName="";
+	for(int i=1;i<=listODetail.size();i++){
+		shohinId=listODetail.get(i-1).getShohinId();
+
+		ShohinDao dao=new ShohinDao();
+		ArrayList<ShohinBean> list1=new ArrayList<>();
+		list1=dao.joken(shohinId);
+		%>
+	商品名:<%= list1.get(0).getShohinName() %><br>
+	価格：<%=list1.get(0).getValue() %><br>
+	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
+
+	<%} %>
     <table>
     <tr>
     <!-- for文で抽出 -->
@@ -43,6 +66,13 @@
     <form action="" method="post">
     <button type="submit" name="submit" value="tyumonhakotira">ご注文はこちら</button>
     </form>
+
+    <%}else{ %>
+    <p>カートに商品が存在しません</p>
+    <%} %>
+    <input type="button" name="back" value="戻る" onclick="location.href=''">
+
+
 
     <div class="footer"></div>
 </div>

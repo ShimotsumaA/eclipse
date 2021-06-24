@@ -35,6 +35,19 @@ public class ErrCheck {
 
 	}
 
+	//消費者idとステータスidが一致する商品が
+	public boolean existOrderIdStatusId(String sId,int statusId) {
+		OrderDao dao = new OrderDao();
+
+		if (dao.jokenSIdStatus(sId,statusId).size() != 0) {
+			return true; // 注文番号が存在する。
+		} else {
+			return false;
+		}
+
+	}
+
+
 	//注文詳細番号が存在するか。
 	public boolean existODetailShohinId(String oDetail, String shohinId) {
 		OrderDetailDAO dao = new OrderDetailDAO();
