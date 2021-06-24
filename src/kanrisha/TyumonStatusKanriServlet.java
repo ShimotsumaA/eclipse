@@ -39,7 +39,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 
 		} else if (submit.equals("変更確定")) {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp?no=2");
 			dispatcher.forward(request, response);
 		}
 	}

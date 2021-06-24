@@ -44,7 +44,7 @@
 <br><br>
 
 <input type="submit" name="submit" value="変更確認">
-<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatus.jsp'">
+<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatus.jsp?no=1'">
 </form>
 
 </body>

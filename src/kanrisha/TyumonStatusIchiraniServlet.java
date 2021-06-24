@@ -25,7 +25,7 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 
 		request.setAttribute("submit", "メニュー");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp?no=1");
 		dispatcher.forward(request, response);
 	}
 

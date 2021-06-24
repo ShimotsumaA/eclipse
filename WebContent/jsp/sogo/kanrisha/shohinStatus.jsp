@@ -8,9 +8,17 @@
 </head>
 <body>
 
+<!-- noクエリ文字列によって画面遷移を分ける -->
+<% String no = request.getParameter("no"); %>
+<% System.out.println(no); %>
+
 <div style="text-align:center">
 
 <h1>商品受注ステータス一覧</h1>
+
+<% if (no.equals("2")){ %>
+	<p> <font color="red">商品受注ステータスの変更が完了しました。</font></p>
+<% } %>
 
 <form action="/group2work/TyumonStatuKanriServlet" method="post">
 <table border="1" align="center">
