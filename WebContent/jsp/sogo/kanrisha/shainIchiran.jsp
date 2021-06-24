@@ -39,7 +39,7 @@
 </table><br><br>
 
 <input type="submit" formaction="/group2work/KanrishaTorokuServlet" name="submit" value="変更">
-<input type="submit" formaction="/group2work/jsp/sogo/kanrisha/idStaffKakunin.jsp" name="submit" value="削除">
+<button type="submit" formaction="/group2work/jsp/sogo/kanrisha/idStaffKakunin.jsp" name="submit" value="delete">削除</button>
 <input type="button" name="back" value="戻る" onclick="location.href='/group2work//jsp/sogo/kanrisha/idStaffMenu.jsp'">
 </form>
 </div>

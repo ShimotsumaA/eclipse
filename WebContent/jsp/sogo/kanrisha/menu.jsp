@@ -12,7 +12,7 @@
 <a href="idStaffMenu.jsp">社員ID管理</a><br>
 <a href="shohinKanriMenu.jsp">商品管理</a><br>
 <a href="zaiko.jsp">在庫管理</a><br>
-<a href="shohinStatus.jsp">商品受注ステータス</a><br><br><br>
+<a href="/group2work/TyumonStatuIchiranServlet">商品受注ステータス</a><br><br><br>
 
 <input type="submit"  name="submit" value="ログアウトしトップページに戻る">
 

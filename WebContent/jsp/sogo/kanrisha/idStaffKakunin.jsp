@@ -52,7 +52,7 @@
 		<h1>管理者情報変更確認</h1><br><br>
 		以下の情報を変更します。よろしいですか？<br><br>
 
-	<% } else if (submit.equals("削除")){ %>
+	<% } else if (submit.equals("delete")){ %>
 
 		<h1>管理者情報削除確認</h1><br><br>
 		以下の情報を削除します。よろしいですか？<br><br>
@@ -83,7 +83,7 @@
 	</table><br><br>
 	<% if (submit.equals("変更情報確認")){ %>
 		<input type="submit" name="submit" value="変更確定">
-	<% } else if (submit.equals("削除")){ %>
+	<% } else if (submit.equals("delete")){ %>
 		<input type="submit" name="submit" value="削除確定">
 	<% } %>
 

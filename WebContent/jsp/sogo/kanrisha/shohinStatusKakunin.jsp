@@ -13,7 +13,7 @@
 <h1>商品ステータス変更確認</h1><br>
 以下の商品ステータスを変更します。よろしいですか？<br><br>
 
-<form action="" method="post">
+<form action="/group2work/TyumonStatuKanriServlet"" method="post">
 <table align="center">
 	<tr>
 		<td align="right">商品ID：</td><td></td>
@@ -31,8 +31,8 @@
 <br>
 <br>
 
-<input type="submit" name="submit" value="確定">
-<input type="button" name="back" value="戻る" onclick="location.href=''">
+<input type="submit" name="submit" value="変更確定">
+<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatusChange.jsp'">
 </form>
 
 </body>
