@@ -8,10 +8,6 @@
 </head>
 <body>
 
-<% Object obj = request.getAttribute("submit"); %>
-<% String submit =  obj.toString();%>
-<% System.out.println(submit); %>
-
 <div style="text-align:center">
 
 <h1>商品受注ステータス一覧</h1>
