@@ -54,8 +54,8 @@ public class UserRegisterControlServlet extends HttpServlet {
         		/*String errmsg=null;
     			String errmsg2=null;
     			Errcheck err = new Errcheck();
-    			errmsg = err.numCheck(request.getParameter("id"),request.getParameter("kakaku"));
-    			errmsg2= err.exitId(request.getParameter("id"));
+    			errmsg = err.numCheck(request.getParameter(""),request.getParameter(""));
+    			errmsg2= err.exitId(request.getParameter(""));
 
     			if(errmsg==null && errmsg2==null){
     				session.setAttribute("sId", request.getParameter("sId"));
