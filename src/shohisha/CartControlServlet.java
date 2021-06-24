@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,20 +60,16 @@ public class CartControlServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
-
-		//ログイン情報を持ったユーザーの商品購入
-
+		// ログイン情報を持ったユーザーの商品購入
 		// 商品ページからカートに追加
 
-		// ログイン情報を持ったユーザーの商品購入
-
 		HttpSession session = request.getSession(true);
-
 
 		OrderDao dao = new OrderDao();
 		String shohinId = request.getParameter("shohin_id");
 		int kazuKonyu = Integer.parseInt(request.getParameter("kazu_konyu"));
 		// ログイン情報の取得
+		int cartcount = 0;
 
 		if (session.getAttribute("login") != null) {
 			// loginからユーザーIDを取得
@@ -108,13 +103,13 @@ public class CartControlServlet extends HttpServlet {
 			OrderDetailDAO dao2 = new OrderDetailDAO();
 
 			if (dao2.joukenShohin(oDetailId, shohinId).size() != 0) {
-				dao2.update(oDetailId, shohinId, kazuKonyu);
+				cartcount = dao2.update(oDetailId, shohinId, kazuKonyu);
 			} else {
-				dao2.insert(oDetailId, shohinId, kazuKonyu);
+				cartcount = dao2.insert(oDetailId, shohinId, kazuKonyu);
 			}
 
-
 		} else {
+			// ログイン情報がない時
 			// カート情報があるとき
 			if (session.getAttribute("cart") != null) {
 				Map<String, Integer> cart = new HashMap<>();
@@ -126,25 +121,28 @@ public class CartControlServlet extends HttpServlet {
 				} else {
 					cart.put(shohinId, kazuKonyu);
 
-				}session.setAttribute("cart", cart);
+				}
+				cartcount = 1;
+				session.setAttribute("cart", cart);
 				// カート情報がない時
 			} else {
 
 				Map<String, Integer> cart = new HashMap<>();
 
 				cart.put(shohinId, kazuKonyu);
+				cartcount = 1;
 				session.setAttribute("cart", cart);
-			}
 
+			}
 
 		}
 
-
 		session.setAttribute("shohin_id", shohinId);
-		session.setAttribute("AddedToCart", true);
+		if (cartcount != 0) {
+			request.setAttribute("AddedToCart", true);
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/shohin.jsp");
 		dispatcher.forward(request, response);
-
 
 	}
 
