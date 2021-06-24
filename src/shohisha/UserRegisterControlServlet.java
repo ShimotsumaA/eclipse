@@ -90,15 +90,35 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("mailadress",list.get(0).getMail());
 				session.setAttribute("s_pass",list.get(0).getPass());
 				//遷移先
-				forward="/jsp.user.jsp?no=2";
+				forward="/group2work/jsp/sogo/shohisha/user.jsp?no=2";
 			}else{
 
 			}
 
-		 }
 
+	 //userKakunin.jspから確定ボタンが押された際の処理
+			if(request.getParameter("submit").equals("確定")){
+				String sName = (String)session.getAttribute("s_name");
+				String dateBirth =(String)session.getAttribute("date_birth");
+				String postCode = (String) session.getAttribute("postcode");
+				String adress = (String) session.getAttribute("adress");
+				String tel = (String) session.getAttribute("tel");
+				String mailAdress = (String) session.getAttribute("mailadress");
+				String sId = (String) session.getAttribute("s_id");
+				String  sPass= (String) session.getAttribute("s_pass");
 
- }
+				//DAOをインスタンス化
+				ShohishaDao dao2= new ShohishaDao();
+				int rs =dao2.insert(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
+				System.out.println(rs);
+				request.setAttribute("compmsg", "登録が完了しました");
+				forward="/groupu2work/jsp/sogo/shohisha/area.jsp";
+			}
+
+	}
+
+}
+
 
 
 
