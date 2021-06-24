@@ -37,8 +37,8 @@
 </form>
 
 <!-- form shohinKanriKakunin -->
-<form action="shohinKanriKakunin.jsp" >
-<input type="submit" name="submit" value="削除">
+<form action="shohinKanriKakunin.jsp" method="post">
+<input type="submit" name="submit" value="削除" >
 </form>
 <input type="button" value="戻る" onClick="history.go(-1)">
 </body>
