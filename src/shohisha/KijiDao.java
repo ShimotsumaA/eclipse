@@ -40,4 +40,35 @@ public class KijiDao extends DBAccess{
 
 
 		}
+
+		public  ArrayList<KijiBean> joken(String kijiId) {
+
+			ArrayList<KijiBean> list = new ArrayList<KijiBean>();
+
+			String sql = "select * from kiji where kiji_id=?";
+
+			try {
+				connect();
+				// ステートメントの作成
+				PreparedStatement ps = getConnection().prepareStatement(sql);
+				ps.setString(1, kijiId);
+
+				 ResultSet rs = ps.executeQuery();
+
+				while (rs.next()) {
+					KijiBean bean = new KijiBean();
+					bean.setKijiId(rs.getString("kiji_id"));
+					bean.setKijiName(rs.getString("kiji_name"));
+					list.add(bean);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disconnect();
+			}
+			return list;
+
+
+		}
 }

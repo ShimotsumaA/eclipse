@@ -1,3 +1,8 @@
+<%@page import="kanrisha.ShohinDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.OrderDetailBean" %>
+<%@page import="bean.ShohinBean" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,10 +21,22 @@
 	購入詳細<br>
 	<img src="/group2work/image/np0001_picture01.jpg" alt="バッグ " width="193" height="130"><br>
 
-	商品名:<%=session.getAttribute("shohin_name") %><br>
-	価格：<%=session.getAttribute("value") %><br>
-	個数：<%=session.getAttribute("kazu_konyu") %><br>
+	<%
+	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
+	String shohinId="";
+	String shohinName="";
+	for(int i=1;i<=listODetail.size();i++){
+		shohinId=listODetail.get(i-1).getShohinId();
+		
+		ShohinDao dao=new ShohinDao();
+		ArrayList<ShohinBean> list1=new ArrayList<>();
+		list1=dao.joken(shohinId);
+		%>
+	商品名:<%= list1.get(0).getShohinName() %><br>
+	価格：<%=list1.get(0).getValue() %><br>
+	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
 
+	<%} %>
 
 	<imput type="button" name="submit" value="chumon" formmethod="post" formaction="/orderCollect.jsp">
 </form>

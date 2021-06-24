@@ -17,10 +17,10 @@
     <div class="menu_bar">
     <table>
     <tr>
-    <td><a href="">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    <td><a href="">カート</a></td>　<!-- カートへのリンク -->
-    <td><a href="">マイページ</a></td><!-- マイページへのリンク -->
-    <td><a href="">ログイン</a></td><!-- ログインページへのリンク -->
+    <td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
+    <td><a href="/group2work/shohisha/CartHyoujiServlet">カート</a></td>　<!-- カートへのリンク -->
+    <td><a href="/group2work/shohisha/MyPageServlet">マイページ</a></td><!-- マイページへのリンク -->
+    <td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
     </tr>
     </table>
     </div>
@@ -48,7 +48,7 @@
 
     	<% ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
     		for(int i=1;i<=list.size();i++){%>
-    		<input type="hidden" value="<%= list.get(i-1).getCategoryId()%>">
+    		<input type="hidden" name="category_id" value="<%= list.get(i-1).getCategoryId()%>">
     		<a href="javascript:category.submit()"><%=list.get(i-1).getCategoryName() %></a>
     		<%} %>
 
@@ -63,7 +63,7 @@
     	<form action="/group2work/shohisha/ECHyoujiServlet" method="post" name="kiji">
   	 	<% ArrayList<KijiBean> list2=(ArrayList<KijiBean>)session.getAttribute("listKiji");
     		for(int i=1;i<=list2.size();i++){%>
-    		<input type="hidden" value="<%= list2.get(i-1).getKijiId()%>">
+    		<input type="hidden" name="kiji_id" value="<%= list2.get(i-1).getKijiId()%>">
     		<a href="javascript:category.submit()"><%=list2.get(i-1).getKijiName() %></a>
     		<%} %>
 
@@ -81,15 +81,16 @@
     <tr>
     <td>
     <!-- 商品for文で取り出し -->
-    	<form action="/group2work/shohisha/shohin.jsp" method="post" name="shohin">
+    	<form action="/group2work/shohisha/ShohinHyojiServlet" method="post" name="shohin">
 
     	<br>
     	<% ArrayList<ShohinBean> list3=(ArrayList<ShohinBean>)session.getAttribute("listShohin");
     		for(int i=1;i<=list3.size();i++){%>
-    	<input type="hidden" value="<%= list3.get(i-1).getShohinId()%>">
+    	<input type="hidden" name="shohin_id" value="<%= list3.get(i-1).getShohinId()%>">
     	<a href="javascript:shohin.submit()"><img src=""></a><br>
     	<p><%= list3.get(i-1).getShohinName() %></p>
     	<p><%= list3.get(i-1).getValue() %></p>
+    	<%} %>
 
     	</form>
     </td>
@@ -101,10 +102,10 @@
     <div class="footer">
     <table>
     <tr>
-    	<td><a href="">配送料に関して</a></td>
+    	<td><a href="/group2work/jsp/souryou.jsp">配送料に関して</a></td>
     </tr>
     <tr>
-    	<td><a href="">特定商取引法に基づく表記</a></td>
+    	<td><a href="/group2work/jsp/gaiyo.jsp">特定商取引法に基づく表記</a></td>
     </tr>
     </table>
     </div>

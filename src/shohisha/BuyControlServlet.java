@@ -43,6 +43,8 @@ import sogo.ErrCheck;
 			 String forward=null;
 
 			//ログインしているかどうかを判断
+			 if(session.getAttribute("login")!=null) {
+
 
 
 			//ログインしている状態でbuy.jspで住所入力ボタンが押されたら
@@ -59,35 +61,56 @@ import sogo.ErrCheck;
 
 			//ログインしていない状態でbuy.jspで住所入力ボタンが押されたら
 					//login.jspに遷移
+				}else {
+
 					forward="/jsp/login.jsp";
 				}
 
 			//pay.jspで続行ボタンが押されたら
 				if(request.getParameter("submit").equals("zokko")) {
 					//エラーチェック
-					ErrCheck err = new ErrCheck();
-					String errmsg=err.existSId(request.getParameter("radio"));
-
-					//エラーがなかった場合
-					if(errmsg=null) {
+					/* ErrCheck err = new ErrCheck(); */
+					/* String errmsg=err.existSId(request.getParameter("radio")); */
+					if(request.getParameter("radio")==null) {
+						//dispach戻る
+						request.setAttribute("err","押してください");
+						//前のページに戻る
+					}else {
 						//OrderDao,ShohinDaoをインスタンス化
-						OrderDao dao=new OrderDao();
-						ShohinDao dao2=new ShohinDao();
-						OrderDetailDAO dao3=new OrderDetailDAO();
 
-						ArrayList<OrderBean> list=dao.joken(request.getParameter("radio"));
-						ArrayList<ShohinBean> list2=dao2.joken(request.getParameter("radio"));
-						ArrayList<OrderDetailBean> list3=dao3.joken(request.getParameter("radio"));
-						
+						String sId=(String)session.getAttribute("login_id");
+
+
+						OrderDao dao=new OrderDao();
+						ShohinDao dao3=new ShohinDao();
+						OrderDetailDAO dao2=new OrderDetailDAO();
+
+
+						OrderDao dao1=new OrderDao();
+						ArrayList<OrderBean> listOrder=new ArrayList<OrderBean>();
+						listOrder=dao1.jokenSIdStatus(sId, 0);//statusId 0:カート
+						String orderId=listOrder.get(0).getOrderId(); //orderOd
+						int statusId =listOrder.get(0).getStatusId(); //orderOd
+
+						String oDetailId=listOrder.get(0).getODetailId();//oDetailIdの取得
+
+
+
+						ArrayList<OrderDetailBean> listODetailList=new ArrayList<>();
+						listODetailList=dao2.jouken(oDetailId);//商品と個数のリスト
+
+
+
 						//セッション領域に注文テーブルの各情報をセット
-						session.setAttribute("order_id", list.get(0).getOrderId());
-						session.setAttribute("date", list.get(0).getDate());
-						session.setAttribute("s_id", list.get(0).getSId());
-						session.setAttribute("status_id", list.get(0).getStatusId());
-						session.setAttribute("o_detail_id", list.get(0).getODetailId());
-						session.setAttribute("shohin_name", list2.get(0).getShohinName());
-						session.setAttribute("value", list2.get(0).getValue());
-						session.setAttribute("kazu_konyu", list3.get(0).getKazuKonyu());
+
+						session.setAttribute("order", orderId);
+						session.setAttribute("oDetailId", oDetailId);
+						session.setAttribute("statusId", statusId);
+
+
+						session.setAttribute("listOrder", listOrder);
+						session.setAttribute("oDetailList", listODetailList);
+
 					}
 
 					//orderKakunin.jspに遷移
@@ -99,13 +122,9 @@ import sogo.ErrCheck;
 					//OrderDaoをインスタンス化
 					OrderDao dao=new OrderDao();
 					ArrayList<OrderBean> list=dao.joken(request.getParameter("order_id"));
+					String orderId=(String)session.getAttribute("");
+					int statusId=(Integer)session.getAttribute("statusId");
 
-					//セッション領域に注文テーブルの各情報をセット
-					session.setAttribute("order_id", list.get(0).getOrderId());
-					session.setAttribute("date", list.get(0).getDate());
-					session.setAttribute("s_id", list.get(0).getSId());
-					session.setAttribute("status_id", list.get(0).getStatusId());
-					session.setAttribute("o_detail_id", list.get(0).getODetailId());
 
 					//注文ステータス変更メソッドを呼び出し
 
@@ -116,7 +135,6 @@ import sogo.ErrCheck;
 				}
 
 		}
-
-	}
+		}
 
 

@@ -54,7 +54,7 @@ public class OrderDetailDAO extends DBAccess{
 			while (rs.next()) {
 				OrderDetailBean bean = new OrderDetailBean();
 
-				bean.setODetailId(rs.getString("ORDER_ID"));
+				bean.setODetailId(rs.getString("O_DETAIL_ID"));
 				bean.setShohinId(rs.getString("SHOHIN_ID"));
 				bean.setKazuKonyu(rs.getInt("KAZU_KONYU"));
 
@@ -85,7 +85,7 @@ public class OrderDetailDAO extends DBAccess{
 			while (rs.next()) {
 				OrderDetailBean bean = new OrderDetailBean();
 
-				bean.setODetailId(rs.getString("ORDER_ID"));
+				bean.setODetailId(rs.getString("O_DETAIL_ID"));
 				bean.setShohinId(rs.getString("SHOHIN_ID"));
 				bean.setKazuKonyu(rs.getInt("KAZU_KONYU"));
 
