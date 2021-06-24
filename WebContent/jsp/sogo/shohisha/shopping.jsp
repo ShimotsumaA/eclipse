@@ -44,12 +44,14 @@
     <tr>
     <td>
     	<p>カテゴリ</p>
-    	<form action="" method="post" name="">
+    	<form action="/group2work/shohisha/ECHyoujiServlet" method="post" name="category">
 
     	<% ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
-    	for(int i=1;i<=list.size();i++){%>
-    	<input type="hidden" value="<!-- index_number -->">
-    	<a href=""><%=list.get(i-1).getCategoryName() %></a>
+    		for(int i=1;i<=list.size();i++){%>
+    		<input type="hidden" value="<%= list.get(i-1).getCategoryId()%>">
+    		<a href="javascript:category.submit()"><%=list.get(i-1).getCategoryName() %></a>
+    		<%} %>
+
     	</form>
     </td>
     </tr>
@@ -58,9 +60,13 @@
     <tr>
     <td>
     	<p>生地</p>
-    	<form action="" method="post" name="">
-    	<input type="hidden" value="<!-- index_number -->">
-    	<a href="">生地名</a>
+    	<form action="/group2work/shohisha/ECHyoujiServlet" method="post" name="kiji">
+  	 	<% ArrayList<KijiBean> list2=(ArrayList<KijiBean>)session.getAttribute("listKiji");
+    		for(int i=1;i<=list2.size();i++){%>
+    		<input type="hidden" value="<%= list2.get(i-1).getKijiId()%>">
+    		<a href="javascript:category.submit()"><%=list2.get(i-1).getKijiName() %></a>
+    		<%} %>
+
     	</form>
     </td>
     </tr>
@@ -74,12 +80,18 @@
 
     <tr>
     <td>
-    <!-- for文で取り出し -->
-    	<form action="" method="post" name="">
-    	<a href=""><img src=""></a><br>
-    	</form><br>
-    	<p>商品名</p>
-    	<p>価格</p>
+    <!-- 商品for文で取り出し -->
+    	<form action="/group2work/shohisha/shohin.jsp" method="post" name="shohin">
+
+    	<br>
+    	<% ArrayList<ShohinBean> list3=(ArrayList<ShohinBean>)session.getAttribute("listShohin");
+    		for(int i=1;i<=list3.size();i++){%>
+    	<input type="hidden" value="<%= list3.get(i-1).getShohinId()%>">
+    	<a href="javascript:shohin.submit()"><img src=""></a><br>
+    	<p><%= list3.get(i-1).getShohinName() %></p>
+    	<p><%= list3.get(i-1).getValue() %></p>
+
+    	</form>
     </td>
     </tr>
     </table>
