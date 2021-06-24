@@ -19,7 +19,7 @@
 
 	<p>下記の「注文番号」をお控えいただきますようお願いいたします。<br>
 	   ご注文に関するお問い合わせの際にお伺いさせていただきます。<br>
-       ※「ご注文完了メール」にも記載されておりますのでご確認ください。<br><br>
+       ※「ご注文完了メール」にも記載されておりますのでご確認ください。<br>
     </p>
 
     <div style="text-align:center; border: solid 3px #000; width:600px; margin: 5em; border: solid 3px #000000; background-color: #ccc;">
