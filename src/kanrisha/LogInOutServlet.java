@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sogo.ErrCheck;
+
 @WebServlet("/LogInOutServlet")
 public class LogInOutServlet extends HttpServlet {
 
@@ -32,13 +34,81 @@ public class LogInOutServlet extends HttpServlet {
 		//ログインする
 		if (submit.equals("ログイン")) {
 
-			//IDをセッション領域に預ける
+			//管理者かお客様か。
+			String zokusei = request.getParameter("zokusei");
+			System.out.println(zokusei);
+
+			ErrCheck err = new ErrCheck();
+
 			String id = request.getParameter("id");
+			String pass = request.getParameter("pass");
+
+			System.out.println(id+pass);
+
+			//管理者エラーチェック
+			if (zokusei.equals("kanrisya")) {
+
+				//管理者IDが存在するか。
+				if (err.existkId(id)) {
+
+				} else {
+					String message = "IDが存在しません。";
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+					dispatcher.forward(request, response);
+				}
+
+				//管理者IDとパスワードが一致するか。
+				if (err.kPassCollect(id, pass)) {
+
+				} else {
+					String message = "IDとパスワードが一致しません。";
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+					dispatcher.forward(request, response);
+				}
+
+				//IDパスワードが正しいので、IDをセッション領域に預ける
+				session.setAttribute("id",id);
+
+				//管理者総合メニューへ遷移する
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/menu.jsp");
+				dispatcher.forward(request, response);
+
+			//消費者（お客様）エラーチェック
+			} else {
+
+				//消費者IDが存在するか。
+				if (err.existSId(id)) {
+
+				} else {
+					String message = "IDが存在しません。";
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+					dispatcher.forward(request, response);
+				}
+
+				//消費者IDとパスワードが一致するか。
+				if (err.sPassCollect(id, pass)) {
+
+			} else {
+				String message = "IDとパスワードが一致しません。";
+				request.setAttribute("message", message);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+				dispatcher.forward(request, response);
+			}
+
+			//IDパスワードが正しいので、IDをセッション領域に預ける
 			session.setAttribute("id",id);
 
-			//管理者総合メニューへ遷移する
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/menu.jsp");
+			//ショッピングへ遷移する
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
 			dispatcher.forward(request, response);
+			}
 
 		} else {
 

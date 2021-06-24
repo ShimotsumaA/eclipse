@@ -51,13 +51,15 @@ public class UserRegisterControlServlet extends HttpServlet {
 
       //user.jspで登録ボタンが押された際の処理
         	if(request.getParameter("submit").equals("登録")){
-        		/*String errmsg=null;
-    			String errmsg2=null;
+        		/*String errmsg="IDは英数字かつ10文字以内で登録してください。";
+    			String errmsg2="パスワードは英数字を組み合わせ、4文字以上15文字以内で登録してください。";
+    			String errmsg3="パスワードが一致していません。";
     			Errcheck err = new Errcheck();
-    			errmsg = err.numCheck(request.getParameter("id"),request.getParameter("kakaku"));
-    			errmsg2= err.exitId(request.getParameter("id"));
+    			errmsg = err.checkId(request.getParameter("id"));
+    			errmsg2= err.checkPass(request.getParameter("kPass1"));
+    			errmsg3= err.checkPassMaches(request.getParameter("kPass1"),request.getParameter("kPass2"));
 
-    			if(errmsg==null && errmsg2==null){
+    			if(errmsg==null && errmsg2==null && errmsg3==null){
     				session.setAttribute("sId", request.getParameter("sId"));
     				session.setAttribute("sName", request.getParameter("sName"));
     				session.setAttribute("dateBirth", request.getParameter("dateBirth"));

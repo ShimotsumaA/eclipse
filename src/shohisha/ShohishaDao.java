@@ -171,4 +171,5 @@ public class ShohishaDao extends DBAccess {
 	    	}
 			return rs;
 		}
+
 }

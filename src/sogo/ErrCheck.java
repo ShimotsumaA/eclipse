@@ -1,5 +1,8 @@
 package sogo;
 
+import java.util.ArrayList;
+
+import bean.ShohishaBean;
 import kanrisha.KanrishaIdDao;
 import kanrisha.ShohinDao;
 import shohisha.OrderDao;
@@ -21,6 +24,19 @@ public class ErrCheck {
 		}
 
 	}
+
+	//消費者IDとパスワードが一致するか。
+		public boolean sPassCollect(String sId, String sPass) {
+			ShohishaDao dao = new ShohishaDao();
+			ArrayList <ShohishaBean> list  = dao.joken(sId);
+			String pass = list.get(0).getPass();
+
+			if (list.size() != 0 && pass.equals(sPass)) {
+					return true; // 一致する。
+				} else {
+				return false;
+			}
+		}
 
 
 	// 注文番号が存在するか。
@@ -74,11 +90,12 @@ public class ErrCheck {
 
 	}
 
-	public boolean passCollect(String kId,String kPass) {
+	//管理者IDとパスワードが一致するか。
+	public boolean kPassCollect(String kId,String kPass) {
 		KanrishaIdDao dao = new KanrishaIdDao();
 
 		if (dao.passCollect(kId,kPass).size() != 0) {
-			return true; // 管理者IDが存在する。
+			return true; // 一致する。
 		} else {
 			return false;
 		}

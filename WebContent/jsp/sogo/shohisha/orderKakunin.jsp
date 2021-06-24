@@ -40,17 +40,17 @@
 </div>
 
 <div style="text-align:left;">
-	支払い方法：<%=session.getAttribute("radio") %><br>
+	支払い方法：<%=session.getAttribute("shiharai") %><br>//セッションから支払い方法を取得
 	配送先住所<br>
-	<%=session.getAttribute("postcode") %><br>
+	<%=session.getAttribute("post_code") %><br>
 	<%=session.getAttribute("adress") %><br>
 
 </div>
 
 <div style="text-align:center;">
-	商品合計：<%--カートから取得--%>円<br>
-	送料：<%--送料の取得--%><br>
-	合計：<%--商品合計＋送料 --%><br>
+	商品合計：<%=(Integer)session.getAttribute("sumProduct")%>円<br>//セッションから商品合計を取得
+	送料：<%=(Integer)session.getAttribute("souryou")%><br>//セッションから
+	合計：<%=(Integer)session.getAttribute("sumProduct")+(Integer)session.getAttribute("souryou")%><br>
 
 </div>
 

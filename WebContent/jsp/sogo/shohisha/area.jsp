@@ -8,98 +8,101 @@
 </head>
 <body>
 	<p>配送地域を選択してください。<br>
-	<select name="北海道">
+	<select name="chiikiselect">
+	<optgroup label="hokkaido">
 		<option selected>北海道</option>
-		<option>北海道</option>
-	</select>
+		<option value=1>北海道</option>
+	</optgroup>
 
-	<select name="北東北">
+	<optgroup label="kitatohoku">
 		<option selected>北東北</option>
-		<option>青森県</option>
-		<option>秋田県</option>
-		<option>岩手県</option>
-	</select>
+		<option value=2>青森県</option>
+		<option value=3>秋田県</option>
+		<option value=4>岩手県</option>
+	</optgroup>
 
-	<select name="南東北">
+	<optgroup label="minamitohoku">
 		<option selected>南東北</option>
-		<option>宮城県</option>
-		<option>山形県</option>
-		<option>福島県</option>
-	</select>
+		<option value=5>宮城県</option>
+		<option value=6>山形県</option>
+		<option value=7>福島県</option>
+	</optgroup>
 
-	<select name="関東">
+	<optgroup label="kanto">
 		<option selected>関東</option>
-		<option>茨城県</option>
-		<option>栃木県</option>
-		<option>埼玉県</option>
-		<option>千葉県</option>
-		<option>東京都</option>
-		<option>神奈川県</option>
-		<option>山梨県</option>
-	</select>
+		<option value=8>茨城県</option>
+		<option value=9>栃木県</option>
+		<option value=10>群馬県</option>
+		<option value=11>埼玉県</option>
+		<option value=12>千葉県</option>
+		<option value=13>東京都</option>
+		<option value=14>神奈川県</option>
+		<option value=15>山梨県</option>
+	</optgroup>
 
-	<select name="信越">
+	<optgroup label="sinetu">
 		<option selected>信越</option>
-		<option>新潟県</option>
-		<option>長野県</option>
-	</select>
+		<option value=16>新潟県</option>
+		<option value=17>長野県</option>
+	</optgroup>
 
-	<select name="北陸">
+	<optgroup label="hokuriku">
 		<option selected>北陸</option>
-		<option>富山県</option>
-		<option>石川県</option>
-		<option>福井県</option>
-	</select>
+		<option value=18>富山県</option>
+		<option value=19>石川県</option>
+		<option value=20>福井県</option>
+	</optgroup>
 
-	<select name="中部">
+	<optgroup label="tyubu">
 		<option selected>中部</option>
-		<option>静岡県</option>
-		<option>愛知県</option>
-		<option>三重県</option>
-		<option>岐阜県</option>
-	</select>
+		<option value=21>静岡県</option>
+		<option value=22>愛知県</option>
+		<option value=23>三重県</option>
+		<option value=24>岐阜県</option>
+	</optgroup>
 
-	<select name="関西">
+	<optgroup label="kansai">
 		<option selected>関西</option>
-		<option>大阪府</option>
-		<option>京都府</option>
-		<option>滋賀県</option>
-		<option>奈良県</option>
-		<option>和歌山県</option>
-		<option>兵庫県</option>
-	</select>
+		<option value=25>大阪府</option>
+		<option value=26>京都府</option>
+		<option value=27>滋賀県</option>
+		<option value=28>奈良県</option>
+		<option value=29>和歌山県</option>
+		<option value=30>兵庫県</option>
+	</optgroup>
 
-	<select name="中国">
+	<optgroup label="tyugoku">
 		<option selected>中国</option>
-		<option>岡山県</option>
-		<option>広島県</option>
-		<option>山口県</option>
-		<option>鳥取県</option>
-		<option>島根県</option>
-	</select>
+		<option value=31>岡山県</option>
+		<option value=32>広島県</option>
+		<option value=33>山口県</option>
+		<option value=34>鳥取県</option>
+		<option value=35>島根県</option>
+	</optgroup>
 
-	<select name="四国">
+	<optgroup label="sikoku">
 		<option selected>四国</option>
-		<option>香川県</option>
-		<option>徳島県</option>
-		<option>愛媛県</option>
-		<option>高知県</option>
-	</select>
+		<option value=36>香川県</option>
+		<option value=37>徳島県</option>
+		<option value=38>愛媛県</option>
+		<option value=39>高知県</option>
+	</optgroup>
 
-	<select name="九州">
+	<optgroup label="kyusyu">
 		<option selected>九州</option>
-		<option>福岡県</option>
-		<option>佐賀県</option>
-		<option>長崎県</option>
-		<option>熊本県</option>
-		<option>大分県</option>
-		<option>宮崎県</option>
-		<option>鹿児島県</option>
-	</select>
+		<option value=40>福岡県</option>
+		<option value=41>佐賀県</option>
+		<option value=42>長崎県</option>
+		<option value=43>熊本県</option>
+		<option value=44>大分県</option>
+		<option value=45>宮崎県</option>
+		<option value=46>鹿児島県</option>
+	</optgroup>
 
-	<select name="沖縄">
+	<optgroup label="okinawa">
 		<option selected>沖縄</option>
-		<option>沖縄県</option>
+		<option value=47>沖縄県</option>
+	</optgroup>
 	</select>
 	</p>
 
