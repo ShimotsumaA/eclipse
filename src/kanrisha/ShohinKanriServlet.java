@@ -51,10 +51,21 @@ public class ShohinKanriServlet extends HttpServlet {
 
 		//商品変更画面の変更ボタンが押された
 		if(request.getParameter("submit").equals("変更確認")) {
-			RequestDispatcher rd = request.getRequestDispatcher("/group2work/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
-			rd.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
+			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ!");
 		}
+
+		if(request.getParameter("submit").equals("登録確認")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("ディスパッチ!!");
+		}
+		if(request.getParameter("submit").equals("登録確認")) {
+
+		}
+
+
 
 //		//セッションの取得
 //        HttpSession session = request.getSession(true);
@@ -104,8 +115,10 @@ public class ShohinKanriServlet extends HttpServlet {
 //		}
 //		RequestDispatcher rd = request.getRequestDispatcher(forward);
 //		rd.forward(request, response);
+//	}
+
+
+
+
 	}
-
-
-
 }

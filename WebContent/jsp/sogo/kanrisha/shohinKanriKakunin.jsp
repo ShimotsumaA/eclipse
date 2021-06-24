@@ -7,7 +7,7 @@
 <title>商品管理確認</title>
 </head>
 <body>
-<%if(request.getParameter("submit").equals("登録")){%>
+<%if(request.getParameter("submit").equals("登録確認")){%>
 <div style="text-align:center">
 
 	<h1>商品登録</h1><br><br>
@@ -29,7 +29,7 @@
 	商品ID:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
-	<input type="submit" value="変更">
+	<input type="submit" name="submit" value="変更">
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>
@@ -44,7 +44,7 @@
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
 	<input type="submit" value="削除">
 	<input type="button" value="戻る" onClick="history.go(-1)">
-<%} %>
 </div>
+<%} %>
 </body>
 </html>

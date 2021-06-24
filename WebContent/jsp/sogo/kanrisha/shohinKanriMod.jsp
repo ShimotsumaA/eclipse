@@ -8,7 +8,7 @@
 </head>
 <%String no=request.getParameter("no") ;%>
 <body>
-<form action="shohinKanriKakunin.jsp" method="post">
+<form action="ShohinKanriServlet" method="post">
 <%if(no.equals("1")) {%>
 <div style=text-align:center>
 <h1>商品登録</h1><br>
