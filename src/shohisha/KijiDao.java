@@ -27,7 +27,9 @@ public class KijiDao extends DBAccess{
 				while (rs.next()) {
 					KijiBean bean = new KijiBean();
 					bean.setKijiId(rs.getString("kiji_id"));
-					bean.setKijiName(rs.getString("kiji_name"));
+					bean.setKijisyurui(rs.getString("syurui"));
+					bean.setKijiColour(rs.getString("colour"));
+
 					list.add(bean);
 				}
 
@@ -58,7 +60,7 @@ public class KijiDao extends DBAccess{
 				while (rs.next()) {
 					KijiBean bean = new KijiBean();
 					bean.setKijiId(rs.getString("kiji_id"));
-					bean.setKijiName(rs.getString("kiji_name"));
+					bean.setKijisyurui(rs.getString("kiji_name"));
 					list.add(bean);
 				}
 

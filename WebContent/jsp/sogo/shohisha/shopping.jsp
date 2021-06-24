@@ -64,7 +64,7 @@
   	 	<% ArrayList<KijiBean> list2=(ArrayList<KijiBean>)session.getAttribute("listKiji");
     		for(int i=1;i<=list2.size();i++){%>
     		<input type="hidden" name="kiji_id" value="<%= list2.get(i-1).getKijiId()%>">
-    		<a href="javascript:category.submit()"><%=list2.get(i-1).getKijiName() %></a>
+    		<a href="javascript:category.submit()"><%=list2.get(i-1).getKijiSyurui() %></a>
     		<%} %>
 
     	</form>

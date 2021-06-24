@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class KijiBean implements Serializable{
 
 	private String kijiId;
-	private String kijiName;
+	private String kijiSyurui;
+	private String colour;
 
 	public String getKijiId() {
 		return kijiId;
@@ -13,10 +14,21 @@ public class KijiBean implements Serializable{
 	public void setKijiId(String kijiId) {
 		this.kijiId = kijiId;
 	}
-	public String getKijiName() {
-		return kijiName;
+	public String getKijiSyurui() {
+		return kijiSyurui;
 	}
-	public void setKijiName(String kijiName) {
-		this.kijiName = kijiName;
+	public void setKijisyurui(String syurui) {
+		this.kijiSyurui = syurui;
 	}
+
+	public String getKijiColour() {
+		return colour;
+	}
+	public void setKijiColour(String colour) {
+		this.colour = colour;
+	}
+
+
+
+
 }
