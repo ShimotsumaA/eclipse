@@ -44,7 +44,7 @@
 <a href="/group2work/jsp/sogo/shohisha/user.jsp?no=1" >初めてご利用の方はこちら</a>
 <br><br><br>
 
-<a href="group2/work/WebContent/jsp/sogo/top.jsp" >TOPへ</a>
+<a href="/group2work/jsp/sogo/top.jsp" >TOPへ</a>
 </div>
 
 </body>

@@ -16,7 +16,7 @@
 <a href="login.jsp" >ログイン</a>
 <br>
 <br>
-<a href="" >オンラインショップ</a>
+<a href="/group2work/jsp/sogo/shopping.jsp" >オンラインショップ</a>
 </div>
 
 </body>

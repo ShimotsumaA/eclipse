@@ -49,6 +49,32 @@ public class UserRegisterControlServlet extends HttpServlet {
 
         String forward=null;
 
+      //user.jspで登録ボタンが押された際の処理
+        	if(request.getParameter("submit").equals("登録")){
+        		/*String errmsg=null;
+    			String errmsg2=null;
+    			Errcheck err = new Errcheck();
+    			errmsg = err.numCheck(request.getParameter("id"),request.getParameter("kakaku"));
+    			errmsg2= err.exitId(request.getParameter("id"));
+
+    			if(errmsg==null && errmsg2==null){
+    				session.setAttribute("id", request.getParameter("id"));
+    				session.setAttribute("name", request.getParameter("name"));
+    				session.setAttribute("kakaku", request.getParameter("kakaku"));
+    				forward="/web/kakunin.jsp";
+    			}else{
+    				session.setAttribute("id", request.getParameter("id"));
+    				session.setAttribute("name", request.getParameter("name"));
+    				session.setAttribute("kakaku", request.getParameter("kakaku"));
+    				//入力画面に戻した際の画面表示の設定
+    				request.setAttribute("errmsg", errmsg);
+    				request.setAttribute("errmsg2", errmsg2);*/
+    				forward="/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2";
+    			}
+
+
+
+
       //userKakunin.jspから変更ボタンが押された際の処理
       		if(request.getParameter("submit").equals("変更")){
       		//DAOをインスタンス化

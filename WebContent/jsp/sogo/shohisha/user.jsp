@@ -45,7 +45,7 @@
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>
-				<td><input type="text" name="tel" size="40" maxlength="13">></td>
+				<td><input type="text" name="tel" size="40" maxlength="13"></td>
 			</tr>
 		</table><br>
 			記入例） 030-xxxx-xxxx<br><br>
@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
-				<td><input type="text" name="tel" size="40" maxlength="10">></td>
+				<td><input type="text" name="tel" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
 		</table><br>
@@ -66,7 +66,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
+				<td><input type="passwprd" name="sPass" size="40" maxlength="15"></td>
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
@@ -74,7 +74,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
-				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
+				<td><input type="passwprd" name="sPass" size="40" maxlength="15"></td>
 			</tr>
 		</table><br>
 			・確認のためにもう一度ご入力ください。<br><br>
@@ -130,7 +130,7 @@
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
-				<td><input type="text" name="tel" size="40" maxlength="10">></td>
+				<td><input type="text" name="tel" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
 		</table><br>
@@ -140,7 +140,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
+				<td><input type="passwprd" name="sPass" size="40" maxlength="15"></td>
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
@@ -148,7 +148,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
-				<td><input type="passwprd" name="sPass" size="40" maxlength="15">></td>
+				<td><input type="passwprd" name="sPass" size="40" maxlength="15"></td>
 			</tr>
 		</table><br>
 			・確認のためにもう一度ご入力ください。<br><br>
