@@ -37,11 +37,28 @@
 	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
 
 	<%} %>
+</div>
+
+<div style="text-align:left;">
+	支払い方法：<%=session.getAttribute("radio") %><br>
+	配送先住所<br>
+	<%=session.getAttribute("postcode") %><br>
+	<%=session.getAttribute("adress") %><br>
+
+</div>
+
+<div style="text-align:center;">
+	商品合計：<%=for (%>円<br>
+	送料：<%--送料の取得--%><br>
+	合計：<%--商品合計＋送料 --%><br>
+
+</div>
+
 
 	<button type="submit" name="submit" value="chumon" formaction="/orderCollect.jsp">確定</button>
 	<button type="button" name="submit" value="return">戻る</button>
 </form>
 
-</div>
+
 </body>
 </html>

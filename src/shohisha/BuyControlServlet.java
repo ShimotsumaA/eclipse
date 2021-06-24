@@ -13,10 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import bean.OrderBean;
 import bean.OrderDetailBean;
-import bean.ShohinBean;
 import bean.ShohishaBean;
 import kanrisha.ShohinDao;
-import sogo.ErrCheck;
 
 	@WebServlet("/BuyControlServlet")
 	public class BuyControlServlet extends HttpServlet {
@@ -76,7 +74,10 @@ import sogo.ErrCheck;
 					if(request.getParameter("radio")==null) {
 						//dispach戻る
 						request.setAttribute("err","押してください");
-						//前のページに戻る
+						//前のページに戻る(area.jsp)
+						RequestDispatcher rd=request.getRequestDispatcher("/jsp/area.jsp");
+						rd.forward(request, response);
+
 					}else {
 						//OrderDao,ShohinDaoをインスタンス化
 
@@ -140,5 +141,6 @@ import sogo.ErrCheck;
 
 			 }
 		}
+	}
 
 

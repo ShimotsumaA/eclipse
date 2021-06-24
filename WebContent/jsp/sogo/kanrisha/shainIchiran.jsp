@@ -22,6 +22,7 @@
 		<p style="color:red">削除が完了しました。</p>
 <% } %>
 
+
 <form method="post">
 <table  align="center" border="1">
 	<tr>

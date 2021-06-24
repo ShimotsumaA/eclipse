@@ -56,15 +56,31 @@ public class ShohinKanriServlet extends HttpServlet {
 			System.out.println("ディスパッチ!");
 		}
 
-		if(request.getParameter("submit").equals("登録確認")) {
+
+		if(request.getParameter("submit").equals("変更確定")) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+				dispatcher.forward(request, response);
+				System.out.println("ディスパッチ!!!");
+
+		}
+
+		if(request.getParameter("submit").equals("登録確認")){
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
 			dispatcher.forward(request, response);
-			System.out.println("ディスパッチ!!");
-		}
-		if(request.getParameter("submit").equals("登録確認")) {
-
+			System.out.println("ディスパッチ!!!!");
 		}
 
+		if(request.getParameter("submit").equals("登録確定")){
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1");
+				dispatcher.forward(request, response);
+				System.out.println("ディスパッチ!!!!!");
+			}
+
+		if(request.getParameter("submit").equals("削除確定")){
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("ディスパッチ!!!!!");
+		}
 
 
 //		//セッションの取得
