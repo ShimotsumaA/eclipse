@@ -31,7 +31,7 @@
 
   	</div>
 
-	<input type="button" name="back" value="戻る" onclick="location.href='shopping.jsp'">
+	<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/shohisha/shopping.jsp'">
 	</div>
 </body>
 </html>
