@@ -40,7 +40,7 @@
 
     	ArrayList<KijiBean> listShohinKiji=new ArrayList<>();
     	listShohinKiji=(ArrayList<KijiBean>)session.getAttribute("Kiji_shosai");
-    	String kijiName=listShohinKiji.get(0).getKijiName();
+    	String kijiName=listShohinKiji.get(0).getKijiSyurui();
 
 
     %>

@@ -24,8 +24,8 @@ import sogo.DBAccess;
 				while(rs.next()) {
 					CategoryBean bean = new CategoryBean();
 
-					bean.setCategoryId(rs.getString("category_Id"));
-					bean.setCategoryName(rs.getString("category_Name"));
+					bean.setCategoryId(rs.getString("CATEGORY_ID"));
+					bean.setCategoryName(rs.getString("CATEGORY_NAME"));
 					list.add(bean);
 				}
 			}catch(SQLException e) {

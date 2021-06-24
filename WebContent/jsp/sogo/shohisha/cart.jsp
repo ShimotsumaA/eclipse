@@ -29,7 +29,7 @@
     <div class="contents">
     <p id="midasi"> カート一覧</p>
 
-    <%if((Boolean)request.getAttribute("cartflag")&&) {%>
+    <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("login")!=null)) {%>
     <%
 	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
 	String shohinId="";
