@@ -74,7 +74,10 @@ import kanrisha.ShohinDao;
 					if(request.getParameter("radio")==null) {
 						//dispach戻る
 						request.setAttribute("err","押してください");
-						//前のページに戻る
+						//前のページに戻る(area.jsp)
+						RequestDispatcher rd=request.getRequestDispatcher("/jsp/area.jsp");
+						rd.forward(request, response);
+
 					}else {
 						//OrderDao,ShohinDaoをインスタンス化
 
