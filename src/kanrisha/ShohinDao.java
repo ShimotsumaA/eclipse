@@ -21,10 +21,10 @@ public class ShohinDao extends DBAccess {
 
 				while(rs.next()) {
 					ShohinBean bean=new ShohinBean();
-					bean.setShohinId(rs.getString("shohinId"));
-					bean.setShohinName(rs.getString("shohinName"));
-					bean.setKijiId(rs.getString("kijiId"));
-					bean.setCategoryId(rs.getString("categoryId"));
+					bean.setShohinId(rs.getString("shohin_id"));
+					bean.setShohinName(rs.getString("shohin_name"));
+					bean.setKijiId(rs.getString("kiji_id"));
+					bean.setCategoryId(rs.getString("category_id"));
 					bean.setValue(rs.getBigDecimal("value"));
 					list.add(bean);
 				}
@@ -52,10 +52,10 @@ public class ShohinDao extends DBAccess {
 
 		    	while(rs.next()) {
 		    		ShohinBean bean=new ShohinBean();
-		    		bean.setShohinId(rs.getString("shohinId"));
-		    		bean.setShohinName(rs.getString("shohinName"));
-					bean.setKijiId(rs.getString("kijiId"));
-					bean.setCategoryId(rs.getString("categoryId"));
+		    		bean.setShohinId(rs.getString("shohin_id"));
+		    		bean.setShohinName(rs.getString("shohin_name"));
+					bean.setKijiId(rs.getString("kiji_id"));
+					bean.setCategoryId(rs.getString("category_id"));
 					bean.setValue(rs.getBigDecimal("value"));
 					list.add(bean);
 		    	}
