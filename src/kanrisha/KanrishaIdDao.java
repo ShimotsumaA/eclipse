@@ -28,10 +28,10 @@ public class KanrishaIdDao extends DBAccess{
 		 	while(rs.next()){
 		 		KanrishaBean bean = new KanrishaBean();
 
-		 		bean.setId(rs.getString("kId"));
-		 		bean.setName(rs.getString("kName"));
-		 		bean.setPostId(rs.getString("postId"));
-		 		bean.setPass(rs.getString("kPass"));
+		 		bean.setId(rs.getString("K_ID"));
+		 		bean.setName(rs.getString("k_Name"));
+		 		bean.setPostId(rs.getString("pos_tId"));
+		 		bean.setPass(rs.getString("k_Pass"));
 
 		 		list.add(bean);
 		 	}
@@ -66,9 +66,9 @@ public class KanrishaIdDao extends DBAccess{
 		 		KanrishaBean bean = new KanrishaBean();
 
 		 		bean.setId(kId);
-		 		bean.setName(rs.getString("kName"));
-		 		bean.setPostId(rs.getString("postId"));
-		 		bean.setPass(rs.getString("kPass"));
+		 		bean.setName(rs.getString("k_Name"));
+		 		bean.setPostId(rs.getString("post_Id"));
+		 		bean.setPass(rs.getString("k_Pass"));
 
 		 		list.add(bean);
 		 	}
@@ -83,6 +83,7 @@ public class KanrishaIdDao extends DBAccess{
 
 	}
 
+	//IDとパスワードを用いて情報を取得する
 	public ArrayList<KanrishaBean> passCollect(String kId,String kPass){
 
 		ArrayList<KanrishaBean> list = new ArrayList<KanrishaBean>();
@@ -104,9 +105,9 @@ public class KanrishaIdDao extends DBAccess{
 		 		KanrishaBean bean = new KanrishaBean();
 
 		 		bean.setId(kId);
-		 		bean.setName(rs.getString("kName"));
-		 		bean.setPostId(rs.getString("postId"));
-		 		bean.setPass(rs.getString("kPass"));
+		 		bean.setName(rs.getString("k_Name"));
+		 		bean.setPostId(rs.getString("pos_tId"));
+		 		bean.setPass(rs.getString("k_Pass"));
 
 		 		list.add(bean);
 		 	}
