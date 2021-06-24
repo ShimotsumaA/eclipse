@@ -24,7 +24,7 @@
 <table  align="center">
 	<tr>
 		<td align="right">ID：</td>
-		<td><input type="text" name="id" size="15"></td>
+		<td><input type="text" name="id" size="10"></td>
 	</tr>
 	<tr>
 		<td>パスワード：</td>
