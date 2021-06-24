@@ -7,7 +7,8 @@
 <title>在庫管理</title>
 </head>
 <body>
-<form action="zaikoMod.jsp" method="post">
+<%--if(request.getParameter("submit").equals("確定")){ --%>
+<form action="/group2work/ZaikoKanriServlet" method="post">
 <div style=text-align:right>
 	<a href="menu.jsp">メニューへ戻る</a>
 </div>
@@ -36,5 +37,6 @@
 </form>
 <input type="button" value="戻る" onClick="history.go(-1)">
 </div>
+<%--} --%>
 </body>
 </html>

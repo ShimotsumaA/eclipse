@@ -13,7 +13,7 @@
 
 <a href="idStaffMenu.jsp">社員ID管理</a><br>
 <a href="shohinKanriMenu.jsp">商品管理</a><br>
-<a href="zaiko.jsp">在庫管理</a><br>
+<a href="/group2work/ZaikoIchiranServlet">在庫管理</a><br>
 <a href="/group2work/TyumonStatuIchiranServlet">商品受注ステータス</a><br>
 <a href="uriage.jsp">売上管理</a><br><br><br>
 

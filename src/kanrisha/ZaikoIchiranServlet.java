@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class zaikoIchiranServlet
  */
-@WebServlet("/zaikoIchiranServlet")
+@WebServlet("/ZaikoIchiranServlet")
 public class ZaikoIchiranServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -19,11 +19,12 @@
 
 	<label for="tuika">入庫数：現在の在庫数+</label>
 	<input type="text" name="nyuko" size="30" id="tuika"><br><br>
-
+<form action="/group2work/ZaikoKanriServlet" method="post">
 	<input type="submit" name="submit"value="確認">
+</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div><br><br>
-<%} %>
+<%}%>
 
 <%if(request.getParameter("submit").equals("変更")){%>
 <div style=text-align:center>
@@ -36,8 +37,9 @@
 
 	<label for="sinki">新規在庫数:</label>
 	<input type="text" name="shinki" size="30" id="sinki">現在の在庫数<br><br>
-
-	<input type="submit" value="確認">
+<form  action="/group2work/ZaikoKanriServlet" method="post">
+	<input type="submit" name="submit" value="確認">
+</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>

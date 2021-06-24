@@ -35,13 +35,34 @@ public class ZaikoKanriServlet extends HttpServlet {
 
 		//セッションの取得
         HttpSession session = request.getSession(true);
+
         if(request.getParameter("submit").equals("入庫")) {
+        	//フォワード
+    		RequestDispatcher dispatcher=
+    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
+    		dispatcher.forward(request, response);
+    		System.out.println("ディスパッチ！");
+        }
+        if(request.getParameter("submit").equals("変更")) {
+        	//フォワード
+    		RequestDispatcher dispatcher=
+    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
+    		dispatcher.forward(request, response);
+    		System.out.println("ディスパッチ！！");
+        }
+        if(request.getParameter("submit").equals("確認")) {
+        	//フォワード
+    		RequestDispatcher dispatcher=
+    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoKanriKakunin.jsp");
+    		dispatcher.forward(request, response);
+    		System.out.println("ディスパッチ！！！");
+        }
+        if(request.getParameter("submit").equals("確定")) {
         	//フォワード
     		RequestDispatcher dispatcher=
     				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
     		dispatcher.forward(request, response);
+    		System.out.println("ディスパッチ！！！！");
         }
-
 	}
-
 }
