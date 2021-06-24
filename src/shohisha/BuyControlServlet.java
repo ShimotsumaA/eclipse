@@ -13,10 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import bean.OrderBean;
 import bean.OrderDetailBean;
-import bean.ShohinBean;
 import bean.ShohishaBean;
 import kanrisha.ShohinDao;
-import sogo.ErrCheck;
 
 	@WebServlet("/BuyControlServlet")
 	public class BuyControlServlet extends HttpServlet {
@@ -140,5 +138,6 @@ import sogo.ErrCheck;
 
 			 }
 		}
+	}
 
 
