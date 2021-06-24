@@ -15,7 +15,7 @@
 
 <a href="/group2work/UriageServlet?no=2">月別</a><br><br>
 
-<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/menu.jsp''">
+<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/menu.jsp'">
 
 </div>
 
