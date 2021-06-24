@@ -137,10 +137,10 @@
 		<div class="footer">
 			<table>
 				<tr>
-					<td><a href="/group2work/jsp/souryou.jsp">配送料に関して</a></td>
+					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
 				</tr>
 				<tr>
-					<td><a href="/group2work/jsp/gaiyo.jsp">特定商取引法に基づく表記</a></td>
+					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
 				</tr>
 			</table>
 		</div>
