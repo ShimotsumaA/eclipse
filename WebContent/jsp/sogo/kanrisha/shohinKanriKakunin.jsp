@@ -16,12 +16,12 @@
 	商品ID:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
-	<input type="submit" value="登録">
+	<input type="submit" value="登録" >
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 <%} %>
-	
-<%if(request.getParameter("submit").equals("変更")){%>
+
+<%if(request.getParameter("submit").equals("変更確認")){%>
 <div style="text-align:center">
 	<h1>商品変更</h1><br><br>
 	以下の情報を変更します。よろしいですか？<br><br>

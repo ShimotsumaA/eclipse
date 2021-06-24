@@ -7,6 +7,7 @@
 <title>在庫管理</title>
 </head>
 <body>
+<form action="zaikoMod.jsp" method="post">
 <div style=text-align:right>
 	<a href="menu.jsp">メニューへ戻る</a>
 </div>
@@ -29,9 +30,10 @@
 	<td><input type="radio" name="zaiko" value="d"></td><td> </td><td> </td><td> </td>
 </tr>
 </table><br><br>
-<!-- フォームタグ -->
-<input type="submit" value="入庫">
-<input type="submit" value="変更">
+
+	<input type="submit" name="submit" value="入庫">
+	<input type="submit" name="submit" value="変更">
+</form>
 <input type="button" value="戻る" onClick="history.go(-1)">
 </div>
 </body>

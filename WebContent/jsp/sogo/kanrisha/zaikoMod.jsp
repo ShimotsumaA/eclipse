@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>在庫入力</title>
+
 </head>
 <body>
+<%if(request.getParameter("submit").equals("入庫")){%>
 <div style=text-align:center>
 	<h1>在庫管理</h1>
 	商品ID：request.getParameter<br>
@@ -18,12 +20,12 @@
 	<label for="tuika">入庫数：現在の在庫数+</label>
 	<input type="text" name="nyuko" size="30" id="tuika"><br><br>
 
-	<input type="submit" value="確認">
+	<input type="submit" name="submit"value="確認">
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div><br><br>
+<%} %>
 
-<!-- クエリ文字列 -->
-
+<%if(request.getParameter("submit").equals("変更")){%>
 <div style=text-align:center>
 	<h1>在庫管理</h1>
 	商品ID：request.getParameter<br>
@@ -38,5 +40,6 @@
 	<input type="submit" value="確認">
 	<input type="button" value="戻る" onClick="history.go(-1)">
 </div>
+<%} %>
 	</body>
 </html>

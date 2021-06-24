@@ -1,7 +1,6 @@
 package kanrisha;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import bean.ShohinBean;
 
 /**
  * Servlet implementation class zaikoIchiranServlet
@@ -24,7 +20,7 @@ public class ZaikoIchiranServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		doPost(request,response);
 	}
 
 
@@ -35,13 +31,13 @@ public class ZaikoIchiranServlet extends HttpServlet {
 
 
 		//商品DAOから全件検索
-		ShohinDao dao=new ShohinDao();
-		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
-		request.setAttribute("list",dao.selectAll());
-
-		//セッション領域にリストを保存
-		HttpSession session=request.getSession();
-		session.setAttribute("list", list);
+//		ShohinDao dao=new ShohinDao();
+//		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
+//		request.setAttribute("list",dao.selectAll());
+//
+//		//セッション領域にリストを保存
+//		HttpSession session=request.getSession();
+//		session.setAttribute("list", list);
 
 		//フォワード
 		RequestDispatcher dispatcher=

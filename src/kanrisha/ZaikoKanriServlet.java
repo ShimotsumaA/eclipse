@@ -2,6 +2,7 @@ package kanrisha;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,13 @@ public class ZaikoKanriServlet extends HttpServlet {
 
 		//セッションの取得
         HttpSession session = request.getSession(true);
-        if(request.getParameter("submit").equals("入庫"));
+        if(request.getParameter("submit").equals("入庫")) {
+        	//フォワード
+    		RequestDispatcher dispatcher=
+    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
+    		dispatcher.forward(request, response);
+        }
+
 	}
 
 }
