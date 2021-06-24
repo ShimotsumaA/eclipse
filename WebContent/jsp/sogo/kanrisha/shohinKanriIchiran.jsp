@@ -9,10 +9,10 @@
 </head>
 <body>
 
+<form action="/group2work/ShohinKanriServlet" method="post">
+
 <div style= "text-align:center">
 <h1>商品一覧</h1><br>
-
-
 
 <table border="1" align="center">
 <tr>
@@ -31,15 +31,15 @@
 <td><input type="radio" name="商品" value="D"></td><td>0000000004</td><td>商品C</td><td>400</td><td>    </td><td>    </td>
 </tr>
 </table><br><br>
-<form action="/group2work/ShohinKanriServlet" method="post">
+
 <!-- form shohinKanriMod?no=2 -->
 <input type="submit" name="submit" value="変更">
-</form>
 
 <!-- form shohinKanriKakunin -->
-<form action="shohinKanriKakunin.jsp" method="post">
-<input type="submit" name="submit" value="削除" >
-</form>
+<button type="submit" formaction="/group2work/jsp/sogo/kanrisha/shohinKanriKakunin.jsp" name="submit" value="delete"> 削除</button>
+
 <input type="button" value="戻る" onClick="history.go(-1)">
+
+</form>
 </body>
 </html>
