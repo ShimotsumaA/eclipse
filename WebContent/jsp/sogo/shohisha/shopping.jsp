@@ -17,9 +17,9 @@
     <div class="menu_bar">
     <table>
     <tr>
-    <td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
+    <td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td> <!-- トップメニューへのリンク -->
     <td><a href="/group2work/shohisha/CartHyoujiServlet">カート</a></td>　<!-- カートへのリンク -->
-    <td><a href="/group2work/shohisha/MyPageServlet">マイページ</a></td><!-- マイページへのリンク -->
+    <td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td><!-- マイページへのリンク -->
     <td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
     </tr>
     </table>
@@ -28,12 +28,11 @@
     <div class="side_bar">
     <table>
     <tr>
-    <td><a href="">総合メニューへ</a></td>
+    <td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー画面へ</a></td>
 	</tr>
 
     <!-- 検索ボックス -->
 	<tr>
-	<td>
 	<form action="" method="post">
     <input type="text" name="kensaku"><input type="button">
     </form>
