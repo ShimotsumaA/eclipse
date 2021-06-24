@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.OrderBean;
+import bean.OrderDetailBean;
+import bean.ShohinBean;
 import bean.ShohishaBean;
+import kanrisha.ShohinDao;
 import sogo.ErrCheck;
 
 	@WebServlet("/BuyControlServlet")
@@ -67,15 +70,24 @@ import sogo.ErrCheck;
 
 					//エラーがなかった場合
 					if(errmsg=null) {
-						//OrderDaoをインスタンス化
+						//OrderDao,ShohinDaoをインスタンス化
 						OrderDao dao=new OrderDao();
+						ShohinDao dao2=new ShohinDao();
+						OrderDetailDAO dao3=new OrderDetailDAO();
+
 						ArrayList<OrderBean> list=dao.joken(request.getParameter("radio"));
+						ArrayList<ShohinBean> list2=dao2.joken(request.getParameter("radio"));
+						ArrayList<OrderDetailBean> list3=dao3.joken(request.getParameter("radio"));
+						
 						//セッション領域に注文テーブルの各情報をセット
 						session.setAttribute("order_id", list.get(0).getOrderId());
 						session.setAttribute("date", list.get(0).getDate());
 						session.setAttribute("s_id", list.get(0).getSId());
 						session.setAttribute("status_id", list.get(0).getStatusId());
 						session.setAttribute("o_detail_id", list.get(0).getODetailId());
+						session.setAttribute("shohin_name", list2.get(0).getShohinName());
+						session.setAttribute("value", list2.get(0).getValue());
+						session.setAttribute("kazu_konyu", list3.get(0).getKazuKonyu());
 					}
 
 					//orderKakunin.jspに遷移
