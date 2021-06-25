@@ -56,11 +56,19 @@ public class CartHyoujiServlet extends HttpServlet {
 
 		HttpSession session = request.getSession(true);
 		Boolean cartflag;
+
+		//注文はこちらボタンを押したときの処理→ログインしてなかったらログイン画面が表示されるようにする。
+
 		if ((session.getAttribute("submit") != null) && session.getAttribute("submit").equals("tyumonhakotira")) {
 			if(session.getAttribute("login")!=null) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/buy.jsp");
 				dispatcher.forward(request, response);
 			}else {
+
+				//ログイン前の情報と明示
+				session.setAttribute("loginflag",false);
+
+
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/login.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -97,23 +105,39 @@ public class CartHyoujiServlet extends HttpServlet {
 						java.math.BigDecimal shokei = BigDecimal.valueOf(kazuKonyu).multiply(value);
 						gokei = gokei.add(shokei).setScale(0, BigDecimal.ROUND_HALF_UP);
 					}
+
 					int gokei2 = gokei.intValue();
-					session.setAttribute("gokei", gokei2);
+
+
+					//送料の計算
+					SoryoKeisan keisan=new SoryoKeisan();
+					int soryo=keisan.soryo(sId,gokei2);
+
+					//総計の計算
+					int sokei=gokei2+soryo;
 
 					// セッション領域に注文テーブルの各情報をセット
 
+					//注文番号と注文詳細番号
 					session.setAttribute("order", orderId);
 					session.setAttribute("oDetailId", oDetailId);
 
+					//注文と、注文詳細
 					session.setAttribute("listOrder", listOrder);
 					session.setAttribute("oDetailList", listODetailList);
+
+					//合計、送料、総計
+					session.setAttribute("gokei", gokei2);
+					session.setAttribute("soryo", soryo);
+					session.setAttribute("sokei", sokei);
+
 
 					cartflag = true;
 
 				} else {
 					cartflag = false;
 				}
-
+				//ログインしておらずカート情報があるとき
 			} else if (session.getAttribute("cart") != null) {
 				cartflag = true;
 			} else {

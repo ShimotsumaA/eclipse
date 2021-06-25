@@ -71,7 +71,11 @@ public class BuyControlServlet extends HttpServlet {
 					rd.forward(request, response);
 
 				} else {
+					//もし今まで
+
+
 					//OrderDao,ShohinDaoをインスタンス化
+
 
 					String sId = (String) session.getAttribute("id");
 

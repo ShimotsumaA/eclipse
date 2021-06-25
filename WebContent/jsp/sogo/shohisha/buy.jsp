@@ -65,14 +65,14 @@
 			</tr>
 			<tr>
 				<td>商品合計:<%= (Integer)session.getAttribute("gokei") %>円</td><!-- 合計金額表示 -->
-				<td>送料:xxxxx円</td><!-- 送料表示 -->
-				<td>総計:xxxxx円</td><!-- 総計表示 -->
+				<td>送料:<%=(Integer)session.getAttribute("soryo") %>円</td><!-- 送料表示 -->
+				<td>総計:<%=(Integer)session.getAttribute("sokei") %>円</td><!-- 総計表示 -->
 			</tr>
    	 		</table>
    	 	<!-- ボタン -->
    	 	<div class="submit">
    	 		<form method="post">
-   	 			<button type="submit" name="submit" value="jyusho" formaction="">住所入力</button>
+   	 			<button type="submit" name="submit" value="jyusho" formaction="/group2work/shohisha/BuyControlServlet">住所入力</button>
    	 			<button type="submit" name="submit" value="return" formaction="">戻る</button>
    	 		</form>
    	 	</div>
