@@ -7,7 +7,7 @@
 <title>トップページ</title>
 <style>
 	*{
-	font-family:"游明朝"
+	font-family:"游ゴシック light"
 	}
 	body{
 	background-color:#ffffff ;
@@ -19,6 +19,7 @@
 	p{
 	position:relative;
 	top:100px;
+	right:20px;
 	}
 </style>
 </head>
