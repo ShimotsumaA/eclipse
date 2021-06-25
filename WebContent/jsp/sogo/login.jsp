@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -9,58 +9,52 @@
 </head>
 <body>
 
-<div style="text-align:center">
-<h1>ログイン</h1><br>
+	<div style="text-align: center">
+		<h1>ログイン</h1>
+		<br>
 
-<%
-	 String no = request.getParameter("no");
-	 System.out.println(no);
-	 if (no.equals("1")) {
-		 System.out.println("ここ");
+		<%
+		String no = request.getParameter("no");
+		System.out.println(no);
+		if (no.equals("1")) {
+			System.out.println("ここ");
 
-	//<!--  エラーメッセージ -->
-	 } else{
-		 String message = (String)request.getAttribute("message");
-%>
-		<font color="red"> <%=message %></font><br><br>
-<%
-	}
-%>
+			//<!--  エラーメッセージ -->
+		} else {
+			String message = (String) request.getAttribute("message");
+		%>
+		<font color="red"> <%=message%></font><br>
+		<br>
+		<%
+		}
+		%>
 
 
-<form action="/group2work/LogInOutServlet" method="post">
-<select name="zokusei" >
-<option value="kyaku">お客様</option>
-<option value="kanrisha">管理者</option>
-</select>
-<br>
-<br>
+		<form action="/group2work/LogInOutServlet" method="post">
+			<select name="zokusei">
+				<option value="kyaku">お客様</option>
+				<option value="kanrisha">管理者</option>
+			</select> <br> <br>
 
-<table  align="center">
-	<tr>
-		<td align="right">ID：</td>
-		<td><input type="text" name="id" size="10"></td>
-	</tr>
-	<tr>
-		<td>パスワード：</td>
-		<td><input type="text" name="pass" size="15"></td>
-	</tr>
-</table>
-<br>
-<br>
-
-<input type="submit" name="submit" value="ログイン">
-</form>
-<br><br>
-
-<a href="" >パスワードを忘れた方はこちら</a>
-<br><br>
-
-<a href="/group2work/jsp/sogo/shohisha/user.jsp?no=1" >初めてご利用の方はこちら</a>
-<br><br><br>
-
-<a href="/group2work/jsp/sogo/top.jsp" >TOPへ</a>
-</div>
+			<table align="center">
+				<tr>
+					<td align="right">ID：</td>
+					<td><input type="text" name="id" size="10"></td>
+				</tr>
+				<tr>
+					<td>パスワード：</td>
+					<td><input type="text" name="pass" size="15"></td>
+				</tr>
+			</table>
+			<br> <br> <input type="submit" name="submit" value="ログイン">
+		</form>
+		<br>
+		<br> <a href="">パスワードを忘れた方はこちら</a> <br>
+		<br> <a href="/group2work/jsp/sogo/shohisha/user.jsp?no=1">初めてご利用の方はこちら</a>
+		<br>
+		<br>
+		<br> <a href="/group2work/jsp/sogo/top.jsp">TOPへ</a>
+	</div>
 
 </body>
 </html>

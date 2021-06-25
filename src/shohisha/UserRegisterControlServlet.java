@@ -94,7 +94,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 
 				}
 				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/group2work/jsp/sogo/shohisha/user.jsp?no=1");
+						.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=1");
 				dispatcher.forward(request, response);
 			}
 
@@ -113,7 +113,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 			session.setAttribute("mailadress", list.get(0).getMail());
 			session.setAttribute("s_pass", list.get(0).getPass());
 			//遷移先
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/user.jsp?no=2");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
 			dispatcher.forward(request, response);
 
 			//userKakunin.jspから確定ボタンが押された際の処理
@@ -132,7 +132,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 			int rs = dao2.insert(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
 			System.out.println(rs);
 			request.setAttribute("compmsg", "登録が完了しました");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/groupu2work/jsp/sogo/shohisha/area.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
 			dispatcher.forward(request, response);
 		} else {
 
