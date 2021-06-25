@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.ShohishaBean;
+import kanrisha.ShohinDao;
 
 @WebServlet("/BuyControl")
 public class BuyControlServlet extends HttpServlet {
@@ -117,8 +118,15 @@ public class BuyControlServlet extends HttpServlet {
 			} else if (request.getParameter("submit").equals("chumon")) {
 				//OrderDaoをインスタンス化
 				OrderDao dao = new OrderDao();
+				ShohishaDao dao2=new ShohishaDao();
 				String orderId=(String)session.getAttribute("orderId");
 				int kensu=dao.update(orderId, 1); //statusId　注文完了
+				String sId=(String)session.getAttribute("login_id");//ログインidの取得
+				String address=(String)session.getAttribute("address");
+				String postCode=(String)session.getAttribute("postCode");
+
+				int kensu2=dao2.updateCyumon(sId, postCode,address);
+
 
 					if(kensu>=1) {
 						session.setAttribute("tyumon", true);

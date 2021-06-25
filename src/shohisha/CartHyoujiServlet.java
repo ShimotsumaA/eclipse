@@ -2,7 +2,12 @@ package shohisha;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import bean.OrderBean;
 import bean.OrderDetailBean;
 import bean.ShohinBean;
+import bean.ShohishaBean;
 import kanrisha.ShohinDao;
 import sogo.ErrCheck;
 
@@ -57,44 +63,112 @@ public class CartHyoujiServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Boolean cartflag;
 
-		//注文はこちらボタンを押したときの処理→ログインしてなかったらログイン画面が表示されるようにする。
+		// 注文はこちらボタンを押したときの処理→ログインしてなかったらログイン画面が表示されるようにする。
 
 		if ((session.getAttribute("submit") != null) && session.getAttribute("submit").equals("tyumonhakotira")) {
-			if(session.getAttribute("login")!=null) {
+			if (session.getAttribute("login") != null) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/buy.jsp");
 				dispatcher.forward(request, response);
-			}else {
+			} else {
 
-				//ログイン前の情報と明示
-				session.setAttribute("loginflag",false);
-
+				// ログイン前の情報と明示
+				session.setAttribute("loginflag", false);
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/login.jsp");
 				dispatcher.forward(request, response);
 			}
+
+			// 注文はこちら以外のボタンを押したとき
 		} else {
 
 			// ログインしているかどうか
 			if (session.getAttribute("login") != null) {
+
 				String sId = (String) session.getAttribute("login_id");
 				ErrCheck err = new ErrCheck();
 				// カートに商品があるかどうか検索
-				if (err.existOrderIdStatusId(sId, 0)) {
+				if (err.existOrderIdStatusId(sId, 0) || (session.getAttribute("cart") != null)) {
+					// ログインせずにカートに登録していた情報があるとき
+					// 消費者Idの取得
+					String oDetailId;
+					int cartcount = 0;
+					OrderDao dao = new OrderDao();
+					OrderDetailDAO dao2 = new OrderDetailDAO();
+
+					// ログインカートに商品があるかつ、セッションカートに商品があるとき
+					if (err.existOrderIdStatusId(sId, 0) && session.getAttribute("cart") != null) {
+						// oDetailidの取得
+
+						oDetailId = dao.jokenSIdStatus(sId, 0).get(0).getODetailId();
+						// ログイン前カート商品・個数の取得
+						Map<String, Integer> cart = new LinkedHashMap<>();
+						cart = (Map<String, Integer>) session.getAttribute("cart");
+						// 商品と個数の取り出し
+						for (Map.Entry<String, Integer> entry : cart.entrySet()) {
+							String shohinId = entry.getKey();
+							int konyuKosu = entry.getValue();
+
+							// oDetailIdとshohinIdに対応したリストの有無を取得→あるときはアップデート、ない時はインサート
+							if (dao2.joukenShohin(oDetailId, shohinId).size() != 0) {
+								cartcount = dao2.update(oDetailId, shohinId, konyuKosu);
+							} else {
+								cartcount = dao2.insert(oDetailId, shohinId, konyuKosu);
+							}
+
+						}
+
+						// ログインカートに商品がないかつ、セッションカートに商品があるとき
+					} else if (err.existOrderIdStatusId(sId, 0) == false && session.getAttribute("cart") != null) {
+
+						String orderId;
+						String date;
+
+						// may be better to use timeStamp
+						Calendar c1 = Calendar.getInstance();
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+						date = sdf.format(c1.getTime());
+
+						orderId = String.valueOf(dao.selectAll().size() + 1);
+						oDetailId = orderId;
+
+						dao.insert(orderId, date, sId, 0, oDetailId);
+
+						// ログイン前カート商品・個数の取得
+						Map<String, Integer> cart = new LinkedHashMap<>();
+						cart = (Map<String, Integer>) session.getAttribute("cart");
+						// 商品と個数の取り出し
+						for (Map.Entry<String, Integer> entry : cart.entrySet()) {
+							String shohinId = entry.getKey();
+							int konyuKosu = entry.getValue();
+
+							// oDetailIdとshohinIdに対応したリストの有無を取得→あるときはアップデート、ない時はインサート
+							if (dao2.joukenShohin(oDetailId, shohinId).size() != 0) {
+								cartcount = dao2.update(oDetailId, shohinId, konyuKosu);
+							} else {
+								cartcount = dao2.insert(oDetailId, shohinId, konyuKosu);
+							}
+
+						}
+
+
+					} else {
+
+					}
 
 					sId = (String) session.getAttribute("login_id");
 
 					OrderDao dao1 = new OrderDao();
-					OrderDetailDAO dao2 = new OrderDetailDAO();
+					OrderDetailDAO dao4 = new OrderDetailDAO();
 					ShohinDao dao3 = new ShohinDao();
 
 					ArrayList<OrderBean> listOrder = new ArrayList<OrderBean>();
 					listOrder = dao1.jokenSIdStatus(sId, 0);// statusId 0:カート
 					String orderId = listOrder.get(0).getOrderId(); // orderIdの取得
 
-					String oDetailId = listOrder.get(0).getODetailId();// oDetailIdの取得
+					oDetailId = listOrder.get(0).getODetailId();// oDetailIdの取得
 
 					ArrayList<OrderDetailBean> listODetailList = new ArrayList<>();
-					listODetailList = dao2.jouken(oDetailId);// 商品と個数のリスト
+					listODetailList = dao4.jouken(oDetailId);// 商品と個数のリスト
 
 					// 合計金額の取得
 					BigDecimal gokei = BigDecimal.valueOf(0);
@@ -108,37 +182,51 @@ public class CartHyoujiServlet extends HttpServlet {
 
 					int gokei2 = gokei.intValue();
 
+					// 送料の計算
+					SoryoKeisan keisan = new SoryoKeisan();
+					int soryo = keisan.soryo(sId, gokei2);
 
-					//送料の計算
-					SoryoKeisan keisan=new SoryoKeisan();
-					int soryo=keisan.soryo(sId,gokei2);
-
-					//総計の計算
-					int sokei=gokei2+soryo;
+					// 総計の計算
+					int sokei = gokei2 + soryo;
 
 					// セッション領域に注文テーブルの各情報をセット
 
-					//注文番号と注文詳細番号
+					// 注文番号と注文詳細番号
 					session.setAttribute("order", orderId);
 					session.setAttribute("oDetailId", oDetailId);
 
-					//注文と、注文詳細
+					// 注文と、注文詳細
 					session.setAttribute("listOrder", listOrder);
 					session.setAttribute("oDetailList", listODetailList);
 
-					//合計、送料、総計
+					// 合計、送料、総計
 					session.setAttribute("gokei", gokei2);
 					session.setAttribute("soryo", soryo);
 					session.setAttribute("sokei", sokei);
-
 
 					cartflag = true;
 
 				} else {
 					cartflag = false;
 				}
-				//ログインしておらずカート情報があるとき
+				// ログインしておらずカート情報があるとき
 			} else if (session.getAttribute("cart") != null) {
+				Map<String, Integer> cart = new LinkedHashMap<>();
+				cart = (Map<String, Integer>) session.getAttribute("cart");
+
+				BigDecimal gokei = BigDecimal.valueOf(0);
+				for (Map.Entry<String, Integer> entry : cart.entrySet()) {
+					String shohinId = entry.getKey();
+					int konyuKosu = entry.getValue();
+					ShohinDao dao = new ShohinDao();
+					BigDecimal tanka = dao.joken(shohinId).get(0).getValue();
+
+					BigDecimal shokei = BigDecimal.valueOf(konyuKosu).multiply(tanka);
+					gokei = gokei.add(shokei).setScale(0, BigDecimal.ROUND_HALF_UP);
+				}
+				int gokei2 = gokei.intValue();
+				session.setAttribute("gokei", gokei2);
+
 				cartflag = true;
 			} else {
 				cartflag = false;

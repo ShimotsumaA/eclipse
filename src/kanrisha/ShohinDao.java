@@ -66,6 +66,8 @@ public class ShohinDao extends DBAccess {
 			}
 			return list;
 		    }
+
+
 	//逋ｻ骭ｲ繝｡繧ｽ繝�繝�
 	public int insert(String shohinId,String shohinName,String kijiId,
 				String categoryId,java.math.BigDecimal value) {

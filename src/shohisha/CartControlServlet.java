@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -80,9 +81,9 @@ public class CartControlServlet extends HttpServlet {
 			String oDetailId;
 
 			// 注文ステータスがカートの商品があるかどうかチェックする
-			if (dao.jokenSIdStatus(sId, 1).size() != 0) {
+			if (dao.jokenSIdStatus(sId, 0).size() != 0) {
 				// 存在するとき
-				oDetailId = dao.jokenSIdStatus(sId, 1).get(0).getODetailId();
+				oDetailId = dao.jokenSIdStatus(sId, 0).get(0).getODetailId();
 			} else {
 				// 存在しないとき新しく注文番号を取得
 				String orderId;
@@ -96,7 +97,7 @@ public class CartControlServlet extends HttpServlet {
 				orderId = String.valueOf(dao.selectAll().size() + 1);
 				oDetailId = orderId;
 
-				dao.insert(orderId, date, sId, 1, oDetailId);
+				dao.insert(orderId, date, sId, 0, oDetailId);
 			}
 
 			// カートに商品があるかないかの判別
@@ -112,7 +113,7 @@ public class CartControlServlet extends HttpServlet {
 			// ログイン情報がない時
 			// カート情報があるとき
 			if (session.getAttribute("cart") != null) {
-				Map<String, Integer> cart = new HashMap<>();
+				Map<String, Integer> cart = new LinkedHashMap<>();
 				cart = (Map<String, Integer>) session.getAttribute("cart");
 
 				if (cart.containsKey(shohinId)) {
@@ -127,7 +128,7 @@ public class CartControlServlet extends HttpServlet {
 				// カート情報がない時
 			} else {
 
-				Map<String, Integer> cart = new HashMap<>();
+				Map<String, Integer> cart = new LinkedHashMap<>();
 
 				cart.put(shohinId, kazuKonyu);
 				cartcount = 1;

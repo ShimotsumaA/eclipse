@@ -247,6 +247,31 @@ public class OrderDao extends DBAccess {
 
 	}
 
+	public int updateCyumon(String orderId){
+
+		int count=0;
+
+		String sql = "update tyumon set STATUS_ID=1 where ORDER_ID=? ";
+
+		try {
+			connect();
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, orderId);
+
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return count;
+
+
+	}
+
 	public ArrayList<OrderBean> jokenSIdStatus(String sId, int statusId) {
 		// TODO 自動生成されたメソッド・スタブ
 		ArrayList<OrderBean> list = new ArrayList<>();
