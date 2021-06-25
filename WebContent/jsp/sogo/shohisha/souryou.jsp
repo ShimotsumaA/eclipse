@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>配送料に関して</title>
 <style>
+	*{
+	font-family:"游ゴシック"
+	}
 	h2{
 	background-color:#87ceeb
 	}
@@ -13,9 +16,9 @@
 	h4{
 	background-color:#f0ffff
 	}
-	
+
 	table{
-	
+
 	}
 </style>
 </head>

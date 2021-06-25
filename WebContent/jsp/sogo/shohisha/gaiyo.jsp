@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>特定商取引法に基づく表記</title>
 <style>
+	*{
+	font-family:"游ゴシック"
+	}
 	h2{
 	background-color:#87ceeb
 	}
@@ -19,7 +22,7 @@
 <div style="text-align:center">
 <h2>ご利用案内</h2>
 <p>
-特定商取引法に基づく表記<br>
+【特定商取引法に基づく表記】<br>
 </p>
 <p>
 販売事業者：	西田染工株式会社<br>
