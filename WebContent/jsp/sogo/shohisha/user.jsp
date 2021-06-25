@@ -15,6 +15,7 @@
  %>
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
+ 	<form action="/group2work/shohisha/UserRegisterControl" method="post">
  	<div style="text-align:center">
 	<h1>ユーザ登録フォーム</h1>
 	<br><br>
@@ -61,7 +62,7 @@
 			</tr>
 		</table><br>
 			・IDは10文字以内で半角入力のみ可能です。<br>
-			・アルファベットと数字のみ使用可能です。<br>
+			・英数字を必ず組み合わせてください。<br>
 			・大文字と小文字は区別しません。<br><br>
 		<table  align="center">
 			<tr>
@@ -70,7 +71,7 @@
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
-			・アルファベットと数字を必ず組み合わせてください。<br><br>
+			・英数字を必ず組み合わせてください。<br><br>
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
@@ -89,6 +90,7 @@
 
  <!-- ユーザ登録情報変更フォーム -->
  <% if (no.equals("2")){%>
+ 	<form action="/group2work/shohisha/UserRegisterControl" method="post">
  	<div style="text-align:center">
  	<h1>ユーザ登録情報変更フォーム</h1>
 	<br><br>
@@ -135,7 +137,7 @@
 			</tr>
 		</table><br>
 			・IDは10文字以内で半角入力のみ可能です。<br>
-			・アルファベットと数字のみ使用可能です。<br>
+			・英数字を必ず組み合わせてください。<br>
 			・大文字と小文字は区別しません。<br><br>
 		<table  align="center">
 			<tr>
@@ -144,7 +146,7 @@
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
-			・アルファベットと数字を必ず組み合わせてください。<br><br>
+			・英数字を必ず組み合わせてください。。<br><br>
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>

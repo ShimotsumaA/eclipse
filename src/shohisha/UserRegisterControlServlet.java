@@ -63,9 +63,9 @@ public class UserRegisterControlServlet extends HttpServlet {
     				session.setAttribute("sName", request.getParameter("s_name"));
     				session.setAttribute("dateBirth", request.getParameter("date_birth"));
     				session.setAttribute("postCode", request.getParameter("post_code"));
-    				session.setAttribute("adress", request.getParameter("adress"));
+    				session.setAttribute("adress", request.getParameter("address"));
     				session.setAttribute("tel", request.getParameter("tel"));
-    				session.setAttribute("mailAdress", request.getParameter("maildaress"));
+    				session.setAttribute("mailAdress", request.getParameter("mailadress"));
     				session.setAttribute("sPass", request.getParameter("s_pass"));
     				forward="/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2";
     			//ErrCheckでfalseの際の処理
@@ -74,7 +74,7 @@ public class UserRegisterControlServlet extends HttpServlet {
     				session.setAttribute("sName", request.getParameter("s_name"));
     				session.setAttribute("dateBirth", request.getParameter("date_birth"));
     				session.setAttribute("postCode", request.getParameter("post_code"));
-    				session.setAttribute("adress", request.getParameter("adress"));
+    				session.setAttribute("adress", request.getParameter("address"));
     				session.setAttribute("tel", request.getParameter("tel"));
     				session.setAttribute("mailAdress", request.getParameter("mailadress"));
     				session.setAttribute("sPass", request.getParameter("s_pass"));
@@ -120,7 +120,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String sName = (String)session.getAttribute("s_name");
 				String dateBirth =(String)session.getAttribute("date_birth");
 				String postCode = (String) session.getAttribute("postcode");
-				String adress = (String) session.getAttribute("adress");
+				String adress = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
 				String mailAdress = (String) session.getAttribute("mailadress");
 				String sId = (String) session.getAttribute("s_id");
