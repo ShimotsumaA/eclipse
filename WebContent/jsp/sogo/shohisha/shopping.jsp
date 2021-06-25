@@ -19,7 +19,7 @@
 				<tr>
 					<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
 					<!-- トップメニューへのリンク -->
-					<td><a href="/CartHyoujiServlet">カート</a></td>
+					<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
 					<!-- カートへのリンク -->
 					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
 					<!-- マイページへのリンク -->
