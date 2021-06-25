@@ -1,6 +1,7 @@
 package shohisha;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.ShohishaBean;
 
 /**
  * Servlet implementation class myPageServlet
@@ -52,10 +56,37 @@ public class MyPageServlet extends HttpServlet {
 
     //myPage.jspでユーザ情報確認(リンク)が押された際の処理
         if(no.equals("1")){
-        	ShohishaDao dao = new ShohishaDao();
-			request.setAttribute("list",dao.selectAll());
-			//userKakunin.jspの画面を決める値をセット
-			request.setAttribute("submit","toroku");
+			/*
+			 * ShohishaDao dao = new ShohishaDao();
+			 * request.setAttribute("list",dao.selectAll()); //userKakunin.jspの画面を決める値をセット
+			 */
+    		HttpSession session=request.getSession(true);
+    		String sId=(String) session.getAttribute("id");
+    		ShohishaDao dao=new ShohishaDao();
+
+    		//ユーザー情報の取得
+    		ArrayList<ShohishaBean> list=new ArrayList<ShohishaBean>();
+    		list=dao.joken(sId);
+    		String sName=list.get(0).getName();
+    		String dateBirth=list.get(0).getBirth();
+    		String postCode=list.get(0).getPost();
+    		String address=list.get(0).getAdress();
+    		String tel=list.get(0).getTel();
+    		String mailAddress=list.get(0).getMail();
+    		String sPass=list.get(0).getPass();
+
+    		//ユーザー情報をセッションにセット
+    		session.setAttribute("sId", sId);
+    		session.setAttribute("sName", sName);
+    		session.setAttribute("dateBirth", dateBirth);
+    		session.setAttribute("postCode", postCode);
+    		session.setAttribute("address", address);
+    		session.setAttribute("tel", tel);
+    		session.setAttribute("mailAddress", mailAddress);
+    		session.setAttribute("sPass", sPass);
+
+
+        	request.setAttribute("submit","henko");
 			//forward先を指定
 			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
 			rd.forward(request, response);
