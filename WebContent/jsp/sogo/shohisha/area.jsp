@@ -107,7 +107,7 @@
 	</p>
 
 	<p class="midasi">お届け先住所</p>
-	<form action="" method="post">
+	<form action="/group2work/shohisha/PostServlet" method="post">
 
 	<table>
 	<tr>
