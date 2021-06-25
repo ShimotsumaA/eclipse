@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,28 @@
 <body>
 
 <div style="text-align:center">
-<h1>ログイン</h1>
-<br>
-<br>
+<h1>ログイン</h1><br>
+
+<%
+	 String no = request.getParameter("no");
+	 System.out.println(no);
+	 if (no.equals("1")) {
+		 System.out.println("ここ");
+
+	//<!--  エラーメッセージ -->
+	 } else{
+		 String message = (String)request.getAttribute("message");
+%>
+		<font color="red"> <%=message %></font><br><br>
+<%
+	}
+%>
+
 
 <form action="/group2work/LogInOutServlet" method="post">
 <select name="zokusei" >
 <option value="kyaku">お客様</option>
-<option value="kanrisya">管理者</option>
+<option value="kanrisha">管理者</option>
 </select>
 <br>
 <br>

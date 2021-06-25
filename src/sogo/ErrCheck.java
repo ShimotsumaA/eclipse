@@ -2,6 +2,7 @@ package sogo;
 
 import java.util.ArrayList;
 
+import bean.KanrishaBean;
 import bean.ShohishaBean;
 import kanrisha.KanrishaIdDao;
 import kanrisha.ShohinDao;
@@ -82,7 +83,7 @@ public class ErrCheck {
 	public boolean existkId(String kId) {
 		KanrishaIdDao dao = new KanrishaIdDao();
 
-		if (dao.jouken(kId).size() != 0) {
+		if (dao.joken(kId).size() != 0) {
 			return true; // 管理者IDが存在する。
 		} else {
 			return false;
@@ -90,17 +91,19 @@ public class ErrCheck {
 
 	}
 
+
 	//管理者IDとパスワードが一致するか。
-	public boolean kPassCollect(String kId,String kPass) {
-		KanrishaIdDao dao = new KanrishaIdDao();
+			public boolean kPassCollect(String kId, String kPass) {
+				KanrishaIdDao dao = new KanrishaIdDao();
+				ArrayList <KanrishaBean> list  = dao.joken(kId);
+				String pass = list.get(0).getPass();
 
-		if (dao.passCollect(kId,kPass).size() != 0) {
-			return true; // 一致する。
-		} else {
-			return false;
-		}
-
-	}
+				if (list.size() != 0 && kPass.equals(pass)) {
+						return true; // 一致する。
+					} else {
+					return false;
+				}
+			}
 
 	//商品IDが存在するか。
 

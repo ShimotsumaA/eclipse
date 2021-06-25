@@ -30,6 +30,7 @@ public class LogInOutServlet extends HttpServlet {
 
 		//submitの値によってログインかログアウト
 		String submit = request.getParameter("submit");
+		System.out.println(submit);
 
 		//ログインする
 		if (submit.equals("ログイン")) {
@@ -46,36 +47,39 @@ public class LogInOutServlet extends HttpServlet {
 			System.out.println(id+pass);
 
 			//管理者エラーチェック
-			if (zokusei.equals("kanrisya")) {
+			if (zokusei.equals("kanrisha")) {
 
 				//管理者IDが存在するか。
 				if (err.existkId(id)) {
-
+					System.out.println("存在");
 				} else {
 					String message = "IDが存在しません。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=2");
 					dispatcher.forward(request, response);
 				}
 
+
 				//管理者IDとパスワードが一致するか。
 				if (err.kPassCollect(id, pass)) {
-
+					System.out.println("一致");
 				} else {
 					String message = "IDとパスワードが一致しません。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+				    RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=3");
 					dispatcher.forward(request, response);
 				}
+
 
 				//IDパスワードが正しいので、IDをセッション領域に預ける
 				session.setAttribute("id",id);
 
-				//管理者総合メニューへ遷移する
+					//管理者総合メニューへ遷移する
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/menu.jsp");
 				dispatcher.forward(request, response);
+
 
 			//消費者（お客様）エラーチェック
 			} else {
@@ -87,7 +91,7 @@ public class LogInOutServlet extends HttpServlet {
 					String message = "IDが存在しません。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=2");
 					dispatcher.forward(request, response);
 				}
 
@@ -98,7 +102,7 @@ public class LogInOutServlet extends HttpServlet {
 				String message = "IDとパスワードが一致しません。";
 				request.setAttribute("message", message);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=3");
 				dispatcher.forward(request, response);
 			}
 
@@ -123,3 +127,5 @@ public class LogInOutServlet extends HttpServlet {
 	}
 
 }
+
+

@@ -46,7 +46,7 @@ public class KanrishaIdDao extends DBAccess{
 
 
 	//管理者IDをもとに特定の管理者情報を選択する
-	public ArrayList<KanrishaBean> jouken(String kId){
+	public ArrayList<KanrishaBean> joken(String kId){
 
 		ArrayList<KanrishaBean> list = new ArrayList<KanrishaBean>();
 
@@ -88,7 +88,7 @@ public class KanrishaIdDao extends DBAccess{
 
 		ArrayList<KanrishaBean> list = new ArrayList<KanrishaBean>();
 
-		String sql = "select K_NAME, POST_ID, K_PASS  from STAFF where K_ID = ? AND K_PASS";
+		String sql = "select K_NAME, POST_ID, K_PASS  from STAFF where K_ID = ? AND K_PASS=?";
 
 		try {
 			connect();
@@ -106,7 +106,7 @@ public class KanrishaIdDao extends DBAccess{
 
 		 		bean.setId(kId);
 		 		bean.setName(rs.getString("k_Name"));
-		 		bean.setPostId(rs.getString("pos_tId"));
+		 		bean.setPostId(rs.getString("post_Id"));
 		 		bean.setPass(rs.getString("k_Pass"));
 
 		 		list.add(bean);
