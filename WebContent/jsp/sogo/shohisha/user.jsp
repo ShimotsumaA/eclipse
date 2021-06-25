@@ -15,7 +15,7 @@
  %>
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
- 	<form action="/group2work/shohisha/UserRegisterControl" method="post">
+ 	<form action="/group2work/UserRegisterControl" method="post">
  	<div style="text-align:center">
 	<h1>ユーザ登録フォーム</h1>
 	<br><br>

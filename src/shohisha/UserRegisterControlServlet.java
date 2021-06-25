@@ -16,7 +16,7 @@ import sogo.ErrCheck;
 /**
  * Servlet implementation class userRegisterControlServlet
  */
-@WebServlet("/userRegisterControl")
+@WebServlet("/UserRegisterControl")
 public class UserRegisterControlServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
