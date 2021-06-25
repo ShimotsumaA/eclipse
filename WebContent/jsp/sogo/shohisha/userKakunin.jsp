@@ -35,32 +35,32 @@
 
 			<tr>
 				<td>郵便番号：</td>
-				<td><%=session.getAttribute("postCode") %>円</td>
+				<td><%=session.getAttribute("postCode") %></td>
 			</tr>
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %>円</td>
+				<td><%=session.getAttribute("adress") %></td>
 			</tr>
 
 			<tr>
 				<td>電話番号：</td>
-				<td><%=session.getAttribute("tel") %>円</td>
+				<td><%=session.getAttribute("tel") %></td>
 			</tr>
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %>円</td>
+				<td><%=session.getAttribute("mailAdress") %></td>
 			</tr>
 
 			<tr>
 				<td>ID：</td>
-				<td><%=session.getAttribute("sId") %>円</td>
+				<td><%=session.getAttribute("sId") %></td>
 			</tr>
 
 			<tr>
 				<td>パスワード：</td>
-				<td><%=session.getAttribute("sPass") %>円</td>
+				<td><%=session.getAttribute("sPass") %></td>
 			</tr>
 
 		</table>
@@ -76,7 +76,7 @@
 <% } %>
 
  <!-- 登録情報の変更 -->
- <% if(no.equals("2")){ %>
+ <% if(request.getAttribute("submit").equals("henko")){ %>
 	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
@@ -94,32 +94,32 @@
 
 			<tr>
 				<td>郵便番号：</td>
-				<td><%=session.getAttribute("postCode") %>円</td>
+				<td><%=session.getAttribute("postCode") %></td>
 			</tr>
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %>円</td>
+				<td><%=session.getAttribute("adress") %></td>
 			</tr>
 
 			<tr>
 				<td>電話番号：</td>
-				<td><%=session.getAttribute("tel") %>円</td>
+				<td><%=session.getAttribute("tel") %></td>
 			</tr>
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %>円</td>
+				<td><%=session.getAttribute("mailAdress") %></td>
 			</tr>
 
 			<tr>
 				<td>ID：</td>
-				<td><%=session.getAttribute("sId") %>円</td>
+				<td><%=session.getAttribute("sId") %></td>
 			</tr>
 
 			<tr>
 				<td>パスワード：</td>
-				<td><%=session.getAttribute("sPass") %>円</td>
+				<td><%=session.getAttribute("sPass") %></td>
 			</tr>
 		</table>
 		<br>
