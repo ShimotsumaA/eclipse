@@ -8,19 +8,15 @@
 </head>
 <body>
 
-	<div class="wrapper">
-		<div class="">
-		</div>
+
 
 	<form method="post">
 
-		<div class="">
-			<h1 class="midasi">お支払方法を選択</h1>
-			<table>
-			<tr>
-				<td>お支払方法</td>
-			</tr>
+		<div style="text-align:center">
+			<h1>お支払方法を選択</h1>
 
+		<table border="1" align="center">
+			<th></th><th>お支払方法</th>
 			<tr>
 				<td><input type="radio" id="siharai" value="hurikomi"></td>
 				<td>銀行振込</td>
@@ -33,17 +29,16 @@
 
 			<tr>
 				<td><input type="radio" id="siharai" value="daibiki"></td>
-				<td>代金引換　<br><p>*代引き手数料がかかります</p></td>
+				<td>代金引換</td>
 			</table>
-		</div>
+				<p>*代引き引き換えは、代引き手数料がかかります</p>
+			<br><br>
 
-		<div class="">
+
 			<button type="submit" name="submit" value="zokko" formaction="/group2work/shohisha/BuyControl">続行</button>
 			<button type="button" name="submit" value="return" >戻る</button>
 		</div>
 
 	</form>
-
-	</div>
 </body>
 </html>
