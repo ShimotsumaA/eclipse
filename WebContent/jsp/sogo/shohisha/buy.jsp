@@ -17,11 +17,11 @@
     	<div class="menu_bar">
     	<table>
     	<tr>
-    		<td><a href="top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    		<td><a href="cart.jsp">カート</a></td>　<!-- カートへのリンク -->
-    		<td><a href="">マイページ</a></td><!-- マイページへのリンク -->
-    		<td><a href="">ログイン</a></td><!-- ログインページへのリンク -->
-    		<td><a href="">配送料に関して</a><!-- 配送料ページへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>　<!-- カートへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td><!-- マイページへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
     	</tr>
     	</table>
    	 	</div>
