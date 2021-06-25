@@ -50,7 +50,7 @@
 <div style="text-align:center;">
 	商品合計：<%=(Integer)session.getAttribute("gokei")%>円<br>//セッションから商品合計を取得
 	送料：<%=(Integer)session.getAttribute("soryo")%><br>//セッションから
-	合計：<%=(Integer)session.getAttribute("")+(Integer)session.getAttribute("souryou")%><br>
+	合計：<%=(Integer)session.getAttribute("gokei")%><br>
 
 </div>
 

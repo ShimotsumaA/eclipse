@@ -106,7 +106,7 @@ public class LogInOutServlet extends HttpServlet {
 			session.setAttribute("id",id);
 
 			//ショッピングへ遷移する
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/shohisha/ECHyoujiServlet");
 			dispatcher.forward(request, response);
 			}
 
