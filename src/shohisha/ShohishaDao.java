@@ -149,6 +149,36 @@ public class ShohishaDao extends DBAccess {
 				return rs;
 		}
 
+	//注文時住所更新メソッド
+		public int updateCyumon(String sId, String postCode, String adress) {
+
+			String sql = "UPDATE shohisha SET postcode=?,adress=?　where s_id=?";
+
+			int rs=0;
+
+			try {
+				connect();
+				PreparedStatement ps=getConnection().prepareStatement(sql);
+
+
+				ps.setString(1, postCode);
+				ps.setString(2, adress);
+				ps.setString(3,sId);
+
+				rs=ps.executeUpdate();
+
+
+
+	    	}catch(Exception e) {
+	    		e.printStackTrace();
+
+	    	}finally {
+	    		disconnect();
+	    	}
+			return rs;
+	}
+
+
 	//削除メソッド
 		public int delete(String sId) {
 
