@@ -75,7 +75,7 @@
 
  <!-- 登録情報の変更 -->
  <% if(no.equals("2")){ %>
-	<form action =/group2work/UserRegisterControl" method="post">
+	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
 		<p>以下の情報を変更します。よろしいですか？</p>
@@ -128,6 +128,7 @@
 			</tr>
 		</table>
 	</div>
+	</form>
 <% } %>
 
 
