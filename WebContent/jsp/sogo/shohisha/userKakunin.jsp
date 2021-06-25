@@ -18,7 +18,6 @@
 
  <% if(request.getAttribute("submit").equals("toroku")){ %>
 	<form action ="/group2work/UserRegisterControl"  method="post">
->>>>>>> stash
 	<div align="center">
 		<p>登録情報の確認</p>
 		<p>以下の情報を登録します。よろしいですか？</p>
