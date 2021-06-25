@@ -2,11 +2,14 @@ package shohisha;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionBindingEvent;
 
 /**
  * Servlet implementation class PostServlet
@@ -36,7 +39,17 @@ public class PostServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		//リクエストから郵便番号と住所を取得
+		String post_code=request.getParameter("post_code");
+		String address=request.getParameter("address");
+
+		HttpSession session=request.getSession(true);
+		session.setAttribute("post_code", post_code);
+		session.setAttribute("address",address);
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/pay.jsp");
+		rd.forward(request, response);
+
 	}
 
 }
