@@ -152,7 +152,7 @@ public class ShohishaDao extends DBAccess {
 	//注文時住所更新メソッド
 		public int updateCyumon(String sId, String postCode, String adress) {
 
-			String sql = "UPDATE shohisha SET postcode=?,adress=?　where s_id=?";
+			String sql = "UPDATE shohisha SET postcode=?,address=? where s_id=?";
 
 			int rs=0;
 
