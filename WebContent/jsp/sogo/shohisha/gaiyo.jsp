@@ -7,7 +7,6 @@
 <title>特定商取引法に基づく表記</title>
 <style>
 	h2{
-
 	background-color:#87ceeb
 	}
 
