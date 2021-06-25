@@ -41,7 +41,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">住所：</td>
-				<td><textarea name=”adress” rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
+				<td><textarea name=”address” rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>
@@ -52,7 +52,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">メールアドレス：</td>
-				<td><input type="text" name="mailAdress" size="40"></td>
+				<td><input type="text" name="mailAddress" size="40"></td>
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
@@ -116,7 +116,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">住所：</td>
-				<td><textarea name=”adress” rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
+				<td><textarea name=”address” rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>
@@ -127,7 +127,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">メールアドレス：</td>
-				<td><input type="text" name="mailAdress" size="40"></td>
+				<td><input type="text" name="mailAddress" size="40"></td>
 			</tr>
 			<tr>
 				<td align="right">ID：</td>

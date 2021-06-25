@@ -65,9 +65,9 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("sName", request.getParameter("sName"));
 				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
 				session.setAttribute("postCode", request.getParameter("postCode"));
-				session.setAttribute("adress", request.getParameter("address"));
+				session.setAttribute("address", request.getParameter("address"));
 				session.setAttribute("tel", request.getParameter("tel"));
-				session.setAttribute("mailAdress", request.getParameter("mailadress"));
+				session.setAttribute("mailAddress", request.getParameter("mailaddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
 				request.setAttribute("submit", "toroku");
@@ -82,9 +82,9 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("sName", request.getParameter("sName"));
 				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
 				session.setAttribute("postCode", request.getParameter("postCode"));
-				session.setAttribute("adress", request.getParameter("address"));
+				session.setAttribute("address", request.getParameter("address"));
 				session.setAttribute("tel", request.getParameter("tel"));
-				session.setAttribute("mailAdress", request.getParameter("mailadress"));
+				session.setAttribute("mailAddress", request.getParameter("mailaddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
 				if (err.checkId("sId") == false) {
@@ -111,15 +111,15 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String sName = (String) session.getAttribute("sName");
 				String dateBirth = (String) session.getAttribute("dateBirth");
 				String postCode = (String) session.getAttribute("postCode");
-				String adress = (String) session.getAttribute("adress");
+				String address = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
-				String mailAdress = (String) session.getAttribute("mailadress");
+				String mailAddress = (String) session.getAttribute("mailaddress");
 				String sId = (String) session.getAttribute("sId");
 				String sPass = (String) session.getAttribute("sPass");
 
 			//DAOをインスタンス化
 				ShohishaDao dao= new ShohishaDao();
-				int rs =dao.update(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
+				int rs =dao.update(sName, dateBirth, postCode, address, tel, mailAddress, sId, sPass);
 				System.out.println(rs);
 				request.setAttribute("compmsg", "変更が完了しました");
 			//遷移先
@@ -131,15 +131,15 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String sName = (String) session.getAttribute("s_name");
 				String dateBirth = (String) session.getAttribute("date_birth");
 				String postCode = (String) session.getAttribute("postcode");
-				String adress = (String) session.getAttribute("adress");
+				String address = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
-				String mailAdress = (String) session.getAttribute("mailadress");
+				String mailAddress = (String) session.getAttribute("mailaddress");
 				String sId = (String) session.getAttribute("s_id");
 				String sPass = (String) session.getAttribute("s_pass");
 
 			//DAOをインスタンス化
 				ShohishaDao dao2 = new ShohishaDao();
-				int rs = dao2.insert(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
+				int rs = dao2.insert(sName, dateBirth, postCode, address, tel, mailAddress, sId, sPass);
 				System.out.println(rs);
 				request.setAttribute("compmsg", "登録が完了しました");
 			//遷移先
