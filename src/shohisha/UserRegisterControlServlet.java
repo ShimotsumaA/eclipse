@@ -67,7 +67,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("postCode", request.getParameter("postCode"));
 				session.setAttribute("address", request.getParameter("address"));
 				session.setAttribute("tel", request.getParameter("tel"));
-				session.setAttribute("mailAddress", request.getParameter("mailaddress"));
+				session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
 				request.setAttribute("submit", "toroku");
@@ -84,7 +84,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("postCode", request.getParameter("postCode"));
 				session.setAttribute("address", request.getParameter("address"));
 				session.setAttribute("tel", request.getParameter("tel"));
-				session.setAttribute("mailAddress", request.getParameter("mailaddress"));
+				session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
 				if (err.checkId("sId") == false) {
@@ -113,7 +113,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String postCode = (String) session.getAttribute("postCode");
 				String address = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
-				String mailAddress = (String) session.getAttribute("mailaddress");
+				String mailAddress = (String) session.getAttribute("mailAddress");
 				String sId = (String) session.getAttribute("sId");
 				String sPass = (String) session.getAttribute("sPass");
 
@@ -133,7 +133,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String postCode = (String) session.getAttribute("postcode");
 				String address = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
-				String mailAddress = (String) session.getAttribute("mailaddress");
+				String mailAddress = (String) session.getAttribute("mailAddress");
 				String sId = (String) session.getAttribute("s_id");
 				String sPass = (String) session.getAttribute("s_pass");
 
@@ -142,9 +142,19 @@ public class UserRegisterControlServlet extends HttpServlet {
 				int rs = dao2.insert(sName, dateBirth, postCode, address, tel, mailAddress, sId, sPass);
 				System.out.println(rs);
 				request.setAttribute("compmsg", "登録が完了しました");
+
 			//遷移先
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
-				dispatcher.forward(request, response);
+				if(session.getAttribute("loginflag")!=null) {
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
+					dispatcher.forward(request, response);
+
+				}else {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+					dispatcher.forward(request, response);
+
+				}
+
 		} else {
 
 		}

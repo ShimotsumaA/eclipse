@@ -39,7 +39,7 @@
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %></td>
+				<td><%=session.getAttribute("address") %></td>
 			</tr>
 
 			<tr>
@@ -49,7 +49,7 @@
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %></td>
+				<td><%=session.getAttribute("mailAddress") %></td>
 			</tr>
 
 			<tr>
@@ -98,7 +98,7 @@
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %></td>
+				<td><%=session.getAttribute("address") %></td>
 			</tr>
 
 			<tr>
@@ -108,7 +108,7 @@
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %></td>
+				<td><%=session.getAttribute("mailAddress") %></td>
 			</tr>
 
 			<tr>

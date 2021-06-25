@@ -41,7 +41,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">住所：</td>
-				<td><textarea name=”address” rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
+				<td><textarea name="address" rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>

@@ -7,6 +7,9 @@
 <title>配送地域選択</title>
 </head>
 <body>
+	<div style="text-align:center">
+	<h1>住所入力</h1>
+
 	<p>配送地域を選択してください。<br>
 	<select name="chiikiselect">
 	<optgroup label="北海道">
@@ -97,26 +100,30 @@
 	<p class="midasi">お届け先住所</p>
 	<form action="/group2work/shohisha/PostServlet" method="post">
 
-	<table>
-	<tr>
-		<td></td>
-		<td>*住所登録が配送先と異なる場合、配送先の住所を入力してください。</td>
-	</tr>
+	<p class="midasi">*住所登録が配送先と異なる場合、配送先の住所を入力してください</p>
 
+	<table  align="center" border="1">
 	<tr>
 		<td>郵便番号:</td>
-		<td><input type="text" name="post_code" value="デフォルト" size="8" maxlength="8"> <!-- 郵便番号の取得 --> </td>
+		<td><input type="text" name="post_code" value="デフォルト" size="30" maxlength="8"> </td>
 	</tr>
 
 	<tr>
 		<td>住所:</td>
-		<td><textarea rows="3" cols="40" name="address"><!-- 住所の取得 --></textarea></td>
+		<td><textarea rows="3" cols="40" name="address"></textarea></td>
 	</tr>
 	</table>
+	<br><br>
+	<font color="red">
+			<%if(request.getAttribute("compmsg")!=null){ %>
+				<%= request.getAttribute("compmsg")%>
+			<% } %>
+
+		</font>
 
 	<button type="submit" name="submit" value="kakutei">確定</button>
 
 	</form>
-
+	</div>
 </body>
 </html>
