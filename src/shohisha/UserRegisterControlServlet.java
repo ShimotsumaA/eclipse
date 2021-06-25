@@ -71,13 +71,9 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
 				request.setAttribute("submit", "toroku");
-	
-				RequestDispatcher dispatcher = request
-<<<<<<< HEAD
-						.getRequestDispatcher("/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=1");
-=======
-						.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
->>>>>>> stash
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
+
 				dispatcher.forward(request, response);
 
 				//ErrCheckでfalseの際の処理
