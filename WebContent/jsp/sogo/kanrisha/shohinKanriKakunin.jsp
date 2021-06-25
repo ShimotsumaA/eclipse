@@ -18,6 +18,7 @@
 
 	商品名：<br>
 	商品ID:<br>
+	販売価格:<br>
 	カテゴリ：<br>
 	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
 
