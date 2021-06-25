@@ -154,8 +154,8 @@ public class KanrishaIdDao extends DBAccess{
 
 
 	//管理者IDをもとに管理者情報を選択し、新たな情報に上書きする
-	public int update(String oldKId, String newKId, String kName, String postId, String kPass) {
-		String sql = "update  set K_ID=?, K_NAME=?, POST_ID=?, K_PASS=? where K_ID=?";
+	public int update(String kId, String kName, String postId, String kPass) {
+		String sql = "update STAFF set K_NAME=?, POST_ID=?, K_PASS=? where K_ID=?";
 		int kensu = 0;
 
 		try {
@@ -163,11 +163,11 @@ public class KanrishaIdDao extends DBAccess{
 			//ステートメントを作成する
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 
-				ps.setString(1, newKId);
-				ps.setString(2, kName);
-				ps.setString(3, postId);
-				ps.setString(4, kPass);
-				ps.setString(5, oldKId);
+				ps.setString(4, kId);
+				ps.setString(1, kName);
+				ps.setString(2, postId);
+				ps.setString(3, kPass);
+
 
 				//SQLを発行する
 				kensu = ps.executeUpdate();

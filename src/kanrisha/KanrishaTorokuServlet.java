@@ -1,6 +1,7 @@
 package kanrisha;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.KanrishaBean;
 import sogo.ErrCheck;
 
 @WebServlet("/KanrishaTorokuServlet")
@@ -40,8 +42,19 @@ public class KanrishaTorokuServlet extends HttpServlet {
 		KanrishaIdDao dao = new KanrishaIdDao();
 
 		if (submit.equals("変更")) {
+			String id = request.getParameter("radio");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp");
+			//idをもとに個人情報を取り出し、リクエスト領域に預ける
+			ArrayList<KanrishaBean> list = dao.joken(id);
+
+			request.setAttribute("id", id);
+			request.setAttribute("name", list.get(0).getName());
+			request.setAttribute("postId", list.get(0).getPostId());
+			request.setAttribute("pass", list.get(0).getPass());
+
+			System.out.println(list.get(0).getPostId());
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=変更");
 			dispatcher.forward(request, response);
 
 		} else if(submit.equals("削除")) {
@@ -87,16 +100,16 @@ public class KanrishaTorokuServlet extends HttpServlet {
 				}
 
 				//パスワード
-//				if (err.checkPass(pass1)) {
-//					System.out.println("パスワード正しい入力");
-//				} else {
-//					String message = "パスワードは４文字以上１５文字以内で、英数字を必ず含めてください。";
-//					System.out.println(message);
-//					request.setAttribute("message", message);
-//
-//					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/idStaffMod.jsp?submit=2");
-//					dispatcher.forward(request, response);
-//				}
+				if (err.checkPass(pass1)) {
+					System.out.println("パスワード正しい入力");
+				} else {
+					String message = "パスワードは４文字以上１５文字以内で、英数字を必ず含めてください。";
+					System.out.println(message);
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+					dispatcher.forward(request, response);
+				}
 
 				//２回入力したパスワードが一致するか。
 				if (err.checkPassMaches(pass1, pass2)) {
@@ -130,8 +143,48 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp?submit=登録情報確認");
 			dispatcher.forward(request, response);
 
+
 		} else if(submit.equals("変更情報確認")) {
 
+			//入力値を取得する
+			String id = (String)session.getAttribute("id");
+			String name = request.getParameter("name");
+			String postId = request.getParameter("postId");
+			String pass1 = request.getParameter("pass1");
+			String pass2 = request.getParameter("pass2");
+			System.out.println(pass1);
+
+			//エラーチェック
+			ErrCheck err = new ErrCheck();
+
+				//パスワード
+				if (err.checkPass(pass1)) {
+					System.out.println("パスワード正しい入力");
+				} else {
+					String message = "パスワードは４文字以上１５文字以内で、英数字を必ず含めてください。";
+					System.out.println(message);
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+					dispatcher.forward(request, response);
+				}
+
+				//２回入力したパスワードが一致するか。
+				if (err.checkPassMaches(pass1, pass2)) {
+					System.out.println("パスワードが一致");
+				} else {
+					String message = "パスワードが一致していません。";
+					request.setAttribute("message", message);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+					dispatcher.forward(request, response);
+				}
+
+			//情報を上書きする
+			int kensu = dao.update(id, name, postId, pass1);
+			System.out.println(kensu+"件上書き");
+
+			//変更確定
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp");
 			dispatcher.forward(request, response);
 

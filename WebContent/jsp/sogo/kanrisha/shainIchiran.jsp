@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+ <%@ page import="bean.KanrishaBean" %>
+ <%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,14 +33,17 @@
 		<td></td>
 		<td>ID</td>
 		<td>氏名</td>
-		<td>パスワード</td>
 	</tr>
 	<tr>
-		<td><input type="radio" name="kanrisha" value="kanrisha"></td>
-		<td></td>
-		<td></td>
-		<td></td>
+	<%
+		ArrayList<KanrishaBean> list = (ArrayList<KanrishaBean>)session.getAttribute("list");
+		for(int i=0; i<list.size(); i++) {%>
+
+		<td><input type="radio" name="radio" value="<%=list.get(i).getId() %>"></td>
+		<td><%=list.get(i).getId() %></td>
+		<td><%=list.get(i).getName() %></td>
 	</tr>
+	<% } %>
 </table><br><br>
 
 <input type="submit" formaction="/group2work/KanrishaTorokuServlet" name="submit" value="変更">
