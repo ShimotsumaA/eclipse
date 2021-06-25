@@ -133,10 +133,28 @@ public class CartHyoujiServlet extends HttpServlet {
 
 						dao.insert(orderId, date, sId, 0, oDetailId);
 
-						// ログインカートに商品があるかつ、セッションカートに商品がない時
+						// ログイン前カート商品・個数の取得
+						Map<String, Integer> cart = new LinkedHashMap<>();
+						cart = (Map<String, Integer>) session.getAttribute("cart");
+						// 商品と個数の取り出し
+						for (Map.Entry<String, Integer> entry : cart.entrySet()) {
+							String shohinId = entry.getKey();
+							int konyuKosu = entry.getValue();
+
+							// oDetailIdとshohinIdに対応したリストの有無を取得→あるときはアップデート、ない時はインサート
+							if (dao2.joukenShohin(oDetailId, shohinId).size() != 0) {
+								cartcount = dao2.update(oDetailId, shohinId, konyuKosu);
+							} else {
+								cartcount = dao2.insert(oDetailId, shohinId, konyuKosu);
+							}
+
+						}
+
+
 					} else {
 
 					}
+
 					sId = (String) session.getAttribute("login_id");
 
 					OrderDao dao1 = new OrderDao();
