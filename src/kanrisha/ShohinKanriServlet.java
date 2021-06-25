@@ -1,6 +1,7 @@
 package kanrisha;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.ShohinBean;
 import sogo.ErrCheck;
 
 /**
@@ -51,15 +53,27 @@ public class ShohinKanriServlet extends HttpServlet {
 		//商品が選択されていない
 
 		if(request.getParameter("submit").equals("変更")) {
-			System.out.println(request.getParameter("radio"));
+			String shohinId=request.getParameter("radio");
+			System.out.println(shohinId);
 			if(request.getParameter("radio")==null) {
 				request.setAttribute("errorMsg","商品を選択してください");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
+
 			}
 
-			
+			ShohinDao dao=new ShohinDao();
+			ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
+			list=dao.joken(shohinId);
+			HttpSession session=request.getSession(true);
+
+			session.setAttribute("shohinId",list.get(0).getShohinId());
+			session.setAttribute("shohinName",list.get(0).getShohinName());
+			session.setAttribute("value",list.get(0).getValue());
+			session.setAttribute("categoryId",list.get(0).getCategoryId());
+			session.setAttribute("kijiId", list.get(0).getKijiId());
+
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2");
 			dispatcher.forward(request, response);
@@ -68,6 +82,14 @@ public class ShohinKanriServlet extends HttpServlet {
 
 		//商品変更画面の変更ボタンが押された
 		if(request.getParameter("submit").equals("変更確認")) {
+			HttpSession session=request.getSession(true);
+
+			session.setAttribute("name", request.getParameter("name"));
+			session.setAttribute("id", request.getParameter("id"));
+			session.setAttribute("price", request.getParameter("price"));
+			session.setAttribute("category", request.getParameter("category"));
+			session.setAttribute("kiji", request.getParameter("kiji"));
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
 			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ!");

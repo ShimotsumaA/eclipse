@@ -47,28 +47,32 @@
 <form action="/group2work/ShohinKanriServlet" method="post">
 	<h1>商品変更</h1><br><br>
 
-	<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
+
 
 	<table align="center">
 		<tr>
 		<td align="left"><label for="name">商品名：</label>
-		<input type="text" name="name" size="30" id="name" value="<%=list.get(0).getShohinName() %>"><br></td>
+		<input type="text" name="name" size="30" id="name" value="<%=session.getAttribute("shohinName") %>"><br></td>
 		</tr>
 		<tr>
 		<td align="left">
-		商品ID：<font color="red"><%=list.get(0).getShohinId() %></font></td><br>
+		商品ID：<font color="red"><%=session.getAttribute("shohinId") %></font></td><br>
 		</tr>
 		<tr>
 		<td align="left">
 		<label for="kakaku">販売価格：</label>
-		<input type="text" name="price" size="30" id="kakaku" value=<%=list.get(0).getValue() %>>
+		<input type="text" name="price" size="30" id="kakaku" value=<%=session.getAttribute("value") %>>
 		</td><br>
 		</tr>
 		<tr>
 		<td align="left">
 		カテゴリ:
-		<select name="カテゴリ">
+		<select name="category">
+		<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
+		
 		<%for(int i=0; i<list.size(); i++) {%>
+		
+		<%=list.get(i).getCategoryId() %>
 		<option><%=list.get(i).getCategoryId() %></option>
 		<%} %>
 		</select>
@@ -77,7 +81,7 @@
 		<tr>
 		<td align="left">
 		<label for="kijiId">生地ID：</label>
-		<input type="text" name="kiji" size="30" id="kijiId" value=<%=list.get(0).getKijiId()%>>変更前の値<br>
+		<input type="text" name="kiji" size="30" id="kijiId" value=<%=session.getAttribute("kijiId") %>>変更前の値<br>
 		</td>
 		</tr>
 	</table>

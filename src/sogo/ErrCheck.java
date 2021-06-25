@@ -159,5 +159,18 @@ public class ErrCheck {
 		}
 
 	}
+//	public String numCheck(BigDecimal value){
+//		String msg;
+//		if(new BigDecimal(value).matches("[0-9]+")){
+//			if(value>0){
+//				msg=null;
+//			}else{
+//				msg="IDと価格には整数を入力して下さい";
+//			}
+//		}else{
+//			msg="IDと価格には数字を入力して下さい";
+//		}
+//		return msg;
+//	}
 
 }

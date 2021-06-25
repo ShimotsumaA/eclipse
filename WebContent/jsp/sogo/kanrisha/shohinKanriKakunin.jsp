@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ page import="bean.ShohinBean" %>
+ <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,14 +33,18 @@
 <%if(request.getParameter("submit").equals("変更確認")){%>
 <div style="text-align:center">
 	<h1>商品変更</h1><br><br>
+
+	<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
+
 	以下の情報を変更します。よろしいですか？<br><br>
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<br>
-	商品ID:<br>
-	カテゴリ：<br>
-	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
+	商品名：<%=session.getAttribute("name") %><br>
+	商品ID:<%=list.get(0).getShohinId() %><br>
+	販売価格：<%=session.getAttribute("price") %><br>
+	カテゴリ：<%=session.getAttribute("category")%><br>
+	生地ID：<%=session.getAttribute("kiji")%>	<!-shohinKanriModからパラメータ取得-><br><br>
 
 	<input type="submit" name="submit" value="変更確定">
 
