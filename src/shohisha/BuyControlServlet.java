@@ -52,7 +52,7 @@ public class BuyControlServlet extends HttpServlet {
 				session.setAttribute("adress", list.get(0).getAdress());
 
 				//area.jspに遷移
-				RequestDispatcher rd = request.getRequestDispatcher("/jsp/area.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/jsp/area.jsp");
 				rd.forward(request, response);
 
 				//pay.jspで続行ボタンが押されたら
@@ -64,7 +64,7 @@ public class BuyControlServlet extends HttpServlet {
 					//dispach戻る
 					request.setAttribute("err", "押してください");
 					//前のページに戻る(area.jsp)
-					RequestDispatcher rd = request.getRequestDispatcher("/jsp/area.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/area.jsp");
 					rd.forward(request, response);
 
 				} else {
