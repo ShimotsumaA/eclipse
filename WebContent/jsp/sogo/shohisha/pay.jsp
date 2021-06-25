@@ -34,13 +34,10 @@
 				<p>*代引き引き換えは、代引き手数料がかかります</p>
 			<br><br>
 
-<<<<<<< HEAD
 		<div class="">
 			<button type="submit" name="submit" value="zokko" formaction="/group2work/BuyControl">続行</button>
-=======
 
 			<button type="submit" name="submit" value="zokko" formaction="/group2work/shohisha/BuyControl">続行</button>
->>>>>>> refs/remotes/origin/master
 			<button type="button" name="submit" value="return" >戻る</button>
 		</div>
 
