@@ -163,11 +163,10 @@ public class KanrishaIdDao extends DBAccess{
 			//ステートメントを作成する
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 
-				ps.setString(4, kId);
 				ps.setString(1, kName);
 				ps.setString(2, postId);
 				ps.setString(3, kPass);
-
+				ps.setString(4, kId);
 
 				//SQLを発行する
 				kensu = ps.executeUpdate();

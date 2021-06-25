@@ -79,7 +79,7 @@
 	<table  align="center">
 		<tr>
 			<td align="right">ID：</td>
-			<td><%= request.getParameter("id") %></td>
+			<td><%= session.getParameter("id") %></td>
 		</tr>
 		<tr>
 			<td align="right">氏名：</td>

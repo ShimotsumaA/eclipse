@@ -47,7 +47,7 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			//idをもとに個人情報を取り出し、リクエスト領域に預ける
 			ArrayList<KanrishaBean> list = dao.joken(id);
 
-			request.setAttribute("id", id);
+			session.setAttribute("id", id);
 			request.setAttribute("name", list.get(0).getName());
 			request.setAttribute("postId", list.get(0).getPostId());
 			request.setAttribute("pass", list.get(0).getPass());
@@ -153,7 +153,9 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			String pass1 = request.getParameter("pass1");
 			String pass2 = request.getParameter("pass2");
 			System.out.println(pass1);
-
+			System.out.println(name);
+			System.out.println(postId);
+			System.out.println(id);
 			//エラーチェック
 			ErrCheck err = new ErrCheck();
 
@@ -176,15 +178,17 @@ public class KanrishaTorokuServlet extends HttpServlet {
 					String message = "パスワードが一致していません。";
 					request.setAttribute("message", message);
 
+					//リクエスト領域に預ける
+					request.setAttribute("name", name);
+					request.setAttribute("postId", postId);
+					request.setAttribute("pass", pass1);
+
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
 					dispatcher.forward(request, response);
 				}
 
-			//情報を上書きする
-			int kensu = dao.update(id, name, postId, pass1);
-			System.out.println(kensu+"件上書き");
 
-			//変更確定
+			//変更確認
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp");
 			dispatcher.forward(request, response);
 
