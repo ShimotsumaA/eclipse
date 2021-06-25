@@ -21,27 +21,24 @@
 	<table  align="center">
 		<tr>
 			<td align="right">ID：</td>
-			<td></td>
+			<td><%=session.getAttribute("id") %></td>
 		</tr>
 		<tr>
 			<td align="right">氏名：</td>
-			<td></td>
+			<td><%=session.getAttribute("name") %></td>
 		</tr>
 		<tr>
 			<td align="right">役職：</td>
-			<td><select name="zokusei" >
-					<option value="kyaku">お客様</option>
-					<option value="kanrisha">管理者</option>
-					</select></td>
+			<td><%=session.getAttribute("postName") %></td>
 		</tr>
 		<tr>
 			<td align="right">パスワード：</td>
-			<td></td>
+			<td><%=session.getAttribute("pass") %></td>
 		</tr>
 	</table><br><br>
 
 	<input type="submit" name="submit" value="登録確定">
-	<input type="button" name="back" value="戻る" onclick="location.href='/group2work//jsp/sogo/kanrisha/idStaffMod.jsp?submit=1'">
+	<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/idStaffMod.jsp?submit=1'">
 	</form>
 	</div>
 
@@ -71,10 +68,7 @@
 		</tr>
 		<tr>
 			<td align="right">役職：</td>
-			<td><select name="zokusei" >
-					<option value="kyaku">お客様</option>
-					<option value="kanrisha">管理者</option>
-					</select></td>
+			<td><%=session.getAttribute("postName") %></td>
 		</tr>
 		<tr>
 			<td align="right">パスワード：</td>
