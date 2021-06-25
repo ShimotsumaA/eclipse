@@ -79,7 +79,9 @@
 	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
+		<% if(request.getAttribute("kakunin")!=null){%>
 		<p>以下の情報を変更します。よろしいですか？</p>
+		<%} %>
 		<table>
 			<tr>
 				<td>氏名：</td>

@@ -2,6 +2,7 @@ package shohisha;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,6 @@ public class MyPageServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		String no=null;
-		String forward=null;
 
 		if(request.getParameter("no")!=null){
 			no=request.getParameter("no");
@@ -55,9 +55,10 @@ public class MyPageServlet extends HttpServlet {
         	ShohishaDao dao = new ShohishaDao();
 			request.setAttribute("list",dao.selectAll());
 			//userKakunin.jspの画面を決める値をセット
-			request.setAttribute("no","1");
+			request.setAttribute("submit","toroku");
 			//forward先を指定
-			forward="/jsp/shohisha/userKakunin";
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
+			rd.forward(request, response);
 		}
 
      //myPage.jspで購入履歴確認(リンク)が押された際の処理
@@ -65,7 +66,8 @@ public class MyPageServlet extends HttpServlet {
         	OrderDao dao = new OrderDao();
 			request.setAttribute("list",dao.selectAll());;
 			//forward先を指定
-			forward="/jsp/shohisha/rireki";
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/rireki.jsp");
+			rd.forward(request, response);
 		}
 
 	}

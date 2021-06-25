@@ -123,6 +123,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				System.out.println(rs);
 				request.setAttribute("compmsg", "変更が完了しました");
 			//遷移先
+				request.setAttribute("kakunin",true );
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
 				dispatcher.forward(request, response);
 
