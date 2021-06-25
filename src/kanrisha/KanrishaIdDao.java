@@ -30,7 +30,7 @@ public class KanrishaIdDao extends DBAccess{
 
 		 		bean.setId(rs.getString("K_ID"));
 		 		bean.setName(rs.getString("k_Name"));
-		 		bean.setPostId(rs.getString("pos_tId"));
+		 		bean.setPostId(rs.getString("post_Id"));
 		 		bean.setPass(rs.getString("k_Pass"));
 
 		 		list.add(bean);

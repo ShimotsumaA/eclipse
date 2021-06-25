@@ -15,7 +15,9 @@
 		<p>マイページ</p>
 
 		<a href="/group2work/MyPageServlet?no=1">ユーザ情報確認</a><br><br>
-		<a href="/group2work/MyPageServlet?no=2">購入履歴</a><br>
+		<a href="/group2work/MyPageServlet?no=2">購入履歴</a><br><br>
+
+		<input type="button" name="back" value="戻る" onclick="location.href='shopping.jsp'">
 	</div>
 
 

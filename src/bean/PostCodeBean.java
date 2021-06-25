@@ -1,5 +1,24 @@
 package bean;
 
 public class PostCodeBean {
-//’Ç‹L•K—v‚Å‚·
+//ï¿½Ç‹Lï¿½Kï¿½vï¿½Å‚ï¿½
+	private int zip;
+	private int kenId;
+
+	public int getZip() {
+		return zip;
+	}
+
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+
+	public int getKenId() {
+		return kenId;
+	}
+
+	public void setKenId(int kenId) {
+		this.kenId = kenId;
+	}
+
 }

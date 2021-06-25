@@ -1,5 +1,6 @@
 <%@page import="kanrisha.ShohinDao"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.math.BigDecimal" %>
 <%@page import="bean.OrderDetailBean" %>
 <%@page import="bean.ShohinBean" %>
 
@@ -33,38 +34,39 @@
     <%
 	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
 	String shohinId="";
-	String shohinName="";
-	for(int i=1;i<=listODetail.size();i++){
+	String shohinName="";%>
+
+    <table>
+
+    <!-- for文で抽出 -->
+    <% for(int i=1;i<=listODetail.size();i++){
 		shohinId=listODetail.get(i-1).getShohinId();
 
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list1=new ArrayList<>();
-		list1=dao.joken(shohinId);
-		%>
-	商品名:<%= list1.get(0).getShohinName() %><br>
-	価格：<%=list1.get(0).getValue() %><br>
-	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
+		list1=dao.joken(shohinId);%>
+		<tr>
+    	<td>商品名:<%= list1.get(0).getShohinName() %><br>
+    	数量:<%=listODetail.get(i-1).getKazuKonyu() %><br>
+    	価格：<%=list1.get(0).getValue() %>円
 
 
-	<%} %>
-    <table>
-    <tr>
-    <!-- for文で抽出 -->
-    	<td>商品A<br>
-    	価格：XXX円<br>
-    	個数:1
     	<form action="" method="post">
-    	<button type="submit" name=submit value="cancel" id="商品A">キャンセル</button>
+    	<input type="hidden" name="shohinId" value="<%=shohinId %>">
+    	<button type="submit" name=submit value="cancel" >キャンセル</button>
     	</form>
    	 	</td>
+   	 	</tr>
+
+   	 	<%} %>
     </table>
 
     <!-- カート合計表示 -->
-    <p id="sum_cart">カート合計:XXX円</p>
+    <p id="sum_cart">カート合計:<%= (Integer)session.getAttribute("gokei") %>円</p>
     </div>
 
     <!-- 注文ボタン -->
-    <form action="" method="post">
+    <form action="/group2work/shohisha/CartHyojiServlet" method="post">
     <button type="submit" name="submit" value="tyumonhakotira">ご注文はこちら</button>
     </form>
 

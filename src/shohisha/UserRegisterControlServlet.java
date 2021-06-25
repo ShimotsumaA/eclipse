@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.ShohishaBean;
+import sogo.ErrCheck;
 
 /**
  * Servlet implementation class userRegisterControlServlet
  */
-@WebServlet("/userRegisterControlServlet")
+@WebServlet("/UserRegisterControl")
 public class UserRegisterControlServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,39 +52,45 @@ public class UserRegisterControlServlet extends HttpServlet {
 
       //user.jspで登録ボタンが押された際の処理
         	if(request.getParameter("submit").equals("登録")){
-        		/*String errmsg="IDは英数字かつ10文字以内で登録してください。";
+        		String errmsg="IDは英数字かつ10文字以内で登録してください。";
     			String errmsg2="パスワードは英数字を組み合わせ、4文字以上15文字以内で登録してください。";
     			String errmsg3="パスワードが一致していません。";
-    			Errcheck err = new Errcheck();
-    			errmsg = err.checkId(request.getParameter("id"));
-    			errmsg2= err.checkPass(request.getParameter("kPass1"));
-    			errmsg3= err.checkPassMaches(request.getParameter("kPass1"),request.getParameter("kPass2"));
-
-    			if(errmsg==null && errmsg2==null && errmsg3==null){
-    				session.setAttribute("sId", request.getParameter("sId"));
-    				session.setAttribute("sName", request.getParameter("sName"));
-    				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
-    				session.setAttribute("postCode", request.getParameter("postCode"));
-    				session.setAttribute("adress", request.getParameter("adress"));
+    		//ErrCheckをインスタンス化
+    			ErrCheck err = new ErrCheck();
+    			//ErrCheckでtrueの際の処理
+    			if(err.checkId(request.getParameter("id"))&&err.checkPass(request.getParameter("kPass1"))&& err.checkPassMaches(request.getParameter("kPass1"),request.getParameter("kPass2"))) {
+    				session.setAttribute("sId", request.getParameter("s_id"));
+    				session.setAttribute("sName", request.getParameter("s_name"));
+    				session.setAttribute("dateBirth", request.getParameter("date_birth"));
+    				session.setAttribute("postCode", request.getParameter("post_code"));
+    				session.setAttribute("adress", request.getParameter("address"));
     				session.setAttribute("tel", request.getParameter("tel"));
-    				session.setAttribute("mailAdress", request.getParameter("mailAdress"));
-    				session.setAttribute("sPass", request.getParameter("sPass"));
+    				session.setAttribute("mailAdress", request.getParameter("mailadress"));
+    				session.setAttribute("sPass", request.getParameter("s_pass"));
     				forward="/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2";
-    			}else{
-    				session.setAttribute("sId", request.getParameter("sId"));
-    				session.setAttribute("sName", request.getParameter("sName"));
-    				session.setAttribute("dateBirth", request.getParameter("dateBirth"));
-    				session.setAttribute("postCode", request.getParameter("postCode"));
-    				session.setAttribute("adress", request.getParameter("adress"));
+    			//ErrCheckでfalseの際の処理
+    			}else {
+    				session.setAttribute("sId", request.getParameter("s_id"));
+    				session.setAttribute("sName", request.getParameter("s_name"));
+    				session.setAttribute("dateBirth", request.getParameter("date_birth"));
+    				session.setAttribute("postCode", request.getParameter("post_code"));
+    				session.setAttribute("adress", request.getParameter("address"));
     				session.setAttribute("tel", request.getParameter("tel"));
-    				session.setAttribute("mailAdress", request.getParameter("mailAdress"));
-    				session.setAttribute("sPass", request.getParameter("sPass"));
-    				//入力画面に戻した際の画面表示の設定
-    				request.setAttribute("errmsg", errmsg);
-    				request.setAttribute("errmsg2", errmsg2);
-    				forward="/group2work/jsp/sogo/shohisha/user.jsp?no=1";*/
-    			}
+    				session.setAttribute("mailAdress", request.getParameter("mailadress"));
+    				session.setAttribute("sPass", request.getParameter("s_pass"));
 
+    				if(err.checkId("id")==false) {
+    					request.setAttribute("errmsg", errmsg);
+    				}
+    				if(err.checkPass("kPass1")==false) {
+    					request.setAttribute("errmsg2", errmsg2);
+    				}
+    				if(err.checkPassMaches("kPass1", "kPass2")==false) {
+    					request.setAttribute("errmsg3", errmsg3);
+
+    				}
+    				forward="/group2work/jsp/sogo/shohisha/user.jsp?no=1";
+    			}
 
 
 
@@ -113,7 +120,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String sName = (String)session.getAttribute("s_name");
 				String dateBirth =(String)session.getAttribute("date_birth");
 				String postCode = (String) session.getAttribute("postcode");
-				String adress = (String) session.getAttribute("adress");
+				String adress = (String) session.getAttribute("address");
 				String tel = (String) session.getAttribute("tel");
 				String mailAdress = (String) session.getAttribute("mailadress");
 				String sId = (String) session.getAttribute("s_id");
@@ -125,10 +132,12 @@ public class UserRegisterControlServlet extends HttpServlet {
 				System.out.println(rs);
 				request.setAttribute("compmsg", "登録が完了しました");
 				forward="/groupu2work/jsp/sogo/shohisha/area.jsp";
+			}else {
+
 			}
 
+        }
 	}
-
 }
 
 
