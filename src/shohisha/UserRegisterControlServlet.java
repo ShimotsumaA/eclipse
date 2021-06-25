@@ -1,7 +1,6 @@
 package shohisha;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.ShohishaBean;
 import sogo.ErrCheck;
 
 /**
@@ -70,7 +68,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("mailAdress", request.getParameter("mailadress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=2");
+						.getRequestDispatcher("/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=1");
 				dispatcher.forward(request, response);
 				//ErrCheckでfalseの際の処理
 			} else {
@@ -100,40 +98,43 @@ public class UserRegisterControlServlet extends HttpServlet {
 
 			//userKakunin.jspから変更ボタンが押された際の処理
 		} else if (request.getParameter("submit").equals("変更")) {
-			//DAOをインスタンス化
-			ShohishaDao dao = new ShohishaDao();
-			ArrayList<ShohishaBean> list = dao.joken(request.getParameter("sId"));
+				String sName = (String) session.getAttribute("sName");
+				String dateBirth = (String) session.getAttribute("dateBirth");
+				String postCode = (String) session.getAttribute("postCode");
+				String adress = (String) session.getAttribute("adress");
+				String tel = (String) session.getAttribute("tel");
+				String mailAdress = (String) session.getAttribute("mailadress");
+				String sId = (String) session.getAttribute("sId");
+				String sPass = (String) session.getAttribute("sPass");
 
-			session.setAttribute("s_id", list.get(0).getId());
-			session.setAttribute("s_name", list.get(0).getName());
-			session.setAttribute("date_birth", list.get(0).getBirth());
-			session.setAttribute("postcode", list.get(0).getPost());
-			session.setAttribute("adress", list.get(0).getAdress());
-			session.setAttribute("tel", list.get(0).getTel());
-			session.setAttribute("mailadress", list.get(0).getMail());
-			session.setAttribute("s_pass", list.get(0).getPass());
+			//DAOをインスタンス化
+				ShohishaDao dao= new ShohishaDao();
+				int rs =dao.update(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
+				System.out.println(rs);
+				request.setAttribute("compmsg", "変更が完了しました");
 			//遷移先
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
-			dispatcher.forward(request, response);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
+				dispatcher.forward(request, response);
 
 			//userKakunin.jspから確定ボタンが押された際の処理
 		} else if (request.getParameter("submit").equals("確定")) {
-			String sName = (String) session.getAttribute("s_name");
-			String dateBirth = (String) session.getAttribute("date_birth");
-			String postCode = (String) session.getAttribute("postcode");
-			String adress = (String) session.getAttribute("address");
-			String tel = (String) session.getAttribute("tel");
-			String mailAdress = (String) session.getAttribute("mailadress");
-			String sId = (String) session.getAttribute("s_id");
-			String sPass = (String) session.getAttribute("s_pass");
+				String sName = (String) session.getAttribute("s_name");
+				String dateBirth = (String) session.getAttribute("date_birth");
+				String postCode = (String) session.getAttribute("postcode");
+				String adress = (String) session.getAttribute("adress");
+				String tel = (String) session.getAttribute("tel");
+				String mailAdress = (String) session.getAttribute("mailadress");
+				String sId = (String) session.getAttribute("s_id");
+				String sPass = (String) session.getAttribute("s_pass");
 
 			//DAOをインスタンス化
-			ShohishaDao dao2 = new ShohishaDao();
-			int rs = dao2.insert(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
-			System.out.println(rs);
-			request.setAttribute("compmsg", "登録が完了しました");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
-			dispatcher.forward(request, response);
+				ShohishaDao dao2 = new ShohishaDao();
+				int rs = dao2.insert(sName, dateBirth, postCode, adress, tel, mailAdress, sId, sPass);
+				System.out.println(rs);
+				request.setAttribute("compmsg", "登録が完了しました");
+			//遷移先
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
+				dispatcher.forward(request, response);
 		} else {
 
 		}

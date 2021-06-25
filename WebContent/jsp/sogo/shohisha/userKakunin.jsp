@@ -10,10 +10,13 @@
 </head>
 <body>
 <%request.setCharacterEncoding("UTF-8");%>
+<%
+  	String no = request.getParameter("no");
+ %>
 
  <!-- 登録情報の確認(確定)-->
- <% if(request.getParameter("submit").equals("登録")){ %>
-	<form action ="/group2work/UserRegisterControlServlet"  method="post">
+ <% if(no.equals("1")){ %>
+	<form action ="/group2work/UserRegisterControl"  method="post">
 	<div align="center">
 		<p>登録情報の確認</p>
 		<p>以下の情報を登録します。よろしいですか？</p>
@@ -67,11 +70,12 @@
 		</tr>
 		</table>
 	</div>
+	</form>
 <% } %>
 
  <!-- 登録情報の変更 -->
- <% if(request.getParameter("submit").equals("変更")){ %>
-	<form action =/group2work/UserRegisterControlServlet" method="post">
+ <% if(no.equals("2")){ %>
+	<form action =/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
 		<p>以下の情報を変更します。よろしいですか？</p>
