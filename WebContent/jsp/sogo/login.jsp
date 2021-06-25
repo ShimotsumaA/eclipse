@@ -16,7 +16,7 @@
 		<%
 		String no = request.getParameter("no");
 		System.out.println(no);
-		if (no.equals("1")) {
+		if (no!=null&&no.equals("1")) {
 			System.out.println("ここ");
 
 			//<!--  エラーメッセージ -->
