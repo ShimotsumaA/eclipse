@@ -15,8 +15,13 @@
  %>
 
  <!-- 登録情報の確認(確定)-->
+<<<<<<< HEAD
  <% if(no.equals("1")){ %>
 	<form action ="/group2work/UserRegisterControl"  method="post">
+=======
+ <% if(request.getAttribute("submit").equals("toroku")){ %>
+	<form action ="/group2work/UserRegisterControlServlet"  method="post">
+>>>>>>> stash
 	<div align="center">
 		<p>登録情報の確認</p>
 		<p>以下の情報を登録します。よろしいですか？</p>

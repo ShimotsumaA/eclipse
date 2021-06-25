@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import sogo.ErrCheck;
 
+
 /**
  * Servlet implementation class userRegisterControlServlet
  */
@@ -54,6 +55,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 			String errmsg = "IDは英数字かつ10文字以内で登録してください。";
 			String errmsg2 = "パスワードは英数字を組み合わせ、4文字以上15文字以内で登録してください。";
 			String errmsg3 = "パスワードが一致していません。";
+
 			//ErrCheckをインスタンス化
 			ErrCheck err = new ErrCheck();
 			//ErrCheckでtrueの際の処理
@@ -67,9 +69,17 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("tel", request.getParameter("tel"));
 				session.setAttribute("mailAdress", request.getParameter("mailadress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
+
+				request.setAttribute("submit", "toroku");
+	
 				RequestDispatcher dispatcher = request
+<<<<<<< HEAD
 						.getRequestDispatcher("/group2work/jsp/sogo/shohisha/userKakunin.jsp?no=1");
+=======
+						.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
+>>>>>>> stash
 				dispatcher.forward(request, response);
+
 				//ErrCheckでfalseの際の処理
 			} else {
 				session.setAttribute("sId", request.getParameter("sId"));
@@ -91,6 +101,10 @@ public class UserRegisterControlServlet extends HttpServlet {
 					request.setAttribute("errmsg3", errmsg3);
 
 				}
+				System.out.println(err.checkId("sId"));
+				System.out.println(err.checkPass("sPass"));
+				System.out.println(err.checkPass("sPass"));
+
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=1");
 				dispatcher.forward(request, response);
