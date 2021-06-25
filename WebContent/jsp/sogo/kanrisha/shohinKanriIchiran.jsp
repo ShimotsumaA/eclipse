@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import="bean.ShohinBean" %>
+ <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +12,32 @@
 <body>
 
 <form action="/group2work/ShohinKanriServlet" method="post">
-
 <div style= "text-align:center">
+
 <h1>商品一覧</h1><br>
+
+<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
+<%System.out.println(list.get(0).getShohinId()); %>
+<%String errorMsg=(String) request.getAttribute("errorMsg");%>
+<%if(errorMsg!=null) {%>
+<font color="red"><%=errorMsg%></font>
+<% }%>
 
 <table border="1" align="center">
 <tr>
 <td> </td><td>商品ID</td><td>商品名</td><td>販売価格</td><td>カテゴリ</td><td>生地ID</td>
 </tr>
+<%for(int i=0; i<list.size(); i++) {%>
 <tr>
-<td><input type="radio" name="商品" value="A"></td><td>0000000001</td><td>商品A</td><td>100</td><td>    </td><td>    </td>
+<td><input type="radio" name="radio" value=<%=list.get(i).getShohinId() %>></td>
+<td><%=list.get(i).getShohinId()%></td>
+<td><%=list.get(i).getShohinName() %></td>
+<td><%=list.get(i).getValue() %></td>
+<td><%=list.get(i).getCategoryId() %></td>
+<td><%=list.get(i).getKijiId() %></td>
 </tr>
-<tr>
-<td><input type="radio" name="商品" value="B"></td><td>0000000002</td><td>商品B</td><td>200</td><td>    </td><td>    </td>
-</tr>
-<tr>
-<td><input type="radio" name="商品" value="C"></td><td>0000000003</td><td>商品C</td><td>300</td><td>    </td><td>    </td>
-</tr>
-<tr>
-<td><input type="radio" name="商品" value="D"></td><td>0000000004</td><td>商品C</td><td>400</td><td>    </td><td>    </td>
-</tr>
+
+<%} %>
 </table><br><br>
 
 <!-- form shohinKanriMod?no=2 -->

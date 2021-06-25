@@ -10,10 +10,14 @@
 </head>
 <body>
 <%request.setCharacterEncoding("UTF-8");%>
+<%
+  	String no = request.getParameter("no");
+ %>
 
  <!-- 登録情報の確認(確定)-->
- <% if(request.getParameter("submit").equals("登録")){ %>
-	<form action ="/group2work/UserRegisterControlServlet"  method="post">
+
+ <% if(request.getAttribute("submit").equals("toroku")){ %>
+	<form action ="/group2work/UserRegisterControl"  method="post">
 	<div align="center">
 		<p>登録情報の確認</p>
 		<p>以下の情報を登録します。よろしいですか？</p>
@@ -30,32 +34,32 @@
 
 			<tr>
 				<td>郵便番号：</td>
-				<td><%=session.getAttribute("postCode") %>円</td>
+				<td><%=session.getAttribute("postCode") %></td>
 			</tr>
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %>円</td>
+				<td><%=session.getAttribute("address") %></td>
 			</tr>
 
 			<tr>
 				<td>電話番号：</td>
-				<td><%=session.getAttribute("tel") %>円</td>
+				<td><%=session.getAttribute("tel") %></td>
 			</tr>
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %>円</td>
+				<td><%=session.getAttribute("mailAddress") %></td>
 			</tr>
 
 			<tr>
 				<td>ID：</td>
-				<td><%=session.getAttribute("sId") %>円</td>
+				<td><%=session.getAttribute("sId") %></td>
 			</tr>
 
 			<tr>
 				<td>パスワード：</td>
-				<td><%=session.getAttribute("sPass") %>円</td>
+				<td><%=session.getAttribute("sPass") %></td>
 			</tr>
 
 		</table>
@@ -67,11 +71,12 @@
 		</tr>
 		</table>
 	</div>
+	</form>
 <% } %>
 
  <!-- 登録情報の変更 -->
- <% if(request.getParameter("submit").equals("変更")){ %>
-	<form action =/group2work/UserRegisterControlServlet" method="post">
+ <% if(request.getAttribute("submit").equals("henko")){ %>
+	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
 		<p>以下の情報を変更します。よろしいですか？</p>
@@ -88,32 +93,32 @@
 
 			<tr>
 				<td>郵便番号：</td>
-				<td><%=session.getAttribute("postCode") %>円</td>
+				<td><%=session.getAttribute("postCode") %></td>
 			</tr>
 
 			<tr>
 				<td>住所：</td>
-				<td><%=session.getAttribute("adress") %>円</td>
+				<td><%=session.getAttribute("address") %></td>
 			</tr>
 
 			<tr>
 				<td>電話番号：</td>
-				<td><%=session.getAttribute("tel") %>円</td>
+				<td><%=session.getAttribute("tel") %></td>
 			</tr>
 
 			<tr>
 				<td>メールアドレス：</td>
-				<td><%=session.getAttribute("mailAdress") %>円</td>
+				<td><%=session.getAttribute("mailAddress") %></td>
 			</tr>
 
 			<tr>
 				<td>ID：</td>
-				<td><%=session.getAttribute("sId") %>円</td>
+				<td><%=session.getAttribute("sId") %></td>
 			</tr>
 
 			<tr>
 				<td>パスワード：</td>
-				<td><%=session.getAttribute("sPass") %>円</td>
+				<td><%=session.getAttribute("sPass") %></td>
 			</tr>
 		</table>
 		<br>
@@ -124,11 +129,12 @@
 			</tr>
 		</table>
 	</div>
+	</form>
 <% } %>
 
 
 
 
->>>>>>> refs/remotes/origin/master
+
 </body>
 </html>

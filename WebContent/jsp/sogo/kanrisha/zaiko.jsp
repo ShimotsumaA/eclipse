@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import="bean.ShohinBean" %>
+ <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,7 @@
 <title>在庫管理</title>
 </head>
 <body>
+<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)request.getAttribute("list");%>
 <%--if(request.getParameter("submit").equals("確定")){ --%>
 <form action="/group2work/ZaikoKanriServlet" method="post">
 <div style=text-align:right>
@@ -18,18 +21,15 @@
 <tr>
 	<td> </td><th>商品ID</th><th>商品名</th><th>在庫数</th>
 </tr>
+<%for(int i=0; i<list.size(); i++) {%>
+
 <tr>
-	<td><input type="radio" name="zaiko" value="a"></td><td> </td><td> </td><td> </td>
+<td><input type="radio" name="zaiko" value=<%=list.get(i).getShohinId() %>>
+<td><%=list.get(i).getShohinId()%></td>
+<td><%=list.get(i).getShohinName() %></td>
+<td><%=list.get(i).getZaiko() %></td>
 </tr>
-<tr>
-	<td><input type="radio" name="zaiko" value="b"></td><td> </td><td> </td><td> </td>
-</tr>
-<tr>
-	<td><input type="radio" name="zaiko" value="c"></td><td> </td><td> </td><td> </td>
-</tr>
-<tr>
-	<td><input type="radio" name="zaiko" value="d"></td><td> </td><td> </td><td> </td>
-</tr>
+<%} %>
 </table><br><br>
 
 	<input type="submit" name="submit" value="入庫">

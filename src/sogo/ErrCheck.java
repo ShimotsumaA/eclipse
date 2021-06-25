@@ -140,12 +140,7 @@ public class ErrCheck {
 		if ((kPass1.length() >= 4) && (kPass1.length() <= 15)) {
 			//英数字だけで構成されているか。
 			if (kPass1.matches("^[A-Za-z0-9]+$")) {
-				//英数字どちらも使用しているか。
-				if (kPass1.matches("/[0-9]/") && kPass1.matches("/[A-Za-z]")) {
-					return true; //パスワードがルールに従っている。
-				}else {
-					return false;
-				}
+				return true;
 			}else {
 				return false;
 			}
