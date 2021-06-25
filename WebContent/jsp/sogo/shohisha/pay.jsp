@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="">
-			<button type="submit" name="submit" value="zokko" formaction="">続行</button>
+			<button type="submit" name="submit" value="zokko" formaction="/group2work/shohisha/BuyControl">続行</button>
 			<button type="button" name="submit" value="return" >戻る</button>
 		</div>
 
