@@ -83,7 +83,7 @@ public class MyPageServlet extends HttpServlet {
     		session.setAttribute("address", address);
     		session.setAttribute("tel", tel);
     		session.setAttribute("mailAddress", mailAddress);
-    		session.setAttribute("sPass", sPass);
+    		//session.setAttribute("sPass", sPass);
 
 
         	request.setAttribute("submit","henko");
@@ -95,7 +95,7 @@ public class MyPageServlet extends HttpServlet {
      //myPage.jspで購入履歴確認(リンク)が押された際の処理
         if(no.equals("2")){
         	OrderDao dao = new OrderDao();
-			request.setAttribute("list",dao.selectAll());;
+			request.setAttribute("list",dao.selectAll());
 			//forward先を指定
 			RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/rireki.jsp");
 			rd.forward(request, response);

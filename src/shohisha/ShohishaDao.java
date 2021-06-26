@@ -118,8 +118,7 @@ public class ShohishaDao extends DBAccess {
 		public int update(String sId, String sName, String dateBirth, String postCode, String adress,
 					String tel, String mailAdress, String sPass) {
 
-				String sql = "UPDATE shohisha SET s_name=?, date_birth=?,postcode=?,address=?,tel=?"
-						+ "mailaddress=?,s_pass=? where s_id=?";
+				String sql = "UPDATE shohisha SET s_name=?, date_birth=?,postcode=?,address=?,tel=? ,mailaddress=?,s_pass=? where s_id=?";
 
 				int rs=0;
 

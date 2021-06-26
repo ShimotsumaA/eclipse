@@ -71,7 +71,11 @@
 		</tr>
 		</table>
 	</div>
+	<%if(request.getAttribute("2kaime")!=null){ %>
+	<input type="hidden" name="kakunin" value="henkou">
+	<%} %>
 	</form>
+
 <% } %>
 
  <!-- 登録情報の変更 -->
@@ -79,7 +83,7 @@
 	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>
-		<% if(request.getAttribute("kakunin")!=null){%>
+		<% if(request.getAttribute("kakunin")==null){%>
 		<p>以下の情報を変更します。よろしいですか？</p>
 		<%} %>
 		<table>
@@ -131,6 +135,7 @@
 			</tr>
 		</table>
 	</div>
+	<input type="hidden" name="mod" value="mod">
 	</form>
 <% } %>
 
