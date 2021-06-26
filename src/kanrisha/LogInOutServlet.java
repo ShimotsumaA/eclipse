@@ -120,7 +120,7 @@ public class LogInOutServlet extends HttpServlet {
 
 			//ログアウトする
 			session.removeAttribute("id");
-			session.removeAttribute("pass");
+			/* session.removeAttribute("pass"); */
 
 			//トップページへ遷移する
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/top.jsp");

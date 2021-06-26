@@ -66,13 +66,13 @@ public class CartHyoujiServlet extends HttpServlet {
 		// 注文はこちらボタンを押したときの処理→ログインしてなかったらログイン画面が表示されるようにする。
 
 		if ((session.getAttribute("submit") != null) && session.getAttribute("submit").equals("tyumonhakotira")) {
-			if (session.getAttribute("login") != null) {
+			if (session.getAttribute("id") != null) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/buy.jsp");
 				dispatcher.forward(request, response);
 			} else {
 
 				// ログイン前の情報と明示
-				session.setAttribute("loginflag", false);
+				session.setAttribute("id", false);
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
 				dispatcher.forward(request, response);
@@ -82,9 +82,9 @@ public class CartHyoujiServlet extends HttpServlet {
 		} else {
 
 			// ログインしているかどうか
-			if (session.getAttribute("login") != null) {
+			if (session.getAttribute("id") != null) {
 
-				String sId = (String) session.getAttribute("login_id");
+				String sId = (String) session.getAttribute("id");
 				ErrCheck err = new ErrCheck();
 				// カートに商品があるかどうか検索
 				if (err.existOrderIdStatusId(sId, 0) || (session.getAttribute("cart") != null)) {
@@ -114,6 +114,8 @@ public class CartHyoujiServlet extends HttpServlet {
 							} else {
 								cartcount = dao2.insert(oDetailId, shohinId, konyuKosu);
 							}
+
+							session.removeAttribute("cart");
 
 						}
 
@@ -148,6 +150,8 @@ public class CartHyoujiServlet extends HttpServlet {
 								cartcount = dao2.insert(oDetailId, shohinId, konyuKosu);
 							}
 
+							session.removeAttribute("cart");
+
 						}
 
 
@@ -155,7 +159,7 @@ public class CartHyoujiServlet extends HttpServlet {
 
 					}
 
-					sId = (String) session.getAttribute("login_id");
+					sId = (String) session.getAttribute("id");
 
 					OrderDao dao1 = new OrderDao();
 					OrderDetailDAO dao4 = new OrderDetailDAO();
@@ -230,6 +234,10 @@ public class CartHyoujiServlet extends HttpServlet {
 				cartflag = true;
 			} else {
 				cartflag = false;
+			}
+
+			if(request.getAttribute("cancel")!=null) {
+				request.setAttribute("cancel",request.getAttribute("cancel"));
 			}
 
 			session.setAttribute("cartflag", cartflag);

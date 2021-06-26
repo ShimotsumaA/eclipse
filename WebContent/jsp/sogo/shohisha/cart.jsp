@@ -33,7 +33,7 @@
     <div class="contents">
     <p id="midasi"> カート一覧</p>
 
-    <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("login")!=null)) {%>
+    <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("id")!=null)) {%>
     <%
 	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
 	String shohinId="";
@@ -54,7 +54,7 @@
     	価格：<%=list1.get(0).getValue() %>円
 
 
-    	<form action="" method="post">
+    	<form action="/group2work/CartCancel" method="post">
     	<input type="hidden" name="shohinId" value="<%=shohinId %>">
     	<button type="submit" name=submit value="cancel" >キャンセル</button>
     	</form>
@@ -88,7 +88,7 @@
     		<td>商品名:<%= list1.get(0).getShohinName() %><br>
     		数量:<%=konyuKosu %><br>
     		価格：<%=list1.get(0).getValue() %>円
-    		<form action="" method="post">
+    		<form action="/group2work/CartCancel" method="post">
     		<input type="hidden" name="shohinId" value="<%=shohinId %>">
     		<button type="submit" name=submit value="cancel" >キャンセル</button>
     		</form>

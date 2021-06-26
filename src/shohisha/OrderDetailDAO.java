@@ -123,6 +123,28 @@ public class OrderDetailDAO extends DBAccess{
 		return kensu;
 	}
 
+	public int deleteShohin(String oDetailId,String shohinId) {
+		//delete method
+		String sql = "delete from tyumon_detail where O_DETAIL_ID=? and where shohin_id=?";
+
+		int kensu=0;
+
+		try {connect();
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+
+			ps.setString(1, oDetailId);
+			ps.setString(1, shohinId);
+
+			kensu = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return kensu;
+	}
+
 	public int insert(String oDetailId,String shohinId,int kazuKonyu) {
 
 		String sql = "insert tyumon_detail into values(?,?,?)";
