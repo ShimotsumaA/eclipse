@@ -6,6 +6,22 @@
 <meta charset="UTF-8">
 <title>ユーザ情報</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h2{
+	background-color:#87ceeb
+	}
+
+	h4{
+	background-color:#f0ffff
+	}
+
+	table{
+
+	}
+</style>
 <body>
 <%
   	String no = request.getParameter("no");
@@ -18,42 +34,36 @@
  	<div style="text-align:center">
  	<form action="/group2work/UserRegisterControl" method="post">
 
-	<h1>ユーザ登録フォーム</h1>
+
+ 	<h2>ユーザ登録フォーム</h2>
 	<br><br>
 
+	<form action="" method="post">
 		<table  align="center">
+
 			<tr>
 				<td align="right">氏名：</td>
-				<td><input type="text" name="sName" size="40" maxlength="15"></td>
+				<td><input type="text" name="sName" size="40" maxlength="15" placeholder="例）鈴木太郎"></td>
 			</tr>
 			<tr>
 				<td align="right">生年月日：</td>
-				<td><input type="text" name="dateBirth" size="40"  maxlength="10"></td>
+				<td><input type="text" name="dateBirth" size="40"  maxlength="10" placeholder="例）2020/01/01"></td>
 			</tr>
-		</table><br>
-			記入例） 2000/01/01<br><br>
-		<table  align="center">
 			<tr>
 				<td align="right">郵便番号：</td>
-				<td><input type="text" name="postCode" size="40"  maxlength="8"></td>
+				<td><input type="text" name="postCode" size="40"  maxlength="8" placeholder="例）123-4567"></td>
 			</tr>
-		</table><br>
-			記入例） xxx-xxxx<br><br>
-		<table  align="center">
 			<tr>
 				<td align="right">住所：</td>
-				<td><textarea name="address" rows=”3″ cols="40" wrap=”hard”  maxlength="30"></textarea></td>
+				<td><textarea name="adress" rows=”3″ cols="40"  wrap=”hard”  maxlength="30">></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>
-				<td><input type="text" name="tel" size="40" maxlength="13"></td>
+				<td><input type="text" name="tel" size="40" maxlength="13" placeholder="例）123-4567-8910"></td>
 			</tr>
-		</table><br>
-			記入例） 030-xxxx-xxxx<br><br>
-		<table  align="center">
 			<tr>
 				<td align="right">メールアドレス：</td>
-				<td><input type="text" name="mailAddress" size="40"></td>
+				<td><input type="text" name="mailAddress" size="40" placeholder="例）sample@gmail.com"></td>
 			</tr>
 			<tr>
 				<td align="right">ID：</td>
@@ -75,10 +85,8 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
-				<td><input type="password" name="sPassK" size="40" maxlength="15"></td>
+				<td><input type="passwqrd" name="sPassK" size="40" maxlength="15"></td>
 			</tr>
-		</table><br>
-			・確認のためにもう一度ご入力ください。<br><br>
 		<table  align="center">
 		<tr>
 			<td><input type ="submit" name="submit" value="登録"></td>
@@ -93,7 +101,7 @@
  	<div style="text-align:center">
  	<form action="/group2work/UserRegisterControl" method="post">
 
- 	<h1>ユーザ登録情報変更フォーム</h1>
+ 	<h2>ユーザ登録情報変更フォーム</h2>
 	<br><br>
 		<!-- 初期値valueを入れました -->
 		<table  align="center">
