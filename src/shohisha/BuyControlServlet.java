@@ -53,7 +53,7 @@ public class BuyControlServlet extends HttpServlet {
 				session.setAttribute("adress", list.get(0).getAdress());
 
 				//area.jspに遷移
-				RequestDispatcher rd = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/jsp/area.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/jsp/area.jsp");
 				rd.forward(request, response);
 
 				//pay.jspで続行ボタンが押されたら
@@ -65,7 +65,7 @@ public class BuyControlServlet extends HttpServlet {
 					//dispach戻る
 					request.setAttribute("err", "押してください");
 					//前のページに戻る(area.jsp)
-					RequestDispatcher rd = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/area.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
 					rd.forward(request, response);
 
 				} else {
@@ -143,8 +143,10 @@ public class BuyControlServlet extends HttpServlet {
 			//ログインしていない状態でbuy.jspで住所入力ボタンが押されたら
 			//login.jspに遷移
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
-			rd.forward(request, response);
+			/*
+			 * RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
+			 * rd.forward(request, response);
+			 */
 		}
 	}
 

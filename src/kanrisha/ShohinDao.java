@@ -40,7 +40,7 @@ public class ShohinDao extends DBAccess {
 	//謚ｽ蜃ｺ繝｡繧ｽ繝�繝�
 	public ArrayList<ShohinBean> joken(String shohinId) {
 			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
-		    String sql="select*from shohin where shohinId=?";
+		    String sql="select*from shohin where shohin_Id=?";
 
 		    try {
 		    	connect();
@@ -75,7 +75,7 @@ public class ShohinDao extends DBAccess {
 
 	int count=0;
 
-	String sql="insert into shohin(shohinId, shohinName ,kijiId, categoryId, value) values(?,?,?,?,?)";
+	String sql="insert into shohin(shohin_Id, shohin_Name ,kiji_Id, category_Id, value) values(?,?,?,?,?)";
 	try {
 		connect();
 		// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
@@ -101,7 +101,7 @@ public class ShohinDao extends DBAccess {
 
 		int count=0;
 
-		String sql = "delete from shohin where shohinId=? ";
+		String sql = "delete from shohin where shohin_Id=? ";
 
 		try {
 			connect();
@@ -125,7 +125,7 @@ public class ShohinDao extends DBAccess {
 
 		int count=0;
 
-		String sql = "update shohin set shohinName=?,kijiId=?,categoryId=?,value=? where shohinId=?";
+		String sql = "update shohin set shohin_Name=?,kiji_Id=?,category_Id=?,value=? where shohin_Id=?";
 
 		try {
 			connect();
@@ -156,7 +156,7 @@ public class ShohinDao extends DBAccess {
 
 		int count=0;
 
-		String sql = "update shohin set zaiko=? where shohinId=?";
+		String sql = "update shohin set zaiko=? where shohin_Id=?";
 
 		try {
 			connect();
@@ -178,18 +178,18 @@ public class ShohinDao extends DBAccess {
 
 
 	//繝�繝ｼ繝悶Ν縺ｫ蛟､繧定ｿｽ蜉�縺吶ｋ繝｡繧ｽ繝�繝�
-	public  int zaikoInsert(String shohinId ,int nyuko) {
+	public  int zaikoInsert(String shohinId ,int zaiko) {
 
 		int count=0;
 
-		String sql = "insert into shohin(shohinId,nyuko) values (?,?)";
+		String sql = "insert into shohin(shohin_Id,zaiko) values (?,?)";
 
 		try {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohinId);
-			ps.setInt(2,nyuko );
+			ps.setInt(2,zaiko);
 
 			count=ps.executeUpdate();
 
@@ -211,7 +211,7 @@ public class ShohinDao extends DBAccess {
 
 
 
-		String sql = "update shohin set zaiko=? where shohinId=?";
+		String sql = "update shohin set zaiko=? where shohin_Id=?";
 
 		try {
 			connect();

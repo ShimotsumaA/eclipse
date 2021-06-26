@@ -142,7 +142,7 @@ public class CartControlServlet extends HttpServlet {
 		if (cartcount != 0) {
 			request.setAttribute("AddedToCart", true);
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/shohin.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shohin.jsp");
 		dispatcher.forward(request, response);
 
 	}

@@ -67,14 +67,14 @@ public class CartHyoujiServlet extends HttpServlet {
 
 		if ((session.getAttribute("submit") != null) && session.getAttribute("submit").equals("tyumonhakotira")) {
 			if (session.getAttribute("login") != null) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/buy.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/buy.jsp");
 				dispatcher.forward(request, response);
 			} else {
 
 				// ログイン前の情報と明示
 				session.setAttribute("loginflag", false);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/login.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
 				dispatcher.forward(request, response);
 			}
 
@@ -233,7 +233,7 @@ public class CartHyoujiServlet extends HttpServlet {
 			}
 
 			session.setAttribute("cartflag", cartflag);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/cart.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/cart.jsp");
 			dispatcher.forward(request, response);
 
 		}

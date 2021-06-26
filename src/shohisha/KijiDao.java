@@ -60,7 +60,7 @@ public class KijiDao extends DBAccess{
 				while (rs.next()) {
 					KijiBean bean = new KijiBean();
 					bean.setKijiId(rs.getString("kiji_id"));
-					bean.setKijisyurui(rs.getString("kiji_name"));
+					bean.setKijisyurui(rs.getString("syurui"));
 					list.add(bean);
 				}
 

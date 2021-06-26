@@ -67,7 +67,7 @@
    	 	<!-- 数量選択 -->
    	 	<td>
    	 	数量:
-   	 	<form action="/group2work/shohisha/CartControlServlet" method="post">
+   	 	<form action="/group2work/CartControlServlet" method="post">
    	 		<select name="kazu_konyu">
    	 			<option selected value="1">1</option>
    	 			<% for(int i=2;i<=10;i++){ %>

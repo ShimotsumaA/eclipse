@@ -83,6 +83,7 @@ public class MyPageServlet extends HttpServlet {
     		session.setAttribute("address", address);
     		session.setAttribute("tel", tel);
     		session.setAttribute("mailAddress", mailAddress);
+    		session.setAttribute("sPass", sPass);
     		//session.setAttribute("sPass", sPass);
 
 

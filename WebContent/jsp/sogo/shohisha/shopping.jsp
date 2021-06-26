@@ -47,7 +47,7 @@
 				<tr>
 					<td>
 						<p>カテゴリ</p>
-						<form action="/group2work/shohisha/ECHyoujiServlet" method="post"
+						<form action="/group2work/ECHyoujiServlet" method="post"
 							name="category">
 
 							<%
@@ -69,7 +69,7 @@
 				<tr>
 					<td>
 						<p>生地</p>
-						<form action="/group2work/shohisha/ECHyoujiServlet" method="post"
+						<form action="/group2work/ECHyoujiServlet" method="post"
 							name="kiji">
 							<%
 							ArrayList<KijiBean> list2 = (ArrayList<KijiBean>) session.getAttribute("listKiji");
@@ -96,7 +96,7 @@
 				<tr>
 					<td>
 						<!-- 商品for文で取り出し -->
-						<form action="/group2work/shohisha/ShohinHyojiServlet"
+						<form action="/group2work/ShohinHyojiServlet"
 							method="post" name="shohin">
 							<br>
 

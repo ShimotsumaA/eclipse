@@ -59,15 +59,15 @@ public class ShohinHyojiServlet extends HttpServlet {
 
 		String kijiId=listShohinShosai.get(0).getKijiId();
 		KijiDao dao2=new KijiDao();
-		ArrayList<KijiBean> listShohinKiji=new ArrayList<>();
+		ArrayList<KijiBean> listShohinKiji=new ArrayList<KijiBean>();
 		listShohinKiji=dao2.joken(kijiId);
 
 
 		//セッションに商品情報をセット
 		session.setAttribute("Shohin_shosai", listShohinShosai);
-		session.setAttribute("Kiji_shosai", listShohinShosai);
+		session.setAttribute("Kiji_shosai", listShohinKiji);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/jsp/sogo/shohisha/shohin.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shohin.jsp");
 		dispatcher.forward(request, response);
 
 
