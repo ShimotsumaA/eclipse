@@ -140,6 +140,7 @@ public class CartControlServlet extends HttpServlet {
 
 		session.setAttribute("shohin_id", shohinId);
 		if (cartcount != 0) {
+			//カートに追加しましたのフラグ
 			request.setAttribute("AddedToCart", true);
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shohin.jsp");
