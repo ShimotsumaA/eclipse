@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.ShohishaBean;
-import kanrisha.ShohinDao;
 
 @WebServlet("/BuyControl")
 public class BuyControlServlet extends HttpServlet {
@@ -50,7 +49,7 @@ public class BuyControlServlet extends HttpServlet {
 				ArrayList<ShohishaBean> list = dao.joken((String) session.getAttribute("id"));
 				//郵便番号と住所をセッションにセット
 				session.setAttribute("post_code", list.get(0).getPost());
-				session.setAttribute("adress", list.get(0).getAdress());
+				session.setAttribute("address", list.get(0).getAddress());
 
 				//area.jspに遷移
 				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/jsp/area.jsp");
