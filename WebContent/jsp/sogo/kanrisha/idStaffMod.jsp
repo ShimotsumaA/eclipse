@@ -13,7 +13,7 @@
 <% System.out.println(submit+"idStafMod"); %>
 
 
-<% if(submit.equals("変更") || submit.equals("3") ){ %>
+<% if(submit.equals("変更") || submit.equals("3") || submit.equals("back")){ %>
 
 		<div style="text-align:center">
 		<h1>管理社情報変更</h1><br>
