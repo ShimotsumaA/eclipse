@@ -21,9 +21,51 @@
 	background-color:#f0ffff
 	}
 
-	table{
+	*{
+	margin:0;
 
-	}
+}
+
+body{
+	background-image:url("/group2work/image/43455.jpg")
+}
+
+h1{
+	font-family: cursive;
+
+}
+
+
+
+table.about{
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:70px 0px;
+	position:relative;
+	right:90px;
+	top:-140px
+
+}
+
+table.shohin{
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:50px 70px;
+	position:relative;
+	bottom:250px;
+	right:50px;
+
+}
+
+div.side_bar{
+	clear:right;
+}
+
+table.link{
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing:100px 0px;
+}
 </style>
 </head>
 <body>
