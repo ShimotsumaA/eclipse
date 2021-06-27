@@ -27,13 +27,10 @@
 
 <div style="text-align:right">
 <p>
-<font size="6">Nishida Printing</font>
-<br>
-<br>
-<br>
-<a href="/group2work/jsp/sogo/login.jsp?no=1" >ログイン</a>
-<br>
-<br>
+<font size="6">Nishida Printing</font><br><br><br>
+
+<a href="/group2work/jsp/sogo/login.jsp?no=1" >ログイン</a><br><br>
+
 <a href="/group2work/ECHyoujiServlet" >オンラインショップ</a>
 </p>
 </div>
