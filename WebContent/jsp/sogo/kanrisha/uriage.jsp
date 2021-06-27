@@ -11,9 +11,19 @@
 <div style="text-align:center">
 <h1>売上管理</h1>
 
-<a href="/group2work/UriageServlet?no=1">日別</a><br><br>
 
-<a href="/group2work/UriageServlet?no=2">月別</a><br><br>
+
+<form action="/group2work/UriageSevlet?no=1" method="post">
+<input type="date" name="date">
+<input type="submit" name="submit" value="日別">
+<br><br>
+</form>
+
+<form action="/group2work/UriageSevlet?no=2" method="post">
+<input type="month" name="month">
+<input type="submit" name="submit" value="月別">
+<br><br>
+</form>
 
 <input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/menu.jsp'">
 

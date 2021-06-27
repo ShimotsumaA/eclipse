@@ -101,6 +101,8 @@ public class OrderDetailDAO extends DBAccess{
 	}
 
 
+
+
 	public int delete(String oDetailId) {
 		//delete method
 		String sql = "delete from tyumon_detail where O_DETAIL_ID=?";
