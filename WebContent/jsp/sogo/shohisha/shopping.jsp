@@ -79,7 +79,7 @@
 							%>
 							<input type="hidden" name="category_id"
 								value="<%=list.get(i - 1).getCategoryId()%>"> <a
-								href="javascript:category.submit()"><%=list.get(i - 1).getCategoryName()%></a>
+								href="javascript:category.submit()"><%=list.get(i - 1).getCategoryName()%></a><br>
 							<%
 							}
 							%>
@@ -100,7 +100,7 @@
 							%>
 							<input type="hidden" name="kiji_id"
 								value="<%=list2.get(i - 1).getKijiId()%>"> <a
-								href="javascript:category.submit()"><%=list2.get(i - 1).getKijiSyurui()%></a>
+								href="javascript:category.submit()"><%=list2.get(i - 1).getKijiSyurui()%></a><br>
 							<%
 							}
 							%>
