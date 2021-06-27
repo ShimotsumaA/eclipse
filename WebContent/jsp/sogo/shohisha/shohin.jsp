@@ -16,14 +16,17 @@
 	<div class="wrapper">
     	<div class="menu_bar">
     	<table>
-    	<tr>
-    		<td><a href="">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    		<td><a href="">カート</a></td>　<!-- カートへのリンク -->
-    		<td><a href="">マイページ</a></td><!-- マイページへのリンク -->
-    		<td><a href="">ログイン</a></td><!-- ログインページへのリンク -->
-    		<td><a href="">配送料に関して</a><!-- 配送料ページへのリンク -->
-    	</tr>
-    	</table>
+    		<tr>
+				<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
+					<!-- ログインページへのリンク -->
+				<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
+					<!-- マイページへのリンク -->
+				<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
+					<!-- カートへのリンク -->
+				<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
+					<!-- トップメニューへのリンク -->
+			</tr>
+		</table>
    	 	</div>
 
     <!-- 商品画像表示 -->
