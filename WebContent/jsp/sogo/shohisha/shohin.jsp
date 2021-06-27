@@ -31,7 +31,7 @@
 
     <!-- 商品画像表示 -->
     	<div class="image">
-    	<img src="" name="" >
+    	<img src="/group2work/image/np0001_picture01.jpg" name="バッグ" width=100px height=100px>
     	</div>
 
     <!-- 商品詳細 -->

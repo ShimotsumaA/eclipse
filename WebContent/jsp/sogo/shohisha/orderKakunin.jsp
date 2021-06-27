@@ -31,7 +31,7 @@
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list1=new ArrayList<>();
 		list1=dao.joken(shohinId);
-		%>
+	%>
 	商品名:<%= list1.get(0).getShohinName() %><br>
 	価格：<%=list1.get(0).getValue() %><br>
 	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
@@ -39,7 +39,7 @@
 	<%} %>
 </div>
 
-<div style="text-align:left;">
+<div style="text-align:center;">
 	支払い方法：<%=session.getAttribute("shiharai") %><br>//セッションから支払い方法を取得
 	配送先住所<br>
 	<%=session.getAttribute("post_code") %><br>
@@ -55,8 +55,8 @@
 </div>
 
 
-	<button type="submit" name="submit" value="chumon" formaction="/orderCollect.jsp">確定</button>
-	<button type="button" name="submit" value="return">戻る</button>
+	<button type="submit" name="submit" value="chumon" formaction="/orderCollect.jsp">確定</button><br>
+	<button type="button" name="submit" value="return">戻る</button><br>
 </form>
 
 
