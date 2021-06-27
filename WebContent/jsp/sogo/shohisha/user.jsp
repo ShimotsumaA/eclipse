@@ -55,7 +55,7 @@
 			</tr>
 			<tr>
 				<td align="right">住所：</td>
-				<td><textarea name="adress" rows=”3″ cols="40"  wrap=”hard”  maxlength="30">></textarea></td>
+				<td><textarea name="adress" rows=”3″ cols="40"  wrap=”hard”  maxlength="30"></textarea></td>
 			</tr>
 			<tr>
 				<td align="right">電話番号：</td>
@@ -85,7 +85,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
-				<td><input type="passwqrd" name="sPassK" size="40" maxlength="15"></td>
+				<td><input type="password" name="sPassK" size="40" maxlength="15"></td>
 			</tr>
 		<table  align="center">
 		<tr>
@@ -150,7 +150,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="passwprd" name="sPass" size="40" maxlength="15"></td>
+				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
