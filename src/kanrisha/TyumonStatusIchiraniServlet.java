@@ -25,18 +25,19 @@ import shohisha.ShohishaDao;
 
 public class TyumonStatusIchiraniServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		//文字コードの設定
+		// 文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		HttpSession session=request.getSession(true);
-		ArrayList<TyumonBean> listAll =new ArrayList<TyumonBean>();
-
+		HttpSession session = request.getSession(true);
+		ArrayList<TyumonBean> listAll = new ArrayList<TyumonBean>();
 
 		OrderDao dao = new OrderDao();
 		ArrayList<OrderBean> orderList = dao.selectAll();
@@ -54,31 +55,36 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 
 		for (int i = 0; i < orderList.size(); i++) {
 
-			String sId = orderList.get(i).getSId();
-			String oDetailId = orderList.get(i).getODetailId();
-			String orderId = orderList.get(i).getOrderId();
+			int statusId = orderList.get(i).getStatusId();
 
-			shohishaList = dao2.joken(sId);
-			orderDetailList = dao3.jouken(oDetailId);
-			orderListJoken = dao.joken(orderId);
-			
-			/*
-			 * for(int j=0;j<orderDetailList.size();j++) { String
-			 * shohinId=orderDetailList.get(j).getShohinId();
-			 * shohinList=dao4.joken(shohinId);
-			 * 
-			 * }
-			 */
+			if (statusId >= 1) {
 
-			TyumonBean bean=new TyumonBean();
-			bean.setOderList(orderListJoken);
-			bean.setODetailList(orderDetailList);
-			bean.setShohishaList(shohishaList);
-			listAll.add(bean);
+				String sId = orderList.get(i).getSId();
+
+				String oDetailId = orderList.get(i).getODetailId();
+				String orderId = orderList.get(i).getOrderId();
+
+				shohishaList = dao2.joken(sId);
+				orderDetailList = dao3.jouken(oDetailId);
+				orderListJoken = dao.joken(orderId);
+
+				/*
+				 * for(int j=0;j<orderDetailList.size();j++) { String
+				 * shohinId=orderDetailList.get(j).getShohinId();
+				 * shohinList=dao4.joken(shohinId);
+				 *
+				 * }
+				 */
+
+				TyumonBean bean = new TyumonBean();
+				bean.setOderList(orderListJoken);
+				bean.setODetailList(orderDetailList);
+				bean.setShohishaList(shohishaList);
+				listAll.add(bean);
+			}
 		}
 
 		session.setAttribute("tyumonListAll", listAll);
-
 
 		request.setAttribute("submit", "メニュー");
 
