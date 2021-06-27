@@ -135,7 +135,7 @@
 									%>
 									<td><input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>"> <a
-										href="javascript:shohin.submit()"><img src=""></a><br>
+										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
 										<p><%=list3.get(i - 1).getShohinName()%></p>
 										<p><%=list3.get(i - 1).getValue()%></p>
 										<%count = count + 1;%>
