@@ -21,18 +21,61 @@
 	background-color:#f0ffff
 	}
 
-	table{
+	*{
+	margin:0;
 
-	}
+}
+
+body{
+	background-image:url("/group2work/image/43455.jpg")
+}
+
+h1{
+	font-family: cursive;
+
+}
+
+
+
+table.about{
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:70px 0px;
+	position:relative;
+	right:90px;
+	top:-140px
+
+}
+
+table.shohin{
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:50px 70px;
+	position:relative;
+	bottom:250px;
+	right:50px;
+
+}
+
+div.side_bar{
+	clear:right;
+}
+
+table.link{
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing:100px 0px;
+}
 </style>
 </head>
 <body>
-	<h1>Nishida Printing</h1>
+
+	<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
 
 	<div class="wrapper">
 		<!-- メニューバー -->
 		<div class="menu_bar">
-			<table class="about">
+			<table class="about" >
 				<tr>
 					<% if(session.getAttribute("id")!=null){%>
 					<td><a href="/group2work/LogInOutServlet?submit=logout">ログアウト</a></td>
@@ -53,10 +96,8 @@
 		</div>
 		<!-- カテゴリ検索 -->
 		<div class="side_bar">
-			<table>
-				<tr>
-					<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー画面へ</a></td>
-				</tr>
+			<table class="side">
+
 
 				<!-- 検索ボックス -->
 				<tr>
@@ -115,7 +156,6 @@
 		<!-- 商品表示 -->
 		<div class="shohin_hyozi">
 			<table class="shohin">
-
 				<tr>
 					<td>
 						<!-- 商品for文で取り出し -->
@@ -126,23 +166,29 @@
 							ArrayList<ShohinBean> list3 = (ArrayList<ShohinBean>) session.getAttribute("listShohin");
 							%>
 
-							<table>
+							<table class="shohin"  style="text-align:center">
 								<tr>
 									<%
 									int count = 0;
 									for (int i = 1; i <= list3.size(); i++) {
 									%>
+
 									<td>
 									<form action="/group2work/ShohinHyojiServlet" method="post" name="shohin<%=i%>">
 									<input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>">
 										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
 										</form>
+
+									<td><input type="hidden" name="shohin_id"
+										value="<%=list3.get(i - 1).getShohinId()%>"> <a
+										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
+
 										<p><%=list3.get(i - 1).getShohinName()%></p>
-										<p><%=list3.get(i - 1).getValue()%></p>
+										<p><%=list3.get(i - 1).getValue()%>円</p>
 										<%count = count + 1;%>
 									<td>
-										<%if (count % 4 == 0) {%>
+										<%if (count % 3 == 0) {%>
 
 								</tr>
 								<tr>
@@ -160,11 +206,9 @@
 
 		<!-- フッター -->
 		<div class="footer">
-			<table>
+			<table class="link">
 				<tr>
 					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
-				</tr>
-				<tr>
 					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
 				</tr>
 			</table>
