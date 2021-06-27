@@ -28,7 +28,7 @@ public class ShohishaDao extends DBAccess {
 				bean.setName(rs.getString("s_name"));
 				bean.setBirth(rs.getString("date_birth"));
 				bean.setPost(rs.getString("postcode"));
-				bean.setAdress(rs.getString("address"));
+				bean.setAddress(rs.getString("address"));
 				bean.setTel(rs.getString("tel"));
 				bean.setMail(rs.getString("mailaddress"));
 				bean.setPass(rs.getString("s_pass"));
@@ -62,7 +62,7 @@ public class ShohishaDao extends DBAccess {
 				bean.setName(rs.getString("s_name"));
 				bean.setBirth(rs.getString("date_birth"));
 				bean.setPost(rs.getString("postcode"));
-				bean.setAdress(rs.getString("address"));
+				bean.setAddress(rs.getString("address"));
 				bean.setTel(rs.getString("tel"));
 				bean.setMail(rs.getString("mailaddress"));
 				bean.setPass(rs.getString("s_pass"));

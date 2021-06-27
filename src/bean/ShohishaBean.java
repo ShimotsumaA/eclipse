@@ -7,9 +7,9 @@ public class ShohishaBean implements Serializable{
 	private String sName;
 	private String dateBirth;
 	private String postCode;
-	private String adress;
+	private String address;
 	private String tel;
-	private String mailAdress;
+	private String mailAddress;
 	private String sPass;
 
 	//ID
@@ -45,11 +45,11 @@ public class ShohishaBean implements Serializable{
 	}
 
 	//住所
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	//電話番号
@@ -63,10 +63,10 @@ public class ShohishaBean implements Serializable{
 
 	//メール
 	public String getMail() {
-		return mailAdress;
+		return mailAddress;
 	}
-	public void setMail(String mailAdress) {
-		this.mailAdress = mailAdress;
+	public void setMail(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 	//パスワード
