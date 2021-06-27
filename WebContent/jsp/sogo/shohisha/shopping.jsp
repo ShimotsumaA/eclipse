@@ -34,11 +34,17 @@
 		<div class="menu_bar">
 			<table class="about">
 				<tr>
+					<% if(session.getAttribute("id")!=null){%>
+					<td><a href="/group2work/LogInOutServlet?submit=logout">ログアウト</a></td>
+					<% }else{ %>
 					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
+					<% }
+					%>
+
 					<!-- ログインページへのリンク -->
 					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
 					<!-- マイページへのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
+					<td><a href="/group2work/CartHyoujiServlet">カート</a></td>
 					<!-- カートへのリンク -->
 					<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
 					<!-- トップメニューへのリンク -->
@@ -113,8 +119,7 @@
 				<tr>
 					<td>
 						<!-- 商品for文で取り出し -->
-						<form action="/group2work/ShohinHyojiServlet"
-							method="post" name="shohin">
+
 							<br>
 
 							<%
@@ -127,9 +132,12 @@
 									int count = 0;
 									for (int i = 1; i <= list3.size(); i++) {
 									%>
-									<td><input type="hidden" name="shohin_id"
-										value="<%=list3.get(i - 1).getShohinId()%>"> <a
-										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
+									<td>
+									<form action="/group2work/ShohinHyojiServlet" method="post" name="shohin<%=i%>">
+									<input type="hidden" name="shohin_id"
+										value="<%=list3.get(i - 1).getShohinId()%>">
+										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
+										</form>
 										<p><%=list3.get(i - 1).getShohinName()%></p>
 										<p><%=list3.get(i - 1).getValue()%></p>
 										<%count = count + 1;%>
@@ -144,7 +152,7 @@
 								</tr>
 							</table>
 
-						</form>
+
 					</td>
 				</tr>
 			</table>

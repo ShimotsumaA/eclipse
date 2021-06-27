@@ -116,11 +116,11 @@ public class CartControlServlet extends HttpServlet {
 				Map<String, Integer> cart = new LinkedHashMap<>();
 				cart = (Map<String, Integer>) session.getAttribute("cart");
 
-				if (cart.containsKey(shohinId)) {
-					int kazu = cart.get(shohinId) + kazuKonyu;
-					cart.put(shohinId, kazu);
+				if (cart.containsKey(String.valueOf(shohinId))) {
+					int kazu = cart.get(String.valueOf(shohinId)) + kazuKonyu;
+					cart.put(String.valueOf(shohinId), kazu);
 				} else {
-					cart.put(shohinId, kazuKonyu);
+					cart.put(String.valueOf(shohinId), kazuKonyu);
 
 				}
 				cartcount = 1;
@@ -130,7 +130,7 @@ public class CartControlServlet extends HttpServlet {
 
 				Map<String, Integer> cart = new LinkedHashMap<>();
 
-				cart.put(shohinId, kazuKonyu);
+				cart.put(String.valueOf(shohinId), kazuKonyu);
 				cartcount = 1;
 				session.setAttribute("cart", cart);
 

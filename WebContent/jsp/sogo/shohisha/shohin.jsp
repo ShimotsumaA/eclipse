@@ -21,7 +21,7 @@
 					<!-- ログインページへのリンク -->
 				<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
 					<!-- マイページへのリンク -->
-				<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
+				<td><a href="/group2work/CartHyoujiServlet">カート</a></td>
 					<!-- カートへのリンク -->
 				<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
 					<!-- トップメニューへのリンク -->

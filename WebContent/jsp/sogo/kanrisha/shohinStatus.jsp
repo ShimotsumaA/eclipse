@@ -59,7 +59,7 @@
 
 		String sId=shohishaList.get(0).getId();//消費者id
 		String sName=shohishaList.get(0).getName();//名前
-		String address=shohishaList.get(0).getAdress();//住所
+		String address=shohishaList.get(0).getAddress();//住所
 		String tel=shohishaList.get(0).getTel();//電話番号
 
 

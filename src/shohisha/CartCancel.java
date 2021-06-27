@@ -88,7 +88,7 @@ public class CartCancel extends HttpServlet {
 		}
 
 		request.setAttribute("cancel", cancel);
-		RequestDispatcher dispatcher =request.getRequestDispatcher("/group2work/CartHyoujiServlet");
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/CartHyoujiServlet");
 		dispatcher.forward(request, response);
 	}
 

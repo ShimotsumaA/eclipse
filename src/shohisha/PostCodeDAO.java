@@ -10,7 +10,7 @@ import bean.PostCodeBean;
 import sogo.DBAccess;
 
 public class PostCodeDAO extends DBAccess{
-	public ArrayList<PostCodeBean> joken(int zip) {
+	public ArrayList<PostCodeBean> joken(String zip) {
 		ArrayList<PostCodeBean> list = new ArrayList<>();
 
 		// joken method
@@ -19,7 +19,7 @@ public class PostCodeDAO extends DBAccess{
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setInt(1, zip);
+			ps.setString(1, zip);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
