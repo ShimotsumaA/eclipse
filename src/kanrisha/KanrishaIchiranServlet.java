@@ -42,7 +42,10 @@ public class KanrishaIchiranServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp?submit=変更確定");
 			dispatcher.forward(request, response);
 
-		} else  {
+		} else {
+
+			String message = (String)request.getAttribute("message");
+			request.setAttribute("message", message);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp?submit=変更削除");
 			dispatcher.forward(request, response);
