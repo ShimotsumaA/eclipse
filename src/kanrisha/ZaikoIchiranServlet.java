@@ -40,7 +40,7 @@ public class ZaikoIchiranServlet extends HttpServlet {
 		request.setAttribute("list",dao.selectAll());
 
 		//セッション領域にリストを保存
-		HttpSession session=request.getSession();
+		HttpSession session=request.getSession(true);
 		session.setAttribute("list", list);
 
 		//フォワード

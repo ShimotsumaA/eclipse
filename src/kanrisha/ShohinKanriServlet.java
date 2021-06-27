@@ -1,6 +1,7 @@
 package kanrisha;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -49,12 +50,18 @@ public class ShohinKanriServlet extends HttpServlet {
 
 		//商品一覧画面の変更ボタンが押された
 		ErrCheck err=new ErrCheck();
+		String submit=request.getParameter("submit");
+		System.out.println(submit);
 
-		//商品が選択されていない
 
-		if(request.getParameter("submit").equals("変更")) {
+
+		HttpSession session=request.getSession(true);
+
+		if(submit.equals("変更")) {
 			String shohinId=request.getParameter("radio");
 			System.out.println(shohinId);
+
+			//商品が選択されていない
 			if(request.getParameter("radio")==null) {
 				request.setAttribute("errorMsg","商品を選択してください");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
@@ -66,7 +73,7 @@ public class ShohinKanriServlet extends HttpServlet {
 			ShohinDao dao=new ShohinDao();
 			ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
 			list=dao.joken(shohinId);
-			HttpSession session=request.getSession(true);
+
 
 			session.setAttribute("shohinId",list.get(0).getShohinId());
 			session.setAttribute("shohinName",list.get(0).getShohinName());
@@ -81,8 +88,8 @@ public class ShohinKanriServlet extends HttpServlet {
 		}
 
 		//商品変更画面の変更ボタンが押された
-		if(request.getParameter("submit").equals("変更確認")) {
-			HttpSession session=request.getSession(true);
+		if(submit.equals("変更確認")) {
+
 
 			session.setAttribute("name", request.getParameter("name"));
 			session.setAttribute("id", request.getParameter("id"));
@@ -95,17 +102,33 @@ public class ShohinKanriServlet extends HttpServlet {
 			System.out.println("ディスパッチ!");
 		}
 
+//		登録確認画面の変更ボタンが押された時
+		if(submit.equals("変更確定")) {
 
-		if(request.getParameter("submit").equals("変更確定")) {
+				String shohinId=(String)session.getAttribute("id");
+				String shohinName=(String)session.getAttribute("name");
+				String categoryId=(String)session.getAttribute("category");
+				String kijiId=(String)session.getAttribute("kiji");
+				java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
+
+
+
+			//DAOをインスタンス化
+				ShohinDao dao =new ShohinDao();
+				int rs=dao.update(shohinId, shohinName, kijiId, categoryId, value);
+				System.out.println(rs);
+				request.setAttribute("compmsg", "変更されました");
+
+
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 				System.out.println("ディスパッチ!!!");
 
 		}
 
-		if(request.getParameter("submit").equals("登録確認")){
+		if(submit.equals("登録確認")){
 			//入力値をセッション領域に預ける。
-			HttpSession session=request.getSession();
+
 
 			session.setAttribute("name", request.getParameter("name"));
 			session.setAttribute("id", request.getParameter("id"));
@@ -123,13 +146,28 @@ public class ShohinKanriServlet extends HttpServlet {
 			System.out.println("ディスパッチ!!!!");
 		}
 
-		if(request.getParameter("submit").equals("登録確定")){
+		if(submit.equals("登録確定")){
+
+			String shohinId=(String)session.getAttribute("id");
+			System.out.println(shohinId);
+			String shohinName=(String)session.getAttribute("name");
+			String categoryId=(String)session.getAttribute("category");
+			String kijiId=(String)session.getAttribute("kiji");
+			java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
+
+
+			//DAOをインスタンス化
+			ShohinDao dao=new ShohinDao();
+			int rs=dao.insert(shohinId,shohinName,categoryId,kijiId,value);
+			System.out.println(rs);
+			request.setAttribute("compmsg", "登録が完了しました");
+
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1");
 				dispatcher.forward(request, response);
 				System.out.println("ディスパッチ!!!!!");
 			}
 
-		if(request.getParameter("submit").equals("削除確定")){
+		if(submit.equals("削除確定")){
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ!!!!!");

@@ -25,6 +25,7 @@ public class ShohinDao extends DBAccess {
 					bean.setShohinName(rs.getString("shohin_name"));
 					bean.setKijiId(rs.getString("kiji_id"));
 					bean.setCategoryId(rs.getString("category_id"));
+					bean.setZaiko(rs.getInt("zaiko"));
 					bean.setValue(rs.getBigDecimal("value"));
 					list.add(bean);
 				}
@@ -69,22 +70,23 @@ public class ShohinDao extends DBAccess {
 
 
 	//逋ｻ骭ｲ繝｡繧ｽ繝�繝�
-	public int insert(String shohinId,String shohinName,String kijiId,
-				String categoryId,java.math.BigDecimal value) {
+	public int insert(String shohin_Id,String shohin_Name,String kiji_Id,
+				String category_Id,java.math.BigDecimal value) {
 
 
 	int count=0;
 
-	String sql="insert into shohin(shohin_Id, shohin_Name ,kiji_Id, category_Id, value) values(?,?,?,?,?)";
+	String sql="insert into shohin(shohin_Id, shohin_Name ,kiji_Id, , value,category_Id) values(?,?,?,?,?)";
 	try {
 		connect();
 		// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 		PreparedStatement ps = getConnection().prepareStatement(sql);
-		ps.setString(1, shohinId);
-		ps.setString(2, shohinName);
-		ps.setString(3, kijiId);
-		ps.setString(4, categoryId);
-		ps.setBigDecimal(5, value);
+		ps.setString(1, shohin_Id);
+		ps.setString(2, shohin_Name);
+		ps.setString(3, kiji_Id);
+		ps.setBigDecimal(4, value);
+		ps.setString(5, category_Id);
+
 		count=ps.executeUpdate();
 
 	} catch (SQLException e) {
@@ -97,7 +99,7 @@ public class ShohinDao extends DBAccess {
 	}
 
 	//蝠�蜩∝炎髯､繝｡繧ｽ繝�繝�
-	public  int delete(String shohinId) {
+	public  int delete(String shohin_Id) {
 
 		int count=0;
 
@@ -107,7 +109,7 @@ public class ShohinDao extends DBAccess {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohinId);
+			ps.setString(1, shohin_Id);
 
 			count = ps.executeUpdate();
 
@@ -120,8 +122,8 @@ public class ShohinDao extends DBAccess {
 
 	}
 
-	public int update(String shohinId,String shohinName,String kijiId,
-			String categoryId,java.math.BigDecimal value) {
+	public int update(String shohin_Id,String shohin_Name,String kiji_Id,
+			String category_Id,java.math.BigDecimal value) {
 
 		int count=0;
 
@@ -131,10 +133,10 @@ public class ShohinDao extends DBAccess {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohinId);
-			ps.setString(2, shohinName);
-			ps.setString(3, kijiId);
-			ps.setString(4, categoryId);
+			ps.setString(1, shohin_Id);
+			ps.setString(2, shohin_Name);
+			ps.setString(3, kiji_Id);
+			ps.setString(4, category_Id);
 			ps.setBigDecimal(5, value);
 
 
@@ -152,7 +154,7 @@ public class ShohinDao extends DBAccess {
 
 
 	//蝨ｨ蠎ｫ繧貞､画峩縺吶ｋ繝｡繧ｽ繝�繝�
-	public int zaikoUpdate(String shohinId ,int zaiko) {
+	public int zaikoUpdate(String shohin_Id ,int zaiko) {
 
 		int count=0;
 
@@ -162,7 +164,7 @@ public class ShohinDao extends DBAccess {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohinId);
+			ps.setString(1, shohin_Id);
 			ps.setInt(2, zaiko);
 
 			count =ps.executeUpdate();
@@ -178,7 +180,7 @@ public class ShohinDao extends DBAccess {
 
 
 	//繝�繝ｼ繝悶Ν縺ｫ蛟､繧定ｿｽ蜉�縺吶ｋ繝｡繧ｽ繝�繝�
-	public  int zaikoInsert(String shohinId ,int zaiko) {
+	public  int zaikoInsert(String shohin_Id ,int zaiko) {
 
 		int count=0;
 
@@ -188,7 +190,7 @@ public class ShohinDao extends DBAccess {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohinId);
+			ps.setString(1, shohin_Id);
 			ps.setInt(2,zaiko);
 
 			count=ps.executeUpdate();
@@ -204,10 +206,10 @@ public class ShohinDao extends DBAccess {
 	}
 
 	//nyukoUpdate
-	public int nyukoUpdate(String shohinId,int nyuko) {
+	public int nyukoUpdate(String shohin_Id,int nyuko) {
 		int count=0;
 
-		int zaiko=joken(shohinId).get(0).getZaiko()+nyuko;
+		int zaiko=joken(shohin_Id).get(0).getZaiko()+nyuko;
 
 
 
@@ -217,7 +219,7 @@ public class ShohinDao extends DBAccess {
 			connect();
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohinId);
+			ps.setString(1, shohin_Id);
 			ps.setInt(2, zaiko);
 
 			count =ps.executeUpdate();

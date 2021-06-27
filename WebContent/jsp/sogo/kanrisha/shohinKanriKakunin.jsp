@@ -18,11 +18,11 @@
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<br>
-	商品ID:<br>
-	販売価格:<br>
-	カテゴリ：<br>
-	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
+	商品名：<%=session.getAttribute("name") %><br>
+	商品ID:<%=session.getAttribute("id") %><br>
+	販売価格:<%=session.getAttribute("price") %><br>
+	カテゴリ：<%=session.getAttribute("category") %><br>
+	生地ID：<%=session.getAttribute("kiji") %>	<!-shohinKanriModからパラメータ取得-><br><br>
 
 	<input type="submit" name="submit" value="登録確定" >
 	<input type="button" value="戻る" onClick="history.go(-1)">
@@ -60,10 +60,11 @@
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<br>
-	商品ID:<br>
-	カテゴリ：<br>
-	生地ID：	<!-shohinKanriModからパラメータ取得-><br><br>
+	商品名：<%=session.getAttribute("name") %><br>
+	商品ID:<%=session.getAttribute("id") %><br>
+	商品価格：<%=session.getAttribute("price") %><br>
+	カテゴリ：<%=session.getAttribute("category") %><br>
+	生地ID：<%=session.getAttribute("kiji") %>	<br><br>
 
 	<input type="submit" name="submit" value="削除確定">
 	<input type="button" value="戻る" onClick="history.go(-1)">

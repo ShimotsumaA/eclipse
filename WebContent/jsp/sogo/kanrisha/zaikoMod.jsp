@@ -8,18 +8,18 @@
 
 </head>
 <body>
+<form action="/group2work/ZaikoKanriServlet" method="post">
 <%if(request.getParameter("submit").equals("入庫")){%>
 <div style=text-align:center>
 	<h1>在庫管理</h1>
-	商品ID：request.getParameter<br>
-	商品名：パラメータ取得<br>
-	在庫数：パラメータ取得<br><br>
+	商品ID：<%=session.getAttribute("shohinId") %><br>
+	商品名：<%=session.getAttribute("shohinName") %><br>
+	在庫数：<%=session.getAttribute("zaiko") %><br><br>
 
 	入力分の在庫数を追加します。<br><br>
 
-	<label for="tuika">入庫数：現在の在庫数+</label>
+	<label for="tuika">入庫数：<%= session.getAttribute("zaiko") %></label>
 	<input type="text" name="nyuko" size="30" id="tuika"><br><br>
-<form action="/group2work/ZaikoKanriServlet" method="post">
 	<input type="submit" name="submit"value="確認">
 </form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
@@ -29,9 +29,9 @@
 <%if(request.getParameter("submit").equals("変更")){%>
 <div style=text-align:center>
 	<h1>在庫管理</h1>
-	商品ID：request.getParameter<br>
-	商品名：パラメータ取得<br>
-	在庫数：パラメータ取得<br><br>
+	商品ID：<%=session.getAttribute("shohinId") %><br>
+	商品名：<%=session.getAttribute("shohinName") %><br>
+	在庫数：<%=session.getAttribute("zaiko") %><br><br>
 
 	入力分の在庫数を追加します。<br><br>
 

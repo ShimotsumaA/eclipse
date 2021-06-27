@@ -24,7 +24,7 @@
 <%for(int i=0; i<list.size(); i++) {%>
 
 <tr>
-<td><input type="radio" name="zaiko" value=<%=list.get(i).getShohinId() %>>
+<td><input type="radio" name="radio" value=<%=list.get(i).getShohinId() %>>
 <td><%=list.get(i).getShohinId()%></td>
 <td><%=list.get(i).getShohinName() %></td>
 <td><%=list.get(i).getZaiko() %></td>

@@ -11,36 +11,45 @@
 <%String no=request.getParameter("no") ;%>
 <body>
 <%if(no.equals("1")) {%>
-	<form action="/group2work/ShohinKanriServlet" method="post">
-	<div style=text-align:center>
-	<h1>商品登録</h1><br>
-	<label for="name">商品名：</label>
-	<input type="text" name="name" size="30" id="name"><br>
+<form action="/group2work/ShohinKanriServlet" method="post">
+<div style=text-align:center>
+<h1>商品登録</h1><br>
+<label for="name">商品名：</label>
+<input type="text" name="name" size="30" id="name"><br>
 
-	<label for="id">商品ID：</label>
-	<input type="text" name="id" size="30" id="id"><br>
+<label for="id">商品ID：</label>
+<input type="text" name="id" size="30" id="id"><br>
 
-	<label for="kakaku">販売価格：</label>
-	<input type="text" name="price" size="30" id="kakaku"><br>
+<label for="kakaku">販売価格：</label>
+<input type="text" name="price" size="30" id="kakaku"><br>
 
-<<<<<<< HEAD
 カテゴリ:
+
+<%--ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");--%>
+
+<%--for(int i=0; i<list.size(); i++) {--%>
 <select name="category">
+<%--=list.get(i).getCategoryId() --%>
+<option>1</option>
+<option>2</option>
+<option>3</option>
 </select><br>
-=======
-	カテゴリ:
-	<select name="カテゴリ">
-	</select><br>
->>>>>>> stash
-
-	<label for="kijiId">生地ID：</label>
-	<input type="text" name="kiji" size="30" id="kijiId"><br>
-
-	<input type="submit" name="submit" value="登録確認">
-	</form>
-	<input type="button" value="戻る"onClick="history.go(-1)">
-	</div>
 <%} %>
+<label for="kijiId">生地ID：</label>
+<input type="text" name="kiji" size="30" id="kijiId"><br>
+
+<input type="submit" name="submit" value="登録確認">
+</form>
+<input type="button" value="戻る"onClick="history.go(-1)">
+<font color="red">
+		<%if(request.getAttribute("compmsg")!=null){ %>
+			<%= request.getAttribute("compmsg")%>
+		<% } %>
+		</font>
+
+</div>
+<%--} --%>
+
 
 <%if(no.equals("2"))  {%>
 <div style=text-align:center>
@@ -69,9 +78,9 @@
 		カテゴリ:
 		<select name="category">
 		<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
-		
+
 		<%for(int i=0; i<list.size(); i++) {%>
-		
+
 		<%=list.get(i).getCategoryId() %>
 		<option><%=list.get(i).getCategoryId() %></option>
 		<%} %>
