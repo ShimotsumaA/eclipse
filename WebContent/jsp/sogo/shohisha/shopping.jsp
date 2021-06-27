@@ -10,11 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>online-store Nishida Printing</title>
-<link rel="stylesheet" href="shopping.css">
+<link rel="stylesheet" href="./shopping.css">
 <style>
-	*{
-	font-family:"游ゴシック"
-	}
+
 	h1{
 	background-color:#87ceeb
 	}
@@ -30,6 +28,7 @@
 </head>
 <body>
 	<h1>Nishida Printing</h1>
+
 	<div class="wrapper">
 		<!-- メニューバー -->
 		<div class="menu_bar">
@@ -43,6 +42,10 @@
 					<!-- マイページへのリンク -->
 					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
 					<!-- ログインページへのリンク -->
+					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
+					<!-- 送料へのリンク -->
+					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
+					<!-- トップメニューへのリンク -->
 				</tr>
 			</table>
 		</div>

@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+*{
+	margin:0;
+
+}
+
 h1{
 	font-family: cursive;
+
+
+}
+
+link{
+	background-color:#f0ffff
 }
