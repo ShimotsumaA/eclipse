@@ -48,7 +48,7 @@ public class ShohishaBean implements Serializable{
 	public String getAddress() {
 		return address;
 	}
-	public void setAdress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
