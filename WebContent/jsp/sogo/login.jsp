@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h1{
+	background-color:#87ceeb
+	}
+</style>
 </head>
 <body>
 
