@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="text" name="pass1" size="15" value= <%=request.getAttribute("pass") %>></td>
+				<td><input type="text" name="pass1" size="15" value= <%=session.getAttribute("pass") %>></td>
 			</tr>
 			</table>
 				・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>​

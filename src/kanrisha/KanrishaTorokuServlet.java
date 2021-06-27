@@ -63,7 +63,25 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=変更");
 			dispatcher.forward(request, response);
 
-		} else if(submit.equals("削除")) {
+		} else if(submit.equals("delete")) {
+
+			String id = request.getParameter("radio");
+
+			//ラジオボタンが選択されていない
+			if (id == null){
+				request.setAttribute("message", "対象を選択してください");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/kanrishaIchiranServlet?submit=1");
+				dispatcher.forward(request, response);
+			}
+
+			//idをもとに個人情報を取り出し、セッション領域に預ける
+			ArrayList<KanrishaBean> list = dao.joken(id);
+
+			session.setAttribute("id", id);
+			session.setAttribute("name", list.get(0).getName());
+			session.setAttribute("postId", list.get(0).getPostId());
+			session.setAttribute("pass", list.get(0).getPass());
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp");
 			dispatcher.forward(request, response);
@@ -227,7 +245,9 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			int kensu = dao.update(id, name, postId, pass);
 			System.out.println(kensu+"件変更しました。");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/KanrishaIchiranServlet?submit=変更確定");
+			request.setAttribute("message", "変更が完了しました。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/kanrishaIchiranServlet");
 			dispatcher.forward(request, response);
 
 		} else if(submit.equals("削除確定")) {
@@ -237,9 +257,11 @@ public class KanrishaTorokuServlet extends HttpServlet {
 
 			//管理者情報を削除する
 			int kensu = dao.delete(id);
-			System.out.println(kensu+"件変更しました。");
+			System.out.println(kensu+"件削除しました。");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/KanrishaIchiranServlet?submit=削除確定");
+			request.setAttribute("message", "削除が完了しました。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/kanrishaIchiranServlet");
 			dispatcher.forward(request, response);
 
 		}
