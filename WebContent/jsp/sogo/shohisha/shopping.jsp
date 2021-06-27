@@ -100,32 +100,35 @@ table.link{
 
 
 				<!-- 検索ボックス -->
-				<tr>
+<!-- 				<tr>
+					<td>
 					<form action="" method="post">
 						<input type="text" name="kensaku"><input type="button">
 					</form>
 					</td>
 				</tr>
-
+ -->
 				<!-- カテゴリ選択（for文) -->
 				<tr class="category">
 					<td>
 						<p>カテゴリ</p>
-						<form action="/group2work/ECHyoujiServlet" method="post"
-							name="category">
+
 
 							<%
 							ArrayList<CategoryBean> list = (ArrayList<CategoryBean>) session.getAttribute("listCategory");
 							for (int i = 1; i <= list.size(); i++) {
 							%>
+										<form action="/group2work/ECHyoujiServlet" method="post"
+							name="category">
 							<input type="hidden" name="category_id"
 								value="<%=list.get(i - 1).getCategoryId()%>"> <a
 								href="javascript:category.submit()"><%=list.get(i - 1).getCategoryName()%></a><br>
+							</form>
 							<%
 							}
 							%>
 
-						</form>
+
 					</td>
 				</tr>
 
@@ -133,20 +136,22 @@ table.link{
 				<tr>
 					<td>
 						<p>生地</p>
-						<form action="/group2work/ECHyoujiServlet" method="post"
-							name="kiji">
+
 							<%
 							ArrayList<KijiBean> list2 = (ArrayList<KijiBean>) session.getAttribute("listKiji");
 							for (int i = 1; i <= list2.size(); i++) {
 							%>
+							<form action="/group2work/ECHyoujiServlet" method="post"
+							name="kiji">
 							<input type="hidden" name="kiji_id"
 								value="<%=list2.get(i - 1).getKijiId()%>"> <a
 								href="javascript:category.submit()"><%=list2.get(i - 1).getKijiSyurui()%></a><br>
+								</form>
 							<%
 							}
 							%>
 
-						</form>
+
 					</td>
 				</tr>
 
@@ -177,12 +182,12 @@ table.link{
 									<form action="/group2work/ShohinHyojiServlet" method="post" name="shohin<%=i%>">
 									<input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>">
-										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
+										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
 										</form>
 
-									<td><input type="hidden" name="shohin_id"
+									<%-- <td><input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>"> <a
-										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
+										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br> --%>
 
 										<p><%=list3.get(i - 1).getShohinName()%></p>
 										<p><%=list3.get(i - 1).getValue()%>円</p>
