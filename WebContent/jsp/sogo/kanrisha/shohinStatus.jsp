@@ -64,7 +64,7 @@
 
 
  	%>
-		<td><input type="radio" name="radio" value= value=<%=orderId%>></td>
+		<td><input type="radio" name="radio" value= "<%=orderId%>"></td>
 		<td><%=orderId %></td>
 		<td><%=date %></td>
 		<td><%=sId %></td>
@@ -82,7 +82,32 @@
 		<% }%>
 		</td>
 
-		<td><%=statusId %></td>
+		<td>
+		<%String hyouji=null;
+		switch(statusId){
+			case 1:
+			hyouji="注文済み";
+			break;
+
+			case 2:
+			hyouji="入金済み";
+			break;
+
+			case 3:
+			hyouji="出荷準備";
+			break;
+
+			case 4:
+			hyouji="配達済み";
+			break;
+
+			case 5:
+			hyouji="キャンセル";
+			break;
+
+		}%>
+		<%=hyouji %>
+		</td>
 	</tr>
 	<% } %>
 </table>
