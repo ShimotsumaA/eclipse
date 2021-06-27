@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h1{
+	background-color:#87ceeb
+	}
+</style>
 </head>
 <body>
 
@@ -40,7 +48,7 @@
 			<table align="center">
 				<tr>
 					<td align="right">ID：</td>
-					<td><input type="text" name="id" size="10"></td>
+					<td><input type="text" name="id" size="15"></td>
 				</tr>
 				<tr>
 					<td>パスワード：</td>
