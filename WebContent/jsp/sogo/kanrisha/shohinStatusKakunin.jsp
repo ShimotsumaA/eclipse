@@ -13,19 +13,75 @@
 <h1>商品ステータス変更確認</h1><br>
 以下の商品ステータスを変更します。よろしいですか？<br><br>
 
-<form action="/group2work/TyumonStatuKanriServlet"" method="post">
+		<%
+			int statusId = (Integer)session.getAttribute("statusId");
+			String hyouji=null;
+			switch(statusId){
+				case 1:
+				hyouji="注文済み";
+				break;
+
+				case 2:
+				hyouji="入金済み";
+				break;
+
+				case 3:
+				hyouji="出荷準備中";
+				break;
+
+				case 4:
+				hyouji="出荷済み";
+				break;
+
+				case 5:
+				hyouji="配達済み";
+				break;
+
+				case 6:
+				hyouji="キャンセル";
+				break;
+
+			}
+
+			int newStatusId = (Integer)session.getAttribute("newStatusId");
+			String newHyouji=null;
+			switch(newStatusId){
+				case 1:
+				newHyouji="注文済み";
+				break;
+
+				case 2:
+				newHyouji="入金済み";
+				break;
+
+				case 3:
+				newHyouji="出荷準備中";
+				break;
+
+				case 4:
+				newHyouji="出荷済み";
+				break;
+
+				case 5:
+				newHyouji="配達済み";
+				break;
+
+				case 6:
+				newHyouji="キャンセル";
+				break;
+			}
+		%>
+
+<form action="/group2work/TyumonStatuKanriServlet" method="post">
 <table align="center">
 	<tr>
-		<td align="right">商品ID：</td><td></td>
+		<td align="right">注文番号：</td><td><%=session.getAttribute("orderId") %></td>
 	</tr>
 	<tr>
-		<td align="right">商品名：</td><td></td>
+		<td align="right">変更前ステータス：</td><td><%=hyouji %></td>
 	</tr>
 	<tr>
-		<td align="right">変更前ステータス：</td><td></td>
-	</tr>
-	<tr>
-		<td align="right">変更後ステータス：</td><td></td>
+		<td align="right">変更後ステータス：</td><td><%=newHyouji %></td>
 	</tr>
 </table>
 <br>

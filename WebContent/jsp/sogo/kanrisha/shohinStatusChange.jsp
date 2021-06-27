@@ -17,28 +17,64 @@
 
 <h1>注文ステータス変更</h1>
 
-注文番号：<br>
+注文番号：<%=session.getAttribute("orderId") %><br>
 現在のステータスは
-<font color="red">ステータス</font>
+
+<%
+	int statusId = (Integer)session.getAttribute("statusId");
+
+	String hyouji=null;
+	switch(statusId){
+		case 1:
+		hyouji="注文済み";
+		break;
+
+		case 2:
+		hyouji="入金済み";
+		break;
+
+		case 3:
+		hyouji="出荷準備中";
+		break;
+
+		case 4:
+		hyouji="出荷済み";
+		break;
+
+		case 5:
+		hyouji="配達済み";
+		break;
+
+		case 6:
+			hyouji="キャンセル";
+			break;
+
+	}
+%>
+
+<font color="red"><%=hyouji %></font>
 です。<br><br>
 
 <form action="/group2work/TyumonStatuKanriServlet" method="post">
 <table border="1" align="center">
 	<th></th><th>ステータス</th>
 	<tr>
-		<td><input type="radio" name="radio" value=""></td><td>入金済み</td>
+		<td><input type="radio" name="radio" value="1"></td><td>注文済み</td>
 	</tr>
 	<tr>
-		<td><input type="radio" name="radio" value=""></td><td>出荷準備中</td>
+		<td><input type="radio" name="radio" value="2"></td><td>入金済み</td>
 	</tr>
 	<tr>
-		<td><input type="radio" name="radio" value=""></td><td>出荷済み</td>
+		<td><input type="radio" name="radio" value="3"></td><td>出荷準備中</td>
 	</tr>
 	<tr>
-		<td><input type="radio" name="radio" value=""></td><td>配達済み</td>
+		<td><input type="radio" name="radio" value="4"></td><td>出荷済み</td>
 	</tr>
 	<tr>
-		<td><input type="radio" name="radio" value=""></td><td>キャンセル</td>
+		<td><input type="radio" name="radio" value="5"></td><td>配達済み</td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="radio" value="6"></td><td>キャンセル</td>
 	</tr>
 </table>
 <br><br>

@@ -25,9 +25,14 @@
 
 <h1>商品受注ステータス一覧</h1>
 
-<% if (no.equals("2")){ %>
-	<p> <font color="red">商品受注ステータスの変更が完了しました。</font></p>
+<%
+	if (request.getAttribute("message") != null) {
+
+		String message = (String)request.getAttribute("message");
+%>
+		<p> <font color="red"><%= message %></font></p>
 <% } %>
+
 
 <form action="/group2work/TyumonStatuKanriServlet" method="post">
 <table border="1" align="center">
@@ -94,25 +99,31 @@
 			break;
 
 			case 3:
-			hyouji="出荷準備";
+			hyouji="出荷準備中";
 			break;
 
 			case 4:
-			hyouji="配達済み";
+			hyouji="出荷済み";
 			break;
 
 			case 5:
+			hyouji="配達済み";
+			break;
+
+			case 6:
 			hyouji="キャンセル";
 			break;
 
 		}%>
 		<%=hyouji %>
+			<input type="hidden" name="statusId" value=<%= statusId %>>
 		</td>
 	</tr>
 	<% } %>
 </table>
 <br>
 注文番号を選択して受注ステータス変更ボタンを押してください。<br><br>
+
 
 <input type="submit" name="submit" value="受注ステータス変更">
 <input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/menu.jsp'">

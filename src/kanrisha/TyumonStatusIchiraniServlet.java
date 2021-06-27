@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import bean.OrderBean;
 import bean.OrderDetailBean;
@@ -87,6 +86,12 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 		session.setAttribute("tyumonListAll", listAll);
 
 		request.setAttribute("submit", "メニュー");
+
+
+		if (request.getAttribute("message") != null) {
+
+			request.setAttribute("message", request.getAttribute("message"));
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp?no=1");
 		dispatcher.forward(request, response);

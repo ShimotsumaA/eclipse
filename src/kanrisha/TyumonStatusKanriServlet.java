@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import shohisha.OrderDao;
+
 @WebServlet("/TyumonStatuKanriServlet")
 
 public class TyumonStatusKanriServlet extends HttpServlet {
@@ -38,7 +40,12 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusIchiran.jsp");
 				dispatcher.forward(request, response);
+
 			} else {
+
+				int statusId = Integer.parseInt(request.getParameter("statusId"));
+				session.setAttribute("statusId", statusId);
+
 				String orderId = request.getParameter("radio");
 				session.setAttribute("orderId", orderId);
 
@@ -47,13 +54,36 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		} else if (submit.equals("変更確認")) {
+
+			int newStatusId = Integer.parseInt(request.getParameter("radio"));
+
+			session.setAttribute("newStatusId", newStatusId);
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusKakunin.jsp");
 			dispatcher.forward(request, response);
 
 		} else if (submit.equals("変更確定")) {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatus.jsp?no=2");
-			dispatcher.forward(request, response);
+			OrderDao dao = new OrderDao();
+
+			String orderId =(String) session.getAttribute("orderId");
+			int newStatusId =(Integer) session.getAttribute("newStatusId");
+
+
+			int kensu = dao.update(orderId, newStatusId);
+
+			if (kensu >= 1) {
+
+				request.setAttribute("message", "変更が完了しました。");
+
+			} else {
+
+				request.setAttribute("message", "変更ができませんでした。");
+			}
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
+				dispatcher.forward(request, response);
+
 		}
 	}
 
