@@ -91,9 +91,7 @@ table.link{
 		<!-- カテゴリ検索 -->
 		<div class="side_bar">
 			<table class="side">
-				<tr>
-					<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー画面へ</a></td>
-				</tr>
+
 
 				<!-- 検索ボックス -->
 				<tr>
