@@ -19,7 +19,7 @@
 	background-color:#87ceeb
 	}
 
-	h4{
+	h2{
 	background-color:#f0ffff
 	}
 
