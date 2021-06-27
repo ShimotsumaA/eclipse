@@ -9,11 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import bean.OrderBean;
 import bean.OrderDetailBean;
 import bean.ShohinBean;
 import bean.ShohishaBean;
+import bean.TyumonBean;
 import shohisha.OrderDao;
 import shohisha.OrderDetailDAO;
 import shohisha.ShohishaDao;
@@ -31,6 +34,8 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+		HttpSession session=request.getSession(true);
+		ArrayList<TyumonBean> listAll =new ArrayList<TyumonBean>();
 
 
 		OrderDao dao = new OrderDao();
@@ -47,7 +52,6 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 		ShohinDao dao4 = new ShohinDao();
 		ArrayList<ShohinBean> shohinList;
 
-
 		for (int i = 0; i < orderList.size(); i++) {
 
 			String sId = orderList.get(i).getSId();
@@ -57,13 +61,23 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 			shohishaList = dao2.joken(sId);
 			orderDetailList = dao3.jouken(oDetailId);
 			orderListJoken = dao.joken(orderId);
+			
+			/*
+			 * for(int j=0;j<orderDetailList.size();j++) { String
+			 * shohinId=orderDetailList.get(j).getShohinId();
+			 * shohinList=dao4.joken(shohinId);
+			 * 
+			 * }
+			 */
 
-			for (int j = 0; j < orderDetailList.size(); j++) {
-				String shohinId = orderDetailList.get(j).getShohinId();
-
-				shohinList = dao4.joken(shohinId);
-			}
+			TyumonBean bean=new TyumonBean();
+			bean.setOderList(orderListJoken);
+			bean.setODetailList(orderDetailList);
+			bean.setShohishaList(shohishaList);
+			listAll.add(bean);
 		}
+
+		session.setAttribute("tyumonListAll", listAll);
 
 
 		request.setAttribute("submit", "メニュー");

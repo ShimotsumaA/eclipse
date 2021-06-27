@@ -6,6 +6,8 @@
 <%@ page import="bean.OrderBean" %>
 <%@ page import="bean.ShohinBean" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="kanrisha.ShohinDao" %>
+<%@ page import="bean.TyumonBean" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,16 +36,53 @@
 	</tr>
 	<tr>
 	<%
-		ArrayList<ShohishaBean> shohishaList = (ArrayList<ShohishaBean>)session.getAttribute("list");
-		ArrayList<OrderDetailBean> oredrDetailList = (ArrayList<OrderDetailBean>)session.getAttribute("list");
-		ArrayList<OrderBean> orderList = (ArrayList<OrderBean>)session.getAttribute("list");
-		ArrayList<ShohinBean> shohinList = (ArrayList<ShohinBean>)session.getAttribute("list");
+		ArrayList<TyumonBean> tyumonListAll=(ArrayList<TyumonBean>) session.getAttribute("tyumonListAll");
+		ArrayList<OrderBean> orderListJoken;
+		ArrayList<ShohinBean> shohinList;
+		ArrayList<OrderDetailBean> orderDetailList;
+		ArrayList<ShohishaBean> shohishaList;
 
-	for(int i=0; i<orderList.size(); i++) {
+	for(int i=0; i<tyumonListAll.size(); i++) {
+		orderListJoken=tyumonListAll.get(i).getOrderList();
+		orderDetailList=tyumonListAll.get(i).getODetailList();
+		shohishaList=tyumonListAll.get(i).getShohishaList();
+
+
+		String orderId=orderListJoken.get(0).getOrderId(); //注文番号
+		String date=orderListJoken.get(0).getDate(); //日付
+		int statusId=orderListJoken.get(0).getStatusId();// ステータスid
+
+		String sId=shohishaList.get(0).getId();//消費者id
+		String sName=shohishaList.get(0).getName();//名前
+		String address=shohishaList.get(0).getAdress();//住所
+		String tel=shohishaList.get(0).getTel();//電話番号
+
+
+		ShohinDao dao4 = new ShohinDao();
+
+
+
+
  	%>
-		<td><input type="radio" name="radio" value= value=<%=orderList.get(i). getOrderId() %>></td>
-		<td><%=orderList.get(i).getOrderId() %></td><td><%=orderList.get(i).getDate() %></td><td><%=orderList.get(i).getSId() %></td>
-		<td></td><td></td><td></td><td></td>
+		<td><input type="radio" name="radio" value= value=<%=orderId%>></td>
+		<td><%=orderId %></td>
+		<td><%=date %></td>
+		<td><%=sId %></td>
+		<td><%=address %></td>
+		<td><%=tel %></td>
+		<td>
+		商品名：個数<br>
+		<%for(int j=0; j<orderDetailList.size();j++){
+			String shohinId=orderDetailList.get(j).getShohinId();
+			shohinList=dao4.joken(shohinId);
+			String shohinName=shohinList.get(0).getShohinName();
+			int konyuKosu=orderDetailList.get(j).getKazuKonyu();
+		%>
+		<%=shohinName %>:<%=konyuKosu%>個	<br>
+		<% }%>
+		</td>
+
+		<td><%=statusId %></td>
 	</tr>
 	<% } %>
 </table>
