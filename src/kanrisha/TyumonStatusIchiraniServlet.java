@@ -11,7 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.OrderBean;
+import bean.OrderDetailBean;
+import bean.ShohinBean;
+import bean.ShohishaBean;
 import shohisha.OrderDao;
+import shohisha.OrderDetailDAO;
+import shohisha.ShohishaDao;
 
 @WebServlet("/TyumonStatuIchiranServlet")
 
@@ -27,9 +32,38 @@ public class TyumonStatusIchiraniServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
-		OrderDao dao = new OrderDao();
-		ArrayList<OrderBean> list = dao.selectAll();
 
+		OrderDao dao = new OrderDao();
+		ArrayList<OrderBean> orderList = dao.selectAll();
+
+		ArrayList<OrderBean> orderListJoken;
+
+		ShohishaDao dao2 = new ShohishaDao();
+		ArrayList<ShohishaBean> shohishaList;
+
+		OrderDetailDAO dao3 = new OrderDetailDAO();
+		ArrayList<OrderDetailBean> orderDetailList;
+
+		ShohinDao dao4 = new ShohinDao();
+		ArrayList<ShohinBean> shohinList;
+
+
+		for (int i = 0; i < orderList.size(); i++) {
+
+			String sId = orderList.get(i).getSId();
+			String oDetailId = orderList.get(i).getODetailId();
+			String orderId = orderList.get(i).getOrderId();
+
+			shohishaList = dao2.joken(sId);
+			orderDetailList = dao3.jouken(oDetailId);
+			orderListJoken = dao.joken(orderId);
+
+			for (int j = 0; j < orderDetailList.size(); j++) {
+				String shohinId = orderDetailList.get(j).getShohinId();
+
+				shohinList = dao4.joken(shohinId);
+			}
+		}
 
 
 		request.setAttribute("submit", "メニュー");

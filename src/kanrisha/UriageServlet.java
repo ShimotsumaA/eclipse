@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jfree.chart.*;
+import org.jfree.data.general.*;
+import java.io.*;
 
 @WebServlet("/UriageServlet")
 
@@ -26,6 +29,15 @@ public class UriageServlet extends HttpServlet {
 		//no=1(日)、no=2(月)で売上計算する
 		String no = request.getParameter("no");
 		System.out.println(no);
+
+		//日の表を表示させる
+		if (no.equals(1)) {
+
+
+		//月のグラフを表示させる
+		} else {
+
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/uriage.jsp");
 		dispatcher.forward(request, response);
