@@ -79,7 +79,7 @@ public class OrderDetailDAO extends DBAccess{
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, oDetailId);
-			ps.setString(1, shohinId);
+			ps.setString(2, shohinId);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -135,7 +135,7 @@ public class OrderDetailDAO extends DBAccess{
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 
 			ps.setString(1, oDetailId);
-			ps.setString(1, shohinId);
+			ps.setString(2, shohinId);
 
 			kensu = ps.executeUpdate();
 
@@ -161,7 +161,7 @@ public class OrderDetailDAO extends DBAccess{
 
 				ps.setString(1,oDetailId);
 				ps.setString(2,shohinId);
-				ps.setInt(4,kazuKonyu );
+				ps.setInt(3,kazuKonyu );
 
 				//
 				kensu = ps.executeUpdate();

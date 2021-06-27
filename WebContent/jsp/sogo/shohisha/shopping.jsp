@@ -57,8 +57,28 @@ table.shohin{
 
 }
 
-div.side_bar{
+/* .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}
+
+.menu_bar{
+ 	grid-column: 2;
+    grid-row: 1;
+
+}
+
+.shohin_hyozi{
+	grid-column: 2;
+	grid-row: 2;
+
+} */
+
+.side_bar{
 	clear:right;
+
 }
 
 table.link{
@@ -109,6 +129,7 @@ table.link{
 				</tr>
  -->
 				<!-- カテゴリ選択（for文) -->
+
 				<tr class="category">
 					<td>
 						<p>カテゴリ</p>
