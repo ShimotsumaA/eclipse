@@ -9,9 +9,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>メニュー</title>
+<title>online-store Nishida Printing</title>
+<link rel="stylesheet" href="shopping.css">
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h1{
+	background-color:#87ceeb
+	}
+
+	h2{
+	background-color:#f0ffff
+	}
+
+	table{
+
+	}
+</style>
 </head>
 <body>
+	<h1>Nishida Printing</h1>
 	<div class="wrapper">
 		<!-- メニューバー -->
 		<div class="menu_bar">

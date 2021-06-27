@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ page import="bean.ShohishaBean" %>
+<%@ page import="bean.OrderDetailBean" %>
+<%@ page import="bean.OrderBean" %>
+<%@ page import="bean.ShohinBean" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +33,19 @@
 		<th></th><th>注文番号</th><th>日付</th><th>顧客ID</th><th>住所</th><th>電話番号</th><th>内訳</th><th>受注ステータス</th>
 	</tr>
 	<tr>
-		<td><input type="radio" name="radio" value="status"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	<%
+		ArrayList<ShohishaBean> shohishaList = (ArrayList<ShohishaBean>)session.getAttribute("list");
+		ArrayList<OrderDetailBean> oredrDetailList = (ArrayList<OrderDetailBean>)session.getAttribute("list");
+		ArrayList<OrderBean> orderList = (ArrayList<OrderBean>)session.getAttribute("list");
+		ArrayList<ShohinBean> shohinList = (ArrayList<ShohinBean>)session.getAttribute("list");
+
+	for(int i=0; i<orderList.size(); i++) {
+ 	%>
+		<td><input type="radio" name="radio" value= value=<%=orderList.get(i). getOrderId() %>></td>
+		<td><%=orderList.get(i).getOrderId() %></td><td><%=orderList.get(i).getDate() %></td><td><%=orderList.get(i).getSId() %></td>
+		<td></td><td></td><td></td><td></td>
 	</tr>
+	<% } %>
 </table>
 <br>
 注文番号を選択して受注ステータス変更ボタンを押してください。<br><br>

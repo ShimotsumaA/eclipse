@@ -15,7 +15,7 @@
 %>
 
 <% if (submit.equals("登録情報確認")){ %>
-	<h1>管理者情報登録確認</h1><br><br>
+	<h1>管理者情報の登録確認</h1><br><br>
 
 	以下の情報を登録します。よろしいですか？<br><br>
 
@@ -50,21 +50,22 @@
 		if (submit.equals("変更情報確認")){
 	%>
 
-		<h1>管理者情報変更確認</h1><br><br>
+		<h1>管理者情報の変更確認</h1><br><br>
 		以下の情報を変更します。よろしいですか？<br><br>
 
 	<% } else if (submit.equals("delete")){ %>
 
-		<h1>管理者情報削除確認</h1><br><br>
+		<h1>管理者情の報削除確認</h1><br><br>
 		以下の情報を削除します。よろしいですか？<br><br>
 
 	<%
 		}
 
 		//postIdをpostNameに変換する
-		String postId = request.getParameter("postId");
+		String postId = (String)session.getAttribute("postId");
 		System.out.println(postId);
 		String postName;
+
 		if (postId.equals("1")){
 			postName = "社員";
 		} else {
@@ -72,18 +73,18 @@
 		}
 
 		System.out.println(postName);
-	}
+
 	%>
 
 	<form action="/group2work/KanrishaTorokuServlet" method="post">
 	<table  align="center">
 		<tr>
 			<td align="right">ID：</td>
-			<td><%= session.getParameter("id") %></td>
+			<td><%= session.getAttribute("id") %></td>
 		</tr>
 		<tr>
 			<td align="right">氏名：</td>
-			<td><%= request.getParameter("name") %></td>
+			<td><%= session.getAttribute("name") %></td>
 		</tr>
 		<tr>
 			<td align="right">役職：</td>
@@ -91,7 +92,7 @@
 		</tr>
 		<tr>
 			<td align="right">パスワード：</td>
-			<td><%= request.getParameter("pass") %></td>
+			<td><%= session.getAttribute("pass") %></td>
 		</tr>
 	</table><br><br>
 

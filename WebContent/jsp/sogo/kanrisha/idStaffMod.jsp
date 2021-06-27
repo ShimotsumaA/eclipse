@@ -13,26 +13,32 @@
 <% System.out.println(submit+"idStafMod"); %>
 
 
-<% if(submit.equals("変更")) { %>
+<% if(submit.equals("変更") || submit.equals("3") ){ %>
 
 		<div style="text-align:center">
 		<h1>管理社情報変更</h1><br>
+
+		<% if (submit.equals("3")){
+			String message =(String)request.getAttribute("message");
+		%>
+					<p style="color:red"><%=message %></p>
+		<% }  %>
 
 		<form action="/group2work/KanrishaTorokuServlet" method="post">
 
 		<table  align="center">
 			<tr>
 				<td align="right">ID：</td>
-				<td><%=request.getAttribute("id") %></td>
+				<td><%=session.getAttribute("id") %></td>
 			</tr>
 			<tr>
 				<td align="right">氏名：</td>
-				<td><input type="text" name="name" size="10"  value =<%=request.getAttribute("name") %>></td>
+				<td><input type="text" name="name" size="10"  value =<%=session.getAttribute("name") %>></td>
 			</tr>
 			<tr>
 				<%
-					String postId = (String)request.getAttribute("postId");
-					System.out.println(postId);
+					String postId = (String)session.getAttribute("postId");
+					System.out.println("postIdは"+postId);
 
 					if (postId.equals("1")){ %>
 
@@ -52,7 +58,7 @@
 			</tr>
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="text" name="pass1" size="15" value= <%=request.getAttribute("pass") %>></td>
+				<td><input type="text" name="pass1" size="15" value= <%=session.getAttribute("pass") %>></td>
 			</tr>
 			</table>
 				・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>​
@@ -60,7 +66,7 @@
 			<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="15" value= <%=request.getAttribute("pass")%>></td>
+				<td><input type="text" name="pass2" size="15" value= <%=session.getAttribute("pass")%>></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
