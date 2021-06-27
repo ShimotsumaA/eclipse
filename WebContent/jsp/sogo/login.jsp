@@ -33,7 +33,8 @@
 		<form action="/group2work/LogInOutServlet" method="post">
 			<select name="zokusei">
 				<option value="kyaku">お客様</option>
-				<option value="kanrisha">管理者</option>
+				<option value="shain">社員</option>
+				<option value="aru">アルバイト</option>
 			</select> <br> <br>
 
 			<table align="center">

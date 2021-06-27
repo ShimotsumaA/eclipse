@@ -47,7 +47,7 @@ public class LogInOutServlet extends HttpServlet {
 			System.out.println(id+pass);
 
 			//管理者エラーチェック
-			if (zokusei.equals("kanrisha")) {
+			if (zokusei.equals("shain") || zokusei.equals("aru") ) {
 
 				//管理者IDが存在するか。
 				if (err.existkId(id)) {
@@ -76,7 +76,11 @@ public class LogInOutServlet extends HttpServlet {
 				//IDパスワードが正しいので、IDをセッション領域に預ける
 				session.setAttribute("id",id);
 
-					//管理者総合メニューへ遷移する
+				//社員、アルバイトの属性をセッション領域に預ける
+				session.setAttribute("zokusei", zokusei);
+
+
+				//管理者総合メニューへ遷移する
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/menu.jsp");
 				dispatcher.forward(request, response);
 
