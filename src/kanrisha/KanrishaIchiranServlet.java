@@ -15,7 +15,7 @@ import bean.KanrishaBean;
 
 @WebServlet("/kanrishaIchiranServlet")
 
-public class KanrishIchiranServlet extends HttpServlet {
+public class KanrishaIchiranServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -33,12 +33,20 @@ public class KanrishIchiranServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		session.setAttribute("list", list);
 
+		//submitによって遷移を変更する
+		String submit = request.getParameter("submit");
+		System.out.println(submit);
 
-		String submit = "変更削除";
-		request.setAttribute("submit", submit);
+		if (submit.equals("2")){
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp?submit=変更確定");
+			dispatcher.forward(request, response);
+
+		} else  {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp?submit=変更削除");
+			dispatcher.forward(request, response);
+		}
+
 	}
-
 }

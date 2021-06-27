@@ -44,15 +44,21 @@ public class KanrishaTorokuServlet extends HttpServlet {
 		if (submit.equals("変更")) {
 			String id = request.getParameter("radio");
 
-			//idをもとに個人情報を取り出し、リクエスト領域に預ける
+			//ラジオボタンが選択されていない
+			if (id==null) {
+				request.setAttribute("message","対象を選択してください");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idsTaffMod.jsp?submit=3");
+				dispatcher.forward(request, response);
+			}
+
+			//idをもとに個人情報を取り出し、セッション領域に預ける
 			ArrayList<KanrishaBean> list = dao.joken(id);
 
 			session.setAttribute("id", id);
-			request.setAttribute("name", list.get(0).getName());
-			request.setAttribute("postId", list.get(0).getPostId());
-			request.setAttribute("pass", list.get(0).getPass());
-
-			System.out.println(list.get(0).getPostId());
+			session.setAttribute("name", list.get(0).getName());
+			session.setAttribute("postId", list.get(0).getPostId());
+			session.setAttribute("pass", list.get(0).getPass());
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=変更");
 			dispatcher.forward(request, response);
@@ -152,10 +158,12 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			String postId = request.getParameter("postId");
 			String pass1 = request.getParameter("pass1");
 			String pass2 = request.getParameter("pass2");
-			System.out.println(pass1);
+
+			System.out.println(id);
 			System.out.println(name);
 			System.out.println(postId);
-			System.out.println(id);
+			System.out.println(pass1);
+
 			//エラーチェック
 			ErrCheck err = new ErrCheck();
 
@@ -167,7 +175,7 @@ public class KanrishaTorokuServlet extends HttpServlet {
 					System.out.println(message);
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=3");
 					dispatcher.forward(request, response);
 				}
 
@@ -178,19 +186,19 @@ public class KanrishaTorokuServlet extends HttpServlet {
 					String message = "パスワードが一致していません。";
 					request.setAttribute("message", message);
 
-					//リクエスト領域に預ける
-					request.setAttribute("name", name);
-					request.setAttribute("postId", postId);
-					request.setAttribute("pass", pass1);
-
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=3");
 					dispatcher.forward(request, response);
 				}
 
+				//正しく新しい情報が入力されているので、セッション領域に預ける
+				session.setAttribute("name", name);
+				session.setAttribute("postId", postId);
+				session.setAttribute("pass", pass1);
 
-			//変更確認
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp");
-			dispatcher.forward(request, response);
+
+				//変更確認ページへ
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffKakunin.jsp?submit=変更情報確認");
+				dispatcher.forward(request, response);
 
 		} else if(submit.equals("登録確定")) {
 
@@ -209,12 +217,29 @@ public class KanrishaTorokuServlet extends HttpServlet {
 
 		} else if(submit.equals("変更確定")) {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp");
+			//セッション領域から登録情報を取り出す
+			String id = (String)session.getAttribute("id");
+			String name = (String)session.getAttribute("name");
+			String postId = (String)session.getAttribute("postId");
+			String pass = (String)session.getAttribute("pass");
+
+			//新しい管理者情報を登録する
+			int kensu = dao.update(id, name, postId, pass);
+			System.out.println(kensu+"件変更しました。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/KanrishaIchiranServlet?submit=変更確定");
 			dispatcher.forward(request, response);
 
 		} else if(submit.equals("削除確定")) {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shainIchiran.jsp");
+			//セッション領域から登録情報を取り出す
+			String id = (String)session.getAttribute("id");
+
+			//管理者情報を削除する
+			int kensu = dao.delete(id);
+			System.out.println(kensu+"件変更しました。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/KanrishaIchiranServlet?submit=削除確定");
 			dispatcher.forward(request, response);
 
 		}

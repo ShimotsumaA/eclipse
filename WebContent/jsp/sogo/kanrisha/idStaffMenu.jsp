@@ -12,9 +12,8 @@
 <h1>社員ID管理</h1>
 <br>
 <br>
-<a href="idStaffMod.jsp?submit=1">社員ID登録</a><br><br>
-
-<a href="/group2work/kanrishaIchiranServlet" >社員ID変更・削除</a><br><br>
+<a href="idStaffMod.jsp?submit=1">管理者の登録</a><br><br>
+<a href="/group2work/kanrishaIchiranServlet?submit=1">管理者の変更・削除</a><br><br>
 
 <input type="button" name="back" value="戻る" onclick="location.href='menu.jsp'">
 </div>
