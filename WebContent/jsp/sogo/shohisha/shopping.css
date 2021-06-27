@@ -17,9 +17,18 @@ table.about{
 
 }
 
-tr.category th,
-tr.category td{
-	width:100%;
-	display:block;
-
+table.shohin{
+	margin-top:0;
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:70px 70px;
 }
+
+
+table.link{
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing:100px 0px;
+}
+
+
