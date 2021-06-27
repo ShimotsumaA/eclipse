@@ -40,7 +40,7 @@
 	<br><br>
 
 	<form action="" method="post">
-		<table  align="center">
+		<table class="text">
 
 			<tr>
 				<td align="right">氏名：</td>
@@ -69,25 +69,40 @@
 			<tr>
 				<td align="right">ID：</td>
 				<td><input type="text" name="sId" size="40" maxlength="10"></td>
+			</tr>
+		</table>
+		<table class="ID">
+			<tr>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
-		</table><br>
-			・IDは10文字以内で半角入力のみ可能です。<br>
-			・英数字を必ず組み合わせてください。<br>
-			・大文字と小文字は区別しません。<br><br>
+			<tr>
+			<td>・IDは10文字以内で半角入力のみ可能です。</td>
+			</tr>
+			<tr>
+			<td>・英数字を必ず組み合わせてください。</td>
+			</tr>
+			<tr>
+			<td>・大文字と小文字は区別しません。</td>
+			</tr>
+		</table>
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
 			</tr>
-		</table><br>
-			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
-			・英数字を必ず組み合わせてください。<br><br>
-		<table  align="center">
 			<tr>
-				<td align="right">パスワード再度入力：</td>
+				<td></td>
 				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
 			</tr>
+		</table>
+		<table class="pass">
+			<tr>
+				<td>・パスワードは4文字以上15文字以内で半角入力のみ可能です。</td>
+			</tr>
+			<tr>
+				<td>・英数字を必ず組み合わせてください。</td>
+			</tr>
+		</table>
 		<table  align="center">
 		<tr>
 			<td><input type ="submit" name="submit" value="登録"></td>

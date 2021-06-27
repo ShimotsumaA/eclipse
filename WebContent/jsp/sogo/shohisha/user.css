@@ -6,4 +6,17 @@ texture:focus {
     border: 1px solid #3498db;
 }
 
+table.text{
+	margin-left:auto;
+	margin-right:auto;
+}
 
+table.ID{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+table.pass{
+	margin-left:auto;
+	margin-right:auto;
+}
