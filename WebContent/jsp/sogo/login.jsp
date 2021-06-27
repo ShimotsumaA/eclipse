@@ -43,7 +43,7 @@
 				</tr>
 				<tr>
 					<td>パスワード：</td>
-					<td><input type="text" name="pass" size="15"></td>
+					<td><input type="password" name="pass" size="15"></td>
 				</tr>
 			</table>
 			<br> <br> <input type="submit" name="submit" value="ログイン">
