@@ -27,12 +27,13 @@
 </style>
 </head>
 <body>
-	<h1>Nishida Printing</h1>
+
+	<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
 
 	<div class="wrapper">
 		<!-- メニューバー -->
 		<div class="menu_bar">
-			<table class="about">
+			<table class="about" >
 				<tr>
 					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
 					<!-- ログインページへのリンク -->
@@ -120,7 +121,7 @@
 							ArrayList<ShohinBean> list3 = (ArrayList<ShohinBean>) session.getAttribute("listShohin");
 							%>
 
-							<table class="shohin">
+							<table class="shohin"  style="text-align:center">
 								<tr>
 									<%
 									int count = 0;
@@ -128,12 +129,12 @@
 									%>
 									<td><input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>"> <a
-										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=100 height=100></a><br>
+										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
 										<p><%=list3.get(i - 1).getShohinName()%></p>
-										<p><%=list3.get(i - 1).getValue()%></p>
+										<p><%=list3.get(i - 1).getValue()%>円</p>
 										<%count = count + 1;%>
 									<td>
-										<%if (count % 4 == 0) {%>
+										<%if (count % 3 == 0) {%>
 
 								</tr>
 								<tr>
