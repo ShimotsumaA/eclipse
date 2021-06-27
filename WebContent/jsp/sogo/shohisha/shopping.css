@@ -18,12 +18,14 @@ table.about{
 }
 
 table.shohin{
-	margin-top:0;
 	margin-left:auto;
 	margin-right:0;
 	border-spacing:70px 70px;
 }
 
+div.side_bar{
+	clear:right;
+}
 
 table.link{
 	margin-left:auto;

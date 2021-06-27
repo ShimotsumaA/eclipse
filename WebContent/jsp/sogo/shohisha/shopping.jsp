@@ -47,7 +47,7 @@
 		</div>
 		<!-- カテゴリ検索 -->
 		<div class="side_bar">
-			<table>
+			<table class="side">
 				<tr>
 					<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー画面へ</a></td>
 				</tr>
@@ -109,7 +109,6 @@
 		<!-- 商品表示 -->
 		<div class="shohin_hyozi">
 			<table class="shohin">
-
 				<tr>
 					<td>
 						<!-- 商品for文で取り出し -->
