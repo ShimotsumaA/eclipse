@@ -5,7 +5,7 @@ public class SoryoKeisan {
 	public int soryo(String sId,int sum) {
 		ShohishaDao dao = new ShohishaDao();
 		// 郵便番号取得
-		int zip = Integer.parseInt(dao.joken(sId).get(0).getPost());
+		String zip = dao.joken(sId).get(0).getPost();
 
 		PostCodeDAO dao2 = new PostCodeDAO();
 		int kenId = dao2.joken(zip).get(0).getKenId();

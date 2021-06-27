@@ -43,12 +43,13 @@ public class KanrishaTorokuServlet extends HttpServlet {
 
 		if (submit.equals("変更")) {
 			String id = request.getParameter("radio");
+			System.out.println(id);
 
 			//ラジオボタンが選択されていない
-			if (id==null) {
+			if (id == null) {
 				request.setAttribute("message","対象を選択してください");
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idsTaffMod.jsp?submit=3");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/kanrishaIchiranServlet?submit=1");
 				dispatcher.forward(request, response);
 			}
 

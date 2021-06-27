@@ -27,7 +27,7 @@ import sogo.ErrCheck;
 /**
  * Servlet implementation class cartHyoujiServlet
  */
-@WebServlet("/cartHyoujiServlet")
+@WebServlet("/CartHyoujiServlet")
 public class CartHyoujiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -65,14 +65,14 @@ public class CartHyoujiServlet extends HttpServlet {
 
 		// 注文はこちらボタンを押したときの処理→ログインしてなかったらログイン画面が表示されるようにする。
 
-		if ((session.getAttribute("submit") != null) && session.getAttribute("submit").equals("tyumonhakotira")) {
+		if ((request.getParameter("submit") != null) && request.getParameter("submit").equals("tyumonhakotira")) {
 			if (session.getAttribute("id") != null) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/buy.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/buy.jsp");
 				dispatcher.forward(request, response);
 			} else {
 
 				// ログイン前の情報と明示
-				session.setAttribute("id", false);
+				session.setAttribute("loginid", false);
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp");
 				dispatcher.forward(request, response);
@@ -179,7 +179,7 @@ public class CartHyoujiServlet extends HttpServlet {
 					for (int i = 1; i <= listODetailList.size(); i++) {
 						String shohinid = listODetailList.get(i - 1).getShohinId();
 						int kazuKonyu = listODetailList.get(i - 1).getKazuKonyu();
-						java.math.BigDecimal value = dao3.joken(shohinid).get(i - 1).getValue();
+						java.math.BigDecimal value = dao3.joken(shohinid).get(0).getValue();
 						java.math.BigDecimal shokei = BigDecimal.valueOf(kazuKonyu).multiply(value);
 						gokei = gokei.add(shokei).setScale(0, BigDecimal.ROUND_HALF_UP);
 					}
@@ -214,7 +214,7 @@ public class CartHyoujiServlet extends HttpServlet {
 					cartflag = false;
 				}
 				// ログインしておらずカート情報があるとき
-			} else if (session.getAttribute("cart") != null) {
+			} else if (session.getAttribute("cart") != null&& ((Map<String, Integer>) session.getAttribute("cart")).size()>0) {
 				Map<String, Integer> cart = new LinkedHashMap<>();
 				cart = (Map<String, Integer>) session.getAttribute("cart");
 
@@ -240,7 +240,7 @@ public class CartHyoujiServlet extends HttpServlet {
 				request.setAttribute("cancel",request.getAttribute("cancel"));
 			}
 
-			session.setAttribute("cartflag", cartflag);
+			request.setAttribute("cartflag", cartflag);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/cart.jsp");
 			dispatcher.forward(request, response);
 

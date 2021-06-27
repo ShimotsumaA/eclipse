@@ -98,11 +98,14 @@
 
 	<% if (submit.equals("変更情報確認")){ %>
 		<input type="submit" name="submit" value="変更確定">
+		<button type="submit" name="submit" value="back" formaction="/group2work/jsp/sogo/kanrisha/idStaffMod.jsp">戻る</button>
+
 	<% } else if (submit.equals("delete")){ %>
 		<input type="submit" name="submit" value="削除確定">
+		<input type="button" name="back" value="戻る" onclick="location.href='/group2work/kanrishaIchiranServlet?submit=1'">
 	<% } %>
 
-	<input type="button" name="back" value="戻る" onclick="location.href='/group2work//jsp/sogo/kanrisha/idStaffMod.jsp?submit=1'">
+
 	</form>
 	</div>
 <% } %>

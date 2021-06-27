@@ -69,11 +69,12 @@
     </div>
 
     <!-- 注文ボタン -->
-    <form action="/group2work/shohisha/CartHyojiServlet" method="post">
+    <form action="/group2work/CartHyoujiServlet" method="post">
     <button type="submit" name="submit" value="tyumonhakotira">ご注文はこちら</button>
     </form>
 
     <%}else if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("login")==null)){ %>
+
     <table>
 
     	<% Map<String, Integer> cart = new LinkedHashMap<String,Integer>();
@@ -97,13 +98,17 @@
 
 			<%} %>
 	</table>
-	<p id="sum_cart">カート合計:<%= (Integer)session.getAttribute("gokei") %>円</p>
 
-    <%}else{ %>
+		<p id="sum_cart">カート合計:<%= (Integer)session.getAttribute("gokei") %>円</p>
+	 	    <form action="/group2work/CartHyoujiServlet" method="post">
+    		<button type="submit" name="submit" value="tyumonhakotira">ご注文はこちら</button>
+    		</form>
+
+    <%}else{%>
     カートに商品が存在しません
     <%} %>
 
-    <input type="button" name="back" value="戻る" onclick="location.href=''">
+    <input type="button" name="back" value="戻る" onclick="location.href='/group2work/ECHyoujiServlet'">
 
 
 

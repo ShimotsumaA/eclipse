@@ -54,7 +54,7 @@ public class UserHyojiServlet extends HttpServlet {
 		String sName=list.get(0).getName();
 		String dateBirth=list.get(0).getBirth();
 		String postCode=list.get(0).getPost();
-		String address=list.get(0).getAdress();
+		String address=list.get(0).getAddress();
 		String tel=list.get(0).getTel();
 		String mailAddress=list.get(0).getMail();
 		String sPass=list.get(0).getPass();
