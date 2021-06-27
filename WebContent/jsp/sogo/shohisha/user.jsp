@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ情報</title>
+<link rel="stylesheet" href="./user.css">
 </head>
 <style>
 	*{
@@ -85,7 +86,7 @@
 		<table  align="center">
 			<tr>
 				<td align="right">パスワード再度入力：</td>
-				<td><input type="password" name="sPassK" size="40" maxlength="15"></td>
+				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
 			</tr>
 		<table  align="center">
 		<tr>

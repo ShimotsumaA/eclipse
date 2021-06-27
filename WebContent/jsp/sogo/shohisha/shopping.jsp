@@ -32,19 +32,15 @@
 	<div class="wrapper">
 		<!-- メニューバー -->
 		<div class="menu_bar">
-			<table>
+			<table class="about">
 				<tr>
-					<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
-					<!-- トップメニューへのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
-					<!-- カートへのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
-					<!-- マイページへのリンク -->
 					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
 					<!-- ログインページへのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
-					<!-- 送料へのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
+					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
+					<!-- マイページへのリンク -->
+					<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>
+					<!-- カートへのリンク -->
+					<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
 					<!-- トップメニューへのリンク -->
 				</tr>
 			</table>
@@ -54,6 +50,12 @@
 			<table>
 				<tr>
 					<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー画面へ</a></td>
+				</tr>
+				<tr>
+					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
+				</tr>
+				<tr>
+					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
 				</tr>
 
 				<!-- 検索ボックス -->
@@ -65,7 +67,7 @@
 				</tr>
 
 				<!-- カテゴリ選択（for文) -->
-				<tr>
+				<tr class="category">
 					<td>
 						<p>カテゴリ</p>
 						<form action="/group2work/ECHyoujiServlet" method="post"
@@ -112,7 +114,7 @@
 
 		<!-- 商品表示 -->
 		<div class="shohin_hyozi">
-			<table>
+			<table class="shohin">
 
 				<tr>
 					<td>

@@ -8,9 +8,18 @@
 h1{
 	font-family: cursive;
 
+}
+
+table.about{
+	margin-left:auto;
+	margin-right:0;
+	border-spacing:45px 0px;
 
 }
 
-link{
-	background-color:#f0ffff
+tr.category th,
+tr.category td{
+	width:100%;
+	display:block;
+
 }
