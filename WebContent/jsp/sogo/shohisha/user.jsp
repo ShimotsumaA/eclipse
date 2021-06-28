@@ -47,15 +47,14 @@
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
  	<div style="text-align:center">
- 	<form action="/group2work/UserRegisterControl" method="post">
+
 
 
  	<h2>ユーザ登録フォーム</h2>
 	<br><br>
+<form action="/group2work/UserRegisterControl" method="post">
 
-	<form action="" method="post">
 		<table class="text">
-
 			<tr>
 				<td align="right">氏名：</td>
 				<td><input type="text" name="sName" size="40" maxlength="15" placeholder="例）鈴木太郎"></td>
@@ -98,6 +97,8 @@
 			<tr>
 			<td>・大文字と小文字は区別しません。</td>
 			</tr>
+
+
 		</table>
 		<table  align="center">
 			<tr>
@@ -122,8 +123,9 @@
 			<td><input type ="submit" name="submit" value="登録"></td>
 			<td><input type="button" value="戻る" onclick="location.href='/group2work/jsp/sogo/top.jsp'">
 		</tr>
+	</table>
 		</form>
-		</table>
+
 
 	</div>
 
