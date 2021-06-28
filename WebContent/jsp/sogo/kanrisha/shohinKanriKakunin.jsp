@@ -83,6 +83,7 @@
 
 		<%
 			String categoryId = (String)session.getAttribute("category");
+			System.out.println( categoryId);
 			CategoryDao dao = new CategoryDao();
 			ArrayList<CategoryBean>list2 = dao.joken(categoryId);
 			String categoryName = list2.get(0).getCategoryName();

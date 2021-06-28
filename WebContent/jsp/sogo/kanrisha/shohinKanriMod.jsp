@@ -64,10 +64,17 @@
 <input type="button" value="戻る"onClick="history.go(-1)">
 
 
-<% } else if(no.equals("2")) { %>
+<% } else if(no.equals("2") || no.equals("5")) { %>
 
 <form action="/group2work/ShohinKanriServlet" method="post">
 	<h1>商品変更</h1>
+
+<% if (no.equals("5")){
+			String message = (String)request.getAttribute("message");
+	%>
+			<p style="color:red"><%=message %></p>
+
+	<% } %>
 
 	<table align="center">
 		<tr>

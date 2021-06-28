@@ -58,6 +58,7 @@ public class ShohinKanriServlet extends HttpServlet {
 		HttpSession session=request.getSession(true);
 
 		if(submit.equals("変更")) {
+
 			String shohinId=request.getParameter("radio");
 			System.out.println(shohinId);
 
@@ -101,7 +102,7 @@ public class ShohinKanriServlet extends HttpServlet {
 
 				request.setAttribute("message", "すべての項目を入力してください。");
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/ShohinIchiranSrevlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=5");
 				dispatcher.forward(request, response);
 			} else {
 
@@ -112,7 +113,6 @@ public class ShohinKanriServlet extends HttpServlet {
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
 				dispatcher.forward(request, response);
-				System.out.println("");
 			}
 		}
 

@@ -39,14 +39,13 @@ public class ShohinIchiranServlet extends HttpServlet {
 		//商品DAOから全件検索
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
+		list = dao.selectAll();
 
+		//カテゴリ全検索
 		CategoryDao dao2=new CategoryDao();
 		ArrayList<CategoryBean> list2=new ArrayList<CategoryBean>();
-
-		System.out.println(list.get(0).getShohinId());
 		list2=dao2.selectAll();
 
-		System.out.println(list.get(0).getShohinId());
 
 		//セッション領域にリストを保存
 		HttpSession session=request.getSession(true);
