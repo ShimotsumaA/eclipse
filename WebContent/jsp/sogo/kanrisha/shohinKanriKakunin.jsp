@@ -121,41 +121,29 @@
 
 <form action="/group2work/ShohinKanriServlet" method="post">
 
-	<%
-		String shohinId = request.getParameter("radio");
-		System.out.println(shohinId);
-		request.setAttribute("shohinId", shohinId);
-		ShohinDao dao = new ShohinDao();
-		ArrayList<ShohinBean> list = dao.joken(shohinId);
-	%>
+
 
 	<table  align="center">
 		<tr>
 			<td align="right">商品名：</td>
-			<td align="left"><%=list.get(0).getShohinName() %></td>
+			<td align="left"><%=session.getAttribute("shohinName") %></td>
 		</tr>
 		<tr>
 			<td align="right">商品ID:</td>
-			<td align="left"><%=list.get(0).getShohinId()  %></td>
+			<td align="left"><%=session.getAttribute("shohinId") %></td>
 		</tr>
 		<tr>
 			<td align="right">販売価格:</td>
-			<td align="left"><%=list.get(0).getValue().intValue() %></td>
+			<td align="left"><%=session.getAttribute("value") %> </td>
 		</tr>
 
-		<%
-			String categoryId = list.get(0).getCategoryId();
-			CategoryDao dao1 = new CategoryDao();
-			ArrayList<CategoryBean>list2 = dao1.joken(categoryId);
-			String categoryName = list2.get(0).getCategoryName();
-		%>
 		<tr>
 			<td align="right">カテゴリ：</td>
-			<td align="left"><%=categoryName %></td>
+			<td align="left"><%=session.getAttribute("categoryName") %></td>
 		</tr>
 		<tr>
 			<td align="right">生地ID：</td>
-			<td align="left"><%=session.getAttribute("kiji") %></td> <!-- shohinKanriModからパラメータ取得 -->
+			<td align="left"><%=session.getAttribute("kijiId") %></td> <!-- shohinKanriModからパラメータ取得 -->
 		</tr>
 	</table><br><br>
 

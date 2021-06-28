@@ -121,13 +121,11 @@ public class ShohinKanriServlet extends HttpServlet {
 //		登録確認画面の変更ボタンが押された時
 		else if (submit.equals("変更確定")) {
 
-
-				String shohinId=(String)session.getAttribute("shohinId");
-				String shohinName=(String)session.getAttribute("name");
-				String categoryId=(String)session.getAttribute("category");
-				String kijiId=(String)session.getAttribute("kiji");
-				BigDecimal value=BigDecimal.valueOf((Integer)session.getAttribute("value"));
-
+			String shohinId = (String) session.getAttribute("shohinId");
+			String shohinName = (String) session.getAttribute("name");
+			String categoryId = (String) session.getAttribute("category");
+			String kijiId = (String) session.getAttribute("kiji");
+			BigDecimal value = BigDecimal.valueOf((Integer) session.getAttribute("value"));
 
 			System.out.println(shohinId);
 			System.out.println(shohinName);
@@ -212,68 +210,54 @@ public class ShohinKanriServlet extends HttpServlet {
 
 		} else if (submit.equals("削除確定")) {
 
-			String shohinId = (String)request.getAttribute("shohinId");
+			String shohinId = (String) session.getAttribute("shohinId");
 			System.out.println(shohinId);
 
 			// DAOをインスタンス化
-						ShohinDao dao = new ShohinDao();
-						int rs = dao.delete(shohinId);
-						System.out.println(rs);
-						request.setAttribute("errorMsg", "削除が完了しました。");
+			ShohinDao dao = new ShohinDao();
+			int rs = dao.delete(shohinId);
+			System.out.println(rs);
+			request.setAttribute("errorMsg", "削除が完了しました。");
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/ShohinIchiranServlet");
 			dispatcher.forward(request, response);
-		}
 
-//		//セッションの取得
-//        HttpSession session = request.getSession(true);
-//
-////        登録確認画面の登録ボタンが押された時
-//		if(request.getParameter("submit").equals("登録")) {
-//			String shohinId=(String)session.getAttribute("shohinId");
-//			String shohinName=(String)session.getAttribute("shohinName");
-//			String categoryId=(String)session.getAttribute("categoryId");
-//			String kijiId=(String)session.getAttribute("kijiId");
-//			java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
-//
-//			//DAOをインスタンス化
-//			ShohinDao dao=new ShohinDao();
-//			int rs=dao.insert(shohinId,shohinName,categoryId,kijiId,value);
-//			System.out.println(rs);
-//			request.setAttribute("compmsg", "登録が完了しました");
-//			forward="/jsp/sogo/kanrisya/shohinKanriMenu.jsp";
-//
-//		}
-////	登録確認画面の変更ボタンが押された時
-//		if(request.getParameter("submit").equals("変更")) {
-//			String shohinId=(String)session.getAttribute("shohinId");
-//			String shohinName=(String)session.getAttribute("shohinName");
-//			String categoryId=(String)session.getAttribute("categoryId");
-//			String kijiId=(String)session.getAttribute("kijiId");
-//			java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
-//
-//		//DAOをインスタンス化
-//			ShohinDao dao =new ShohinDao();
-//			int rs=dao.update(shohinId, shohinName, kijiId, categoryId, value);
-//			System.out.println(rs);
-//			request.setAttribute("compmsg", "変更されました");
-//			forward="/jsp/sogo/kanrisya/shohinKanriMenu.jsp";
-//		}
-//		if(request.getParameter("submit").equals("削除")){
-//
-//			String id = (String)session.getAttribute("id");
-//
-//			//DAOをインスタンス化
-//			ShohinDao dao= new ShohinDao();
-//			int rs =dao.delete(id);
-//			System.out.println(rs);
-//			request.setAttribute("compmsg","削除されました");
-//			request.setAttribute("list",dao.selectAll());
-//			forward="/jsp/sogo/kanrisya/shohinKanriMenu.jsp";
-//		}
-//		RequestDispatcher rd = request.getRequestDispatcher(forward);
-//		rd.forward(request, response);
-//	}
+		} else if (submit.equals("delete")) {
+
+			String shohinId = request.getParameter("radio");
+			System.out.println(shohinId);
+
+			// 商品が選択されていない
+			if (request.getParameter("radio") == null) {
+				request.setAttribute("errorMsg", "商品を選択してください。");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+				dispatcher.forward(request, response);
+
+			}
+
+			ShohinDao dao = new ShohinDao();
+			CategoryDao dao2 = new CategoryDao();
+			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+			ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
+
+			list = dao.joken(shohinId);
+			String categoryId = list.get(0).getCategoryId();
+			listCategory = dao2.joken(categoryId);
+			String categoryName = listCategory.get(0).getCategoryName();
+
+			session.setAttribute("shohinId", list.get(0).getShohinId());
+			session.setAttribute("shohinName", list.get(0).getShohinName());
+			session.setAttribute("value", list.get(0).getValue().intValue());
+			session.setAttribute("categoryId", list.get(0).getCategoryId());
+			session.setAttribute("kijiId", list.get(0).getKijiId());
+			session.setAttribute("categoryName", categoryName);
+
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp?submit=delete");
+			dispatcher.forward(request, response);
+			System.out.println("ディスパッチ");
+		}
 
 	}
 }
