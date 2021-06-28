@@ -13,17 +13,17 @@
 		<table border="1" align="center">
 			<th></th><th>お支払方法</th>
 			<tr>
-				<td><input type="radio" name="siharai" value="hurikomi"></td>
+				<td><input type="radio" name="shiharai" value="hurikomi"></td>
 				<td>銀行振込</td>
 			</tr>
 
 			<tr>
-				<td><input type="radio" name="siharai" value="credit_card"></td>
+				<td><input type="radio" name="shiharai" value="credit_card"></td>
 				<td>クレジットカード決済</td>
 			</tr>
 
 			<tr>
-				<td><input type="radio"  name="siharai" value="daibiki"></td>
+				<td><input type="radio"  name="shiharai" value="daibiki"></td>
 				<td>代金引換</td>
 			</table>
 				<p>*代引き引き換えは、代引き手数料がかかります</p>

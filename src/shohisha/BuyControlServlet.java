@@ -74,35 +74,6 @@ public class BuyControlServlet extends HttpServlet {
 					rd.forward(request, response);
 
 				} else {
-					//もし今まで
-
-
-					//OrderDao,ShohinDaoをインスタンス化
-
-					/*
-					 * String sId = (String) session.getAttribute("id");
-					 *
-					 * OrderDao dao = new OrderDao(); ShohinDao dao3 = new ShohinDao();
-					 * OrderDetailDAO dao2 = new OrderDetailDAO();
-					 *
-					 * OrderDao dao1 = new OrderDao(); ArrayList<OrderBean> listOrder = new
-					 * ArrayList<OrderBean>(); listOrder = dao1.jokenSIdStatus(sId, 0);//statusId
-					 * 0:カート String orderId = listOrder.get(0).getOrderId(); //orderOd int statusId
-					 * = listOrder.get(0).getStatusId(); //orderOd
-					 *
-					 * String oDetailId = listOrder.get(0).getODetailId();//oDetailIdの取得
-					 *
-					 * ArrayList<OrderDetailBean> listODetailList = new ArrayList<>();
-					 * listODetailList = dao2.jouken(oDetailId);//商品と個数のリスト
-					 *
-					 * //セッション領域に注文テーブルの各情報をセット
-					 *
-					 * session.setAttribute("orderId", orderId); session.setAttribute("oDetailId",
-					 * oDetailId); session.setAttribute("statusId", statusId);
-					 *
-					 * session.setAttribute("listOrder", listOrder);
-					 * session.setAttribute("oDetailList", listODetailList); //orderKakunin.jspに遷移
-					 */
 
 					String shiharai;
 					if(request.getParameter("shiharai").equals("hurikomi")) {
