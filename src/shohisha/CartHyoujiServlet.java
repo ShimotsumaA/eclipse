@@ -156,6 +156,19 @@ public class CartHyoujiServlet extends HttpServlet {
 
 					} else {
 
+						String orderId;
+						String date;
+
+						// may be better to use timeStamp
+						Calendar c1 = Calendar.getInstance();
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+						date = sdf.format(c1.getTime());
+
+						orderId = String.valueOf(dao.selectAll().size() + 1);
+						oDetailId = orderId;
+
+						dao.insert(orderId, date, sId, 0, oDetailId);
+
 					}
 
 					sId = (String) session.getAttribute("id");
