@@ -39,6 +39,8 @@ public class PostServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		//リクエストから郵便番号と住所を取得
 		String post_code=request.getParameter("post_code");
 		String address=request.getParameter("address");
