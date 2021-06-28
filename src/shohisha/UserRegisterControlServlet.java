@@ -93,19 +93,19 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
-				if (err.checkId("sId") == false) {
+				if (err.checkId(request.getParameter("sId")) == false) {
 					request.setAttribute("errmsg", errmsg);
 				}
-				if (err.checkPass("sPass") == false) {
+				if ( err.checkPass(request.getParameter("sPass"))== false) {
 					request.setAttribute("errmsg2", errmsg2);
 				}
-				if (err.checkPassMaches("sPass", "sPassK") == false) {
+				if (err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK"))== false) {
 					request.setAttribute("errmsg3", errmsg3);
 
 				}
 				System.out.println(err.checkId("sId"));
 				System.out.println(err.checkPass("sPass"));
-				System.out.println(err.checkPass("sPass"));
+				System.out.println(err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK")));
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=1");
 				dispatcher.forward(request, response);
@@ -170,13 +170,14 @@ public class UserRegisterControlServlet extends HttpServlet {
 					session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 					session.setAttribute("sPass", request.getParameter("sPass"));
 
-					if (err.checkId("sId") == false) {
+
+					if (err.checkId(request.getParameter("sId")) == false) {
 						request.setAttribute("errmsg", errmsg);
 					}
-					if (err.checkPass("sPass") == false) {
+					if ( err.checkPass(request.getParameter("sPass"))== false) {
 						request.setAttribute("errmsg2", errmsg2);
 					}
-					if (err.checkPassMaches("sPass", "sPassK") == false) {
+					if (err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK"))== false) {
 						request.setAttribute("errmsg3", errmsg3);
 
 					}
