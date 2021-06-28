@@ -22,7 +22,7 @@
     <table>
     	<tr>
     	<td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    	<td><a href="/group2work/">カート</a></td>　<!-- カートへのリンク -->
+    	<td><a href="/group2work/CartHyoujiServlet">カート</a></td>　<!-- カートへのリンク -->
     	<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td><!-- マイページへのリンク -->
     	<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
     	<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
