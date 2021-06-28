@@ -40,7 +40,7 @@ h1{
 table.about{
 	margin-left:auto;
 	margin-right:0;
-	border-spacing:70px 0px;
+	border-spacing:40px 0px;
 	position:relative;
 	right:90px;
 	top:-140px
@@ -109,6 +109,10 @@ table.link{
 					<!-- マイページへのリンク -->
 					<td><a href="/group2work/CartHyoujiServlet">カート</a></td>
 					<!-- カートへのリンク -->
+					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
+					<!-- 配送料へのリンク -->
+					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
+					<!-- 特定商取引法へのリンク -->
 					<td><a href="/group2work/jsp/sogo/top.jsp">トップページへ</a></td>
 					<!-- トップメニューへのリンク -->
 				</tr>
@@ -230,15 +234,7 @@ table.link{
 			</table>
 		</div>
 
-		<!-- フッター -->
-		<div class="footer">
-			<table class="link">
-				<tr>
-					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
-					<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">特定商取引法に基づく表記</a></td>
-				</tr>
-			</table>
-		</div>
+
 
 	</div>
 
