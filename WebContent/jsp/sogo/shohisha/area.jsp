@@ -10,7 +10,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h1{
 	background-color:#87ceeb
 	}
 	body{
@@ -30,7 +30,7 @@
    	 	</div>
 	<div style="text-align:center">
 	<form action="/group2work/PostServlet" method="post">
-	<h3>住所入力</h3>
+	<h1>住所入力</h1>
 
 	<p>配送地域を選択してください。<br>
 	<select name="chiikiselect">

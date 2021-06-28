@@ -6,6 +6,17 @@
 <meta charset="UTF-8">
 <title>お支払方法選択</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h1{
+	background-color:#87ceeb
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
 	<div style="text-align:center">
 			<h1>お支払方法を選択</h1>
