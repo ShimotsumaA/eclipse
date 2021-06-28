@@ -38,18 +38,22 @@ public class ShohinIchiranServlet extends HttpServlet {
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
 		list=dao.selectAll();
-		//request.setAttribute("list",dao.selectAll());
-	System.out.println(list.get(0).getShohinId());
+		System.out.println(list.get(0).getShohinId());
+
 		//セッション領域にリストを保存
 		HttpSession session=request.getSession(true);
 		session.setAttribute("list", list);
+
+		//エラーメッセージがある場合
+		if (request.getAttribute("message") != null) {
+			request.setAttribute("message", request.getAttribute("message"));
+		}
 
 		//フォワード
 		RequestDispatcher dispatcher=
 				request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 		dispatcher.forward(request, response);
 		System.out.println("サーブレットに到達！！！");
+
 	}
-
-
 }

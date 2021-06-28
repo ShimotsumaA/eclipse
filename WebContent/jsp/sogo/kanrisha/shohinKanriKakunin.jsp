@@ -102,7 +102,17 @@
 	</form>
 </div>
 
-<%} else if(request.getParameter("submit").equals("delete"))	{%>
+<%
+	} else if (request.getParameter("submit").equals("delete")) {
+
+		//商品が選択されていない
+		if (request.getParameter("radio") == null){
+
+				request.setAttribute("errorMsg","商品を選択してください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+				dispatcher.forward(request, response);
+			}
+%>
 <div style="text-align:center">
 	<h1>商品削除</h1>
 

@@ -63,7 +63,7 @@ public class ShohinKanriServlet extends HttpServlet {
 
 			//商品が選択されていない
 			if(request.getParameter("radio")==null) {
-				request.setAttribute("errorMsg","商品を選択してください");
+				request.setAttribute("errorMsg","商品を選択してください。");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
@@ -92,16 +92,28 @@ public class ShohinKanriServlet extends HttpServlet {
 		//商品変更画面の変更ボタンが押された
 		if(submit.equals("変更確認")) {
 
+			String name = request.getParameter("name");
+			String price = request.getParameter("price");
+			String kiji = request.getParameter("kiji");
 
-			session.setAttribute("name", request.getParameter("name"));
-			session.setAttribute("id", request.getParameter("id"));
-			session.setAttribute("price", request.getParameter("price"));
-			session.setAttribute("category", request.getParameter("category"));
-			session.setAttribute("kiji", request.getParameter("kiji"));
+			//いずれかの項目が入力されていない
+			if (name.equals("") || price.equals("") || kiji.equals("")) {
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
-			dispatcher.forward(request, response);
-			System.out.println("ディスパッチ!");
+				request.setAttribute("message", "すべての項目を入力してください。");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/ShohinIchiranSrevlet");
+				dispatcher.forward(request, response);
+			} else {
+
+				session.setAttribute("name", name);
+				session.setAttribute("price", price);
+				session.setAttribute("category", request.getParameter("category"));
+				session.setAttribute("kiji", kiji);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
+				dispatcher.forward(request, response);
+				System.out.println("");
+			}
 		}
 
 //		登録確認画面の変更ボタンが押された時
