@@ -210,12 +210,8 @@ table.link{
 										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
 										</form>
 
-									<%-- <td><input type="hidden" name="shohin_id"
-										value="<%=list3.get(i - 1).getShohinId()%>"> <a
-										href="javascript:shohin.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br> --%>
-
 										<p><%=list3.get(i - 1).getShohinName()%></p>
-										<p><%=list3.get(i - 1).getValue()%>円</p>
+										<p><%=list3.get(i - 1).getValue().intValue()%>円</p>
 										<%count = count + 1;%>
 									<td>
 										<%if (count % 3 == 0) {%>

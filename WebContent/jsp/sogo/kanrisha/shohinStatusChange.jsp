@@ -56,8 +56,8 @@
 		break;
 
 		case 6:
-			hyouji="キャンセル";
-			break;
+		hyouji="キャンセル";
+		break;
 
 	}
 %>
