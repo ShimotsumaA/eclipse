@@ -72,12 +72,15 @@ public class CartControlServlet extends HttpServlet {
 		// ログイン情報の取得
 		int cartcount = 0;
 
-		if (session.getAttribute("login") != null) {
+		if (session.getAttribute("id") != null) {
 			// loginからユーザーIDを取得
-			ArrayList<ShohishaBean> list1 = new ArrayList<>();
-			list1 = (ArrayList<ShohishaBean>) session.getAttribute("login");
-			// idの取得
-			String sId = list1.get(0).getId();
+			/*
+			 * ArrayList<ShohishaBean> list1 = new ArrayList<>(); list1 =
+			 * (ArrayList<ShohishaBean>) session.getAttribute("login"); // idの取得 String sId
+			 * = list1.get(0).getId();
+			 */
+			String sId=(String)session.getAttribute("id");
+
 			String oDetailId;
 
 			// 注文ステータスがカートの商品があるかどうかチェックする
