@@ -20,7 +20,7 @@
 <%System.out.println(list.get(0).getShohinId()); %>
 <%String errorMsg=(String) request.getAttribute("errorMsg");%>
 <%if(errorMsg!=null) {%>
-<font color="red"><%=errorMsg%></font>
+<font color="red"><%=errorMsg%></font><br><br>
 <% }%>
 
 <table border="1" align="center">

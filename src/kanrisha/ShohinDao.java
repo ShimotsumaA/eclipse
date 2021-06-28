@@ -9,13 +9,14 @@ import bean.ShohinBean;
 import sogo.DBAccess;
 
 public class ShohinDao extends DBAccess {
-	//荳�隕ｧ陦ｨ遉ｺ縺ｮ繝｡繧ｽ繝�繝�
+
+	//商品を取得する
 	public ArrayList<ShohinBean> selectAll(){
 		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
 		String sql="select*from shohin";
 		try {
 				connect();
-				//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 				PreparedStatement ps =getConnection().prepareStatement(sql);
 				ResultSet rs=ps.executeQuery();
 
@@ -38,14 +39,14 @@ public class ShohinDao extends DBAccess {
 		return list;
 
 	}
-	//謚ｽ蜃ｺ繝｡繧ｽ繝�繝�
+	//商品IDから商品の情報を取得する
 	public ArrayList<ShohinBean> joken(String shohinId) {
 			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
 		    String sql="select*from shohin where shohin_Id=?";
 
 		    try {
 		    	connect();
-		    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 		    	PreparedStatement ps=getConnection().prepareStatement(sql);
 		    	ps.setString(1, shohinId);
 
@@ -133,7 +134,7 @@ public class ShohinDao extends DBAccess {
 	    }
 
 
-	//逋ｻ骭ｲ繝｡繧ｽ繝�繝�
+	//新しい商品を登録する
 	public int insert(String shohin_Id,String shohin_Name,String kiji_Id,
 				String category_Id,java.math.BigDecimal value) {
 
@@ -143,7 +144,7 @@ public class ShohinDao extends DBAccess {
 	String sql="insert into shohin(shohin_Id, shohin_Name ,kiji_Id, , value,category_Id) values(?,?,?,?,?)";
 	try {
 		connect();
-		// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 		PreparedStatement ps = getConnection().prepareStatement(sql);
 		ps.setString(1, shohin_Id);
 		ps.setString(2, shohin_Name);
@@ -162,7 +163,7 @@ public class ShohinDao extends DBAccess {
 
 	}
 
-	//蝠�蜩∝炎髯､繝｡繧ｽ繝�繝�
+	//削除する
 	public  int delete(String shohin_Id) {
 
 		int count=0;
@@ -171,7 +172,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohin_Id);
 
@@ -186,6 +187,7 @@ public class ShohinDao extends DBAccess {
 
 	}
 
+	//変更する
 	public int update(String shohin_Id,String shohin_Name,String kiji_Id,
 			String category_Id,java.math.BigDecimal value) {
 
@@ -195,7 +197,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohin_Id);
 			ps.setString(2, shohin_Name);
@@ -217,7 +219,7 @@ public class ShohinDao extends DBAccess {
 	}
 
 
-	//蝨ｨ蠎ｫ繧貞､画峩縺吶ｋ繝｡繧ｽ繝�繝�
+	//在庫情報を変更する
 	public int zaikoUpdate(String shohin_Id ,int zaiko) {
 
 		int count=0;
@@ -226,7 +228,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohin_Id);
 			ps.setInt(2, zaiko);
@@ -243,7 +245,7 @@ public class ShohinDao extends DBAccess {
 	}
 
 
-	//繝�繝ｼ繝悶Ν縺ｫ蛟､繧定ｿｽ蜉�縺吶ｋ繝｡繧ｽ繝�繝�
+	//在庫情報を加える
 	public  int zaikoInsert(String shohin_Id ,int zaiko) {
 
 		int count=0;
@@ -252,7 +254,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohin_Id);
 			ps.setInt(2,zaiko);
@@ -281,7 +283,7 @@ public class ShohinDao extends DBAccess {
 
 		try {
 			connect();
-			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, shohin_Id);
 			ps.setInt(2, zaiko);
