@@ -32,7 +32,7 @@
 <td><input type="radio" name="radio" value=<%=list.get(i).getShohinId() %>></td>
 <td><%=list.get(i).getShohinId()%></td>
 <td><%=list.get(i).getShohinName() %></td>
-<td><%=list.get(i).getValue() %></td>
+<td><%=list.get(i).getValue().intValue() %></td>
 <td><%=list.get(i).getCategoryId() %></td>
 <td><%=list.get(i).getKijiId() %></td>
 </tr>

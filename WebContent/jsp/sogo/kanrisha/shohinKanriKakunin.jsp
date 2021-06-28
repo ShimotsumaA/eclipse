@@ -112,7 +112,7 @@
 	<%
 		String shohinId = request.getParameter("radio");
 		ShohinDao dao = new ShohinDao();
-		dao.joken
+		ArrayList<ShohinBean> list = dao.joken(shohinId);
 	%>
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
@@ -120,7 +120,7 @@
 	<table  align="center">
 		<tr>
 			<td align="right">商品名：</td>
-			<td align="left"><%=session.getAttribute("name") %></td>
+			<td align="left"><%=list.get(0).getShohinName() %></td>
 		</tr>
 		<tr>
 			<td align="right">商品ID:</td>
@@ -128,13 +128,13 @@
 		</tr>
 		<tr>
 			<td align="right">販売価格:</td>
-			<td align="left"><%=session.getAttribute("price") %></td>
+			<td align="left"><%=list.get(0).getValue().intValue() %></td>
 		</tr>
 
 		<%
-			String categoryId = (String)session.getAttribute("category");
-			CategoryDao dao = new CategoryDao();
-			ArrayList<CategoryBean>list2 = dao.joken(categoryId);
+			String categoryId = list.get(0).getCategoryId();
+			CategoryDao dao1 = new CategoryDao();
+			ArrayList<CategoryBean>list2 = dao1.joken(categoryId);
 			String categoryName = list2.get(0).getCategoryName();
 		%>
 		<tr>

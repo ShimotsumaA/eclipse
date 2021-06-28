@@ -67,7 +67,6 @@ public class ShohinKanriServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
-
 			}
 
 			ShohinDao dao=new ShohinDao();
@@ -80,10 +79,9 @@ public class ShohinKanriServlet extends HttpServlet {
 
 			session.setAttribute("shohinId",list.get(0).getShohinId());
 			session.setAttribute("shohinName",list.get(0).getShohinName());
-			session.setAttribute("value",list.get(0).getValue());
+			session.setAttribute("value",list.get(0).getValue().intValue());
 			session.setAttribute("categoryId",list.get(0).getCategoryId());
 			session.setAttribute("kijiId", list.get(0).getKijiId());
-
 			session.setAttribute("listCategory", listCategory);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2");

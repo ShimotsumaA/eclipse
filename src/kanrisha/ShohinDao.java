@@ -77,7 +77,7 @@ public class ShohinDao extends DBAccess {
 
 	    try {
 	    	connect();
-	    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 	    	PreparedStatement ps=getConnection().prepareStatement(sql);
 	    	ps.setString(1, kijiId);
 
@@ -108,7 +108,7 @@ public class ShohinDao extends DBAccess {
 
 	    try {
 	    	connect();
-	    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+
 	    	PreparedStatement ps=getConnection().prepareStatement(sql);
 	    	ps.setString(1, categoryId);
 
