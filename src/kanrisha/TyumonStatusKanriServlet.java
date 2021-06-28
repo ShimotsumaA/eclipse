@@ -35,25 +35,31 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 		request.setAttribute("submit", submit);
 
 		if (submit.equals("受注ステータス変更")) {
+
+			//ラジオボタンを選択していない場合
 			if (request.getParameter("radio") == null) {
 				request.setAttribute("message", "対象を選んでください。");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
 				dispatcher.forward(request, response);
+			}
 
-			} else {
+			int statusId = Integer.parseInt(request.getParameter("statusId"));
+			session.setAttribute("statusId", statusId);
 
-				int statusId = Integer.parseInt(request.getParameter("statusId"));
-				session.setAttribute("statusId", statusId);
+			String orderId = request.getParameter("radio");
 
-				String orderId = request.getParameter("radio");
+			session.setAttribute("orderId", orderId);
 
-				session.setAttribute("orderId", orderId);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusChange.jsp");
+			dispatcher.forward(request, response);
 
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusChange.jsp");
+		} else if (submit.equals("変更確認")) {
+
+			if (request.getParameter("radio") == null) {
+				request.setAttribute("message", "対象を選んでください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
 				dispatcher.forward(request, response);
 			}
-		} else if (submit.equals("変更確認")) {
 
 			int newStatusId = Integer.parseInt(request.getParameter("radio"));
 
