@@ -91,12 +91,20 @@ public class KanrishaTorokuServlet extends HttpServlet {
 
 			//入力値を取得する
 			String id = request.getParameter("id");
+			System.out.println(id);
 			String name = request.getParameter("name");
 			String postId = request.getParameter("postId");
 			String pass1 = request.getParameter("pass1");
 			String pass2 = request.getParameter("pass2");
 
-			System.out.println(pass2);
+			if (id.equals("") || postId.equals("") || name.equals("") || pass2.equals("")) {
+
+				String message = "すべての項目を入力してください。";
+				request.setAttribute("message", message);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+				dispatcher.forward(request, response);
+			}
 
 			//エラーチェック
 			ErrCheck err = new ErrCheck();
