@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%@ page import="bean.ShohinBean" %>
+ <%@ page import="bean.ShohinBean" %>
+ <%@page import="shohisha.CategoryDao" %>
+ <%@page import="bean.CategoryBean" %>
+
  <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -81,8 +84,13 @@
 
 		<%for(int i=0; i<list.size(); i++) {%>
 
-		<%=list.get(i).getCategoryId() %>
-		<option><%=list.get(i).getCategoryId() %></option>
+
+		<option value="<%= list.get(i).getCategoryId()%>">
+		<%CategoryDao dao=new CategoryDao();
+		String categoryName=dao.joken(list.get(i).getCategoryId()).get(0).getCategoryName();
+		%>
+		<%=categoryName %>
+		</option>
 		<%} %>
 		</select>
 		</td><br>
