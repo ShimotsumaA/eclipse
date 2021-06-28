@@ -72,7 +72,7 @@
    	 	<!-- ボタン -->
    	 	<div class="submit">
    	 		<form method="post">
-   	 			<button type="submit" name="submit" value="jyusho" formaction="/group2work/shohisha/BuyControl">住所入力</button>
+   	 			<button type="submit" name="submit" value="jyusho" formaction="/group2work/BuyControl">住所入力</button>
    	 			<button type="submit" name="submit" value="return" formaction="">戻る</button>
    	 		</form>
    	 	</div>
