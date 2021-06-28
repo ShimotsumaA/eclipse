@@ -59,7 +59,7 @@
 				<td>
 				商品:<%= list1.get(0).getShohinName() %><br>
 				数量:<%=listODetail.get(i-1).getKazuKonyu() %><!-- 数量表示 --><br>
-				価格:<%=list1.get(0).getValue().intValue() %><!-- 価格表示 -->
+				価格:<%=list1.get(0).getValue().intValue() %>円<!-- 価格表示 -->
 				</td>
 			</tr>
 			<%} %>
