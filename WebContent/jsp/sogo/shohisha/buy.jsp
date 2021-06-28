@@ -25,7 +25,7 @@
 <body>
 	<!-- メニューバー -->
 	<div class="wrapper">
-	<center>
+	<div align="center">
     	<div class="menu_bar">
     	<table>
     	<tr>
@@ -88,7 +88,7 @@
    	 			<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
    	 	</div>
 
-
+		</div>
    	 	</div>
 	</center>
 
