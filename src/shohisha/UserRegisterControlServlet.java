@@ -149,6 +149,10 @@ public class UserRegisterControlServlet extends HttpServlet {
 					//
 					request.setAttribute("2kaime", true);
 					request.setAttribute("submit", "toroku");
+					System.out.println(err.checkId("sId"));
+					System.out.println(err.checkPass("sPass"));
+					System.out.println(err.checkPass("sPass"));
+
 
 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");

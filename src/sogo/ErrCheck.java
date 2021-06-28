@@ -139,7 +139,7 @@ public class ErrCheck {
 		//4文字以上15文字以内か。
 		if ((kPass1.length() >= 4) && (kPass1.length() <= 15)) {
 			//英数字だけで構成されているか。
-			if (kPass1.matches("^[A-Za-z0-9]+$")&&kPass1.matches("^[A-Za-z]+$")==false&&kPass1.matches("^[0-9]+$")) {
+			if (kPass1.matches("^[A-Za-z0-9]+$")&&(kPass1.matches("^[A-Za-z]+$")==false&&kPass1.matches("^[0-9]+$")==false)) {
 				return true;
 			}else {
 				return false;
