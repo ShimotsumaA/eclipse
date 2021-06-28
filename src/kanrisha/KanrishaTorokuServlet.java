@@ -97,7 +97,7 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			String pass1 = request.getParameter("pass1");
 			String pass2 = request.getParameter("pass2");
 
-			if (id.equals("") || postId.equals("") || name.equals("") || pass2.equals("")) {
+			if (id.equals("") || name.equals("") || pass1.equals("") || pass2.equals("")) {
 
 				String message = "すべての項目を入力してください。";
 				request.setAttribute("message", message);
@@ -136,7 +136,7 @@ public class KanrishaTorokuServlet extends HttpServlet {
 				if (err.checkPass(pass1)) {
 					System.out.println("パスワード正しい入力");
 				} else {
-					String message = "パスワードは４文字以上１５文字以内で、英数字を必ず含めてください。";
+					String message = "パスワードは４文字以上15文字以内で、英数字を必ず含めてください。";
 					System.out.println(message);
 					request.setAttribute("message", message);
 
@@ -186,10 +186,16 @@ public class KanrishaTorokuServlet extends HttpServlet {
 			String pass1 = request.getParameter("pass1");
 			String pass2 = request.getParameter("pass2");
 
-			System.out.println(id);
-			System.out.println(name);
-			System.out.println(postId);
-			System.out.println(pass1);
+			//入力項目に空白がある場合
+			if ( name.equals("") || pass1.equals("") || pass2.equals("")) {
+
+				String message = "すべての項目を入力してください。";
+				request.setAttribute("message", message);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+				dispatcher.forward(request, response);
+			}
+
 
 			//エラーチェック
 			ErrCheck err = new ErrCheck();
