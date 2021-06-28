@@ -54,8 +54,8 @@
 		list1=dao.joken(shohinId);
 	%>
 	商品名:<%= list1.get(0).getShohinName() %><br>
-	価格：<%=list1.get(0).getValue() %><br>
-	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br>
+	価格：<%=list1.get(0).getValue().intValue() %>円<br>
+	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br><br>
 
 	<%} %>
 </div>
@@ -64,14 +64,14 @@
 	支払い方法：<%=session.getAttribute("shiharai") %><br>
 	配送先住所<br>
 	<%=session.getAttribute("post_code") %><br>
-	<%=session.getAttribute("address") %><br>
+	<%=session.getAttribute("address") %><br><br>
 
 </div>
 
 <div style="text-align:center;">
 	商品合計：<%=(Integer)session.getAttribute("gokei")%>円<br>
-	送料：<%=(Integer)session.getAttribute("soryo")%><br>
-	合計：<%=(Integer)session.getAttribute("sokei")%><br>
+	送料：<%=(Integer)session.getAttribute("soryo")%>円<br>
+	合計：<%=(Integer)session.getAttribute("sokei")%>円<br>
 
 </div><br>
 
