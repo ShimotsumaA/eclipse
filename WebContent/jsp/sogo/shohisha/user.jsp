@@ -116,7 +116,7 @@
 				</tr>
 
 		</table>
-		<table class="ID">
+		<table class="ID" style="text-align:center">
 			<tr>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
@@ -199,9 +199,9 @@
 				<td align="right">メールアドレス：</td>
 				<td><input type="text" value="<%=session.getAttribute("mailAddress")%>" name="mailAddress" size="40"></td>
 			</tr>
-			<tr>
-			</tr><tr><td><%=errmsg %></td>
-				<td align="right">ID：</td>
+
+			<tr><td><%=errmsg %></td></tr>
+				<tr><td align="right">ID：</td>
 				<td><%-- <input type="text" value="--%><%=session.getAttribute("sId")%><%--" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"> --%></td>
 			</tr>
