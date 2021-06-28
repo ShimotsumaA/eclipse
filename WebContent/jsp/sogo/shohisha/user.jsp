@@ -15,13 +15,27 @@
 	background-color:#87ceeb
 	}
 
-	h4{
-	background-color:#f0ffff
+	input[type="text"]:focus,
+	texture:focus {
+    box-shadow: 0 0 7px #3498db;
+    border: 1px solid #3498db;
 	}
 
-	table{
-
+	table.text{
+	margin-left:auto;
+	margin-right:auto;
 	}
+
+	table.ID{
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+	table.pass{
+	margin-left:auto;
+	margin-right:auto;
+	}
+
 </style>
 <body>
 <%
