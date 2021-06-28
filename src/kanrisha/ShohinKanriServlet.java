@@ -24,65 +24,64 @@ import sogo.ErrCheck;
 public class ShohinKanriServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ShohinKanriServlet() {
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ShohinKanriServlet() {
 
-    }
+	}
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 //		String forward=null;
 
-
-		//文字コードの設定
+		// 文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 
-		//商品一覧画面の変更ボタンが押された
-		String submit=request.getParameter("submit");
+		// 商品一覧画面の変更ボタンが押された
+		String submit = request.getParameter("submit");
 		System.out.println(submit);
 
-		//セッション領域を作成
-		HttpSession session=request.getSession(true);
+		// セッション領域を作成
+		HttpSession session = request.getSession(true);
 
-		if(submit.equals("変更")) {
+		if (submit.equals("変更")) {
 
-			String shohinId=request.getParameter("radio");
+			String shohinId = request.getParameter("radio");
 			System.out.println(shohinId);
 
-			//商品が選択されていない
-			if(request.getParameter("radio")==null) {
-				request.setAttribute("errorMsg","商品を選択してください。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+			// 商品が選択されていない
+			if (request.getParameter("radio") == null) {
+				request.setAttribute("errorMsg", "商品を選択してください。");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
 			}
 
-			ShohinDao dao=new ShohinDao();
-			CategoryDao dao2=new CategoryDao();
-			ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
-			ArrayList<CategoryBean> listCategory=new ArrayList<CategoryBean>();
+			ShohinDao dao = new ShohinDao();
+			CategoryDao dao2 = new CategoryDao();
+			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+			ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
 
+			list = dao.joken(shohinId);
+			listCategory = dao2.selectAll();
 
-			list=dao.joken(shohinId);
-			 listCategory = dao2.selectAll();
-
-			session.setAttribute("shohinId",list.get(0).getShohinId());
-			session.setAttribute("shohinName",list.get(0).getShohinName());
-			session.setAttribute("value",list.get(0).getValue().intValue());
-			session.setAttribute("categoryId",list.get(0).getCategoryId());
+			session.setAttribute("shohinId", list.get(0).getShohinId());
+			session.setAttribute("shohinName", list.get(0).getShohinName());
+			session.setAttribute("value", list.get(0).getValue().intValue());
+			session.setAttribute("categoryId", list.get(0).getCategoryId());
 			session.setAttribute("kijiId", list.get(0).getKijiId());
 			session.setAttribute("listCategory", listCategory);
 
@@ -91,19 +90,20 @@ public class ShohinKanriServlet extends HttpServlet {
 			System.out.println("ディスパッチ");
 		}
 
-		//商品変更画面の変更ボタンが押された
-		if(submit.equals("変更確認")) {
+		// 商品変更画面の変更ボタンが押された
+		else if (submit.equals("変更確認")) {
 
 			String name = request.getParameter("name");
 			String price = request.getParameter("price");
 			String kiji = request.getParameter("kiji");
 
-			//いずれかの項目が入力されていない
+			// いずれかの項目が入力されていない
 			if (name.equals("") || price.equals("") || kiji.equals("")) {
 
 				request.setAttribute("message", "すべての項目を入力してください。");
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=5");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=5");
 				dispatcher.forward(request, response);
 			} else {
 
@@ -112,112 +112,107 @@ public class ShohinKanriServlet extends HttpServlet {
 				session.setAttribute("category", request.getParameter("category"));
 				session.setAttribute("kiji", kiji);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
 				dispatcher.forward(request, response);
 			}
 		}
 
 //		登録確認画面の変更ボタンが押された時
-		if(submit.equals("変更確定")) {
+		else if (submit.equals("変更確定")) {
 
-				String shohinId=(String)session.getAttribute("id");
-				String shohinName=(String)session.getAttribute("name");
-				String categoryId=(String)session.getAttribute("category");
-				String kijiId=(String)session.getAttribute("kiji");
-				BigDecimal value=BigDecimal.valueOf((Integer)session.getAttribute("value"));
+			String shohinId = (String) session.getAttribute("id");
+			String shohinName = (String) session.getAttribute("name");
+			String categoryId = (String) session.getAttribute("category");
+			String kijiId = (String) session.getAttribute("kiji");
+			BigDecimal value = BigDecimal.valueOf((Integer) session.getAttribute("value"));
 
-				System.out.println(shohinId);
-				System.out.println(shohinName);
-				System.out.println(categoryId);
-				System.out.println(kijiId);
-				System.out.println(value);
+			System.out.println(shohinId);
+			System.out.println(shohinName);
+			System.out.println(categoryId);
+			System.out.println(kijiId);
+			System.out.println(value);
 
-			//DAOをインスタンス化
-				ShohinDao dao =new ShohinDao();
-				int rs=dao.update(shohinId, shohinName, kijiId, categoryId, value);
-				System.out.println(rs);
-				request.setAttribute("compmsg", "変更されました");
+			// DAOをインスタンス化
+			ShohinDao dao = new ShohinDao();
+			int rs = dao.update(shohinId, shohinName, kijiId, categoryId, value);
+			System.out.println(rs);
+			request.setAttribute("compmsg", "変更されました");
 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("ディスパッチ!!!");
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
-				dispatcher.forward(request, response);
-				System.out.println("ディスパッチ!!!");
-
-		}
-
-		if(submit.equals("登録確認")){
+		} else if (submit.equals("登録確認")) {
 
 			String name = request.getParameter("name");
 			String id = request.getParameter("id");
 			String price = request.getParameter("price");
 			String kiji = request.getParameter("kiji");
 
-			//いずれかの項目が入力されていない
+			// いずれかの項目が入力されていない
 			if (name.equals("") || id.equals("") || price.equals("") || kiji.equals("")) {
 
 				request.setAttribute("message", "すべての項目を入力してください。");
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=3");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=3");
 				dispatcher.forward(request, response);
 
 			} else {
 
-				//エラーチェック
-				ErrCheck err =new ErrCheck();
+				// エラーチェック
+				ErrCheck err = new ErrCheck();
 
-				//商品IDが存在するかどうか
+				// 商品IDが存在するかどうか
 				if (err.existShohinId(id)) {
 
 					String message = "商品IDが既に存在します。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=3");
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=3");
 					dispatcher.forward(request, response);
 
 				} else {
 					System.out.println("idは存在しません。");
 				}
 
-
-				//入力値をセッション領域に預ける。
+				// 入力値をセッション領域に預ける。
 				session.setAttribute("name", name);
 				session.setAttribute("id", id);
 				session.setAttribute("price", price);
 				session.setAttribute("category", request.getParameter("category"));
 				session.setAttribute("kiji", kiji);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp");
 				dispatcher.forward(request, response);
 				System.out.println("商品管理確認へ");
 
 			}
-		}
+		} else if (submit.equals("登録確定")) {
 
-		if(submit.equals("登録確定")){
+			String shohinId = (String) session.getAttribute("id");
+			String shohinName = (String) session.getAttribute("name");
+			String categoryId = (String) session.getAttribute("category");
+			String kijiId = (String) session.getAttribute("kiji");
+			java.math.BigDecimal value = new BigDecimal((String) session.getAttribute("value"));
 
-			String shohinId=(String)session.getAttribute("id");
-			String shohinName=(String)session.getAttribute("name");
-			String categoryId=(String)session.getAttribute("category");
-			String kijiId=(String)session.getAttribute("kiji");
-			java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
-
-			//DAOをインスタンス化
-			ShohinDao dao=new ShohinDao();
-			int rs=dao.insert(shohinId,shohinName,categoryId,kijiId,value);
+			// DAOをインスタンス化
+			ShohinDao dao = new ShohinDao();
+			int rs = dao.insert(shohinId, shohinName, categoryId, kijiId, value);
 			System.out.println(rs);
 			request.setAttribute("compmsg", "登録が完了しました");
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1");
 			dispatcher.forward(request, response);
 
-			}
-
-		if(submit.equals("削除確定")){
+		} else if (submit.equals("削除確定")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ!!!!!");
 		}
-
 
 //		//セッションの取得
 //        HttpSession session = request.getSession(true);
@@ -268,9 +263,6 @@ public class ShohinKanriServlet extends HttpServlet {
 //		RequestDispatcher rd = request.getRequestDispatcher(forward);
 //		rd.forward(request, response);
 //	}
-
-
-
 
 	}
 }
