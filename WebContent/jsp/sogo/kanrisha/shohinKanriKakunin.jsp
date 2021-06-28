@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ page import="bean.ShohinBean" %>
- <%@ page import="java.util.ArrayList" %>
+<%@ page import="kanrisha.ShohinDao" %>
+<%@ page import="shohisha.CategoryDao" %>
+<%@ page import="bean.CategoryBean" %>
+<%@ page import="bean.ShohinBean" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,30 +13,53 @@
 <title>商品管理確認</title>
 </head>
 <body>
-<% System.out.println(request.getParameter("submit")); %>
-<%if(request.getParameter("submit").equals("登録確認")){%>
 <div style="text-align:center">
+<% System.out.println(request.getParameter("submit")); %>
 
-	<h1>商品登録</h1><br><br>
+<%if(request.getParameter("submit").equals("登録確認")){%>
+
+	<h1>商品登録の確認</h1>
 	以下の情報を登録します。よろしいですか？<br><br>
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<%=session.getAttribute("name") %><br>
-	商品ID:<%=session.getAttribute("id") %><br>
-	販売価格:<%=session.getAttribute("price") %><br>
-	カテゴリ：<%=session.getAttribute("category") %><br>
-	生地ID：<%=session.getAttribute("kiji") %>	<!-shohinKanriModからパラメータ取得-><br><br>
+	<table  align="center">
+		<tr>
+			<td align="right">商品名：</td>
+			<td align="left"><%=session.getAttribute("name") %></td>
+		</tr>
+		<tr>
+			<td align="right">商品ID:</td>
+			<td align="left"><%=session.getAttribute("id") %></td>
+		</tr>
+		<tr>
+			<td align="right">販売価格:</td>
+			<td align="left"><%=session.getAttribute("price") %></td>
+		</tr>
+
+		<%
+			String categoryId = (String)session.getAttribute("category");
+			CategoryDao dao = new CategoryDao();
+			ArrayList<CategoryBean>list = dao.joken(categoryId);
+			String categoryName = list.get(0).getCategoryName();
+		%>
+		<tr>
+			<td align="right">カテゴリ：</td>
+			<td align="left"><%=categoryName %></td>
+		</tr>
+		<tr>
+			<td align="right">生地ID：</td>
+			<td align="left"><%=session.getAttribute("kiji") %></td> <!-- shohinKanriModからパラメータ取得 -->
+		</tr>
+	</table><br><br>
 
 	<input type="submit" name="submit" value="登録確定" >
-	<input type="button" value="戻る" onClick="history.go(-1)">
+	<input type="button" value="戻る" onClick="location.href='/group2work/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1'">
 	</form>
 </div>
-<%} %>
-
-<%if(request.getParameter("submit").equals("変更確認")){%>
+<%}  else if (request.getParameter("submit").equals("変更確認")){%>
 <div style="text-align:center">
-	<h1>商品変更</h1><br><br>
+	<h1>商品変更の確認</h1>
 
 	<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
 
@@ -40,31 +67,85 @@
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<%=session.getAttribute("name") %><br>
-	商品ID:<%=list.get(0).getShohinId() %><br>
-	販売価格：<%=session.getAttribute("price") %><br>
-	カテゴリ：<%=session.getAttribute("category")%><br>
-	生地ID：<%=session.getAttribute("kiji")%>	<!-shohinKanriModからパラメータ取得-><br><br>
+	<table  align="center">
+		<tr>
+			<td align="right">商品名：</td>
+			<td align="left"><%=session.getAttribute("name") %></td>
+		</tr>
+		<tr>
+			<td align="right">商品ID:</td>
+			<td align="left"><%=list.get(0).getShohinId()  %></td>
+		</tr>
+		<tr>
+			<td align="right">販売価格:</td>
+			<td align="left"><%=session.getAttribute("price") %></td>
+		</tr>
+
+		<%
+			String categoryId = (String)session.getAttribute("category");
+			CategoryDao dao = new CategoryDao();
+			ArrayList<CategoryBean>list2 = dao.joken(categoryId);
+			String categoryName = list2.get(0).getCategoryName();
+		%>
+		<tr>
+			<td align="right">カテゴリ：</td>
+			<td align="left"><%=categoryName %></td>
+		</tr>
+		<tr>
+			<td align="right">生地ID：</td>
+			<td align="left"><%=session.getAttribute("kiji") %></td> <!-- shohinKanriModからパラメータ取得 -->
+		</tr>
+	</table><br><br>
 
 	<input type="submit" name="submit" value="変更確定">
 
 	<input type="button" value="戻る" onClick="history.go(-1)">
 	</form>
 </div>
-<%} %>
 
-<%if(request.getParameter("submit").equals("delete"))	{%>
+<%} else if(request.getParameter("submit").equals("delete"))	{%>
 <div style="text-align:center">
-	<h1>商品削除</h1><br><br>
+	<h1>商品削除</h1>
+
 	以下の情報を削除します。よろしいですか？<br><br>
+
+	<%
+		String shohinId = request.getParameter("radio");
+		ShohinDao dao = new ShohinDao();
+		dao.joken
+	%>
 
 	<form action="/group2work/ShohinKanriServlet" method="post">
 
-	商品名：<%=session.getAttribute("name") %><br>
-	商品ID:<%=session.getAttribute("id") %><br>
-	商品価格：<%=session.getAttribute("price") %><br>
-	カテゴリ：<%=session.getAttribute("category") %><br>
-	生地ID：<%=session.getAttribute("kiji") %>	<br><br>
+	<table  align="center">
+		<tr>
+			<td align="right">商品名：</td>
+			<td align="left"><%=session.getAttribute("name") %></td>
+		</tr>
+		<tr>
+			<td align="right">商品ID:</td>
+			<td align="left"><%=list.get(0).getShohinId()  %></td>
+		</tr>
+		<tr>
+			<td align="right">販売価格:</td>
+			<td align="left"><%=session.getAttribute("price") %></td>
+		</tr>
+
+		<%
+			String categoryId = (String)session.getAttribute("category");
+			CategoryDao dao = new CategoryDao();
+			ArrayList<CategoryBean>list2 = dao.joken(categoryId);
+			String categoryName = list2.get(0).getCategoryName();
+		%>
+		<tr>
+			<td align="right">カテゴリ：</td>
+			<td align="left"><%=categoryName %></td>
+		</tr>
+		<tr>
+			<td align="right">生地ID：</td>
+			<td align="left"><%=session.getAttribute("kiji") %></td> <!-- shohinKanriModからパラメータ取得 -->
+		</tr>
+	</table><br><br>
 
 	<input type="submit" name="submit" value="削除確定">
 	<input type="button" value="戻る" onClick="history.go(-1)">

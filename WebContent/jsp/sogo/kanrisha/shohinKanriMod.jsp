@@ -11,96 +11,98 @@
 <meta charset="UTF-8">
 <title>商品管理（登録・変更の入力）</title>
 </head>
+
 <%String no=request.getParameter("no") ;%>
 <body>
-<%if(no.equals("1")) {%>
-<form action="/group2work/ShohinKanriServlet" method="post">
 <div style=text-align:center>
-<h1>商品登録</h1><br>
-<label for="name" align="left">商品名：</label>
-<input type="text" name="name" size="30" id="name" maxlength="15"><br>
 
-<label for="id" align="left">商品ID：</label>
-<input type="text" name="id" size="30" id="id" maxlength="6"><br>
+<%if(no.equals("1") || no.equals("3")) {%>
 
-<label for="kakaku" align="left">販売価格：</label>
-<input type="text" name="price" size="30" id="kakaku" maxlength="8"><br>
+<form action="/group2work/ShohinKanriServlet" method="post">
+<h1>商品登録</h1>
 
-カテゴリ:
+	<% if (no.equals("3")){
+				String message =(String)request.getAttribute("message");
+			%>
+						<p style="color:red"><%=message %></p>
+			<% }  %>
 
-<%--ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");--%>
+<table  align="center">
+	<tr>
+		<td align="right"><label for="name" align="left">商品名：</label></td>
+		<td><input type="text" name="name" size="30" id="name" maxlength="15"></td>
+	</tr>
+	<tr>
+		<td align="right"><label for="id" align="left">商品ID：</label></td>
+		<td><input type="text" name="id" size="30" id="id" maxlength="6"></td>
+	</tr>
+	<tr>
+		<td align="right"><label for="kakaku" align="left">販売価格：</label></td>
+		<td><input type="text" name="price" size="30" id="kakaku" maxlength="8"></td>
+	</tr>
+	<tr>
+		<td align="right">カテゴリ:</td>
 
-<%--for(int i=0; i<list.size(); i++) {--%>
-<select name="category">
-<%--=list.get(i).getCategoryId() --%>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-</select><br>
-<%} %>
-<label for="kijiId">生地ID：</label>
-<input type="text" name="kiji" size="30" id="kijiId"><br>
+		<%--ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");--%>
+
+		<%--for(int i=0; i<list.size(); i++) {--%>
+		<td align="left"><select name="category">
+		<%--=list.get(i).getCategoryId() --%>
+		<option value="1">バッグ</option>
+		<option value="2">ポーチ</option>
+		<option value="3">Tシャツ</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td align="right"><label for="kijiId">生地ID：</label></td>
+		<td><input type="text" name="kiji" size="30" id="kijiId" maxlength="20"></td>
+	</tr>
+</table>
 
 <input type="submit" name="submit" value="登録確認">
 </form>
 <input type="button" value="戻る"onClick="history.go(-1)">
-<font color="red">
-		<%if(request.getAttribute("compmsg")!=null){ %>
-			<%= request.getAttribute("compmsg")%>
-		<% } %>
-		</font>
-
-</div>
-<%--} --%>
 
 
-<%if(no.equals("2"))  {%>
-<div style=text-align:center>
+<% } else if(no.equals("2")) { %>
+
 <form action="/group2work/ShohinKanriServlet" method="post">
-	<h1>商品変更</h1><br><br>
-
-
+	<h1>商品変更</h1>
 
 	<table align="center">
 		<tr>
-		<td align="left"><label for="name">商品名：</label>
-		<input type="text" name="name" size="30" id="name" value="<%=session.getAttribute("shohinName") %>"><br></td>
+		<td align="right"><label for="name">商品名：</label></td>
+		<td align="left"><input type="text" name="name" size="30" id="name" maxlength="15" value="<%=session.getAttribute("shohinName") %>"></td>
 		</tr>
 		<tr>
-		<td align="left">
-		商品ID：<font color="red"><%=session.getAttribute("shohinId") %></font></td><br>
+		<td align="right">商品ID：</td>
+		<td align="left"><font color="red"><%=session.getAttribute("shohinId") %></font></td>
 		</tr>
 		<tr>
-		<td align="left">
-		<label for="kakaku">販売価格：</label>
-		<input type="text" name="price" size="30" id="kakaku" value=<%=session.getAttribute("value") %>>
-		</td><br>
+		<td align="lright"><label for="kakaku">販売価格：</label></td>
+		<td align="left"><input type="text" name="price" size="30" id="kakaku"  maxlength="8" value="<%=session.getAttribute("value") %>"></td>
 		</tr>
 		<tr>
-		<td align="left">
-		カテゴリ:
-		<select name="category">
-		<%ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
-		String categoryId=(String)session.getAttribute("categoryId");
+		<td align="right">カテゴリ:</td>
+		<td align="left"><select name="category">
+		<%
+			ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
+			String categoryId=(String)session.getAttribute("categoryId");
 
+			for(int i=0; i<list.size(); i++) {
 		%>
-		<%for(int i=0; i<list.size(); i++) {%>
-
 
 		<option value="<%=list.get(i).getCategoryId()%>" <%if(categoryId.equals(list.get(i).getCategoryId())){ %> selected<%} %>>
 		<%=list.get(i).getCategoryName() %>
 		</option>
 		<%} %>
-		</select>
-		</td><br>
+		</select></td>
 		</tr>
 		<tr>
-		<td align="left">
-		<label for="kijiId">生地ID：</label>
-		<input type="text" name="kiji" size="30" id="kijiId" value=<%=session.getAttribute("kijiId") %>>変更前の値<br>
-		</td>
+		<td align="right"><label for="kijiId">生地ID：</label></td>
+		<td align="left"><input type="text" name="kiji" size="30" id="kijiId" value=<%=session.getAttribute("kijiId") %>></td>
 		</tr>
-	</table>
+	</table><br><br>
 
 	<input type="submit" name="submit" value="変更確認">
 	<input type="button" value="戻る"onClick="history.go(-1)">
