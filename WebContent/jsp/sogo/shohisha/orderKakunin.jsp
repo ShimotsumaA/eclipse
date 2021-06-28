@@ -24,7 +24,18 @@
 </style>
 <body>
 <form method="post">
-<div style="text-align:center;">
+
+<!-- メニューバー -->
+	<div class="wrapper">
+	<div align="center">
+    	<div class="menu_bar">
+    	<table>
+    	<tr>
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
+    	</tr>
+    	</table>
+   	 	</div>
 	<h2>注文確認</h2>
 	注文を確定します。よろしいですか？<br>
 
@@ -67,6 +78,7 @@
 	<div align="center">
 	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControl">確定</button>
 	<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
+	</div>
 	</div>
 </form>
 
