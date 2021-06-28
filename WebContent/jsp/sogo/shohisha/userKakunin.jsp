@@ -140,9 +140,10 @@
 <form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の確認</p>
+		<font color="red">
 		<%if(request.getAttribute("compmsg")!=null){ %>
 		<%=request.getAttribute("compmsg") %>
-		<%} %>
+		<%} %></font>
 
 		<table>
 			<tr>
