@@ -66,6 +66,8 @@ public class ZaikoKanriServlet extends HttpServlet {
 			session.setAttribute("shohinName", list.get(0).getShohinName());
 			session.setAttribute("zaiko", list.get(0).getZaiko());
 
+			System.out.println( list.get(0).getShohinId()+list.get(0).getShohinName()+list.get(0).getZaiko());
+
 			request.setAttribute("nyukoHenko", "nyuko");
 			// フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
