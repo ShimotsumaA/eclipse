@@ -15,7 +15,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -25,7 +25,7 @@
 <body>
 <form method="post">
 <div style="text-align:center;">
-	<h3>注文確認</h3>
+	<h2>注文確認</h2>
 	注文を確定します。よろしいですか？<br>
 
 	購入詳細<br>
