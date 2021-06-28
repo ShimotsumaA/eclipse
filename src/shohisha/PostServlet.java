@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionBindingEvent;
 
 /**
  * Servlet implementation class PostServlet
@@ -47,7 +46,7 @@ public class PostServlet extends HttpServlet {
 		HttpSession session=request.getSession(true);
 		session.setAttribute("post_code", post_code);
 		session.setAttribute("address",address);
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/pay.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("group2work/jsp/sogo/shohisha/pay.jsp");
 		rd.forward(request, response);
 
 	}
