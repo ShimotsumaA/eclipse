@@ -15,7 +15,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -36,7 +36,7 @@
    	 	</div>
 
    	 	<!-- 見出し -->
-   	 	<h3 class="midasi">注文内訳</h3>
+   	 	<h2 class="midasi">注文内訳</h2>
 
    	 	<!-- 商品詳細 -->
    	 	<div class="shosai">

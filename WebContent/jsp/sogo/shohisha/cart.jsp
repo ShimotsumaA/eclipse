@@ -19,7 +19,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -41,7 +41,7 @@
 
 
     <div class="contents">
-    <h3 id="midasi"> カート一覧</h3>
+    <h2 id="midasi"> カート一覧</h2>
 
     <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("id")!=null)) {%>
     <%
