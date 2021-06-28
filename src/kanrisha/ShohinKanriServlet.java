@@ -75,8 +75,9 @@ public class ShohinKanriServlet extends HttpServlet {
 			ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
 			ArrayList<CategoryBean> listCategory=new ArrayList<CategoryBean>();
 
-			list=dao.joken(shohinId);
 
+			list=dao.joken(shohinId);
+			 listCategory = dao2.selectAll();
 
 			session.setAttribute("shohinId",list.get(0).getShohinId());
 			session.setAttribute("shohinName",list.get(0).getShohinName());
@@ -123,7 +124,13 @@ public class ShohinKanriServlet extends HttpServlet {
 				String shohinName=(String)session.getAttribute("name");
 				String categoryId=(String)session.getAttribute("category");
 				String kijiId=(String)session.getAttribute("kiji");
-				java.math.BigDecimal value=new BigDecimal((String)session.getAttribute("value"));
+				BigDecimal value=BigDecimal.valueOf((Integer)session.getAttribute("value"));
+
+				System.out.println(shohinId);
+				System.out.println(shohinName);
+				System.out.println(categoryId);
+				System.out.println(kijiId);
+				System.out.println(value);
 
 			//DAOをインスタンス化
 				ShohinDao dao =new ShohinDao();

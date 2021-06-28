@@ -189,7 +189,7 @@ public class ShohinDao extends DBAccess {
 
 	//変更する
 	public int update(String shohin_Id,String shohin_Name,String kiji_Id,
-			String category_Id,java.math.BigDecimal value) {
+			String category_Id, java.math.BigDecimal value) {
 
 		int count=0;
 
@@ -199,11 +199,11 @@ public class ShohinDao extends DBAccess {
 			connect();
 
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, shohin_Id);
-			ps.setString(2, shohin_Name);
-			ps.setString(3, kiji_Id);
-			ps.setString(4, category_Id);
-			ps.setBigDecimal(5, value);
+			ps.setString(5, shohin_Id);
+			ps.setString(1, shohin_Name);
+			ps.setString(2, kiji_Id);
+			ps.setString(3, category_Id);
+			ps.setBigDecimal(4, value);
 
 
 			count =ps.executeUpdate();
