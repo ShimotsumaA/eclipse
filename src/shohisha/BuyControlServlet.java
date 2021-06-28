@@ -46,7 +46,7 @@ public class BuyControlServlet extends HttpServlet {
 		String forward = null;
 
 		//ログインしているかどうかを判断
-		if (session.getAttribute("login") != null) {
+		if (session.getAttribute("id") != null) {
 
 			//ログインしている状態でbuy.jspで住所入力ボタンが押されたら
 			if (request.getParameter("submit").equals("jyusho")) {
