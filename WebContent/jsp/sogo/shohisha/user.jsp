@@ -81,9 +81,10 @@
  	<h2>ユーザ登録フォーム</h2>
 	<br><br>
 <form action="/group2work/UserRegisterControl" method="post">
-
-		<table class="text">
-
+		<font color="red"><%=errmsg %></font><br>
+		<font color="red"><%=errmsg2 %></font><br>
+		<font color="red"><%=errmsg3 %></font><br>
+		<table class="text" >
 			<tr>
 				<td align="right">氏名：</td>
 				<td><input type="text" name="sName" size="40" maxlength="15" placeholder="例）鈴木太郎"></td>
@@ -128,20 +129,15 @@
 			<tr>
 			<td>・大文字と小文字は区別しません。</td>
 			</tr>
-			<tr>
-				<td><%=errmsg %></td>
-			</tr>
+
 
 
 		</table>
 		<table  align="center">
 			<tr>
-
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
-				</tr>
-				<tr><td><%=errmsg2 %><br><%=errmsg3 %></td></tr>
-
+			</tr>
 			<tr>
 				<td></td>
 				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
@@ -175,6 +171,9 @@
  	<h2>ユーザ登録情報変更フォーム</h2>
 	<br><br>
 		<!-- 初期値valueを入れました -->
+		<font color="red"><%=errmsg %></font><br>
+		<font color="red"><%=errmsg2 %></font><br>
+		<font color="red"><%=errmsg3 %></font><br>
 		<table  align="center">
 			<tr>
 				<td align="right">氏名：</td>
@@ -201,8 +200,8 @@
 				<td><input type="text" value="<%=session.getAttribute("mailAddress")%>" name="mailAddress" size="40"></td>
 			</tr>
 
-			<tr><td><%=errmsg %></td></tr>
-				<tr><td align="right">ID：</td>
+			<tr>
+				<td align="right">ID：</td>
 				<td><%-- <input type="text" value="--%><%=session.getAttribute("sId")%><%--" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"> --%></td>
 			</tr>
@@ -213,7 +212,6 @@
 
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
-				</tr><tr><td><%=errmsg2 %><br><%=errmsg3 %></td>
 			</tr>
 			<tr>
 				<td></td>
