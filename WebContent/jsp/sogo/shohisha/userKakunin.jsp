@@ -85,6 +85,19 @@
 	</div>
 	<%if(request.getAttribute("2kaime")!=null){ %>
 	<input type="hidden" name="kakunin" value="henkou">
+	<!-- メニューバー -->
+	<div class="wrapper">
+	<div align="center">
+    	<div class="menu_bar">
+    	<table>
+    	<tr>
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
+    	</tr>
+    	</table>
+   	 	</div>
+   	 	</div>
+   	 	</div>
 	<%} %>
 	</form>
 
