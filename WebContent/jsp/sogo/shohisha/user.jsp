@@ -132,9 +132,10 @@
 		</table>
 		<table  align="center">
 			<tr>
-			<td><%=errmsg2 %><br><%=errmsg3 %></td>
+
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
+				<td><%=errmsg2 %><br><%=errmsg3 %></td>
 			</tr>
 			<tr>
 				<td></td>
