@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="text" name="pass1" size="40"  maxlength="15" value= <%=session.getAttribute("pass") %>></td>
+				<td><input type="password" name="pass1" size="40"  maxlength="15" value= <%=session.getAttribute("pass") %>></td>
 			</tr>
 			</table>
 				・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>​
@@ -66,7 +66,7 @@
 			<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="40"  maxlength="15" value= <%=session.getAttribute("pass")%>></td>
+				<td><input type="password" name="pass2" size="40"  maxlength="15" value= <%=session.getAttribute("pass")%>></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
@@ -116,7 +116,7 @@
 			</tr>
 			<tr>
 				<td align="left">パスワード：</td>
-				<td><input type="text" name="pass1" size="40" maxlength="15" ></td>
+				<td><input type="password" name="pass1" size="40" maxlength="15" ></td>
 			</tr>
 		</table><br>
 
@@ -126,7 +126,7 @@
 		​<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="40" maxlength="15" ></td>
+				<td><input type="password" name="pass2" size="40" maxlength="15" ></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
