@@ -26,6 +26,7 @@ public class ZaikoKanriServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doPost(request, response);
 
 	}
 
@@ -41,7 +42,7 @@ public class ZaikoKanriServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		String submit = request.getParameter("submit");
-
+		int zaiko;
 		ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
 		System.out.println(submit);
 
@@ -61,10 +62,15 @@ public class ZaikoKanriServlet extends HttpServlet {
 			ShohinDao dao = new ShohinDao();
 
 			list = dao.joken(request.getParameter("radio"));
+			zaiko=list.get(0).getZaiko();
+			System.out.println(zaiko);
+
+
 
 			session.setAttribute("shohinId", list.get(0).getShohinId());
 			session.setAttribute("shohinName", list.get(0).getShohinName());
-			session.setAttribute("zaiko", list.get(0).getZaiko());
+			session.setAttribute("zaiko",zaiko);
+
 
 			System.out.println( list.get(0).getShohinId()+list.get(0).getShohinName()+list.get(0).getZaiko());
 
@@ -88,10 +94,13 @@ public class ZaikoKanriServlet extends HttpServlet {
 
 				ShohinDao dao = new ShohinDao();
 				list = dao.joken(request.getParameter("radio"));
+				zaiko=list.get(0).getZaiko();
+
 
 				session.setAttribute("shohinId", list.get(0).getShohinId());
 				session.setAttribute("shohinName", list.get(0).getShohinName());
-				session.setAttribute("zaiko", list.get(0).getZaiko());
+				session.setAttribute("zaiko",zaiko);
+
 				// フォワード
 
 				request.setAttribute("nyukoHenko", "henko");

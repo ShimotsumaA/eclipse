@@ -58,6 +58,8 @@ public class ShohinDao extends DBAccess {
 					bean.setKijiId(rs.getString("kiji_id"));
 					bean.setCategoryId(rs.getString("category_id"));
 					bean.setValue(rs.getBigDecimal("value"));
+					bean.setZaiko(rs.getInt("zaiko"));
+
 					list.add(bean);
 		    	}
 		    } catch (SQLException e) {
