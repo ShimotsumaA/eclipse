@@ -1,7 +1,9 @@
 package shohisha;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -99,14 +101,29 @@ public class BuyControlServlet extends HttpServlet {
 				ShohishaDao dao2=new ShohishaDao();
 				String orderId=(String)session.getAttribute("orderId");
 				int kensu=dao.update(orderId, 1); //statusId　注文完了
-				String sId=(String)session.getAttribute("login_id");//ログインidの取得
+
+				String date=dao.joken(orderId).get(0).getDate();
+
+				Calendar c1 = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				date = sdf.format(c1.getTime());
+
+				int dateUpdate=dao.updateDate(date, orderId);
+
+				String sId=(String)session.getAttribute("id");//ログインidの取得
 				String address=(String)session.getAttribute("address");
 				String postCode=(String)session.getAttribute("post_code");
 
+				String mailAddress=dao2.joken(sId).get(0).getMail();
+
+
 				int kensu2=dao2.updateCyumon(sId, postCode,address);
+				session.setAttribute("mailAddress", mailAddress);
+				session.setAttribute("date", date);
 
 
-					if(kensu2>=1) {
+
+					if(kensu>=1) {
 						session.setAttribute("tyumon", true);
 					}else{
 						session.setAttribute("tyumon", false);
