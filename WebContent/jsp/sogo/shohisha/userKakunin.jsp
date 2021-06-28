@@ -130,7 +130,7 @@
 		<table>
 			<tr>
 				<td><input type ="submit" name="submit" value="変更"></td>
-				<td><input type ="submit" name="submit" value="戻る"></td>
+				<td><input type ="submit" name="submit" onClick="history.go(-1)"></td>
 			</tr>
 		</table>
 	</div>
@@ -189,7 +189,7 @@
 		<table>
 			<tr>
 				<td><input type ="submit" name="submit" value="変更"></td>
-				<td><input type ="submit" name="submit" value="戻る"></td>
+				<td><button type ="button" name="submit" onClick="history.go(-1)">戻る</button></td>
 			</tr>
 		</table>
 	</div>

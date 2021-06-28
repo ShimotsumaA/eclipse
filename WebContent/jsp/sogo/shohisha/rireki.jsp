@@ -34,7 +34,7 @@
 </div>
 
 	<div style="text-align: center;">
-	<input type="button" value="戻る" onclick="location.href='mypage.jsp'">
+	<input type="button" value="戻る" onclick="history.go(-1)">
 	</div>
 </body>
 </html>

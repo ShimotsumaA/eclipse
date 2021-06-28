@@ -96,7 +96,7 @@ public class CartHyoujiServlet extends HttpServlet {
 					OrderDetailDAO dao2 = new OrderDetailDAO();
 
 					// ログインカートに商品があるかつ、セッションカートに商品があるとき
-					if (err.existOrderIdStatusId(sId, 0) && session.getAttribute("cart") != null) {
+					if (err.existOrderIdStatusId(sId, 0) && (session.getAttribute("cart") != null)) {
 						// oDetailidの取得
 
 						oDetailId = dao.jokenSIdStatus(sId, 0).get(0).getODetailId();
@@ -120,7 +120,7 @@ public class CartHyoujiServlet extends HttpServlet {
 						}
 
 						// ログインカートに商品がないかつ、セッションカートに商品があるとき
-					} else if (err.existOrderIdStatusId(sId, 0) == false && session.getAttribute("cart") != null) {
+					} else if (err.existOrderIdStatusId(sId, 0) == false && session.getAttribute("cart") != null&&((Map<String, Integer>)session.getAttribute("cart")).size()>0) {
 
 						String orderId;
 						String date;

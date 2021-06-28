@@ -21,6 +21,12 @@
     border: 1px solid #3498db;
 	}
 
+	input:focus, select:focus, textarea:focus {
+	box-shadow: 0 0 7px #3498db;
+    border: 1px solid #3498db;
+}
+
+
 	table.text{
 	margin-left:auto;
 	margin-right:auto;
@@ -43,7 +49,29 @@
  	if(no==null){
   		no=(String)request.getAttribute("no");
   	}
+
+ 	String errmsg="";
+ 	String errmsg2="";
+ 	String errmsg3="";
+
+
+
+ 	if(request.getAttribute("errmsg")!=null){
+ 	 errmsg=(String)request.getAttribute("errmsg");
+ 	}
+
+ 	if(request.getAttribute("errmsg2")!=null){
+ 	 	 errmsg2=(String)request.getAttribute("errmsg2");
+ 	}
+
+ 	if(request.getAttribute("errmsg3")!=null){
+ 	 	 errmsg3=(String)request.getAttribute("errmsg3");
+ 	}
+
+
  %>
+
+
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
  	<div style="text-align:center">
@@ -82,9 +110,13 @@
 			<tr>
 				<td align="right">ID：</td>
 				<td><input type="text" name="sId" size="40" maxlength="10"></td>
-			</tr>
+				</tr>
+				<tr>
+				<td><%=errmsg %></td>
+				</tr>
+
 		</table>
-		<table class="ID">
+		<table class="ID" style="text-align:center">
 			<tr>
 				<td><input type="submit" name="submit" value="使用可能か確認"></td>
 			</tr>
@@ -99,12 +131,16 @@
 			</tr>
 
 
+
 		</table>
 		<table  align="center">
 			<tr>
+
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
-			</tr>
+				</tr>
+				<tr><td><%=errmsg2 %><br><%=errmsg3 %></td></tr>
+
 			<tr>
 				<td></td>
 				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
@@ -163,8 +199,9 @@
 				<td align="right">メールアドレス：</td>
 				<td><input type="text" value="<%=session.getAttribute("mailAddress")%>" name="mailAddress" size="40"></td>
 			</tr>
-			<tr>
-				<td align="right">ID：</td>
+
+			<tr><td><%=errmsg %></td></tr>
+				<tr><td align="right">ID：</td>
 				<td><%-- <input type="text" value="--%><%=session.getAttribute("sId")%><%--" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"> --%></td>
 			</tr>
@@ -172,12 +209,14 @@
 			・英数字を必ず組み合わせてください。<br>
 			・大文字と小文字は区別しません。<br><br> -->
 			<tr>
+
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
+				</tr><tr><td><%=errmsg2 %><br><%=errmsg3 %></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="password" name="sPass" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
+				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
