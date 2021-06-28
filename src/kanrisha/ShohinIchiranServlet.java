@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.CategoryBean;
 import bean.ShohinBean;
+import shohisha.CategoryDao;
 
 /**
  * Servlet implementation class ShohinIchiranServlet
@@ -37,12 +39,24 @@ public class ShohinIchiranServlet extends HttpServlet {
 		//商品DAOから全件検索
 		ShohinDao dao=new ShohinDao();
 		ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
+
+		CategoryDao dao2=new CategoryDao();
+		ArrayList<CategoryBean> list2=new ArrayList<CategoryBean>();
+
 		list=dao.selectAll();
+<<<<<<< HEAD
 		System.out.println(list.get(0).getShohinId());
 
+=======
+		list2=dao2.selectAll();
+
+		//request.setAttribute("list",dao.selectAll());
+	System.out.println(list.get(0).getShohinId());
+>>>>>>> refs/remotes/origin/master
 		//セッション領域にリストを保存
 		HttpSession session=request.getSession(true);
 		session.setAttribute("list", list);
+		session.setAttribute("listCategory", list2);
 
 		//エラーメッセージがある場合
 		if (request.getAttribute("message") != null) {
