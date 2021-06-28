@@ -15,23 +15,24 @@
 <meta charset="UTF-8">
 <title>カート</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h3{
+	background-color:#87ceeb
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
 <div class="wrapper">
 <!-- メニューバー -->
-    <div class="menu_bar">
-    <table>
-    	<tr>
-    	<td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    	<td><a href="/group2work/CartHyoujiServlet">カート</a></td>　<!-- カートへのリンク -->
-    	<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td><!-- マイページへのリンク -->
-    	<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
-    	<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
-    	</tr>
-    </table>
-    </div>
 
+<div align="center">
     <div class="contents">
-    <p id="midasi"> カート一覧</p>
+    <h3 id="midasi"> カート一覧</h3>
 
     <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("id")!=null)) {%>
     <%
@@ -107,13 +108,13 @@
     <%}else{%>
     カートに商品が存在しません
     <%} %>
-
+	<br><br>
     <input type="button" name="back" value="戻る" onclick="location.href='/group2work/ECHyoujiServlet'">
 
 
 
     <div class="footer"></div>
 </div>
-
+</div>
 </body>
 </html>

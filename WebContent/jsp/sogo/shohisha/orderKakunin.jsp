@@ -11,11 +11,21 @@
 <meta charset="UTF-8">
 <title>注文確認</title>
 </head>
-
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h3{
+	background-color:#87ceeb
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
 <form method="post">
 <div style="text-align:center;">
-	<h2>注文確認</h2>
+	<h3>注文確認</h3>
 	注文を確定します。よろしいですか？<br>
 
 	購入詳細<br>
@@ -52,10 +62,12 @@
 	送料：<%=(Integer)session.getAttribute("soryo")%><br>
 	合計：<%=(Integer)session.getAttribute("gokei")%><br>
 
-</div>
+</div><br>
 
-	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControl">確定</button><br>
-	<button type="button" name="submit" value="return">戻る</button><br>
+	<div align="center">
+	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControl">確定</button>
+	<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
+	</div>
 </form>
 
 
