@@ -120,9 +120,11 @@
 		<table  align="center">
 		<tr>
 			<td><input type ="submit" name="submit" value="登録"></td>
+			<td><input type="button" value="戻る" onclick="location.href='/group2work/jsp/sogo/top.jsp'">
 		</tr>
+		</form>
 		</table>
-	</form>
+
 	</div>
 
 
