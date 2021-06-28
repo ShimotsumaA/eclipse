@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
  <%@ page import="bean.ShohinBean" %>
  <%@ page import="java.util.ArrayList" %>
+ <%@page import="shohisha.CategoryDao" %>
+ <%@page import="bean.CategoryBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,17 +25,29 @@
 <font color="red"><%=errorMsg%></font><br><br>
 <% }%>
 
+
+<%
+
+			CategoryDao dao = new CategoryDao();
+			String categoryName="";
+
+		%>
 <table border="1" align="center">
 <tr>
 <td> </td><td>商品ID</td><td>商品名</td><td>販売価格</td><td>カテゴリ</td><td>生地ID</td>
 </tr>
-<%for(int i=0; i<list.size(); i++) {%>
+<%for(int i=0; i<list.size(); i++) {
+String categoryId=list.get(i).getCategoryId();
+categoryName=dao.joken(categoryId).get(0).getCategoryName();
+%>
+
+
 <tr>
 <td><input type="radio" name="radio" value=<%=list.get(i).getShohinId() %>></td>
 <td><%=list.get(i).getShohinId()%></td>
 <td><%=list.get(i).getShohinName() %></td>
 <td><%=list.get(i).getValue().intValue() %></td>
-<td><%=list.get(i).getCategoryId() %></td>
+<td><%=categoryName%></td>
 <td><%=list.get(i).getKijiId() %></td>
 </tr>
 
