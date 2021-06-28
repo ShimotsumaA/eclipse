@@ -34,9 +34,17 @@
     	<div class="menu_bar">
     	<table class="menu_bar">
     		<tr>
-				<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
+				<% if(session.getAttribute("id")!=null){%>
+					<!-- マイページへのリンク -->
+					<td><a href="/group2work/LogInOutServlet?submit=logout">ログアウト</a></td>
+					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
+					<% }else{ %>
 					<!-- ログインページへのリンク -->
-				<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
+					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
+					<% }
+					%>
+
+
 					<!-- マイページへのリンク -->
 				<td><a href="/group2work/CartHyoujiServlet">カート</a></td>
 					<!-- カートへのリンク -->
@@ -72,7 +80,7 @@
    	 	</tr>
 
    	 	<tr>
-    	<td>価格：<%= value %>円</td>　<!-- 価格表示 -->
+    	<td>価格：<%= value.intValue() %>円</td>　<!-- 価格表示 -->
    	 	</tr>
 
    	 	<tr>

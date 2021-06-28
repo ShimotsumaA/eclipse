@@ -98,15 +98,16 @@ table.link{
 			<table class="about" >
 				<tr>
 					<% if(session.getAttribute("id")!=null){%>
+					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
 					<td><a href="/group2work/LogInOutServlet?submit=logout">ログアウト</a></td>
+					<!--ページへのリンク -->
 					<% }else{ %>
 					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
 					<% }
 					%>
 
-					<!-- ログインページへのリンク -->
-					<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td>
-					<!-- マイページへのリンク -->
+
+
 					<td><a href="/group2work/CartHyoujiServlet">カート</a></td>
 					<!-- カートへのリンク -->
 					<td><a href="/group2work/jsp/sogo/shohisha/souryou.jsp">配送料に関して</a></td>
