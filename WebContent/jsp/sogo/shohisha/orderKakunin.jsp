@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<form>
+<form method="post">
 <div style="text-align:center;">
 	<h2>注文確認</h2>
 	注文を確定します。よろしいですか？<br>
@@ -54,8 +54,7 @@
 
 </div>
 
-
-	<button type="submit" name="submit" value="chumon" formaction="/orderCollect.jsp">確定</button><br>
+	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControlServlet">確定</button><br>
 	<button type="button" name="submit" value="return">戻る</button><br>
 </form>
 

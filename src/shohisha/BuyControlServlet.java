@@ -139,7 +139,7 @@ public class BuyControlServlet extends HttpServlet {
 						session.setAttribute("tyumon", false);
 					}
 				//orderCollect.jspに遷移
-				RequestDispatcher rd = request.getRequestDispatcher("/jsp/orderCollect.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/jsp/shohisha/orderCollect.jsp");
 				rd.forward(request, response);
 
 			} else {

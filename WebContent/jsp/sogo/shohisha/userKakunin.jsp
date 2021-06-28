@@ -16,7 +16,7 @@
 
  <!-- 登録情報の確認(確定)-->
 
- <% if(request.getAttribute("submit").equals("toroku")){ %>
+ <% if(request.getAttribute("submit")!=null&&request.getAttribute("submit").equals("toroku")){ %>
 	<form action ="/group2work/UserRegisterControl"  method="post">
 	<div align="center">
 		<p>登録情報の確認</p>
@@ -78,7 +78,7 @@
 
 
  <!-- 登録情報の変更 -->
- <%} else if(request.getAttribute("submit").equals("henko")){ %>
+ <%} else if(request.getAttribute("submit")!=null&&request.getAttribute("submit").equals("henko")){ %>
 	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
 		<p>登録情報の変更</p>

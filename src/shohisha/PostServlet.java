@@ -46,7 +46,7 @@ public class PostServlet extends HttpServlet {
 		HttpSession session=request.getSession(true);
 		session.setAttribute("post_code", post_code);
 		session.setAttribute("address",address);
-		RequestDispatcher rd = request.getRequestDispatcher("group2work/jsp/sogo/shohisha/pay.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/pay.jsp");
 		rd.forward(request, response);
 
 	}

@@ -9,7 +9,7 @@
 <body>
 	<div style="text-align:center">
 			<h1>お支払方法を選択</h1>
-
+		<form method="post">
 		<table border="1" align="center">
 			<th></th><th>お支払方法</th>
 			<tr>
@@ -31,10 +31,9 @@
 
 		<div class="">
 			<button type="submit" name="submit" value="zokko" formaction="/group2work/BuyControl">続行</button>
-
-			<button type="submit" name="submit" value="zokko" formaction="/group2work/shohisha/BuyControl">続行</button>
 			<button type="button" name="submit" value="return" >戻る</button>
 		</div>
+		</form>
 
 	</div>
 </body>

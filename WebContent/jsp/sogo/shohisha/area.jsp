@@ -98,11 +98,11 @@
 	</p>
 
 	<p class="midasi">お届け先住所</p>
-	<form action="/group2work/shohisha/PostServlet" method="post">
+	<form action="/group2work/PostServlet" method="post">
 
 	<p class="midasi">*住所登録が配送先と異なる場合、配送先の住所を入力してください</p>
 
-	<table  align="center" border="1">
+	<table align="center" border="1">
 	<tr>
 		<td>郵便番号:</td>
 		<td><input type="text" name="post_code" value="<%=session.getAttribute("post_code") %>" size="30" maxlength="8"> </td>
