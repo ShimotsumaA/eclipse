@@ -11,23 +11,32 @@
 <meta charset="UTF-8">
 <title>注文</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h3{
+	background-color:#87ceeb
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
 	<!-- メニューバー -->
 	<div class="wrapper">
+	<center>
     	<div class="menu_bar">
     	<table>
     	<tr>
-    		<td><a href="/group2work/jsp/sogo/top.jsp">トップメニュー</a></td> <!-- トップメニューへのリンク -->
-    		<td><a href="/group2work/jsp/sogo/shohisha/cart.jsp">カート</a></td>　<!-- カートへのリンク -->
-    		<td><a href="/group2work/jsp/sogo/shohisha/mypage.jsp">マイページ</a></td><!-- マイページへのリンク -->
-    		<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td><!-- ログインページへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
     		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
     	</tr>
     	</table>
    	 	</div>
 
    	 	<!-- 見出し -->
-   	 	<p class="midasi">注文内訳</p>
+   	 	<h3 class="midasi">注文内訳</h3>
 
    	 	<!-- 商品詳細 -->
    	 	<div class="shosai">
@@ -58,10 +67,12 @@
    	 	</div>
 
    	 	<!-- 合計金額 -->
-   	 	<div class="gokei">
-   	 		<table>
+   	 	<div class="gokei" align="center">
+   	 		<table align="center">
 			<tr>
+				<td></td>
 				<th>合計金額</th>
+				<td></td>
 			</tr>
 			<tr>
 				<td>商品合計:<%= (Integer)session.getAttribute("gokei") %>円</td><!-- 合計金額表示 -->
@@ -69,6 +80,7 @@
 				<td>総計:<%=(Integer)session.getAttribute("sokei") %>円</td><!-- 総計表示 -->
 			</tr>
    	 		</table>
+   	 		<br><br>
    	 	<!-- ボタン -->
    	 	<div class="submit">
    	 		<form method="post">
@@ -79,7 +91,7 @@
 
 
    	 	</div>
-
+	</center>
 
 </div>
 
