@@ -6,9 +6,20 @@
 <meta charset="UTF-8">
 <title>配送地域選択</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h3{
+	background-color:#87ceeb
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
 	<div style="text-align:center">
-	<h1>住所入力</h1>
+	<h3>住所入力</h3>
 
 	<p>配送地域を選択してください。<br>
 	<select name="chiikiselect">
