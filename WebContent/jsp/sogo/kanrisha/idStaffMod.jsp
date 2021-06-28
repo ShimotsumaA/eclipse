@@ -126,7 +126,7 @@
 		​<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="40" maxlength="15" ></td>
+				<td><input type="text" name="pass2" size="10" maxlength="15" ></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
