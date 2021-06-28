@@ -69,7 +69,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusKakunin.jsp");
 			dispatcher.forward(request, response);
 
-		} else if (submit.equals("変更確定")) {
+		} else if (submit.equals("kakutei")) {
 
 			OrderDao dao = new OrderDao();
 

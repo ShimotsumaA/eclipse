@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品受注ステータス変更確認</title>
+<title>注文受注ステータス変更確認</title>
 </head>
 <body>
 
 <div style="text-align:center">
 
-<h1>商品ステータス変更確認</h1><br>
-以下の商品ステータスを変更します。よろしいですか？<br><br>
+<h1>注文受注ステータス変更確認</h1><br>
+以下の注文ステータスを変更します。よろしいですか？<br><br>
 
 		<%
 			int statusId = (Integer)session.getAttribute("statusId");
@@ -87,7 +87,7 @@
 <br>
 <br>
 
-<input type="submit" name="submit" value="変更確定">
+<button type="submit" name="submit" value="kakutei">変更確定</button>
 <input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatusChange.jsp'">
 </form>
 
