@@ -46,7 +46,7 @@ public class BuyControlServlet extends HttpServlet {
 		String forward = null;
 
 		//ログインしているかどうかを判断
-		if (session.getAttribute("login") != null) {
+		if (session.getAttribute("id") != null) {
 
 			//ログインしている状態でbuy.jspで住所入力ボタンが押されたら
 			if (request.getParameter("submit").equals("jyusho")) {
@@ -58,7 +58,7 @@ public class BuyControlServlet extends HttpServlet {
 				session.setAttribute("address", list.get(0).getAddress());
 
 				//area.jspに遷移
-				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/jsp/area.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
 				rd.forward(request, response);
 
 				//pay.jspで続行ボタンが押されたら
