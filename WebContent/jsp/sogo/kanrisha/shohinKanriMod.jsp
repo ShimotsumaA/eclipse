@@ -17,14 +17,14 @@
 <form action="/group2work/ShohinKanriServlet" method="post">
 <div style=text-align:center>
 <h1>商品登録</h1><br>
-<label for="name">商品名：</label>
-<input type="text" name="name" size="30" id="name"><br>
+<label for="name" align="left">商品名：</label>
+<input type="text" name="name" size="30" id="name" maxlength="15"><br>
 
-<label for="id">商品ID：</label>
-<input type="text" name="id" size="30" id="id"><br>
+<label for="id" align="left">商品ID：</label>
+<input type="text" name="id" size="30" id="id" maxlength="6"><br>
 
-<label for="kakaku">販売価格：</label>
-<input type="text" name="price" size="30" id="kakaku"><br>
+<label for="kakaku" align="left">販売価格：</label>
+<input type="text" name="price" size="30" id="kakaku" maxlength="8"><br>
 
 カテゴリ:
 
