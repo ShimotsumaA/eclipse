@@ -15,7 +15,7 @@
 	}
 </style>
 <body>
-	>
+
 
 	<div align ="center">
 		<h3>マイページ</h3>
