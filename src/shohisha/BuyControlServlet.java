@@ -102,11 +102,11 @@ public class BuyControlServlet extends HttpServlet {
 				String orderId=(String)session.getAttribute("orderId");
 				int kensu=dao.update(orderId, 1); //statusId　注文完了
 
-				String date=dao.joken(orderId).get(0).getDate();
+
 
 				Calendar c1 = Calendar.getInstance();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-				date = sdf.format(c1.getTime());
+				String date = sdf.format(c1.getTime());
 
 				int dateUpdate=dao.updateDate(date, orderId);
 
