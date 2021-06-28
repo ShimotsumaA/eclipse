@@ -17,6 +17,16 @@
 
 <h1>注文ステータス変更</h1>
 
+<%
+	String submit = request.getParameter("submit");
+
+	if (submit.equals("2")){
+%>
+
+		<p> <font color="red"><%= request.getAttribute("message") %></font></p>
+
+<% } %>
+
 注文番号：<%=session.getAttribute("orderId") %><br>
 現在のステータスは
 

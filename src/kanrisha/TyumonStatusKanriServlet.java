@@ -39,7 +39,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 			//ラジオボタンを選択していない場合
 			if (request.getParameter("radio") == null) {
 				request.setAttribute("message", "対象を選んでください。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatusIchiranServlet");
 				dispatcher.forward(request, response);
 			}
 
@@ -50,14 +50,14 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 
 			session.setAttribute("orderId", orderId);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusChange.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusChange.jsp?submit=1");
 			dispatcher.forward(request, response);
 
 		} else if (submit.equals("変更確認")) {
 
 			if (request.getParameter("radio") == null) {
 				request.setAttribute("message", "対象を選んでください。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuKanriServlet?submit=2");
 				dispatcher.forward(request, response);
 
 			}
@@ -91,6 +91,12 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
 				dispatcher.forward(request, response);
 
+		} else if (submit.equals("2")) {
+
+			request.setAttribute("message", "対象を選択してください。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusChange.jsp?submit=2");
+			dispatcher.forward(request, response);
 		}
 	}
 
