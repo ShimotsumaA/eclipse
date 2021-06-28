@@ -22,14 +22,14 @@
 	<label for="tuika">入庫数：<%= (Integer)session.getAttribute("zaiko") %></label>
 	<input type="text" name="nyuko" size="30" id="tuika"><br><br>
 	<input type="submit" name="submit"value="確認">
-</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
+	</form>
 </div><br><br>
 <%}%>
 
 <%if(request.getAttribute("nyukoHenko")!=null&&request.getAttribute("nyukoHenko").equals("henko")){%>
 <div style=text-align:center>
-<form  action="/group2work/ZaikoKanriServlet" method="post">S
+<form  action="/group2work/ZaikoKanriServlet" method="post">
 	<h1>在庫変更</h1>
 	商品ID：<%=session.getAttribute("shohinId") %><br>
 	商品名：<%=session.getAttribute("shohinName") %><br>
@@ -41,8 +41,8 @@
 	<input type="text" name="shinki" size="30" id="sinki">現在の在庫数<br><br>
 
 	<input type="submit" name="submit" value="確認">
-</form>
 	<input type="button" value="戻る" onClick="history.go(-1)">
+	</form>
 </div>
 <%} %>
 	</body>
