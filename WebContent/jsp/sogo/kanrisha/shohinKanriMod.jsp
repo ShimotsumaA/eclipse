@@ -80,16 +80,15 @@
 		<td align="left">
 		カテゴリ:
 		<select name="category">
-		<%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)session.getAttribute("list");%>
+		<%ArrayList<CategoryBean> list=(ArrayList<CategoryBean>)session.getAttribute("listCategory");
+		String categoryId=(String)session.getAttribute("categoryId");
 
+		%>
 		<%for(int i=0; i<list.size(); i++) {%>
 
 
-		<option value="<%= list.get(i).getCategoryId()%>">
-		<%CategoryDao dao=new CategoryDao();
-		String categoryName=dao.joken(list.get(i).getCategoryId()).get(0).getCategoryName();
-		%>
-		<%=categoryName %>
+		<option value="<%=list.get(i).getCategoryId()%>" <%if(categoryId.equals(list.get(i).getCategoryId())){ %> selected<%} %>>
+		<%=list.get(i).getCategoryName() %>
 		</option>
 		<%} %>
 		</select>

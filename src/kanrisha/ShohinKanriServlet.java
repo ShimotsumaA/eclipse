@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.CategoryBean;
 import bean.ShohinBean;
+import shohisha.CategoryDao;
 import sogo.ErrCheck;
 
 /**
@@ -71,7 +73,10 @@ public class ShohinKanriServlet extends HttpServlet {
 			}
 
 			ShohinDao dao=new ShohinDao();
+			CategoryDao dao2=new CategoryDao();
 			ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
+			ArrayList<CategoryBean> listCategory=new ArrayList<CategoryBean>();
+
 			list=dao.joken(shohinId);
 
 
@@ -81,6 +86,7 @@ public class ShohinKanriServlet extends HttpServlet {
 			session.setAttribute("categoryId",list.get(0).getCategoryId());
 			session.setAttribute("kijiId", list.get(0).getKijiId());
 
+			session.setAttribute("listCategory", listCategory);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2");
 			dispatcher.forward(request, response);
