@@ -88,7 +88,7 @@
 <br>
 
 <button type="submit" name="submit" value="kakutei">変更確定</button>
-<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatusChange.jsp'">
+<input type="button" name="back" value="戻る" onclick="location.href='/group2work/jsp/sogo/kanrisha/shohinStatusChange.jsp?submit=1'">
 </form>
 
 </body>

@@ -47,6 +47,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 			session.setAttribute("statusId", statusId);
 
 			String orderId = request.getParameter("radio");
+			System.out.println("radioは"+orderId);
 
 			session.setAttribute("orderId", orderId);
 
