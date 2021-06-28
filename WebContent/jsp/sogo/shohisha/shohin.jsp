@@ -8,14 +8,31 @@
 <head>
 <meta charset="UTF-8">
 <title>商品説明</title>
+<style>
+	*{
+	font-family:游ゴシック
+	}
+
+	body{
+	background-image:url("/group2work/image/43455.jpg")
+	}
+
+	table.menu_bar{
+	position:relative;
+	left:800px;
+	top:-100px;
+	}
+
+</style>
 </head>
 <body>
+<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
 
 
 	<!-- メニューバー -->
 	<div class="wrapper">
     	<div class="menu_bar">
-    	<table>
+    	<table class="menu_bar">
     		<tr>
 				<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
 					<!-- ログインページへのリンク -->
@@ -28,10 +45,10 @@
 			</tr>
 		</table>
    	 	</div>
-
+	<center>
     <!-- 商品画像表示 -->
     	<div class="image">
-    	<img src="/group2work/image/np0001_picture01.jpg" name="バッグ" width=100px height=100px>
+    	<img src="/group2work/image/np0001_picture01.jpg" name="バッグ" width=250px height=250px>
     	</div>
 
     <!-- 商品詳細 -->
@@ -49,7 +66,7 @@
     %>
 
     <div class="shousai">
-    <table>
+    <table class="shousai">
     	<tr>
     	<td>商品：<%= shohinName %> </td>　<!-- 商品名表示 -->
    	 	</tr>
@@ -93,5 +110,6 @@
 
 
 	</div>
+</center>
 </body>
 </html>

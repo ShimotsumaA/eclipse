@@ -13,13 +13,13 @@
 
 
 
-<form action="/group2work/UriageSevlet?no=1" method="post">
+<form action="/group2work/UriageServlet?no=1" method="post">
 <input type="date" name="date">
 <input type="submit" name="submit" value="日別">
 <br><br>
 </form>
 
-<form action="/group2work/UriageSevlet?no=2" method="post">
+<form action="/group2work/UriageServlet?no=2" method="post">
 <input type="month" name="month">
 <input type="submit" name="submit" value="月別">
 <br><br>
