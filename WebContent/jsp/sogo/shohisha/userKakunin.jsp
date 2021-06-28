@@ -137,7 +137,67 @@
 	</div>
 	<input type="hidden" name="mod" value="mod">
 	</form>
-<% } %>
+<% }else{%>
+<form action ="/group2work/UserRegisterControl" method="post">
+	<div align="center">
+		<p>登録情報の確認</p>
+		<%if(request.getAttribute("compmsg")!=null){ %>
+		<%=request.getAttribute("compmsg") %>
+		<%} %>
+
+		<table>
+			<tr>
+				<td>氏名：</td>
+				<td><%=session.getAttribute("sName") %></td>
+			</tr>
+
+			<tr>
+				<td>生年月日：</td>
+				<td><%=session.getAttribute("dateBirth") %></td>
+			</tr>
+
+			<tr>
+				<td>郵便番号：</td>
+				<td><%=session.getAttribute("postCode") %></td>
+			</tr>
+
+			<tr>
+				<td>住所：</td>
+				<td><%=session.getAttribute("address") %></td>
+			</tr>
+
+			<tr>
+				<td>電話番号：</td>
+				<td><%=session.getAttribute("tel") %></td>
+			</tr>
+
+			<tr>
+				<td>メールアドレス：</td>
+				<td><%=session.getAttribute("mailAddress") %></td>
+			</tr>
+
+			<tr>
+				<td>ID：</td>
+				<td><%=session.getAttribute("sId") %></td>
+			</tr>
+
+			<tr>
+				<td>パスワード：</td>
+				<td><%=session.getAttribute("sPass") %></td>
+			</tr>
+		</table>
+		<br>
+		<table>
+			<tr>
+				<td><input type ="submit" name="submit" value="変更"></td>
+				<td><input type ="submit" name="submit" value="戻る"></td>
+			</tr>
+		</table>
+	</div>
+	<input type="hidden" name="mod" value="mod">
+	</form>
+
+<% }%>
 
 
 

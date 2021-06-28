@@ -72,6 +72,10 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
+				System.out.println(err.checkId("sId"));
+				System.out.println(err.checkPass("sPass"));
+				System.out.println(err.checkPass("sPass"));
+
 				request.setAttribute("submit", "toroku");
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
@@ -209,7 +213,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				int rs = dao2.insert(sId, sName, dateBirth, postCode, address, tel, mailAddress, sPass);
 				System.out.println(rs);
 				if(rs>=1) {
-					session.setAttribute("login_id", sId);
+					session.setAttribute("id", sId);
 				}
 
 				request.setAttribute("compmsg", "登録が完了しました");
@@ -218,7 +222,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 				System.out.println(rs);
 				System.out.println("ここまで");
 				if(rs>=1) {
-					session.setAttribute("login_id", sId);
+					session.setAttribute("id", sId);
 				}
 
 				request.setAttribute("compmsg", "変更が完了しました");
@@ -227,11 +231,13 @@ public class UserRegisterControlServlet extends HttpServlet {
 			// 遷移先
 			if (session.getAttribute("notFirstloginflag") != null) {
 
+				//カート表示サーブレットにリダイレクト
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/area.jsp");
 				dispatcher.forward(request, response);
 
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/userKakunin.jsp");
 				dispatcher.forward(request, response);
 
 			}

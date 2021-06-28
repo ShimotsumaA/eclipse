@@ -120,7 +120,7 @@ public class ErrCheck {
 
 	//管理者ID、消費者IDが英数字かつ10文字以内であるか。
 	public boolean checkId(String id) {
-		if (id.matches("^[A-Za-z0-9]+$")) {
+		if (id.matches("^[A-Za-z0-9]+$")&&id.matches("^[0-9]+$")==false&&id.matches("^[A-Za-z]+$")==false) {
 			if ((id.length() > 0) && (id.length() <= 10)) {
 				return true;
 			} else {
@@ -139,7 +139,7 @@ public class ErrCheck {
 		//4文字以上15文字以内か。
 		if ((kPass1.length() >= 4) && (kPass1.length() <= 15)) {
 			//英数字だけで構成されているか。
-			if (kPass1.matches("^[A-Za-z0-9]+$")) {
+			if (kPass1.matches("^[A-Za-z0-9]+$")&&kPass1.matches("^[A-Za-z]+$")==false&&kPass1.matches("^[0-9]+$")) {
 				return true;
 			}else {
 				return false;
