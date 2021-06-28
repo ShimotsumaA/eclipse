@@ -36,9 +36,8 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 
 		if (submit.equals("受注ステータス変更")) {
 			if (request.getParameter("radio") == null) {
-				request.setAttribute("message", "対象を選んでください");
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusIchiran.jsp");
+				request.setAttribute("message", "対象を選んでください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
 				dispatcher.forward(request, response);
 
 			} else {
@@ -47,6 +46,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				session.setAttribute("statusId", statusId);
 
 				String orderId = request.getParameter("radio");
+
 				session.setAttribute("orderId", orderId);
 
 				RequestDispatcher dispatcher = request
