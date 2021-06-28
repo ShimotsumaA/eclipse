@@ -112,6 +112,7 @@
    	 		</select>
    	 		<input type="hidden" name="shohin_id" value="<%= shohinId %>">
    	 		<button type="submit" name="submit" value="add_to_cart">カートへ追加</button>
+   	 		<button type="button" name="submit" onClick="history.go(-1)">戻る</button>
 
    	 		<%if(request.getAttribute("AddedToCart")!=null) {%>
    	 		<p>カートに追加しました。</p>
