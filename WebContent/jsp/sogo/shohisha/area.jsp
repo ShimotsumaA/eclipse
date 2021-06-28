@@ -133,6 +133,7 @@
 		</font>
 
 	<button type="submit" name="submit" value="kakutei">確定</button>
+	<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
 
 	</form>
 	</div>
