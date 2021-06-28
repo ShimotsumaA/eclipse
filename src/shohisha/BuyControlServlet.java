@@ -1,7 +1,9 @@
 package shohisha;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +45,6 @@ public class BuyControlServlet extends HttpServlet {
 		//セッションの取得
 		HttpSession session = request.getSession(true);
 
-		String forward = null;
 
 		//ログインしているかどうかを判断
 		if (session.getAttribute("id") != null) {
@@ -84,6 +85,9 @@ public class BuyControlServlet extends HttpServlet {
 						shiharai="代金引換";
 					}
 
+
+
+
 					session.setAttribute("shiharai", shiharai);
 					RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/orderKakunin.jsp");
 					rd.forward(request, response);
@@ -95,20 +99,38 @@ public class BuyControlServlet extends HttpServlet {
 				//OrderDaoをインスタンス化
 				OrderDao dao = new OrderDao();
 				ShohishaDao dao2=new ShohishaDao();
-				String orderId=(String)session.getAttribute("orderId");
+				String orderId=(String)session.getAttribute("order");
 				int kensu=dao.update(orderId, 1); //statusId　注文完了
-				String sId=(String)session.getAttribute("login_id");//ログインidの取得
+
+
+
+				Calendar c1 = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				String date = sdf.format(c1.getTime());
+
+				int dateUpdate=dao.updateDate(date, orderId);
+
+				String sId=(String)session.getAttribute("id");//ログインidの取得
 				String address=(String)session.getAttribute("address");
 				String postCode=(String)session.getAttribute("post_code");
 
+				String mailAddress=dao2.joken(sId).get(0).getMail();
+
+
 				int kensu2=dao2.updateCyumon(sId, postCode,address);
+				session.setAttribute("mailAddress", mailAddress);
+				session.setAttribute("date", date);
+				session.setAttribute("id", sId);
 
 
-					if(kensu2>=1) {
+
+					if(kensu>=1) {
 						session.setAttribute("tyumon", true);
 					}else{
 						session.setAttribute("tyumon", false);
 					}
+
+
 				//orderCollect.jspに遷移
 				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/orderCollect.jsp");
 				rd.forward(request, response);

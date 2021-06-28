@@ -17,37 +17,54 @@ import javax.servlet.http.HttpSession;
 public class PostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PostServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request,response);
+	public PostServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		//リクエストから郵便番号と住所を取得
-		String post_code=(String)request.getParameter("post_code");
-		String address=(String)request.getParameter("address");
+		HttpSession session = request.getSession(true);
+		// リクエストから郵便番号と住所を取得
+		String post_code = (String) request.getParameter("post_code");
+		String address = (String) request.getParameter("address");
+		int kenId = Integer.parseInt(request.getParameter("chiikiselect"));
+		System.out.println("けんIDは" + kenId);
 
-		HttpSession session=request.getSession(true);
+		int gokei = (Integer) session.getAttribute("gokei");
+		SoryoKeisan keisan = new SoryoKeisan();
+		int soryo = keisan.soryoKen(kenId, gokei);
+
+		int sokei = gokei + soryo;
+
+		session.setAttribute("gokei", gokei);
+
+		session.setAttribute("soryo", soryo);
+		session.setAttribute("sokei", sokei);
+
 		session.setAttribute("post_code", post_code);
-		session.setAttribute("address",address);
+		session.setAttribute("address", address);
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/pay.jsp");
 		rd.forward(request, response);
 

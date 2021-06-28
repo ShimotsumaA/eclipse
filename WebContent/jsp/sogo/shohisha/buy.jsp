@@ -15,7 +15,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -25,7 +25,7 @@
 <body>
 	<!-- メニューバー -->
 	<div class="wrapper">
-	<center>
+	<div align="center">
     	<div class="menu_bar">
     	<table>
     	<tr>
@@ -36,7 +36,7 @@
    	 	</div>
 
    	 	<!-- 見出し -->
-   	 	<h3 class="midasi">注文内訳</h3>
+   	 	<h2 class="midasi">注文内訳</h2>
 
    	 	<!-- 商品詳細 -->
    	 	<div class="shosai">
@@ -59,7 +59,7 @@
 				<td>
 				商品:<%= list1.get(0).getShohinName() %><br>
 				数量:<%=listODetail.get(i-1).getKazuKonyu() %><!-- 数量表示 --><br>
-				価格:<%=list1.get(0).getValue().intValue() %><!-- 価格表示 -->
+				価格:<%=list1.get(0).getValue().intValue() %>円<!-- 価格表示 -->
 				</td>
 			</tr>
 			<%} %>
@@ -85,11 +85,10 @@
    	 	<div class="submit">
    	 		<form method="post">
    	 			<button type="submit" name="submit" value="jyusho" formaction="/group2work/BuyControl">住所入力</button>
-   	 			<button type="submit" name="submit" value="return" formaction="">戻る</button>
-   	 		</form>
+   	 			<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
    	 	</div>
 
-
+		</div>
    	 	</div>
 	</center>
 

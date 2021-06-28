@@ -18,7 +18,18 @@
 
  <% if(request.getAttribute("submit")!=null&&request.getAttribute("submit").equals("toroku")){ %>
 	<form action ="/group2work/UserRegisterControl"  method="post">
+<!-- メニューバー -->
+	<div class="wrapper">
 	<div align="center">
+    	<div class="menu_bar">
+    	<table>
+    	<tr>
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
+
+    	</tr>
+    	</table>
+   	 	</div>
+
 		<p>登録情報の確認</p>
 		<p>以下の情報を登録します。よろしいですか？</p>
 		<table>
@@ -70,6 +81,7 @@
 				<td><input type ="submit" name="submit" value="戻る"></td>
 		</tr>
 		</table>
+	</div>
 	</div>
 	<%if(request.getAttribute("2kaime")!=null){ %>
 	<input type="hidden" name="kakunin" value="henkou">

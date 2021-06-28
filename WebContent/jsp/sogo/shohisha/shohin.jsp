@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<img src="" width="150" height="150">
+<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
 
 
 	<!-- メニューバー -->
@@ -54,13 +54,10 @@
 		</table>
    	 	</div>
 	<center>
-    <!-- 商品画像表示 -->
-    	<div class="image">
-    	<img src="/group2work/image/np0001_picture01.jpg" name="バッグ" width=250px height=300px>
-    	</div>
 
-    <!-- 商品詳細 -->
-    <% ArrayList<ShohinBean> listShohinShosai=new ArrayList<ShohinBean>();
+	    <% ArrayList<ShohinBean> listShohinShosai=new ArrayList<ShohinBean>();
+
+
     	listShohinShosai=(ArrayList<ShohinBean>)session.getAttribute("Shohin_shosai");
     	String shohinName=listShohinShosai.get(0).getShohinName();
     	String shohinId=listShohinShosai.get(0).getShohinId();
@@ -72,6 +69,17 @@
 
 
     %>
+    <!-- 商品画像表示 -->
+    	<div class="image">
+    	<img src="/group2work/image/<%=shohinId %>.jpg" name="バッグ" width=250px height=300px>
+    	</div>
+
+    <!-- 商品詳細 -->
+
+
+    <div class="image">
+    	<img src="/group2work/image/<%=shohinId %>.jpg" name="バッグ" width=250px height=300px>
+    	</div>
 
     <div class="shousai">
     <table class="shousai">
@@ -104,6 +112,7 @@
    	 		</select>
    	 		<input type="hidden" name="shohin_id" value="<%= shohinId %>">
    	 		<button type="submit" name="submit" value="add_to_cart">カートへ追加</button>
+   	 		<button type="button" name="submit" onClick="history.go(-1)">戻る</button>
 
    	 		<%if(request.getAttribute("AddedToCart")!=null) {%>
    	 		<p>カートに追加しました。</p>

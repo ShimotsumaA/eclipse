@@ -25,4 +25,22 @@ public class SoryoKeisan {
 		}
 	}
 
+	public int soryoKen(int kenId,int sum) {
+
+		if(sum>=5000) {
+			return 0;
+		}else if(kenId == 1 || kenId == 47) {
+			return 1920;
+		} else if (kenId == 2 || kenId == 3 || kenId == 5) {
+			return 1480;
+		} else if (kenId == 4 || kenId == 6 || kenId == 7) {
+			return 1370;
+		} else if ((kenId >= 8 && kenId <= 15) || (kenId >= 40 && kenId <= 46) || kenId == 19 || kenId == 20) {
+			return 1260;
+		} else {
+			return 1150;
+		}
+	}
+
+
 }

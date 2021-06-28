@@ -79,9 +79,13 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 
 			String orderId = (String) session.getAttribute("orderId");
 			int newStatusId = (Integer) session.getAttribute("newStatusId");
-
-			int kensu = dao.update(orderId, newStatusId);
-
+			int kensu=0;
+			if(newStatusId>=6) {
+				//キャンセルは削除します。
+			kensu=dao.delete(orderId);
+			}else {
+			kensu = dao.update(orderId, newStatusId);
+			}
 			if (kensu >= 1) {
 
 				request.setAttribute("message", "変更が完了しました。");

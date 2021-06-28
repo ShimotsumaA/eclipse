@@ -56,7 +56,21 @@ public class ECHyoujiServlet extends HttpServlet {
 
 
 		ShohinDao dao2 = new ShohinDao();
-		session.setAttribute("listShohin",dao2.selectAll());
+
+
+
+		//カテゴリ検索の実装
+		if(request.getParameter("category_id")!=null) {
+			session.setAttribute("listShohin",dao2.categoryjoken(request.getParameter("category_id")));
+		}else if(request.getParameter("kiji_id")!=null){
+			session.setAttribute("listShohin",dao2.kijijoken(request.getParameter("kiji_id")));
+		}else {
+			session.setAttribute("listShohin",dao2.selectAll());
+		}
+
+
+		//生地検索の実装
+
 		/*
 		 * //forward蜈医ｒ謖�螳� RequestDispatcher dispatcher=
 		 * request.getRequestDispatcher("/jsp/sogo/shohisha/shopping.jsp");

@@ -40,9 +40,9 @@
 
 
     <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-    	<p style="">注文番号：００００００００<br>
-							 注文日時：２０２１/〇〇/〇〇<br>
-							 登録メールアドレス：xxxxxxxxxxxx@xxxxxx<br>
+    	<p style="">注文番号：<%=session.getAttribute("order") %><br>
+							 注文日時：<%=session.getAttribute("date") %><br>
+							 登録メールアドレス：<%=session.getAttribute("mailAddress") %><br>
 		</p>
 
   	</div>

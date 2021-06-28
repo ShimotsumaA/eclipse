@@ -71,6 +71,68 @@ public class ShohinDao extends DBAccess {
 			return list;
 		    }
 
+	public ArrayList<ShohinBean> kijijoken(String kijiId) {
+		ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+	    String sql="select*from shohin where kiji_Id=?";
+
+	    try {
+	    	connect();
+	    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+	    	PreparedStatement ps=getConnection().prepareStatement(sql);
+	    	ps.setString(1, kijiId);
+
+	    	ResultSet rs=ps.executeQuery();
+
+	    	while(rs.next()) {
+	    		ShohinBean bean=new ShohinBean();
+	    		bean.setShohinId(rs.getString("shohin_id"));
+	    		bean.setShohinName(rs.getString("shohin_name"));
+				bean.setKijiId(rs.getString("kiji_id"));
+				bean.setCategoryId(rs.getString("category_id"));
+				bean.setValue(rs.getBigDecimal("value"));
+				bean.setZaiko(rs.getInt("zaiko"));
+
+				list.add(bean);
+	    	}
+	    } catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	    }
+
+	public ArrayList<ShohinBean> categoryjoken(String categoryId) {
+		ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+	    String sql="select*from shohin where category_Id=?";
+
+	    try {
+	    	connect();
+	    	//繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+	    	PreparedStatement ps=getConnection().prepareStatement(sql);
+	    	ps.setString(1, categoryId);
+
+	    	ResultSet rs=ps.executeQuery();
+
+	    	while(rs.next()) {
+	    		ShohinBean bean=new ShohinBean();
+	    		bean.setShohinId(rs.getString("shohin_id"));
+	    		bean.setShohinName(rs.getString("shohin_name"));
+				bean.setKijiId(rs.getString("kiji_id"));
+				bean.setCategoryId(rs.getString("category_id"));
+				bean.setValue(rs.getBigDecimal("value"));
+				bean.setZaiko(rs.getInt("zaiko"));
+
+				list.add(bean);
+	    	}
+	    } catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	    }
+
 
 	//新しい商品を登録する
 	public int insert(String shohin_Id,String shohin_Name,String kiji_Id,

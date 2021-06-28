@@ -10,7 +10,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -18,8 +18,19 @@
 	}
 </style>
 <body>
+<!-- メニューバー -->
+<div align="center">
+		<div class="menu_bar">
+    	<table>
+    	<tr>
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
+    	</tr>
+    	</table>
+   	 	</div>
 	<div style="text-align:center">
-	<h3>住所入力</h3>
+	<form action="/group2work/PostServlet" method="post">
+	<h2>住所入力</h2>
 
 	<p>配送地域を選択してください。<br>
 	<select name="chiikiselect">
@@ -29,12 +40,12 @@
 
 	<optgroup label="北東北">
 		<option value=2>青森県</option>
-		<option value=3>秋田県</option>
-		<option value=4>岩手県</option>
+		<option value=5>秋田県</option>
+		<option value=3>岩手県</option>
 	</optgroup>
 
 	<optgroup label="南東北">
-		<option value=5>宮城県</option>
+		<option value=4>宮城県</option>
 		<option value=6>山形県</option>
 		<option value=7>福島県</option>
 	</optgroup>
@@ -47,34 +58,34 @@
 		<option value=12>千葉県</option>
 		<option value=13>東京都</option>
 		<option value=14>神奈川県</option>
-		<option value=15>山梨県</option>
+		<option value=19>山梨県</option>
 	</optgroup>
 
 	<optgroup label="信越">
-		<option value=16>新潟県</option>
-		<option value=17>長野県</option>
+		<option value=15>新潟県</option>
+		<option value=20>長野県</option>
 	</optgroup>
 
 	<optgroup label="北陸">
-		<option value=18>富山県</option>
-		<option value=19>石川県</option>
-		<option value=20>福井県</option>
+		<option value=16>富山県</option>
+		<option value=17>石川県</option>
+		<option value=18>福井県</option>
 	</optgroup>
 
 	<optgroup label="中部">
-		<option value=21>静岡県</option>
-		<option value=22>愛知県</option>
-		<option value=23>三重県</option>
-		<option value=24>岐阜県</option>
+		<option value=22>静岡県</option>
+		<option value=23>愛知県</option>
+		<option value=24>三重県</option>
+		<option value=21>岐阜県</option>
 	</optgroup>
 
 	<optgroup label="関西">
-		<option value=25>大阪府</option>
+		<option value=27>大阪府</option>
 		<option value=26>京都府</option>
-		<option value=27>滋賀県</option>
-		<option value=28>奈良県</option>
-		<option value=29>和歌山県</option>
-		<option value=30>兵庫県</option>
+		<option value=25>滋賀県</option>
+		<option value=29>奈良県</option>
+		<option value=30>和歌山県</option>
+		<option value=28>兵庫県</option>
 	</optgroup>
 
 	<optgroup label="中国">
@@ -109,7 +120,7 @@
 	</p>
 
 	<p class="midasi">お届け先住所</p>
-	<form action="/group2work/PostServlet" method="post">
+
 
 	<p class="midasi">*住所登録が配送先と異なる場合、配送先の住所を入力してください</p>
 
@@ -133,8 +144,10 @@
 		</font>
 
 	<button type="submit" name="submit" value="kakutei">確定</button>
+	<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
 
 	</form>
 	</div>
+</div>
 </body>
 </html>

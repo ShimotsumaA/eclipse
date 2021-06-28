@@ -144,11 +144,11 @@ table.link{
 							ArrayList<CategoryBean> list = (ArrayList<CategoryBean>) session.getAttribute("listCategory");
 							for (int i = 1; i <= list.size(); i++) {
 							%>
-										<form action="/group2work/ECHyoujiServlet" method="post"
-							name="category">
+							<form action="/group2work/ECHyoujiServlet" method="post"
+							name="category<%=i%>">
 							<input type="hidden" name="category_id"
 								value="<%=list.get(i - 1).getCategoryId()%>"> <a
-								href="javascript:category.submit()"><%=list.get(i - 1).getCategoryName()%></a><br>
+								href="javascript:category<%=i%>.submit()"><%=list.get(i - 1).getCategoryName()%></a><br>
 							</form>
 							<%
 							}
@@ -168,10 +168,10 @@ table.link{
 							for (int i = 1; i <= list2.size(); i++) {
 							%>
 							<form action="/group2work/ECHyoujiServlet" method="post"
-							name="kiji">
+							name="kiji<%=i%>">
 							<input type="hidden" name="kiji_id"
 								value="<%=list2.get(i - 1).getKijiId()%>"> <a
-								href="javascript:category.submit()"><%=list2.get(i - 1).getKijiSyurui()%></a><br>
+								href="javascript:kiji<%=i%>.submit()"><%=list2.get(i - 1).getKijiSyurui()%></a><br>
 								</form>
 							<%
 							}
@@ -208,7 +208,7 @@ table.link{
 									<form action="/group2work/ShohinHyojiServlet" method="post" name="shohin<%=i%>">
 									<input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>">
-										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0001.jpg"width=150 height=150></a><br>
+										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/<%=list3.get(i - 1).getShohinId() %>.jpg"width=150 height=150></a><br>
 										</form>
 
 										<p><%=list3.get(i - 1).getShohinName()%></p>

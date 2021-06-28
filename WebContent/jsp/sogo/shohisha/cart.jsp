@@ -19,7 +19,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h3{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -29,10 +29,19 @@
 <body>
 <div class="wrapper">
 <!-- メニューバー -->
-
 <div align="center">
+		<div class="menu_bar">
+    	<table>
+    	<tr>
+    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
+    		<td><a href="/group2work/jsp/sogo/shohisha/gaiyo.jsp">配送料に関して</a><!-- 配送料ページへのリンク -->
+    	</tr>
+    	</table>
+   	 	</div>
+
+
     <div class="contents">
-    <h3 id="midasi"> カート一覧</h3>
+    <h2 id="midasi"> カート一覧</h2>
 
     <%if((Boolean)request.getAttribute("cartflag") && (session.getAttribute("id")!=null)) {%>
     <%

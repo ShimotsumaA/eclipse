@@ -193,7 +193,7 @@ public class OrderDao extends DBAccess {
 
 	public int insert(String orderId,String date,String sId,int statusId,String oDetailID) {
 
-		String sql = "insert tyumon into values(?,?,?,?,?)";
+		String sql = "insert into tyumon values(?,?,?,?,?)";
 
 		//
 		int kensu = 0;
@@ -258,6 +258,32 @@ public class OrderDao extends DBAccess {
 			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, orderId);
+
+
+			count =ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return count;
+
+
+	}
+
+	public int updateDate(String date,String orderId){
+
+		int count=0;
+
+		String sql = "update tyumon set date=? where ORDER_ID=? ";
+
+		try {
+			connect();
+			// 繧ｹ繝�繝ｼ繝医Γ繝ｳ繝医�ｮ菴懈��
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, date);
+			ps.setString(2,orderId );
 
 
 			count =ps.executeUpdate();
