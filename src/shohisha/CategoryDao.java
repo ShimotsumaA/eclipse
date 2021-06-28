@@ -40,7 +40,7 @@ import sogo.DBAccess;
 		public ArrayList<CategoryBean> joken(String categoryId){
 			ArrayList<CategoryBean>list=new ArrayList<CategoryBean>();
 
-			String sql="SELECT * FROM category where categoryId=?";
+			String sql="SELECT * FROM category where category_Id=?";
 
 			try {
 				connect();
