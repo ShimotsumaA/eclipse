@@ -6,13 +6,19 @@
 <meta charset="UTF-8">
 <title>マイページ</title>
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	body{
+		background-image:url("/group2work/image/43455.jpg")
+	}
+</style>
 <body>
-	<div text align="right">
-		<a href="/group2work/jsp/sogo/top.jsp">トップページ</a>
-	</div>
+	>
 
 	<div align ="center">
-		<p>マイページ</p>
+		<h3>マイページ</h3>
 
 		<a href="/group2work/MyPageServlet?no=1">ユーザ情報確認</a><br><br>
 		<a href="/group2work/MyPageServlet?no=2">購入履歴</a><br><br>
