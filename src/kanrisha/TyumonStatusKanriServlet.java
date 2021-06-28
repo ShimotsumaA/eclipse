@@ -59,6 +59,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				request.setAttribute("message", "対象を選んでください。");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuIchiranServlet");
 				dispatcher.forward(request, response);
+
 			}
 
 			int newStatusId = Integer.parseInt(request.getParameter("radio"));
