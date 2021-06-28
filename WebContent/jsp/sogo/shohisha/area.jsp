@@ -105,12 +105,12 @@
 	<table  align="center" border="1">
 	<tr>
 		<td>郵便番号:</td>
-		<td><input type="text" name="post_code" value="デフォルト" size="30" maxlength="8"> </td>
+		<td><input type="text" name="post_code" value="<%=session.getAttribute("post_code") %>" size="30" maxlength="8"> </td>
 	</tr>
 
 	<tr>
 		<td>住所:</td>
-		<td><textarea rows="3" cols="40" name="address"></textarea></td>
+		<td><textarea rows="3" cols="40" name="address"><%=session.getAttribute("address") %></textarea></td>
 	</tr>
 	</table>
 	<br><br>
