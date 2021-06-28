@@ -119,13 +119,15 @@
 
 	以下の情報を削除します。よろしいですか？<br><br>
 
+<form action="/group2work/ShohinKanriServlet" method="post">
+
 	<%
 		String shohinId = request.getParameter("radio");
+		System.out.println(shohinId);
+		request.setAttribute("shohinId", shohinId);
 		ShohinDao dao = new ShohinDao();
 		ArrayList<ShohinBean> list = dao.joken(shohinId);
 	%>
-
-	<form action="/group2work/ShohinKanriServlet" method="post">
 
 	<table  align="center">
 		<tr>

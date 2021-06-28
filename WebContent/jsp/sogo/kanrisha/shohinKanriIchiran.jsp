@@ -56,12 +56,7 @@ categoryName=dao.joken(categoryId).get(0).getCategoryName();
 
 <!-- form shohinKanriMod?no=2 -->
 <input type="submit" name="submit" value="変更">
-
-<!-- form shohinKanriKakunin -->
-
 <button type="submit" formaction="/group2work/jsp/sogo/kanrisha/shohinKanriKakunin.jsp" name="submit" value="delete"> 削除</button>
-
-
 <input type="button" value="戻る" onClick="location.href='/group2work/jsp/sogo/kanrisha/shohinKanriMenu.jsp'">
 
 </form>

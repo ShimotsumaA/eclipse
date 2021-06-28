@@ -57,6 +57,9 @@ public class ShohinIchiranServlet extends HttpServlet {
 			request.setAttribute("message", request.getAttribute("message"));
 		}
 
+		if (request.getAttribute("errorMsg") != null) {
+			request.setAttribute("errorMsg", request.getAttribute("errorMsg"));
+		}
 		//フォワード
 		RequestDispatcher dispatcher=
 				request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");

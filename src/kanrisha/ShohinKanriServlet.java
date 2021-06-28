@@ -139,9 +139,9 @@ public class ShohinKanriServlet extends HttpServlet {
 			ShohinDao dao = new ShohinDao();
 			int rs = dao.update(shohinId, shohinName, kijiId, categoryId, value);
 			System.out.println(rs);
-			request.setAttribute("compmsg", "変更されました");
+			request.setAttribute("errorMsg", "変更されました");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ShohinIchiranServlet");
 			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ!!!");
 
@@ -205,15 +205,24 @@ public class ShohinKanriServlet extends HttpServlet {
 			ShohinDao dao = new ShohinDao();
 			int rs = dao.insert(shohinId, shohinName, categoryId, kijiId, value);
 			System.out.println(rs);
-			request.setAttribute("compmsg", "登録が完了しました");
+			request.setAttribute("compmsg", "登録が完了しました。");
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1");
 			dispatcher.forward(request, response);
 
 		} else if (submit.equals("削除確定")) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
+
+			String shohinId = (String)request.getAttribute("shohinId");
+			System.out.println(shohinId);
+
+			// DAOをインスタンス化
+						ShohinDao dao = new ShohinDao();
+						int rs = dao.delete(shohinId);
+						System.out.println(rs);
+						request.setAttribute("errorMsg", "削除が完了しました。");
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ShohinIchiranServlet");
 			dispatcher.forward(request, response);
-			System.out.println("ディスパッチ!!!!!");
 		}
 
 //		//セッションの取得
