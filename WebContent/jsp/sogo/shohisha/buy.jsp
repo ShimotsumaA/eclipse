@@ -85,8 +85,7 @@
    	 	<div class="submit">
    	 		<form method="post">
    	 			<button type="submit" name="submit" value="jyusho" formaction="/group2work/BuyControl">住所入力</button>
-   	 			<button type="submit" name="submit" value="return" formaction="">戻る</button>
-   	 		</form>
+   	 			<button type="button" name="submit" value="return" onClick="history.go(-1)">戻る</button><br>
    	 	</div>
 
 
