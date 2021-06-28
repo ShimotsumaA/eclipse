@@ -192,7 +192,7 @@ public class KanrishaTorokuServlet extends HttpServlet {
 				String message = "すべての項目を入力してください。";
 				request.setAttribute("message", message);
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=2");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/idStaffMod.jsp?submit=3");
 				dispatcher.forward(request, response);
 			}
 
