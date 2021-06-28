@@ -50,9 +50,9 @@
   		no=(String)request.getAttribute("no");
   	}
 
- 	String errmsg=null;
- 	String errmsg2=null;
- 	String errmsg3=null;
+ 	String errmsg="";
+ 	String errmsg2="";
+ 	String errmsg3="";
 
 
 
@@ -110,8 +110,11 @@
 			<tr>
 				<td align="right">ID：</td>
 				<td><input type="text" name="sId" size="40" maxlength="10"></td>
+				</tr>
+				<tr>
 				<td><%=errmsg %></td>
-			</tr>
+				</tr>
+
 		</table>
 		<table class="ID">
 			<tr>
@@ -135,8 +138,9 @@
 
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
-				<td><%=errmsg2 %><br><%=errmsg3 %></td>
-			</tr>
+				</tr>
+				<tr><td><%=errmsg2 %><br><%=errmsg3 %></td></tr>
+
 			<tr>
 				<td></td>
 				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
@@ -196,7 +200,7 @@
 				<td><input type="text" value="<%=session.getAttribute("mailAddress")%>" name="mailAddress" size="40"></td>
 			</tr>
 			<tr>
-			<td><%=errmsg %></td>
+			</tr><tr><td><%=errmsg %></td>
 				<td align="right">ID：</td>
 				<td><%-- <input type="text" value="--%><%=session.getAttribute("sId")%><%--" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"> --%></td>
@@ -208,7 +212,7 @@
 
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
-				<td><%=errmsg2 %><br><%=errmsg3 %></td>
+				</tr><tr><td><%=errmsg2 %><br><%=errmsg3 %></td>
 			</tr>
 			<tr>
 				<td></td>
