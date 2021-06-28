@@ -46,7 +46,6 @@ public class LogInOutServlet extends HttpServlet {
 			String id = request.getParameter("id");
 			String pass = request.getParameter("pass");
 
-<<<<<<< HEAD
 			//全項目入力しているか。
 			if (id.equals("") || pass.equals("")) {
 
@@ -56,9 +55,8 @@ public class LogInOutServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=2");
 				dispatcher.forward(request, response);
 			}
-=======
+
 			System.out.println(id + pass);
->>>>>>> refs/remotes/origin/master
 
 			// 管理者エラーチェック
 			if (zokusei.equals("shain") || zokusei.equals("aru")) {
@@ -98,7 +96,7 @@ public class LogInOutServlet extends HttpServlet {
 				// 消費者（お客様）エラーチェック
 			} else {
 
-<<<<<<< HEAD
+
 				//全項目入力しているか。
 				if (id.equals("") || pass.equals("")) {
 
@@ -110,9 +108,6 @@ public class LogInOutServlet extends HttpServlet {
 				}
 
 				//消費者IDが存在するか。
-=======
-				// 消費者IDが存在するか。
->>>>>>> refs/remotes/origin/master
 				if (err.existSId(id)) {
 
 				} else {
