@@ -12,8 +12,6 @@
 <%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)request.getAttribute("list");%>
 <%--if(request.getParameter("submit").equals("確定")){ --%>
 
-<div style=text-align:right>
-	<a href="menu.jsp">メニューへ戻る</a>
 </div>
 <div style=text-align:center>
 <form action="/group2work/ZaikoKanriServlet" method="post">
