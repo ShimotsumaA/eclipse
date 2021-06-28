@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
+<img src="" width="150" height="150">
 
 
 	<!-- メニューバー -->

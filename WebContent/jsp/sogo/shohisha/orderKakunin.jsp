@@ -29,7 +29,7 @@
 	注文を確定します。よろしいですか？<br>
 
 	購入詳細<br>
-	<img src="/group2work/image/np0001_picture01.jpg" alt="バッグ " width="193" height="130"><br>
+	<img src="" alt="バッグ " width="193" height="130"><br>
 
 	<%
 	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");

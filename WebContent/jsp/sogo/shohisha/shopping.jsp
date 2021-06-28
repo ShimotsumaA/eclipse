@@ -208,7 +208,7 @@ table.link{
 									<form action="/group2work/ShohinHyojiServlet" method="post" name="shohin<%=i%>">
 									<input type="hidden" name="shohin_id"
 										value="<%=list3.get(i - 1).getShohinId()%>">
-										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0002_picture02.jpg"width=150 height=150></a><br>
+										 <a href="javascript:shohin<%=i %>.submit()"><img src="/group2work/image/np0001.jpg"width=150 height=150></a><br>
 										</form>
 
 										<p><%=list3.get(i - 1).getShohinName()%></p>
