@@ -10,7 +10,7 @@
 	*{
 	font-family:"游ゴシック"
 	}
-	h1{
+	h2{
 	background-color:#87ceeb
 	}
 	body{
@@ -19,7 +19,7 @@
 </style>
 <body>
 	<div style="text-align:center">
-			<h1>お支払方法を選択</h1>
+			<h2>お支払方法を選択</h2>
 		<form method="post">
 		<table border="1" align="center">
 			<th></th><th>お支払方法</th>
