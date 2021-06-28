@@ -43,7 +43,6 @@ public class BuyControlServlet extends HttpServlet {
 		//セッションの取得
 		HttpSession session = request.getSession(true);
 
-		String forward = null;
 
 		//ログインしているかどうかを判断
 		if (session.getAttribute("id") != null) {
@@ -83,6 +82,9 @@ public class BuyControlServlet extends HttpServlet {
 					}else {
 						shiharai="代金引換";
 					}
+
+
+
 
 					session.setAttribute("shiharai", shiharai);
 					RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/orderKakunin.jsp");
