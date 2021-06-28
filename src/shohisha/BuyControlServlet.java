@@ -99,7 +99,7 @@ public class BuyControlServlet extends HttpServlet {
 				//OrderDaoをインスタンス化
 				OrderDao dao = new OrderDao();
 				ShohishaDao dao2=new ShohishaDao();
-				String orderId=(String)session.getAttribute("orderId");
+				String orderId=(String)session.getAttribute("order");
 				int kensu=dao.update(orderId, 1); //statusId　注文完了
 
 
@@ -120,6 +120,7 @@ public class BuyControlServlet extends HttpServlet {
 				int kensu2=dao2.updateCyumon(sId, postCode,address);
 				session.setAttribute("mailAddress", mailAddress);
 				session.setAttribute("date", date);
+				session.setAttribute("id", sId);
 
 
 
@@ -128,6 +129,8 @@ public class BuyControlServlet extends HttpServlet {
 					}else{
 						session.setAttribute("tyumon", false);
 					}
+
+
 				//orderCollect.jspに遷移
 				RequestDispatcher rd = request.getRequestDispatcher("/jsp/sogo/shohisha/orderCollect.jsp");
 				rd.forward(request, response);
