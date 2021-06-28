@@ -47,7 +47,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 			session.setAttribute("statusId", statusId);
 
 			String orderId = request.getParameter("radio");
-			System.out.println("radioは"+orderId);
+			System.out.println("radioは" + orderId);
 
 			session.setAttribute("orderId", orderId);
 
@@ -59,7 +59,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 
 			if (request.getParameter("radio") == null) {
 				request.setAttribute("message", "対象を選んでください。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/TyumonStatuKanriServlet?submit=2");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/group2work/TyumonStatuKanriServlet?submit=2");
 				dispatcher.forward(request, response);
 
 			} else {
@@ -73,18 +73,7 @@ public class TyumonStatusKanriServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 
-<<<<<<< HEAD
-			int newStatusId = Integer.parseInt(request.getParameter("radio"));
-
-			session.setAttribute("newStatusId", newStatusId);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinStatusKakunin.jsp");
-			dispatcher.forward(request, response);
-
 		} else if (submit.equals("kakutei")) {
-=======
-		} else if (submit.equals("変更確定")) {
->>>>>>> refs/remotes/origin/master
 
 			OrderDao dao = new OrderDao();
 
