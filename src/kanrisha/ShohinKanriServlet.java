@@ -120,7 +120,7 @@ public class ShohinKanriServlet extends HttpServlet {
 //		登録確認画面の変更ボタンが押された時
 		if(submit.equals("変更確定")) {
 
-				String shohinId=(String)session.getAttribute("id");
+				String shohinId=(String)session.getAttribute("shohinId");
 				String shohinName=(String)session.getAttribute("name");
 				String categoryId=(String)session.getAttribute("category");
 				String kijiId=(String)session.getAttribute("kiji");
