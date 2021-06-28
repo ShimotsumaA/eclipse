@@ -16,7 +16,7 @@
 <% if(submit.equals("変更") || submit.equals("3") || submit.equals("back")){ %>
 
 		<div style="text-align:center">
-		<h1>管理社情報変更</h1><br>
+		<h1>管理者情報変更</h1><br>
 
 		<% if (submit.equals("3")){
 			String message =(String)request.getAttribute("message");
@@ -78,7 +78,7 @@
 
 <%}  else { %> <!-- submit=1、2、登録確定 -->
 		<div style="text-align:center">
-		<h1>管理社情報登録</h1>
+		<h1>管理者情報登録</h1>
 
 		<%
 			if (submit.equals("2")){
