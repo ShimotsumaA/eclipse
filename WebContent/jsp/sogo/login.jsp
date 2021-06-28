@@ -47,11 +47,11 @@
 			<table align="center">
 				<tr>
 					<td align="right">ID：</td>
-					<td><input type="text" name="id" size="10"></td>
+					<td><input type="text" name="id" size="40"  maxlength="10"></td>
 				</tr>
 				<tr>
 					<td>パスワード：</td>
-					<td><input type="password" name="pass" size="15"></td>
+					<td><input type="password" name="pass" size="40"  maxlength="15"></td>
 				</tr>
 			</table>
 			<br> <br> <input type="submit" name="submit" value="ログイン">
