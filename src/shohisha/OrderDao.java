@@ -193,7 +193,7 @@ public class OrderDao extends DBAccess {
 
 	public int insert(String orderId,String date,String sId,int statusId,String oDetailID) {
 
-		String sql = "insert tyumon into values(?,?,?,?,?)";
+		String sql = "insert into tyumon values(?,?,?,?,?)";
 
 		//
 		int kensu = 0;
