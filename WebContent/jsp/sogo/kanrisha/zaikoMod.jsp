@@ -15,11 +15,11 @@
 	<h1>在庫管理</h1>
 	商品ID：<%=session.getAttribute("shohinId") %><br>
 	商品名：<%=session.getAttribute("shohinName") %><br>
-	在庫数：<%=session.getAttribute("zaiko") %><br><br>
+	在庫数：<%=(Integer)session.getAttribute("zaiko") %><br><br>
 
 	入力分の在庫数を追加します。<br><br>
 
-	<label for="tuika">入庫数：<%= session.getAttribute("zaiko") %></label>
+	<label for="tuika">入庫数：<%= (Integer)session.getAttribute("zaiko") %></label>
 	<input type="text" name="nyuko" size="30" id="tuika"><br><br>
 	<input type="submit" name="submit"value="確認">
 </form>
@@ -33,7 +33,7 @@
 	<h1>在庫管理</h1>
 	商品ID：<%=session.getAttribute("shohinId") %><br>
 	商品名：<%=session.getAttribute("shohinName") %><br>
-	在庫数：<%=session.getAttribute("zaiko") %><br><br>
+	在庫数：<%=(Integer)session.getAttribute("zaiko") %><br><br>
 
 	在庫数を入力した値に変更します。<br><br>
 
