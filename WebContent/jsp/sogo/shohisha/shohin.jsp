@@ -54,9 +54,19 @@
 		</table>
    	 	</div>
 	<center>
+<<<<<<< HEAD
+=======
 
+>>>>>>> refs/remotes/origin/master
+
+<<<<<<< HEAD
 
 	    <% ArrayList<ShohinBean> listShohinShosai=new ArrayList<ShohinBean>();
+=======
+    <!-- 商品詳細 -->
+    <% ArrayList<ShohinBean> listShohinShosai=new ArrayList<ShohinBean>();
+
+>>>>>>> refs/remotes/origin/master
     	listShohinShosai=(ArrayList<ShohinBean>)session.getAttribute("Shohin_shosai");
     	String shohinName=listShohinShosai.get(0).getShohinName();
     	String shohinId=listShohinShosai.get(0).getShohinId();
@@ -75,6 +85,10 @@
 
     <!-- 商品詳細 -->
 
+
+    <div class="image">
+    	<img src="/group2work/image/<%=shohinId %>.jpg" name="バッグ" width=250px height=300px>
+    	</div>
 
     <div class="shousai">
     <table class="shousai">
