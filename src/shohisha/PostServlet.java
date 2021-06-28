@@ -42,8 +42,8 @@ public class PostServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		//リクエストから郵便番号と住所を取得
-		String post_code=request.getParameter("post_code");
-		String address=request.getParameter("address");
+		String post_code=(String)request.getParameter("post_code");
+		String address=(String)request.getParameter("address");
 
 		HttpSession session=request.getSession(true);
 		session.setAttribute("post_code", post_code);

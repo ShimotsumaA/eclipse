@@ -40,21 +40,21 @@
 </div>
 
 <div style="text-align:center;">
-	支払い方法：<%=session.getAttribute("shiharai") %><br>//セッションから支払い方法を取得
+	支払い方法：<%=session.getAttribute("shiharai") %><br>
 	配送先住所<br>
 	<%=session.getAttribute("post_code") %><br>
-	<%=session.getAttribute("adress") %><br>
+	<%=session.getAttribute("address") %><br>
 
 </div>
 
 <div style="text-align:center;">
-	商品合計：<%=(Integer)session.getAttribute("gokei")%>円<br>//セッションから商品合計を取得
-	送料：<%=(Integer)session.getAttribute("soryo")%><br>//セッションから
+	商品合計：<%=(Integer)session.getAttribute("gokei")%>円<br>
+	送料：<%=(Integer)session.getAttribute("soryo")%><br>
 	合計：<%=(Integer)session.getAttribute("gokei")%><br>
 
 </div>
 
-	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControlServlet">確定</button><br>
+	<button type="submit" name="submit" value="chumon" formaction="/group2work/BuyControl">確定</button><br>
 	<button type="button" name="submit" value="return">戻る</button><br>
 </form>
 
