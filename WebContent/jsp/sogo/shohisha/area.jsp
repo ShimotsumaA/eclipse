@@ -18,7 +18,9 @@
 	}
 </style>
 <body>
+
 	<div style="text-align:center">
+	<form action="/group2work/PostServlet" method="post">
 	<h3>住所入力</h3>
 
 	<p>配送地域を選択してください。<br>
@@ -109,7 +111,7 @@
 	</p>
 
 	<p class="midasi">お届け先住所</p>
-	<form action="/group2work/PostServlet" method="post">
+
 
 	<p class="midasi">*住所登録が配送先と異なる場合、配送先の住所を入力してください</p>
 

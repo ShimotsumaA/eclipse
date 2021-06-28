@@ -50,12 +50,16 @@ public class PostServlet extends HttpServlet {
 		String post_code = (String) request.getParameter("post_code");
 		String address = (String) request.getParameter("address");
 		int kenId = Integer.parseInt(request.getParameter("chiikiselect"));
+		System.out.println("けんIDは" + kenId);
+
 		int gokei = (Integer) session.getAttribute("gokei");
 		SoryoKeisan keisan = new SoryoKeisan();
 		int soryo = keisan.soryoKen(kenId, gokei);
-		int sokei=gokei+soryo;
+
+		int sokei = gokei + soryo;
 
 		session.setAttribute("gokei", gokei);
+
 		session.setAttribute("soryo", soryo);
 		session.setAttribute("sokei", sokei);
 
