@@ -27,7 +27,7 @@
 </div><br><br>
 <%}%>
 
-<%if(request.getAttribute("nyukoHenko")!=null&&request.getParameter("nyukoHenko").equals("henko")){%>
+<%if(request.getAttribute("nyukoHenko")!=null&&request.getAttribute("nyukoHenko").equals("henko")){%>
 <div style=text-align:center>
 <form  action="/group2work/ZaikoKanriServlet" method="post">S
 	<h1>在庫管理</h1>

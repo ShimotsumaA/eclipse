@@ -18,6 +18,15 @@
 <div style=text-align:center>
 <form action="/group2work/ZaikoKanriServlet" method="post">
 <h1>在庫管理</h1>
+
+<%
+	if (request.getAttribute("message") != null) {
+
+		String message = (String)request.getAttribute("message");
+%>
+		<p> <font color="red"><%= message %></font></p>
+<% } %>
+
 <table border="1" align="center">
 <tr>
 	<td> </td><th>商品ID</th><th>商品名</th><th>在庫数</th>

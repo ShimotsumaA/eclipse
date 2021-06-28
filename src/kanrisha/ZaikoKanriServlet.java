@@ -49,6 +49,15 @@ public class ZaikoKanriServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 
 		if (submit.equals("入庫")) {
+
+			if (request.getParameter("radio") == null) {
+
+				request.setAttribute("message", "対象を選んでください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ZaikoIchiranServlet");
+				dispatcher.forward(request, response);
+
+			} else {
+
 			ShohinDao dao = new ShohinDao();
 
 			list = dao.joken(request.getParameter("radio"));
@@ -62,18 +71,32 @@ public class ZaikoKanriServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
 			dispatcher.forward(request, response);
 			System.out.println("ディスパッチ！");
+
+			}
+
 		} else if (submit.equals("変更")) {
-			ShohinDao dao = new ShohinDao();
-			list = dao.joken(request.getParameter("radio"));
 
-			session.setAttribute("shohinId", list.get(0).getShohinId());
-			session.setAttribute("shohinName", list.get(0).getShohinName());
-			session.setAttribute("zaiko", list.get(0).getZaiko());
-			// フォワード
+			if (request.getParameter("radio") == null) {
 
-			request.setAttribute("nyukoHenko", "henko");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
-			dispatcher.forward(request, response);
+				request.setAttribute("message", "対象を選んでください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ZaikoIchiranServlet");
+				dispatcher.forward(request, response);
+
+			} else {
+
+				ShohinDao dao = new ShohinDao();
+				list = dao.joken(request.getParameter("radio"));
+
+				session.setAttribute("shohinId", list.get(0).getShohinId());
+				session.setAttribute("shohinName", list.get(0).getShohinName());
+				session.setAttribute("zaiko", list.get(0).getZaiko());
+				// フォワード
+
+				request.setAttribute("nyukoHenko", "henko");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
+				dispatcher.forward(request, response);
+
+			}
 
 		} else if (submit.equals("確認")) {
 			if(request.getParameter("nyuko")!=null) {

@@ -43,9 +43,14 @@ public class ZaikoIchiranServlet extends HttpServlet {
 		HttpSession session=request.getSession(true);
 		session.setAttribute("list", list);
 
+		if (request.getAttribute("message") != null) {
+
+			request.setAttribute("message", request.getAttribute("message"));
+		}
+
+
 		//フォワード
-		RequestDispatcher dispatcher=
-				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
 		dispatcher.forward(request, response);
 	}
 
