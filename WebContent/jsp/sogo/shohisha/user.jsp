@@ -43,7 +43,29 @@
  	if(no==null){
   		no=(String)request.getAttribute("no");
   	}
+
+ 	String errmsg=null;
+ 	String errmsg2=null;
+ 	String errmsg3=null;
+
+
+
+ 	if(request.getAttribute("errmsg")!=null){
+ 	 errmsg=(String)request.getAttribute("errmsg");
+ 	}
+
+ 	if(request.getAttribute("errmsg2")!=null){
+ 	 	 errmsg2=(String)request.getAttribute("errmsg2");
+ 	}
+
+ 	if(request.getAttribute("errmsg3")!=null){
+ 	 	 errmsg3=(String)request.getAttribute("errmsg3");
+ 	}
+
+
  %>
+
+
  <!-- ユーザ情報登録フォーム -->
  <% if (no.equals("1")){%>
  	<div style="text-align:center">
@@ -82,6 +104,7 @@
 			<tr>
 				<td align="right">ID：</td>
 				<td><input type="text" name="sId" size="40" maxlength="10"></td>
+				<td><%=errmsg %></td>
 			</tr>
 		</table>
 		<table class="ID">
@@ -99,9 +122,11 @@
 			</tr>
 
 
+
 		</table>
 		<table  align="center">
 			<tr>
+			<td><%=errmsg2 %><br><%=errmsg3 %></td>
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
 			</tr>
@@ -164,6 +189,7 @@
 				<td><input type="text" value="<%=session.getAttribute("mailAddress")%>" name="mailAddress" size="40"></td>
 			</tr>
 			<tr>
+			<td><%=errmsg %></td>
 				<td align="right">ID：</td>
 				<td><%-- <input type="text" value="--%><%=session.getAttribute("sId")%><%--" name="sId" size="40" maxlength="10"></td>
 				<td><input type="submit" name="submit" value="使用可能か確認"> --%></td>
@@ -172,6 +198,7 @@
 			・英数字を必ず組み合わせてください。<br>
 			・大文字と小文字は区別しません。<br><br> -->
 			<tr>
+			<td><%=errmsg2 %><br><%=errmsg3 %></td>
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
 			</tr>
