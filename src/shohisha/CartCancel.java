@@ -51,21 +51,22 @@ public class CartCancel extends HttpServlet {
 			//ログイン済みの場合
 			if(session.getAttribute("id")!=null) {
 				//セッションカートに商品がある場合
-				if(session.getAttribute("cart")!=null) {
+				if(session.getAttribute("cart")!=null&&((Map<String, Integer>) session.getAttribute("cart")).size()>0) {
 					String shohinId=request.getParameter("shohinId");
 					Map<String, Integer> cart = new LinkedHashMap<>();
 					cart = (Map<String, Integer>) session.getAttribute("cart");
 					cart.remove(shohinId);
 					cancel=true;
-
+					System.out.println(1);
 				//セッションカートに商品がない場合
 				}else {
 					String sId=(String)session.getAttribute("id");
 					OrderDao dao1=new OrderDao();
 					OrderDetailDAO dao2=new OrderDetailDAO();
 					String oDetailId=dao1.jokenSIdStatus(sId, 0).get(0).getODetailId();
-
-					int kensu=dao2.deleteShohin(oDetailId, sId);
+					String  shohinId=request.getParameter("shohinId");
+					System.out.println(2);
+					int kensu=dao2.deleteShohin(oDetailId, shohinId);
 
 
 					if(kensu>=1) {
@@ -74,6 +75,7 @@ public class CartCancel extends HttpServlet {
 						cancel=false;
 					}
 
+					System.out.println(cancel);
 				}
 
 
@@ -83,6 +85,7 @@ public class CartCancel extends HttpServlet {
 				cart = (Map<String, Integer>) session.getAttribute("cart");
 				cart.remove(shohinId);
 				cancel=true;
+				System.out.println(3);
 			}
 
 		}

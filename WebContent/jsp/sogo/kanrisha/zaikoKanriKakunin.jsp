@@ -7,16 +7,35 @@
 <title>在庫変更確認</title>
 </head>
 <body>
-<form action="/group2work/ZaikoKanriServlet" method="post">
-<%if(request.getParameter("submit").equals("確認")) {%>
+
+<%if(session.getAttribute("nyukoHenko")!=null) {%>
 <div style=text-align:center>
-	<h1>変更確認</h1>
+<form action="/group2work/ZaikoKanriServlet" method="post">
+<%
+String hyoujiflag=(String)session.getAttribute("nyukoHenko");
+String hyouji="";
+int oldZaiko=(Integer)session.getAttribute("zaiko");
+int newZaiko=0;
+if(hyoujiflag.equals("nyuko")){
+
+	int nyuko=(Integer)session.getAttribute("nyuko");
+	hyouji="入庫";
+	newZaiko=oldZaiko+nyuko;
+
+}else if(hyoujiflag.equals("henko")){
+	int shinki=(Integer)session.getAttribute("shinki");
+	hyouji="変更";
+	newZaiko=shinki;
+}
+
+
+%>
+	<h1><%=hyouji %>確認</h1>
 	以下の情報を変更します。よろしいですか？<br><br>
-	商品ID：<br>
-	商品名：<br>
-	価格：<br>
-	変更前在庫数：<br>
-	変更後在庫数：<font color="red">パラメータ</font><br>
+	商品ID：<%=session.getAttribute("shohinId") %><br>
+	商品名：<%=session.getAttribute("shohinName") %><br>
+	<%=hyouji %>前在庫数：<%=oldZaiko %><br>
+	<%=hyouji %>後在庫数：<%=newZaiko %><font color="red">パラメータ</font><br>
 	<input type="submit" name="submit" value="確定">
 </form>
 	<input type="button" value="戻る" onClick="history.go(-1)">

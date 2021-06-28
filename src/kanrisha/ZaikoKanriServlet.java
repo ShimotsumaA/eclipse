@@ -21,67 +21,105 @@ public class ZaikoKanriServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		//文字コードの設定
+		// 文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-	     String submit=request.getParameter("submit");
-	     ArrayList<ShohinBean> list=new ArrayList<ShohinBean>();
-	        System.out.println(submit);
 
-		//セッションの取得
-        HttpSession session = request.getSession(true);
+		String submit = request.getParameter("submit");
 
-        if(submit.equals("入庫")) {
-        	ShohinDao dao = new ShohinDao();
+		ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+		System.out.println(submit);
 
-        	list =dao.joken(request.getParameter("radio"));
+		// セッションの取得
+		HttpSession session = request.getSession(true);
 
-        	session.setAttribute("shohinId", list.get(0).getShohinId());
-        	session.setAttribute("shohinName",list.get(0).getShohinName());
-        	session.setAttribute("zaiko",list.get(0).getZaiko());
-        	//フォワード
-    		RequestDispatcher dispatcher=
-    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
-    		dispatcher.forward(request, response);
-    		System.out.println("ディスパッチ！");
-        }
-        if(submit.equals("変更")) {
-        	ShohinDao dao = new ShohinDao();
-        	list =dao.joken(request.getParameter("radio"));
+		if (submit.equals("入庫")) {
+			ShohinDao dao = new ShohinDao();
 
-          	session.setAttribute("shohinId", list.get(0).getShohinId());
-        	session.setAttribute("shohinName",list.get(0).getShohinName());
-        	session.setAttribute("zaiko",list.get(0).getZaiko());
-        	//フォワード
-    		RequestDispatcher dispatcher=
-    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
-    		dispatcher.forward(request, response);
+			list = dao.joken(request.getParameter("radio"));
 
-        }
-        if(submit.equals("確認")) {
-        	//フォワード
-    		RequestDispatcher dispatcher=
-    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoKanriKakunin.jsp");
-    		dispatcher.forward(request, response);
+			session.setAttribute("shohinId", list.get(0).getShohinId());
+			session.setAttribute("shohinName", list.get(0).getShohinName());
+			session.setAttribute("zaiko", list.get(0).getZaiko());
 
-        }
-        if(submit.equals("確定")) {
-        	//フォワード
-    		RequestDispatcher dispatcher=
-    				request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
-    		dispatcher.forward(request, response);
+			request.setAttribute("nyukoHenko", "nyuko");
+			// フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("ディスパッチ！");
+		} else if (submit.equals("変更")) {
+			ShohinDao dao = new ShohinDao();
+			list = dao.joken(request.getParameter("radio"));
 
-        }
+			session.setAttribute("shohinId", list.get(0).getShohinId());
+			session.setAttribute("shohinName", list.get(0).getShohinName());
+			session.setAttribute("zaiko", list.get(0).getZaiko());
+			// フォワード
+
+			request.setAttribute("nyukoHenko", "henko");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoMod.jsp");
+			dispatcher.forward(request, response);
+
+		} else if (submit.equals("確認")) {
+			if(request.getParameter("nyuko")!=null) {
+
+				int nyuko=Integer.parseInt(request.getParameter("nyuko"));
+				session.setAttribute("nyukoHenko", "nyuko");
+				session.setAttribute("nyuko", nyuko);
+
+			}else if(request.getParameter("shinki")!=null){
+
+				int sinki=Integer.parseInt(request.getParameter("sinki"));
+				session.setAttribute("nyukoHenko", "henko");
+				session.setAttribute("sinki", sinki);
+			}
+
+			// フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaikoKanriKakunin.jsp");
+			dispatcher.forward(request, response);
+
+		} else if (submit.equals("確定")) {
+			// フォワード
+			if(session.getAttribute("nyukoHenko")!=null) {
+				String sId= (String)session.getAttribute("sId");
+				ShohinDao dao=new ShohinDao();
+				int kensu=0;
+
+				if(session.getAttribute("nyukoHenko").equals("nyuko")) {
+					int nyuko=(Integer)session.getAttribute("nyuko");
+					kensu=dao.nyukoUpdate(sId, nyuko);
+				}else if(session.getAttribute("nyukoHenko").equals("henko")) {
+					int shinki=(Integer)session.getAttribute("sinki");
+					kensu=dao.zaikoUpdate(sId, shinki);
+				}
+				System.out.println(kensu);
+				Boolean zaikoflag=false;
+				if(kensu>=1) {
+					zaikoflag=true;
+				}else {
+					zaikoflag=false;
+				}
+				request.setAttribute("zaikoflag", zaikoflag);
+
+			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/zaiko.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 }

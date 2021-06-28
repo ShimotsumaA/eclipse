@@ -73,7 +73,7 @@ public class OrderDetailDAO extends DBAccess{
 		ArrayList<OrderDetailBean> list = new ArrayList<>();
 
 		// jouken method
-		String sql = "SELECT*FROM  TYUMON_DETAIL where O_DETAIL_ID=? AND SHOHIN_ID";
+		String sql = "SELECT*FROM  TYUMON_DETAIL where O_DETAIL_ID=? AND SHOHIN_ID=?";
 
 		try {
 			connect();
@@ -127,7 +127,7 @@ public class OrderDetailDAO extends DBAccess{
 
 	public int deleteShohin(String oDetailId,String shohinId) {
 		//delete method
-		String sql = "delete from tyumon_detail where O_DETAIL_ID=? and where shohin_id=?";
+		String sql = "delete from tyumon_detail where O_DETAIL_ID=? and shohin_id=?";
 
 		int kensu=0;
 
@@ -149,7 +149,7 @@ public class OrderDetailDAO extends DBAccess{
 
 	public int insert(String oDetailId,String shohinId,int kazuKonyu) {
 
-		String sql = "insert tyumon_detail into values(?,?,?)";
+		String sql = "insert into tyumon_detail values(?,?,?)";
 
 		//
 		int kensu = 0;

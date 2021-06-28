@@ -154,7 +154,6 @@ public class CartHyoujiServlet extends HttpServlet {
 
 						}
 
-
 					} else {
 
 					}
@@ -208,13 +207,18 @@ public class CartHyoujiServlet extends HttpServlet {
 					session.setAttribute("soryo", soryo);
 					session.setAttribute("sokei", sokei);
 
-					cartflag = true;
+					if (listODetailList.size() > 0) {
+						cartflag = true;
+					} else {
+						cartflag = false;
+					}
 
 				} else {
 					cartflag = false;
 				}
 				// ログインしておらずカート情報があるとき
-			} else if (session.getAttribute("cart") != null&& ((Map<String, Integer>) session.getAttribute("cart")).size()>0) {
+			} else if (session.getAttribute("cart") != null
+					&& ((Map<String, Integer>) session.getAttribute("cart")).size() > 0) {
 				Map<String, Integer> cart = new LinkedHashMap<>();
 				cart = (Map<String, Integer>) session.getAttribute("cart");
 
@@ -236,8 +240,8 @@ public class CartHyoujiServlet extends HttpServlet {
 				cartflag = false;
 			}
 
-			if(request.getAttribute("cancel")!=null) {
-				request.setAttribute("cancel",request.getAttribute("cancel"));
+			if (request.getAttribute("cancel") != null) {
+				request.setAttribute("cancel", request.getAttribute("cancel"));
 			}
 
 			request.setAttribute("cartflag", cartflag);

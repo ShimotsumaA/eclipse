@@ -11,11 +11,12 @@
 <body>
 <%ArrayList<ShohinBean> list=(ArrayList<ShohinBean>)request.getAttribute("list");%>
 <%--if(request.getParameter("submit").equals("確定")){ --%>
-<form action="/group2work/ZaikoKanriServlet" method="post">
+
 <div style=text-align:right>
 	<a href="menu.jsp">メニューへ戻る</a>
 </div>
 <div style=text-align:center>
+<form action="/group2work/ZaikoKanriServlet" method="post">
 <h1>在庫管理</h1>
 <table border="1" align="center">
 <tr>
@@ -30,8 +31,15 @@
 <td><%=list.get(i).getZaiko() %></td>
 </tr>
 <%} %>
-</table><br><br>
-
+</table>
+<br><br>
+	<a></a>
+	<%if(request.getAttribute("zaikoflag")!=null&&(Boolean)request.getAttribute("zaikoflag")){%>
+			商品の在庫を変更しました。
+	<%}else if(request.getAttribute("zaikoflag")!=null&&(Boolean)request.getAttribute("zaikoflag")==false){ %>
+			商品の在庫を変更できませんでした。最初からやり押してください。
+	<%}else{ %>
+	<%} %>
 	<input type="submit" name="submit" value="入庫">
 	<input type="submit" name="submit" value="変更">
 </form>
