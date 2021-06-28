@@ -43,16 +43,11 @@ public class ShohinIchiranServlet extends HttpServlet {
 		CategoryDao dao2=new CategoryDao();
 		ArrayList<CategoryBean> list2=new ArrayList<CategoryBean>();
 
-		list=dao.selectAll();
-<<<<<<< HEAD
 		System.out.println(list.get(0).getShohinId());
-
-=======
 		list2=dao2.selectAll();
 
-		//request.setAttribute("list",dao.selectAll());
-	System.out.println(list.get(0).getShohinId());
->>>>>>> refs/remotes/origin/master
+		System.out.println(list.get(0).getShohinId());
+
 		//セッション領域にリストを保存
 		HttpSession session=request.getSession(true);
 		session.setAttribute("list", list);
