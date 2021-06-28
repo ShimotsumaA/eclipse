@@ -83,6 +83,7 @@
 <form action="/group2work/UserRegisterControl" method="post">
 
 		<table class="text">
+
 			<tr>
 				<td align="right">氏名：</td>
 				<td><input type="text" name="sName" size="40" maxlength="15" placeholder="例）鈴木太郎"></td>
@@ -111,9 +112,7 @@
 				<td align="right">ID：</td>
 				<td><input type="text" name="sId" size="40" maxlength="10"></td>
 				</tr>
-				<tr>
-				<td><%=errmsg %></td>
-				</tr>
+
 
 		</table>
 		<table class="ID" style="text-align:center">
@@ -129,7 +128,9 @@
 			<tr>
 			<td>・大文字と小文字は区別しません。</td>
 			</tr>
-
+			<tr>
+				<td><%=errmsg %></td>
+			</tr>
 
 
 		</table>
