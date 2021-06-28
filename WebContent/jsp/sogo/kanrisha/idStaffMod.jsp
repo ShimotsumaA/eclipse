@@ -95,7 +95,7 @@
 		<br><table  align="center">
 			<tr>
 				<td align="right">ID：</td>
-				<td><input type="text" name="id" size="15"  maxlength="10"></td>
+				<td><input type="text" name="id" size="40"  maxlength="10"></td>
 			</tr>
 		</table><br>
 		・IDは10文字以内で半角入力のみ可能です。​<br>
