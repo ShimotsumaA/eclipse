@@ -114,7 +114,7 @@ public class BuyControlServlet extends HttpServlet {
 					}
 
 					session.setAttribute("shiharai", shiharai);
-					RequestDispatcher rd = request.getRequestDispatcher("/jsp/orderKakunin.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/jsp/shohisha/orderKakunin.jsp");
 					rd.forward(request, response);
 				}
 
