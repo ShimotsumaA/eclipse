@@ -21,6 +21,12 @@
     border: 1px solid #3498db;
 	}
 
+	input:focus, select:focus, textarea:focus {
+	box-shadow: 0 0 7px #3498db;
+    border: 1px solid #3498db;
+}
+
+
 	table.text{
 	margin-left:auto;
 	margin-right:auto;
