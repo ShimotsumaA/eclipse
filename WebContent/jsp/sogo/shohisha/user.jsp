@@ -204,13 +204,14 @@
 			・英数字を必ず組み合わせてください。<br>
 			・大文字と小文字は区別しません。<br><br> -->
 			<tr>
-			<td><%=errmsg2 %><br><%=errmsg3 %></td>
+
 				<td align="right">パスワード：</td>
 				<td><input type="password" name="sPass" size="40" maxlength="15"></td>
+				<td><%=errmsg2 %><br><%=errmsg3 %></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="password" name="sPass" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
+				<td><input type="password" name="sPassK" size="40" maxlength="15" placeholder="確認のためにもう一度ご入力ください"></td>
 			</tr>
 		</table><br>
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
