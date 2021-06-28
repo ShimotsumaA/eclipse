@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<img src="" width="150" height="150">
+<img src="/group2work/image/NishidaPrinting800x800px.jpg" width="150" height="150">
 
 
 	<!-- メニューバー -->
@@ -56,7 +56,7 @@
 	<center>
     <!-- 商品画像表示 -->
     	<div class="image">
-    	<img src="/group2work/image/np0001_picture01.jpg" name="バッグ" width=250px height=300px>
+    	<img src="/group2work/image/<%=shohinId %>.jpg" name="バッグ" width=250px height=300px>
     	</div>
 
     <!-- 商品詳細 -->
