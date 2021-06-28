@@ -74,7 +74,7 @@
 		</tr>
 		<tr>
 			<td align="right">商品ID:</td>
-			<td align="left"><%=list.get(0).getShohinId()  %></td>
+			<td align="left"><%=session.getAttribute("shohinId")  %></td>
 		</tr>
 		<tr>
 			<td align="right">販売価格:</td>
