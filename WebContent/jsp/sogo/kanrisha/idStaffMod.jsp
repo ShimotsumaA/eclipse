@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td align="right">氏名：</td>
-				<td><input type="text" name="name" size="10"  value =<%=session.getAttribute("name") %>></td>
+				<td><input type="text" name="name" size="40"  value =<%=session.getAttribute("name") %>></td>
 			</tr>
 			<tr>
 				<%
@@ -43,14 +43,14 @@
 					if (postId.equals("1")){ %>
 
 						<td align="right">役職：</td>
-						<td><select name="postId" >
+						<td align="left"><select name="postId" >
 								<option value="1" selected>社員</option>
 								<option value="2">アルバイト</option>
 								</select></td>
 
 				<% } else { %>
 						<td align="right">役職：</td>
-						<td><select name="postId" >
+						<td align="left"><select name="postId" >
 								<option value="1" >社員</option>
 								<option value="2" selected>アルバイト</option>
 								</select></td>
@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td align="right">パスワード：</td>
-				<td><input type="text" name="pass1" size="15" value= <%=session.getAttribute("pass") %>></td>
+				<td><input type="text" name="pass1" size="40" value= <%=session.getAttribute("pass") %>></td>
 			</tr>
 			</table>
 				・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>​
@@ -66,7 +66,7 @@
 			<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="15" value= <%=session.getAttribute("pass")%>></td>
+				<td><input type="text" name="pass2" size="40" value= <%=session.getAttribute("pass")%>></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
@@ -105,18 +105,18 @@
 		<table  align="center">
 			<tr>
 				<td align="right">氏名：</td>
-				<td><input type="text" name="name" size="10"></td>
+				<td><input type="text" name="name" size="40" maxlength="10" ></td>
 			</tr>
 			<tr>
 				<td align="right">役職：</td>
-				<td><select name="postId" >
+				<td align="left"><select name="postId" >
 						<option value="1">社員</option>
 						<option value="2">アルバイト</option>
 						</select></td>
 			</tr>
 			<tr>
-				<td align="right">パスワード：</td>
-				<td><input type="text" name="pass1" size="15"></td>
+				<td align="left">パスワード：</td>
+				<td><input type="text" name="pass1" size="40" maxlength="15" ></td>
 			</tr>
 		</table><br>
 
@@ -126,7 +126,7 @@
 		​<table  align="center">
 			<tr>
 				<td align="right">パスワード再入力：</td>
-				<td><input type="text" name="pass2" size="15"></td>
+				<td><input type="text" name="pass2" size="40" maxlength="15" ></td>
 			</tr>
 		</table><br>
 		・確認のためにもう一度ご入力ください。<br><br>
