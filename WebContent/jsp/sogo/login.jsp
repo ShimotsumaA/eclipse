@@ -21,9 +21,11 @@
 		<h1>ログイン</h1>
 		<br>
 
-<%
-	String no = request.getParameter("no");
+<%	String no="";
+	if(request.getParameter("no")!=null){
+	no = request.getParameter("no");
 	System.out.println(no);
+	}
 	if (no.equals("2")) {
 		String message = (String) request.getAttribute("message");
 %>
