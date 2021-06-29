@@ -61,7 +61,8 @@ public class UserRegisterControlServlet extends HttpServlet {
 		if (request.getParameter("submit").equals("登録")) {
 
 			// ErrCheckでtrueの際の処理
-			if (err.checkId(request.getParameter("sId")) && err.checkPass(request.getParameter("sPass"))
+			if (err.existSId(request.getParameter("sId"))==false&&
+					err.checkId(request.getParameter("sId")) && err.checkPass(request.getParameter("sPass"))
 					&& err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK"))) {
 				session.setAttribute("sId", request.getParameter("sId"));
 				session.setAttribute("sName", request.getParameter("sName"));
@@ -98,6 +99,10 @@ public class UserRegisterControlServlet extends HttpServlet {
 				}
 				if (err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK"))== false) {
 					request.setAttribute("errmsg3", errmsg3);
+
+				if(err.existSId(request.getParameter("sId"))) {
+					request.setAttribute("errmsg", errmsg);
+				}
 
 				}
 
