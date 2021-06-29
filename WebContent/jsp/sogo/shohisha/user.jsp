@@ -150,7 +150,7 @@
 			<tr>
 				<td>・英数字を必ず組み合わせてください。</td>
 			</tr>
-		</table>
+		</table><br><br>
 		<table  align="center">
 		<tr>
 			<td><input type ="submit" name="submit" value="登録"></td>
@@ -221,10 +221,11 @@
 			・パスワードは4文字以上15文字以内で半角入力のみ可能です。<br>
 			・英数字を必ず組み合わせてください。<br>
 			・パスワードを変更しない場合は変更前のパスワードを入力してください。<br><br>
-
+		<br><br>
 		<table  align="center">
 			<tr>
 			<td><input type ="submit" name="submit" value="変更"></td>
+			<td><input type="button" value="戻る" onclick="location.href='/group2work/jsp/sogo/top.jsp'">
 			</tr>
 		</table>
 	</form>
