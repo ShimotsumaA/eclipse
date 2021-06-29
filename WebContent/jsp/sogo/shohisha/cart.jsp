@@ -61,7 +61,7 @@
 		<tr>
     	<td>商品名:<%= list1.get(0).getShohinName() %><br>
     	数量:<%=listODetail.get(i-1).getKazuKonyu() %><br>
-    	価格：<%=list1.get(0).getValue() %>円
+    	価格：<%=list1.get(0).getValue().intValue() %>円
 
 
     	<form action="/group2work/CartCancel" method="post">
@@ -98,7 +98,7 @@
 			<tr>
     		<td>商品名:<%= list1.get(0).getShohinName() %><br>
     		数量:<%=konyuKosu %><br>
-    		価格：<%=list1.get(0).getValue() %>円
+    		価格：<%=list1.get(0).getValue().intValue() %>円
     		<form action="/group2work/CartCancel" method="post">
     		<input type="hidden" name="shohinId" value="<%=shohinId %>">
     		<button type="submit" name=submit value="cancel" >キャンセル</button>
