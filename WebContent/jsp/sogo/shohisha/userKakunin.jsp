@@ -30,14 +30,8 @@
 <!-- メニューバー -->
 	<div class="wrapper">
 	<div align="center">
-    	<div class="menu_bar">
-    	<table>
-    	<tr>
-    		<td><a href="/group2work/jsp/sogo/shohisha/shopping.jsp">メニュー</a></td> <!-- メニューへのリンク -->
 
-    	</tr>
-    	</table>
-   	 	</div>
+
 
 		<h2>登録情報の確認</h2>
 
@@ -88,7 +82,7 @@
 		<table>
 			<tr>
 				<td><input type ="submit" name="submit" value="確定"></td>
-				<td><input type ="submit" name="submit" value="戻る"></td>
+				<td><input type ="submit" name="submit" value="戻る" onclick="location.href='/group2work/jsp/sogo/shohisha/shopping.jsp'"></td>
 		</tr>
 		</table>
 	</div>
@@ -152,7 +146,7 @@
 		<table>
 			<tr>
 				<td><input type ="submit" name="submit" value="変更"></td>
-				<td><input type ="button" name="submit" onClick="history.go(-1)" value="戻る"></td>
+				<td><input type ="button" name="submit" onclick="location.href='/group2work/jsp/sogo/shohisha/shopping.jsp'" value="戻る"></td>
 			</tr>
 		</table>
 	</div>
@@ -212,7 +206,7 @@
 		<table>
 			<tr>
 				<td><input type ="submit" name="submit" value="変更"></td>
-				<td><button type ="button" name="submit" onClick="history.go(-1)">戻る</button></td>
+				<td><button type ="button" name="submit" onclick="location.href='/group2work/jsp/sogo/shohisha/shopping.jsp'">戻る</button></td>
 			</tr>
 		</table>
 	</div>
