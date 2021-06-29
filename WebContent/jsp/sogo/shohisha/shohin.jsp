@@ -76,11 +76,6 @@
 
     <!-- 商品詳細 -->
 
-
-    <div class="image">
-    	<img src="/group2work/image/<%=shohinId %>.jpg" name="バッグ" width=250px height=300px>
-    	</div>
-
     <div class="shousai">
     <table class="shousai">
     	<tr>
