@@ -102,7 +102,7 @@ table.link{
 					<td><a href="/group2work/LogInOutServlet?submit=logout">ログアウト</a></td>
 					<!--ページへのリンク -->
 					<% }else{ %>
-					<td><a href="/group2work/jsp/sogo/login.jsp">ログイン</a></td>
+					<td><a href="/group2work/jsp/sogo/login.jsp?no=1">ログイン</a></td>
 					<% }
 					%>
 

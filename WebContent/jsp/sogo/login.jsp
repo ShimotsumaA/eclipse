@@ -21,21 +21,17 @@
 		<h1>ログイン</h1>
 		<br>
 
-		<%
-		String no = request.getParameter("no");
-		System.out.println(no);
-		if (no!=null&&no.equals("1")) {
+<%
+	String no = request.getParameter("no");
+	System.out.println(no);
+	if (no.equals("2")) {
+		String message = (String) request.getAttribute("message");
+%>
+	<font color="red"> <%=message%></font><br><br>
+<% } else {
 
-			//<!--  エラーメッセージ -->
-		} else {
-			String message = (String) request.getAttribute("message");
-		%>
-		<font color="red"> <%=message%></font><br>
-		<br>
-		<%
 		}
-		%>
-
+%>
 
 		<form action="/group2work/LogInOutServlet" method="post">
 			<select name="zokusei">

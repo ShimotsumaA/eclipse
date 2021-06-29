@@ -79,7 +79,7 @@ public class LogInOutServlet extends HttpServlet {
 					String message = "IDとパスワードが一致しません。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=3");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=2");
 					dispatcher.forward(request, response);
 				}
 
@@ -125,7 +125,7 @@ public class LogInOutServlet extends HttpServlet {
 					String message = "IDとパスワードが一致しません。";
 					request.setAttribute("message", message);
 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=3");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/login.jsp?no=2");
 					dispatcher.forward(request, response);
 				}
 
