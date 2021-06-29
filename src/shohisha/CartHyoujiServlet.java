@@ -164,10 +164,11 @@ public class CartHyoujiServlet extends HttpServlet {
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 						date = sdf.format(c1.getTime());
 
-						orderId = String.valueOf(dao.selectAll().size() + 1);
+						orderId = String.valueOf(dao.tyumonbango().get(0).getOrderId() + 1);
 						oDetailId = orderId;
 
 						dao.insert(orderId, date, sId, 0, oDetailId);
+						System.out.println("test1");
 
 					}
 
@@ -178,7 +179,10 @@ public class CartHyoujiServlet extends HttpServlet {
 					ShohinDao dao3 = new ShohinDao();
 
 					ArrayList<OrderBean> listOrder = new ArrayList<OrderBean>();
+
+
 					listOrder = dao1.jokenSIdStatus(sId, 0);// statusId 0:カート
+
 					String orderId = listOrder.get(0).getOrderId(); // orderIdの取得
 
 					oDetailId = listOrder.get(0).getODetailId();// oDetailIdの取得

@@ -332,6 +332,34 @@ public class OrderDao extends DBAccess {
 		return list;
 	}
 
+	public ArrayList<OrderBean> tyumonbango() {
+		ArrayList<OrderBean> list = new ArrayList<>();
+		String sql="select max(order_id) from tyumon";
+
+		try {
+			connect();
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				OrderBean bean = new OrderBean();
+
+				bean.setOrderId(rs.getString("ORDER_ID"));
+				bean.setDate(rs.getString("DATE"));
+				bean.setSId(rs.getString("S_ID"));
+				bean.setStatusId(rs.getInt("STATUS_ID"));
+				bean.setODetailId(rs.getString("O_DETAIL_ID"));
+
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
 
 
 
