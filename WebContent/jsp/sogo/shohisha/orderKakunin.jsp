@@ -40,7 +40,7 @@
 	注文を確定します。よろしいですか？<br>
 
 	購入詳細<br>
-	<img src="" alt="バッグ " width="193" height="130"><br>
+
 
 	<%
 	ArrayList<OrderDetailBean> listODetail=(ArrayList<OrderDetailBean>)session.getAttribute("oDetailList");
@@ -53,6 +53,8 @@
 		ArrayList<ShohinBean> list1=new ArrayList<>();
 		list1=dao.joken(shohinId);
 	%>
+
+	<img src="/group2work/image/<%=shohinId %>.jpg"  alt="バッグ " width="180" height="210"><br>
 	商品名:<%= list1.get(0).getShohinName() %><br>
 	価格：<%=list1.get(0).getValue().intValue() %>円<br>
 	個数：<%=listODetail.get(i-1).getKazuKonyu() %><br><br>
