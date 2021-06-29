@@ -8,6 +8,15 @@
 <title>登録情報</title>
 <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8">
 </head>
+<style>
+	*{
+	font-family:"游ゴシック"
+	}
+	h2{
+	background-color:#87ceeb
+	}
+
+</style>
 <body>
 <%request.setCharacterEncoding("UTF-8");%>
 <%
@@ -30,7 +39,7 @@
     	</table>
    	 	</div>
 
-		<p>登録情報の確認</p>
+		<h2>登録情報の確認</h2>
 		<p>以下の情報を登録します。よろしいですか？</p>
 		<table>
 			<tr>
@@ -93,7 +102,7 @@
  <%} else if(request.getAttribute("submit")!=null&&request.getAttribute("submit").equals("henko")){ %>
 	<form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
-		<p>登録情報の変更</p>
+		<h2>登録情報の変更</h2>
 		<% if(request.getAttribute("kakunin")==null){%>
 		<p>以下の情報を変更します。よろしいですか？</p>
 		<%} %>
@@ -151,7 +160,7 @@
 <% }else{%>
 <form action ="/group2work/UserRegisterControl" method="post">
 	<div align="center">
-		<p>登録情報の確認</p>
+		<h2>登録情報の確認</h2>
 		<font color="red">
 		<%if(request.getAttribute("compmsg")!=null){ %>
 		<%=request.getAttribute("compmsg") %>
