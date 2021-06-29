@@ -57,12 +57,11 @@
 		<td align="right"><label for="kijiId">生地ID：</label></td>
 		<td><input type="text" name="kiji" size="30" id="kijiId" maxlength="20"></td>
 	</tr>
-</table>
+</table><br><br>
 
 <input type="submit" name="submit" value="登録確認">
+<input type="button" value="戻る"onClick="/group2work/jsp/sogo/shohinKanriMenu.jsp">
 </form>
-<input type="button" value="戻る"onClick="history.go(-1)">
-
 
 <% } else if(no.equals("2") || no.equals("5")) { %>
 

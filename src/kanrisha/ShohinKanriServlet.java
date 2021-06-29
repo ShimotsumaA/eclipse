@@ -17,33 +17,16 @@ import bean.ShohinBean;
 import shohisha.CategoryDao;
 import sogo.ErrCheck;
 
-/**
- * Servlet implementation class ShohinKanriServlet
- */
 @WebServlet("/ShohinKanriServlet")
 public class ShohinKanriServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ShohinKanriServlet() {
-
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-//		String forward=null;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 文字コードの設定
 		request.setCharacterEncoding("UTF-8");
@@ -68,26 +51,27 @@ public class ShohinKanriServlet extends HttpServlet {
 						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
+			} else {
+
+				ShohinDao dao = new ShohinDao();
+				CategoryDao dao2 = new CategoryDao();
+				ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+				ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
+
+				list = dao.joken(shohinId);
+				listCategory = dao2.selectAll();
+
+				session.setAttribute("shohinId", list.get(0).getShohinId());
+				session.setAttribute("shohinName", list.get(0).getShohinName());
+				session.setAttribute("value", list.get(0).getValue().intValue());
+				session.setAttribute("categoryId", list.get(0).getCategoryId());
+				session.setAttribute("kijiId", list.get(0).getKijiId());
+				session.setAttribute("listCategory", listCategory);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2");
+				dispatcher.forward(request, response);
+				System.out.println("ディスパッチ");
 			}
-
-			ShohinDao dao = new ShohinDao();
-			CategoryDao dao2 = new CategoryDao();
-			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
-			ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
-
-			list = dao.joken(shohinId);
-			listCategory = dao2.selectAll();
-
-			session.setAttribute("shohinId", list.get(0).getShohinId());
-			session.setAttribute("shohinName", list.get(0).getShohinName());
-			session.setAttribute("value", list.get(0).getValue().intValue());
-			session.setAttribute("categoryId", list.get(0).getCategoryId());
-			session.setAttribute("kijiId", list.get(0).getKijiId());
-			session.setAttribute("listCategory", listCategory);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2");
-			dispatcher.forward(request, response);
-			System.out.println("ディスパッチ");
 		}
 
 		// 商品変更画面の変更ボタンが押された
@@ -145,13 +129,15 @@ public class ShohinKanriServlet extends HttpServlet {
 
 		} else if (submit.equals("登録確認")) {
 
-			String name = request.getParameter("name");
+			String name = (String)request.getParameter("name");
 			String id = request.getParameter("id");
-			String price = request.getParameter("price");
+			int price = Integer.parseInt(request.getParameter("price"));
 			String kiji = request.getParameter("kiji");
 
+			String price1 = String.valueOf(price);
+
 			// いずれかの項目が入力されていない
-			if (name.equals("") || id.equals("") || price.equals("") || kiji.equals("")) {
+			if (name.equals("") || id.equals("") || price1.equals("") || kiji.equals("")) {
 
 				request.setAttribute("message", "すべての項目を入力してください。");
 
@@ -197,7 +183,8 @@ public class ShohinKanriServlet extends HttpServlet {
 			String shohinName = (String) session.getAttribute("name");
 			String categoryId = (String) session.getAttribute("category");
 			String kijiId = (String) session.getAttribute("kiji");
-			java.math.BigDecimal value = new BigDecimal((String) session.getAttribute("value"));
+			System.out.println(session.getAttribute("price"));
+			BigDecimal value = BigDecimal.valueOf((Integer)session.getAttribute("price"));
 
 			// DAOをインスタンス化
 			ShohinDao dao = new ShohinDao();
@@ -234,29 +221,30 @@ public class ShohinKanriServlet extends HttpServlet {
 						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriIchiran.jsp");
 				dispatcher.forward(request, response);
 
+			} else {
+
+				ShohinDao dao = new ShohinDao();
+				CategoryDao dao2 = new CategoryDao();
+				ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
+				ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
+
+				list = dao.joken(shohinId);
+				String categoryId = list.get(0).getCategoryId();
+				listCategory = dao2.joken(categoryId);
+				String categoryName = listCategory.get(0).getCategoryName();
+
+				session.setAttribute("shohinId", list.get(0).getShohinId());
+				session.setAttribute("shohinName", list.get(0).getShohinName());
+				session.setAttribute("value", list.get(0).getValue().intValue());
+				session.setAttribute("categoryId", list.get(0).getCategoryId());
+				session.setAttribute("kijiId", list.get(0).getKijiId());
+				session.setAttribute("categoryName", categoryName);
+
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp?submit=delete");
+				dispatcher.forward(request, response);
+				System.out.println("ディスパッチ");
 			}
-
-			ShohinDao dao = new ShohinDao();
-			CategoryDao dao2 = new CategoryDao();
-			ArrayList<ShohinBean> list = new ArrayList<ShohinBean>();
-			ArrayList<CategoryBean> listCategory = new ArrayList<CategoryBean>();
-
-			list = dao.joken(shohinId);
-			String categoryId = list.get(0).getCategoryId();
-			listCategory = dao2.joken(categoryId);
-			String categoryName = listCategory.get(0).getCategoryName();
-
-			session.setAttribute("shohinId", list.get(0).getShohinId());
-			session.setAttribute("shohinName", list.get(0).getShohinName());
-			session.setAttribute("value", list.get(0).getValue().intValue());
-			session.setAttribute("categoryId", list.get(0).getCategoryId());
-			session.setAttribute("kijiId", list.get(0).getKijiId());
-			session.setAttribute("categoryName", categoryName);
-
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriKakunin.jsp?submit=delete");
-			dispatcher.forward(request, response);
-			System.out.println("ディスパッチ");
 		}
 
 	}
