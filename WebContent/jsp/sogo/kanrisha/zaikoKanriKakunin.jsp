@@ -35,10 +35,10 @@ if(hyoujiflag.equals("nyuko")){
 	商品ID：<%=session.getAttribute("shohinId") %><br>
 	商品名：<%=session.getAttribute("shohinName") %><br>
 	<%=hyouji %>前在庫数：<%=oldZaiko %><br>
-	<%=hyouji %>後在庫数：<%=newZaiko %><font color="red">パラメータ</font><br>
+	<font color="red"><%=hyouji %>後在庫数：<%=newZaiko %></font><br>
 	<input type="submit" name="submit" value="確定">
-</form>
-	<input type="button" value="戻る" onClick="history.go(-1)">
+	<input type="button" value="戻る" onClick="location.href='/group2work/jsp/sogo/kanrisha/shainIchiran.jsp'">
+	</form>
 </div>
 <%} %>
 </body>
