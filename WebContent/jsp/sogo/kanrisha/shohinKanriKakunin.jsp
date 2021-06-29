@@ -99,7 +99,7 @@
 	</table><br><br>
 
 	<input type="submit" name="submit" value="変更確定">
-	<input type="button" value="戻る" onClick="history.go(-1)">
+	<input type="button" value="戻る" onClick="location.href='/group2work/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=2'">
 	</form>
 </div>
 
