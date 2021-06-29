@@ -8,8 +8,6 @@
 </head>
 <body>
 <div style="text-align:right">
-< a href="/menu.jsp">管理者総合メニューへ</a>
-
 
 <div style="text-align:center">
 <h1>社員ID管理</h1>
