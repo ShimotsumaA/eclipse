@@ -332,25 +332,19 @@ public class OrderDao extends DBAccess {
 		return list;
 	}
 
-	public ArrayList<OrderBean> tyumonbango() {
+	public int tyumonbango() {
 		ArrayList<OrderBean> list = new ArrayList<>();
-		String sql="select max(order_id) from tyumon";
-
+		String sql="select max(order_id)AS maxno from tyumon";
+		int maxno=0;
 		try {
 			connect();
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
+
 			while (rs.next()) {
-				OrderBean bean = new OrderBean();
+				 maxno=rs.getInt("maxno");
 
-				bean.setOrderId(rs.getString("ORDER_ID"));
-				bean.setDate(rs.getString("DATE"));
-				bean.setSId(rs.getString("S_ID"));
-				bean.setStatusId(rs.getInt("STATUS_ID"));
-				bean.setODetailId(rs.getString("O_DETAIL_ID"));
-
-				list.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -358,7 +352,7 @@ public class OrderDao extends DBAccess {
 		} finally {
 			disconnect();
 		}
-		return list;
+		return maxno;
 	}
 
 

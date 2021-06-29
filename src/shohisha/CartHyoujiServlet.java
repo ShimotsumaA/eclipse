@@ -130,7 +130,7 @@ public class CartHyoujiServlet extends HttpServlet {
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 						date = sdf.format(c1.getTime());
 
-						orderId = String.valueOf(Integer.parseInt(dao.tyumonbango().get(0).getOrderId()) + 1);
+						orderId = String.valueOf(dao.tyumonbango()+ 1);
 						oDetailId = orderId;
 
 						dao.insert(orderId, date, sId, 0, oDetailId);
@@ -164,7 +164,7 @@ public class CartHyoujiServlet extends HttpServlet {
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 						date = sdf.format(c1.getTime());
 
-						orderId = String.valueOf(dao.tyumonbango().get(0).getOrderId() + 1);
+						orderId = String.valueOf(dao.tyumonbango()+ 1);
 						oDetailId = orderId;
 
 						dao.insert(orderId, date, sId, 0, oDetailId);

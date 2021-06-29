@@ -8,7 +8,11 @@ public class SoryoKeisan {
 		String zip = dao.joken(sId).get(0).getPost();
 
 		PostCodeDAO dao2 = new PostCodeDAO();
-		int kenId = dao2.joken(zip).get(0).getKenId();
+
+		int kenId=0;
+		if(dao2.joken(zip).size()>0) {
+		kenId = dao2.joken(zip).get(0).getKenId();
+		}
 
 		if(sum>=5000) {
 			return 0;
