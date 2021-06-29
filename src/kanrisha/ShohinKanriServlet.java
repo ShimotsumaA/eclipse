@@ -183,16 +183,16 @@ public class ShohinKanriServlet extends HttpServlet {
 			String shohinName = (String) session.getAttribute("name");
 			String categoryId = (String) session.getAttribute("category");
 			String kijiId = (String) session.getAttribute("kiji");
-			System.out.println(session.getAttribute("price"));
+			System.out.println(categoryId);
 			BigDecimal value = BigDecimal.valueOf((Integer)session.getAttribute("price"));
 
 			// DAOをインスタンス化
 			ShohinDao dao = new ShohinDao();
-			int rs = dao.insert(shohinId, shohinName, categoryId, kijiId, value);
+			int rs = dao.insert(shohinId, shohinName,  kijiId, categoryId,  value);
 			System.out.println(rs);
-			request.setAttribute("compmsg", "登録が完了しました。");
+			request.setAttribute("message", "登録が完了しました。");
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=1");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=3");
 			dispatcher.forward(request, response);
 
 		} else if (submit.equals("削除確定")) {

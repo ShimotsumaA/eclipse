@@ -141,7 +141,7 @@ public class ShohinDao extends DBAccess {
 
 	int count=0;
 
-	String sql="insert into shohin(shohin_Id, shohin_Name ,kiji_Id, , value,category_Id) values(?,?,?,?,?)";
+	String sql="insert into shohin(shohin_Id, shohin_Name, kiji_Id,  zaiko, value, category_Id) values(?,?,?,0,?,?)";
 	try {
 		connect();
 
