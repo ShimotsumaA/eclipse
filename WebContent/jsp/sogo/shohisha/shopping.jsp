@@ -137,9 +137,15 @@ table.link{
 
 				<tr class="category">
 					<td>
-						<p>カテゴリ</p>
 
 
+							<form action="/group2work/ECHyoujiServlet" method="post"
+							name="kaijyo">
+							<input type="hidden"> <a
+								href="javascript:kaijyo.submit()">カテゴリ・生地検索解除</a><br>
+							</form>
+
+							<p>カテゴリ</p>
 							<%
 							ArrayList<CategoryBean> list = (ArrayList<CategoryBean>) session.getAttribute("listCategory");
 							for (int i = 1; i <= list.size(); i++) {
