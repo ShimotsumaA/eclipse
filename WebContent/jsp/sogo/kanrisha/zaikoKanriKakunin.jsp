@@ -37,7 +37,7 @@ if(hyoujiflag.equals("nyuko")){
 	<%=hyouji %>前在庫数：<%=oldZaiko %><br>
 	<font color="red"><%=hyouji %>後在庫数：<%=newZaiko %></font><br>
 	<input type="submit" name="submit" value="確定">
-	<input type="button" value="戻る" onClick="location.href='/group2work/jsp/sogo/kanrisha/shainIchiran.jsp'">
+	<input type="button" value="戻る" onClick="history.go(-1)">
 	</form>
 </div>
 <%} %>

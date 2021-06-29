@@ -78,17 +78,20 @@ public class ShohinKanriServlet extends HttpServlet {
 		else if (submit.equals("変更確認")) {
 
 			String name = request.getParameter("name");
-			String price = request.getParameter("price");
+			String price1 = request.getParameter("price");
 			String kiji = request.getParameter("kiji");
+			int price = Integer.parseInt(price1);
 
+			System.out.println(price);
 			// いずれかの項目が入力されていない
-			if (name.equals("") || price.equals("") || kiji.equals("")) {
+			if (name.equals("") || price1.equals("") || kiji.equals("")) {
 
 				request.setAttribute("message", "すべての項目を入力してください。");
 
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("/jsp/sogo/kanrisha/shohinKanriMod.jsp?no=5");
 				dispatcher.forward(request, response);
+
 			} else {
 
 				session.setAttribute("name", name);
@@ -109,7 +112,7 @@ public class ShohinKanriServlet extends HttpServlet {
 			String shohinName = (String) session.getAttribute("name");
 			String categoryId = (String) session.getAttribute("category");
 			String kijiId = (String) session.getAttribute("kiji");
-			BigDecimal value = BigDecimal.valueOf((Integer) session.getAttribute("value"));
+			BigDecimal value = BigDecimal.valueOf((Integer) session.getAttribute("price"));
 
 			System.out.println(shohinId);
 			System.out.println(shohinName);
