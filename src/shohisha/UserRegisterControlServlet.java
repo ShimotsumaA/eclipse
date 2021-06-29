@@ -72,9 +72,6 @@ public class UserRegisterControlServlet extends HttpServlet {
 				session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 				session.setAttribute("sPass", request.getParameter("sPass"));
 
-				System.out.println(err.checkId("sId"));
-				System.out.println(err.checkPass("sPass"));
-				System.out.println(err.checkPass("sPass"));
 
 				request.setAttribute("submit", "toroku");
 
@@ -103,9 +100,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 					request.setAttribute("errmsg3", errmsg3);
 
 				}
-				System.out.println(err.checkId("sId"));
-				System.out.println(err.checkPass("sPass"));
-				System.out.println(err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK")));
+
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=1");
 				dispatcher.forward(request, response);
@@ -124,12 +119,12 @@ public class UserRegisterControlServlet extends HttpServlet {
 				String sId = (String) session.getAttribute("sId");
 				/* String sPass = (String) session.getAttribute("sPass"); */
 				// 一回目に変更ボタンを押したとき
-				System.out.println("test1");
+
 				request.setAttribute("1kaime", true);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
 				dispatcher.forward(request, response);
 			} else {
-				System.out.println("test2");
+
 				// 変更を二回目に押したとき
 				if (err.checkPass(request.getParameter("sPass"))
 						&& err.checkPassMaches(request.getParameter("sPass"), request.getParameter("sPassK"))) {
@@ -142,6 +137,8 @@ public class UserRegisterControlServlet extends HttpServlet {
 					session.setAttribute("mailAddress", request.getParameter("mailAddress"));
 					session.setAttribute("sPass", request.getParameter("sPass"));
 
+
+
 					System.out.println("aa");
 					System.out.println((String)session.getAttribute("address"));
 					System.out.println((String)session.getAttribute("sId"));
@@ -149,9 +146,6 @@ public class UserRegisterControlServlet extends HttpServlet {
 					//
 					request.setAttribute("2kaime", true);
 					request.setAttribute("submit", "toroku");
-					System.out.println(err.checkId("sId"));
-					System.out.println(err.checkPass("sPass"));
-					System.out.println(err.checkPass("sPass"));
 
 
 
@@ -171,9 +165,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 					session.setAttribute("sPass", request.getParameter("sPass"));
 
 
-					if (err.checkId(request.getParameter("sId")) == false) {
-						request.setAttribute("errmsg", errmsg);
-					}
+
 					if ( err.checkPass(request.getParameter("sPass"))== false) {
 						request.setAttribute("errmsg2", errmsg2);
 					}
@@ -181,9 +173,7 @@ public class UserRegisterControlServlet extends HttpServlet {
 						request.setAttribute("errmsg3", errmsg3);
 
 					}
-					System.out.println(err.checkId("sId"));
-					System.out.println(err.checkPass("sPass"));
-					System.out.println(err.checkPass("sPass"));
+
 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/sogo/shohisha/user.jsp?no=2");
 					dispatcher.forward(request, response);
